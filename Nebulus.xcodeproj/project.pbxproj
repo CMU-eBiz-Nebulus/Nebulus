@@ -15,6 +15,7 @@
 		929B70CA1B5D3FC000264D32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 929B70C91B5D3FC000264D32 /* Images.xcassets */; };
 		929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */; };
 		929B70D91B5D3FC000264D32 /* NebulusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70D81B5D3FC000264D32 /* NebulusTests.m */; };
+		98D358B61B5ECF3800A30D8D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D358B51B5ECF3800A30D8D /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		929B70D21B5D3FC000264D32 /* NebulusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NebulusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		929B70D71B5D3FC000264D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929B70D81B5D3FC000264D32 /* NebulusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulusTests.m; sourceTree = "<group>"; };
+		98D358B41B5ECF3800A30D8D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		98D358B51B5ECF3800A30D8D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
 				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
 				929B70C01B5D3FC000264D32 /* FirstViewController.h */,
+				98D358B41B5ECF3800A30D8D /* ProfileViewController.h */,
+				98D358B51B5ECF3800A30D8D /* ProfileViewController.m */,
 				929B70C11B5D3FC000264D32 /* FirstViewController.m */,
 				929B70C31B5D3FC000264D32 /* SecondViewController.h */,
 				929B70C41B5D3FC000264D32 /* SecondViewController.m */,
@@ -228,6 +233,7 @@
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
+				98D358B61B5ECF3800A30D8D /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +428,7 @@
 				929B70DE1B5D3FC000264D32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		929B70DF1B5D3FC000264D32 /* Build configuration list for PBXNativeTarget "NebulusTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				929B70E11B5D3FC000264D32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
