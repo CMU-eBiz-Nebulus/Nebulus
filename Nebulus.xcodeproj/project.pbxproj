@@ -15,6 +15,7 @@
 		929B70CA1B5D3FC000264D32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 929B70C91B5D3FC000264D32 /* Images.xcassets */; };
 		929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */; };
 		929B70D91B5D3FC000264D32 /* NebulusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70D81B5D3FC000264D32 /* NebulusTests.m */; };
+		929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70E31B5D48AC00264D32 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		929B70D21B5D3FC000264D32 /* NebulusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NebulusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		929B70D71B5D3FC000264D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929B70D81B5D3FC000264D32 /* NebulusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulusTests.m; sourceTree = "<group>"; };
+		929B70E21B5D48AC00264D32 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		929B70E31B5D48AC00264D32 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				929B70E21B5D48AC00264D32 /* LoginViewController.h */,
+				929B70E31B5D48AC00264D32 /* LoginViewController.m */,
 				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
 				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
 				929B70C01B5D3FC000264D32 /* FirstViewController.h */,
@@ -228,6 +233,7 @@
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
+				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
