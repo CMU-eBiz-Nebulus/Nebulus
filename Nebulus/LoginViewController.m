@@ -26,11 +26,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)login:(id)sender {
-}
-- (IBAction)register:(id)sender {
-}
-
-- (void)login {
+    
+    
     NSURL *url = [NSURL URLWithString:@"http://rest-service.guides.spring.io/greeting"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request
@@ -47,6 +44,12 @@
              [greeting objectForKey:@"content"];
          }}];
 
+    
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+- (IBAction)register:(id)sender {
 }
 
 /*
