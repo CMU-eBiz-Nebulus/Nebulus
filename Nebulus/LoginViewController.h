@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
+@property NSString *username;
+@property NSString *email;
+@property NSArray *userTags;
+
+//"about": <string> | optional(""),
+//"email": <string>,
+//"name": <string> | optional(""),
+//"pictureUpdateTime": <time> | optional(0),
+//"tags": <array of strings>,
+//"username": <string>
 
 @end

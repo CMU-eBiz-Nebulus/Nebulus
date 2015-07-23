@@ -39,7 +39,7 @@
                                                                         error:NULL];
              [[greeting objectForKey:@"id"] stringValue];
              [greeting objectForKey:@"content"];
-         }
+         }}];
 
 }
 
