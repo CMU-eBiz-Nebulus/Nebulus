@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
 @end
 
@@ -22,6 +24,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)login:(id)sender {
+}
+- (IBAction)register:(id)sender {
 }
 
 - (void)login {
