@@ -92,6 +92,8 @@
 				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
 				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
 				929B70C01B5D3FC000264D32 /* FirstViewController.h */,
+				98D358B41B5ECF3800A30D8D /* ProfileViewController.h */,
+				98D358B51B5ECF3800A30D8D /* ProfileViewController.m */,
 				929B70C11B5D3FC000264D32 /* FirstViewController.m */,
 				929B70C31B5D3FC000264D32 /* SecondViewController.h */,
 				929B70C41B5D3FC000264D32 /* SecondViewController.m */,
@@ -428,6 +430,7 @@
 				929B70DE1B5D3FC000264D32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		929B70DF1B5D3FC000264D32 /* Build configuration list for PBXNativeTarget "NebulusTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +439,7 @@
 				929B70E11B5D3FC000264D32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
