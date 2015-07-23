@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848660801B615848000D849B /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486607F1B615848000D849B /* RecordViewController.m */; };
+		848660821B615916000D849B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848660811B615916000D849B /* AVFoundation.framework */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
 		929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BE1B5D3FC000264D32 /* AppDelegate.m */; };
 		929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70C11B5D3FC000264D32 /* FirstViewController.m */; };
@@ -29,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8486607E1B615848000D849B /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		8486607F1B615848000D849B /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		848660811B615916000D849B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		929B70B61B5D3FC000264D32 /* Nebulus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		929B70BA1B5D3FC000264D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929B70BB1B5D3FC000264D32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848660821B615916000D849B /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +75,7 @@
 		929B70AD1B5D3FC000264D32 = {
 			isa = PBXGroup;
 			children = (
+				848660811B615916000D849B /* AVFoundation.framework */,
 				929B70B81B5D3FC000264D32 /* Nebulus */,
 				929B70D51B5D3FC000264D32 /* NebulusTests */,
 				929B70B71B5D3FC000264D32 /* Products */,
@@ -95,6 +102,8 @@
 				929B70C11B5D3FC000264D32 /* FirstViewController.m */,
 				929B70C31B5D3FC000264D32 /* SecondViewController.h */,
 				929B70C41B5D3FC000264D32 /* SecondViewController.m */,
+				8486607E1B615848000D849B /* RecordViewController.h */,
+				8486607F1B615848000D849B /* RecordViewController.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
 				929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */,
@@ -232,6 +241,7 @@
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
+				848660801B615848000D849B /* RecordViewController.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				98D358B61B5ECF3800A30D8D /* ProfileViewController.m in Sources */,
 			);
