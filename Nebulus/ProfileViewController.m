@@ -8,6 +8,13 @@
 
 #import "ProfileViewController.h"
 
+@interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *postsButton;
+@property (weak, nonatomic) IBOutlet UIButton *followedButton;
+@property (weak, nonatomic) IBOutlet UIButton *followingButton;
+@end
+
 @implementation ProfileViewController
+
 
 @end

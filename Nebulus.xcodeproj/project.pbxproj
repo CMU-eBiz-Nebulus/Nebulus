@@ -112,6 +112,8 @@
 				8486607E1B615848000D849B /* RecordViewController.h */,
 				8486607F1B615848000D849B /* RecordViewController.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
+				98C947251B622056000E0CB8 /* ProfileViewController.h */,
+				98C947261B622056000E0CB8 /* ProfileViewController.m */,
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
 				929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */,
 				929B70B91B5D3FC000264D32 /* Supporting Files */,
