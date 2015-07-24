@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -18,11 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController *loginView = [storyboard instantiateViewControllerWithIdentifier:@"loginView"];
-    UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:loginView];
     
-    self.window.rootViewController = navigation;
+    User *user=[[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    if (!user) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *loginView = [storyboard instantiateViewControllerWithIdentifier:@"loginView"];
+        UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:loginView];
+    
+        self.window.rootViewController = navigation;
+    }
 
     
     
