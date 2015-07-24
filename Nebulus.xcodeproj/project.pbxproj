@@ -131,6 +131,8 @@
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
 				929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */,
 				929B70B91B5D3FC000264D32 /* Supporting Files */,
+				A98CD83D1B62E17100F8E51F /* CreateProjectViewController.h */,
+				A98CD83E1B62E17100F8E51F /* CreateProjectViewController.m */,
 			);
 			path = Nebulus;
 			sourceTree = "<group>";
@@ -281,6 +283,7 @@
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
 				AFE597BC1B62E22100ED0520 /* CreateProject.m in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
+				A98CD83F1B62E17100F8E51F /* CreateProjectViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
