@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
