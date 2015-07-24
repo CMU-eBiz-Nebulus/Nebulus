@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "ProfileDetailViewController.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *postsButton;
@@ -16,5 +17,25 @@
 
 @implementation ProfileViewController
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"Clips"]) {
+        if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
+            ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
+            pdvc.mode = CLIPS;
+            pdvc.title = segue.identifier;
+        }
+    } else if ([segue.identifier isEqualToString:@"Projects"]) {
+        if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
+            ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
+            pdvc.mode = PROJECTS;
+            pdvc.title = segue.identifier;
+        }
+    } else if ([segue.identifier isEqualToString:@"Albums"]) {
+        if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
+            ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
+            pdvc.title = segue.identifier;
+        }
+    }
+}
 
 @end
