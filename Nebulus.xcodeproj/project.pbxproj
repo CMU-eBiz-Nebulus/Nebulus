@@ -261,13 +261,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92A574B31B62C0D80015032B /* User.m in Sources */,
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				92A574B61B62D20F0015032B /* HttpClient.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
+				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
-				92A574B01B62BDFE0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
 			);
