@@ -12,7 +12,7 @@
 //@implementation HttpClient
 //+(User*) getUser: (NSString*) username password: (NSString*) password; {
 //    
-//    NSURL *aUrl = [NSURL URLWithString:@"http://www.apple.com/"];
+//    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/"];
 //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
 //                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
 //                                                       timeoutInterval:60.0];
@@ -32,15 +32,15 @@
 //     {
 //         if (data.length > 0 && connectionError == nil)
 //         {
-//             NSDictionary *greeting = [NSJSONSerialization JSONObjectWithData:data
+//             NSDictionary *data = [NSJSONSerialization JSONObjectWithData:data
 //                                                                      options:0
 //                                                                        error:NULL];
-//             self.greetingId.text = [[greeting objectForKey:@"id"] stringValue];
-//             self.greetingContent.text = [greeting objectForKey:@"content"];
+//             User * user = [[User alloc] init];
+//             user.username = [data getObjects:<#(__unsafe_unretained id *)#> andKeys:<#(__unsafe_unretained id *)#>
 //         }
 //     }];
 //    
 //    [connection ]
 //}
 
-//@end
+@end

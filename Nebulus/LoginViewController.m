@@ -29,8 +29,10 @@
 }
 - (IBAction)login:(id)sender {
     
-
-
+    User *user = [[User alloc]init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:user forKey:@"user"];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
