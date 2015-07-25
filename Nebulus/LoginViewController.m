@@ -7,8 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "user.h"
-#import "HttpClient.h"
+#import "User.h"
+////#import "HttpClient.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;

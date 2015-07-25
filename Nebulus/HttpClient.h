@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "User.h"
 
 @interface HttpClient : NSObject
-+(User*) getUser: (NSString*) username password: (NSString*) password;
+//+(User*) getUser: (NSString*) username password: (NSString*) password;
 
 @end

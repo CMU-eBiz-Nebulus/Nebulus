@@ -22,11 +22,11 @@
 
 @interface User : Model
 
-@property(nonatomic, strong) NSString *username;
-@property(nonatomic, strong) NSString *email;
-@property(nonatomic, strong) NSString *name;
-@property(nonatomic, strong) NSString *about;
-@property(nonatomic) NSInteger *pictureUpdateTime;
-@property(nonatomic, strong) NSArray *tags;
+//@property(nonatomic, strong) NSString *username;
+//@property(nonatomic, strong) NSString *email;
+//@property(nonatomic, strong) NSString *name;
+//@property(nonatomic, strong) NSString *about;
+//@property(nonatomic) NSInteger *pictureUpdateTime;
+//@property(nonatomic, strong) NSArray *tags;
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "User.h"
+@interface User()
 
+@end
 @implementation User
+
 
 @end

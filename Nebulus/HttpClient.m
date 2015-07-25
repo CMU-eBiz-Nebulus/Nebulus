@@ -12,6 +12,7 @@
 @implementation HttpClient
 //+(User*) getUser: (NSString*) username password: (NSString*) password; {
 //    
+//    User *user = [[User alloc] init];
 //    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/"];
 //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
 //                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -25,22 +26,22 @@
 //    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request
 //                                                                 delegate:self];
 //    
-//    [NSURLConnection sendAsynchronousRequest:request
-//                                       queue:[NSOperationQueue mainQueue]
-//                           completionHandler:^(NSURLResponse *response,
-//                                               NSData *data, NSError *connectionError)
-//     {
-//         if (data.length > 0 && connectionError == nil)
-//         {
-//             NSDictionary *data = [NSJSONSerialization JSONObjectWithData:data
-//                                                                      options:0
-//                                                                        error:NULL];
-//             User * user = [[User alloc] init];
-//             user.username = [data getObjects:<#(__unsafe_unretained id *)#> andKeys:<#(__unsafe_unretained id *)#>
-//         }
-//     }];
-//    
-//    [connection ]
+////    [NSURLConnection sendAsynchronousRequest:request
+////                                       queue:[NSOperationQueue mainQueue]
+////                           completionHandler:^(NSURLResponse *response,
+////                                               NSData *data, NSError *connectionError)
+////     {
+////         if (data.length > 0 && connectionError == nil)
+////         {
+////             NSDictionary *data = [NSJSONSerialization JSONObjectWithData:data
+////                                                                      options:0
+////                                                                        error:NULL];
+////             
+////             user.username = [data getObjects:<#(__unsafe_unretained id *)#> andKeys:<#(__unsafe_unretained id *)#>
+////         }
+////     }];
+////             
+//    return user;
 //}
 
 @end
