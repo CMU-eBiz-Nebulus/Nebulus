@@ -16,12 +16,13 @@
 @end
 
 @implementation RecordViewController
-@synthesize stopButton, playButton, recordPauseButton;
-
+@synthesize stopButton, playButton, recordPauseButton, sampleratelabel, bitratelabel, sampleratecontrol, bitratecontrol;
+float samplerate, bitrate;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    samplerate = 44100;
+    bitrate = 128000;
     // Disable Stop/Play button when application launches
     [stopButton setEnabled:NO];
     [playButton setEnabled:NO];
@@ -41,8 +42,9 @@
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
     
     [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
-    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
+    [recordSetting setValue:[NSNumber numberWithFloat:samplerate] forKey:AVSampleRateKey];
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
+    [recordSetting setObject:[NSNumber numberWithInt:bitrate] forKey:AVEncoderBitRateKey];
     
     // Initiate and prepare the recorder
     recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:nil];
@@ -107,6 +109,45 @@
     [playButton setEnabled:YES];
 }
 
+- (IBAction)sampleratechange:(id)sender {
+    switch (sampleratecontrol.selectedSegmentIndex)
+    {
+        case 0:
+            sampleratelabel.text = @"Sample Rate: 22050";
+            samplerate = 22050;
+            break;
+        case 1:
+            sampleratelabel.text = @"Sample Rate: 32000";
+            samplerate = 32000;
+            break;
+        case 2:
+            sampleratelabel.text = @"Sample Rate: 44100";
+            samplerate = 44100;
+            break;
+
+        default:
+            break; 
+    }
+}
+- (IBAction)bitratechange:(id)sender {
+        switch (bitratecontrol.selectedSegmentIndex)
+        {
+            case 0:
+                bitratelabel.text = @"Bit Rate: 48000";
+                bitrate = 48000;
+                break;
+            case 1:
+                bitratelabel.text = @"Bit Rate: 96000";
+                bitrate = 96000;
+                break;
+            case 2:
+                bitratelabel.text = @"Bit Rate: 128000";
+                bitrate = 128000;
+                break;
+            default:
+                break; 
+        }
+}
 #pragma mark - AVAudioPlayerDelegate
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
