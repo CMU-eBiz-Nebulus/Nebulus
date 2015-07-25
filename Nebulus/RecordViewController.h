@@ -14,6 +14,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UILabel *sampleratelabel;
+@property (weak, nonatomic) IBOutlet UILabel *bitratelabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sampleratecontrol;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *bitratecontrol;
 
 - (IBAction)recordPauseTapped:(id)sender;
 - (IBAction)stopTapped:(id)sender;
