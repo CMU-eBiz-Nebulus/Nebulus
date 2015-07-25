@@ -7,6 +7,8 @@
 //
 
 #import "ProfileDetailViewController.h"
+#import "CreateAlbum.h"
+#import "CreateProject.h"
 
 @interface ProfileDetailViewController ()
 
@@ -16,6 +18,16 @@
 
 @implementation ProfileDetailViewController
 
+- (IBAction)manualSegueForCreation:(UIBarButtonItem *)sender {
+    
+    if(self.mode == PROJECTS){
+        CreateProject *cpvc = [self.storyboard instantiateViewControllerWithIdentifier:@"createProject"];
+        [self.navigationController pushViewController:cpvc animated:YES];
+    } else if (self.mode == ALBUMS){
+        CreateAlbum *cavc = [self.storyboard instantiateViewControllerWithIdentifier:@"createAlbum"];
+        [self.navigationController pushViewController:cavc animated:YES];
+    }
+}
 
 -(void)setContents:(NSArray *)contents{
     _contents = contents ? contents : nil;
