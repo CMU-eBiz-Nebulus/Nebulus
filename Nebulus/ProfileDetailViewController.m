@@ -48,6 +48,15 @@
     return nil;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.mode == ALBUMS || self.mode == PROJECTS){
+        return 100.0;
+    } else{
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithoutPhoto"];
+        return cell.frame.size.height;
+    }
+}
+
 #pragma mark - Generic data
 
 -(void)fetch_contents{
@@ -101,6 +110,7 @@
         //[imageview setContentMode:UIViewContentModeScaleToFill];
         [imageview sizeToFit];
         [((UILabel *)[cell viewWithTag:2]) setText:[self.contents objectAtIndex:indexPath.row]];
+        [cell sizeToFit];
     }
     return cell;
 }

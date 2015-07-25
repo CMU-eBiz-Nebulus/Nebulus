@@ -9,7 +9,7 @@
 #import "HttpClient.h"
 
 
-@implementation HttpClient
+//@implementation HttpClient
 //+(User*) getUser: (NSString*) username password: (NSString*) password; {
 //    
 //    User *user = [[User alloc] init];
