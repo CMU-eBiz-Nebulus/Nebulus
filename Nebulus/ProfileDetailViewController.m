@@ -9,6 +9,7 @@
 #import "ProfileDetailViewController.h"
 #import "CreateAlbum.h"
 #import "CreateProject.h"
+#import "RecordViewController.h"
 
 @interface ProfileDetailViewController ()
 
@@ -26,6 +27,9 @@
     } else if (self.mode == ALBUMS){
         CreateAlbum *cavc = [self.storyboard instantiateViewControllerWithIdentifier:@"createAlbum"];
         [self.navigationController pushViewController:cavc animated:YES];
+    } else if (self.mode == CLIPS){
+        RecordViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"recordViewController"];
+        [self.navigationController pushViewController:rvc animated:YES];
     }
 }
 

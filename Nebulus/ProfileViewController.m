@@ -43,6 +43,16 @@
             pdvc.mode = ALBUMS;
             pdvc.title = segue.identifier;
         }
+    } else if ([segue.identifier isEqualToString:@"followedSegue"]) {
+        if ([segue.destinationViewController isKindOfClass:[UITableViewController class]]) {
+            UITableViewController *tvc = (UITableViewController *)segue.destinationViewController;
+            tvc.title = @"Followed";
+        }
+    } else if ([segue.identifier isEqualToString:@"followingSegue"]) {
+        if ([segue.destinationViewController isKindOfClass:[UITableViewController class]]) {
+            UITableViewController *tvc = (UITableViewController *)segue.destinationViewController;
+            tvc.title = @"Following";
+        }
     }
 }
 
