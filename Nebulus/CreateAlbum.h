@@ -1,4 +1,3 @@
-
 //
 //  CreateAlbum.h
 //  Nebulus
@@ -26,5 +25,6 @@
 
 @property (nonatomic) UIImagePickerController *picker;
 @end
+
 
 #endif

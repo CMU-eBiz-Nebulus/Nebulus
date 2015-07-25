@@ -524,7 +524,7 @@ Some text here ...</string>
             </objects>
             <point key="canvasLocation" x="957" y="2881"/>
         </scene>
-        <!--Item-->
+        <!--project-->
         <scene sceneID="fmN-85-8NV">
             <objects>
                 <viewController id="jwO-DJ-kbl" customClass="CreateProject" sceneMemberID="viewController">
@@ -646,7 +646,7 @@ Some text here ...</string>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="5bR-q7-evk"/>
+                    <tabBarItem key="tabBarItem" title="project" id="5bR-q7-evk"/>
                     <connections>
                         <outlet property="add" destination="nCm-da-fs3" id="LNG-0x-8dZ"/>
                         <outlet property="imageView" destination="IWX-l1-ap7" id="YKx-Zd-1cA"/>
@@ -794,7 +794,7 @@ Some text here ...</string>
             </objects>
             <point key="canvasLocation" x="1424" y="585"/>
         </scene>
-        <!--Item-->
+        <!--album-->
         <scene sceneID="MxX-My-u4u">
             <objects>
                 <viewController id="OYb-yF-Vtr" customClass="CreateAlbum" sceneMemberID="viewController">
@@ -927,7 +927,7 @@ Some text here ...</string>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="K5S-Tr-4xN"/>
+                    <tabBarItem key="tabBarItem" title="album" id="K5S-Tr-4xN"/>
                     <connections>
                         <outlet property="add" destination="EpN-Oa-dFY" id="Dcb-8x-Pfb"/>
                         <outlet property="imageView" destination="QCB-2g-Rae" id="bNC-X2-sbS"/>

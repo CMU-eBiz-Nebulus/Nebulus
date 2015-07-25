@@ -1,5 +1,5 @@
 //
-//  CreateProject.m
+//  CreateAlbum.m
 //  Nebulus
 //
 //  Created by ballade on 7/24/15.
@@ -7,23 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CreateProject.h"
+#import "CreateAlbum.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface CreateProject ()
+@interface CreateAlbum ()
 @property (nonatomic) NSMutableArray *capturedImages;
 //@property (nonatomic) UITabBarController *toolBar;
 @property (nonatomic) IBOutlet UIView *overlayView;
 @end
 
-@implementation CreateProject
-@synthesize add;
+@implementation CreateAlbum
+
 @synthesize imageView;
-@synthesize textview1;
-@synthesize textview2;
+@synthesize add;
 @synthesize textview3;
+@synthesize textview2;
+@synthesize textview1;
 @synthesize picker;
 
 
@@ -72,10 +73,12 @@
 
 
 
+
 - (IBAction)add:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Add Project Photo" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo",@"Choose from Photos", nil];
     [actionSheet showInView:self.view];
 }
+
 
 
 - (void)actionSheet:(UIActionSheet *)actionSheet
@@ -222,3 +225,4 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 
 @end
+
