@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>36D667A3-7559-45B1-A482-1E1B3B3855B1</string>
+	<string>B4A198B7-76F8-4D9A-B659-F514078231E3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Nebulus</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>466A6C6754D592C0D896357AC9229CC884D1DCD9</key>
-		<string>https://github.com/CMU-eBiz-Nebulus/Nebulus</string>
+		<string>https://github.com/CMU-eBiz-Nebulus/Nebulus.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Nebulus.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/CMU-eBiz-Nebulus/Nebulus</string>
+	<string>https://github.com/CMU-eBiz-Nebulus/Nebulus.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
