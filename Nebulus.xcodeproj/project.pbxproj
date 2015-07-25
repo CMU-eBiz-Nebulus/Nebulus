@@ -22,6 +22,7 @@
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* CreateProject.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597BB1B62E22100ED0520 /* CreateProject.m */; };
+		AFE597F31B6322B900ED0520 /* CreateAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597F21B6322B900ED0520 /* CreateAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		98C947321B62D5B8000E0CB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		AFE597BA1B62DB7D00ED0520 /* CreateProject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreateProject.h; path = ../CreateProject.h; sourceTree = "<group>"; };
 		AFE597BB1B62E22100ED0520 /* CreateProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateProject.m; path = ../CreateProject.m; sourceTree = "<group>"; };
+		AFE597F21B6322B900ED0520 /* CreateAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateAlbum.m; path = ../CreateAlbum.m; sourceTree = "<group>"; };
+		AFE597F41B6322C100ED0520 /* CreateAlbum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreateAlbum.h; path = ../CreateAlbum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				8486607F1B615848000D849B /* RecordViewController.m */,
 				AFE597BA1B62DB7D00ED0520 /* CreateProject.h */,
 				AFE597BB1B62E22100ED0520 /* CreateProject.m */,
+				AFE597F41B6322C100ED0520 /* CreateAlbum.h */,
+				AFE597F21B6322B900ED0520 /* CreateAlbum.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
 				98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */,
 				98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */,
@@ -131,8 +136,6 @@
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
 				929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */,
 				929B70B91B5D3FC000264D32 /* Supporting Files */,
-				A98CD83D1B62E17100F8E51F /* CreateProjectViewController.h */,
-				A98CD83E1B62E17100F8E51F /* CreateProjectViewController.m */,
 			);
 			path = Nebulus;
 			sourceTree = "<group>";
@@ -279,11 +282,11 @@
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
+				AFE597F31B6322B900ED0520 /* CreateAlbum.m in Sources */,
 				92A574B61B62D20F0015032B /* HttpClient.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
 				AFE597BC1B62E22100ED0520 /* CreateProject.m in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
-				A98CD83F1B62E17100F8E51F /* CreateProjectViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
