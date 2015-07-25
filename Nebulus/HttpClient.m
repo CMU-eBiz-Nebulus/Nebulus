@@ -9,7 +9,7 @@
 #import "HttpClient.h"
 
 
-@implementation HttpClient
+//@implementation HttpClient
 //+(User*) getUser: (NSString*) username password: (NSString*) password; {
 //    
 //    NSURL *aUrl = [NSURL URLWithString:@"http://www.apple.com/"];
