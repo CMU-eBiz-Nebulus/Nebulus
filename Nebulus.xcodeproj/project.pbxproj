@@ -21,6 +21,8 @@
 		92A574B61B62D20F0015032B /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574B51B62D20F0015032B /* HttpClient.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
+		AFE597BC1B62E22100ED0520 /* CreateProject.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597BB1B62E22100ED0520 /* CreateProject.m */; };
+		AFE597F31B6322B900ED0520 /* CreateAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597F21B6322B900ED0520 /* CreateAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,10 @@
 				929B70C41B5D3FC000264D32 /* SecondViewController.m */,
 				8486607E1B615848000D849B /* RecordViewController.h */,
 				8486607F1B615848000D849B /* RecordViewController.m */,
+				AFE597BA1B62DB7D00ED0520 /* CreateProject.h */,
+				AFE597BB1B62E22100ED0520 /* CreateProject.m */,
+				AFE597F41B6322C100ED0520 /* CreateAlbum.h */,
+				AFE597F21B6322B900ED0520 /* CreateAlbum.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
 				98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */,
 				98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */,
@@ -273,8 +279,10 @@
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
+				AFE597F31B6322B900ED0520 /* CreateAlbum.m in Sources */,
 				92A574B61B62D20F0015032B /* HttpClient.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
+				AFE597BC1B62E22100ED0520 /* CreateProject.m in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
