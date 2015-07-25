@@ -94,6 +94,8 @@
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
         [player setDelegate:self];
         [player play];
+        [playButton setEnabled:NO];
+        [recordPauseButton setEnabled:NO];
     }
 }
 
@@ -114,6 +116,8 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+    [playButton setEnabled:YES];
+    [recordPauseButton setEnabled:YES];
 }
 - (IBAction)back:(UIStoryboardSegue *)segue {
     // Optional place to read data from closing controller
