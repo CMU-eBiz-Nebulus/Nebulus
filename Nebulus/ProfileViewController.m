@@ -10,12 +10,19 @@
 #import "ProfileDetailViewController.h"
 
 @interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *headPhoto;
 @property (weak, nonatomic) IBOutlet UIButton *postsButton;
 @property (weak, nonatomic) IBOutlet UIButton *followedButton;
 @property (weak, nonatomic) IBOutlet UIButton *followingButton;
 @end
 
 @implementation ProfileViewController
+
+-(void)viewDidLoad{
+
+    [self.headPhoto setImage:[UIImage imageNamed:@"pic2"]];
+    [self.headPhoto sizeToFit];
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"Clips"]) {
@@ -33,6 +40,7 @@
     } else if ([segue.identifier isEqualToString:@"Albums"]) {
         if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
             ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
+            pdvc.mode = ALBUMS;
             pdvc.title = segue.identifier;
         }
     }

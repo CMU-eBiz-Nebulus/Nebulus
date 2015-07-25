@@ -18,11 +18,11 @@
 		929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */; };
 		929B70D91B5D3FC000264D32 /* NebulusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70D81B5D3FC000264D32 /* NebulusTests.m */; };
 		929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70E31B5D48AC00264D32 /* LoginViewController.m */; };
-		92A574B01B62BDFE0015032B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574AF1B62BDFE0015032B /* Model.m */; };
-		92A574B31B62C0D80015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574B21B62C0D80015032B /* User.m */; };
 		92A574B61B62D20F0015032B /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574B51B62D20F0015032B /* HttpClient.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
+		AFE597BC1B62E22100ED0520 /* CreateProject.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597BB1B62E22100ED0520 /* CreateProject.m */; };
+		AFE597F31B6322B900ED0520 /* CreateAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597F21B6322B900ED0520 /* CreateAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,16 +56,16 @@
 		929B70D81B5D3FC000264D32 /* NebulusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulusTests.m; sourceTree = "<group>"; };
 		929B70E21B5D48AC00264D32 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		929B70E31B5D48AC00264D32 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
-		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
-		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		98C947321B62D5B8000E0CB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		92A574AE1B62BDEE0015032B /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		92A574AF1B62BDFE0015032B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		92A574B11B62C0D80015032B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		92A574B21B62C0D80015032B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		92A574B41B62D20F0015032B /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		92A574B51B62D20F0015032B /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
+		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
+		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		98C947321B62D5B8000E0CB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +120,10 @@
 				929B70C41B5D3FC000264D32 /* SecondViewController.m */,
 				8486607E1B615848000D849B /* RecordViewController.h */,
 				8486607F1B615848000D849B /* RecordViewController.m */,
+				AFE597BA1B62DB7D00ED0520 /* CreateProject.h */,
+				AFE597BB1B62E22100ED0520 /* CreateProject.m */,
+				AFE597F41B6322C100ED0520 /* CreateAlbum.h */,
+				AFE597F21B6322B900ED0520 /* CreateAlbum.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
 				98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */,
 				98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */,
@@ -220,6 +224,7 @@
 				TargetAttributes = {
 					929B70B51B5D3FC000264D32 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 9VUC3R8D65;
 					};
 					929B70D11B5D3FC000264D32 = {
 						CreatedOnToolsVersion = 6.4;
@@ -274,8 +279,10 @@
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
+				AFE597F31B6322B900ED0520 /* CreateAlbum.m in Sources */,
 				92A574B61B62D20F0015032B /* HttpClient.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
+				AFE597BC1B62E22100ED0520 /* CreateProject.m in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
@@ -405,9 +412,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = Nebulus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -415,9 +426,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = Nebulus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
