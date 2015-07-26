@@ -51,7 +51,7 @@
     NSDictionary *meta = [json objectForKey: @"_meta"];
     model.created = [meta objectForKey:@"created"];
     model.edited = [meta objectForKey:@"edited"];
-    model.name = [meta objectForKey:@"name"];
+    model.objectName = [meta objectForKey:@"name"];
     
     
 }

@@ -11,7 +11,7 @@
 @interface Model : NSObject
 
 @property (nonatomic, strong) NSString *objectID;
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *objectName;
 @property (nonatomic, strong) NSNumber *created;
 @property (nonatomic, strong) NSNumber *edited;
 
