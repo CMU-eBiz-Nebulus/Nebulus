@@ -7,8 +7,8 @@
 //
 
 #import "LoginViewController.h"
-//#import "User.h"
-////#import "HttpClient.h"
+#import "User.h"
+#import "HttpClient.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.usernameField.text = @"test";
+    self.passwordField.text = @"123456";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,14 +31,21 @@
 }
 - (IBAction)login:(id)sender {
     
-//    User *user = [[User alloc]init];
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    
-//    [defaults setObject:user forKey:@"user"];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    
+    User *user = [HttpClient getUser:self.usernameField.text password:self.passwordField.text];
+    if (user != nil) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:user.username forKey:@"username"];
+//        //[self dismissViewControllerAnimated:YES completion:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+        [self presentViewController:tabBarController animated:NO completion:nil];
+        NSLog(@"Logged in");
+    } else {//Wrong username/password combination
+        NSLog(@"Wrong password/username");
+    }
+
+
+
 }
 - (IBAction)register:(id)sender {
 }

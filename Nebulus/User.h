@@ -2,20 +2,11 @@
 //  User.h
 //  Nebulus
 //
-//  Created by Jike on 7/24/15.
+//  Created by Jike on 7/26/15.
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
-//
-//user = {
-//    "about": <string> | optional(""),
-//    "email": <string>,
-//    "name": <string> | optional(""),
-//    "pictureUpdateTime": <time> | optional(0),
-//    "tags": <array of strings>,
-//    "username": <string>
-//}
 
-
+#import <Foundation/Foundation.h>
 #import "Model.h"
 
 @interface User : Model
@@ -24,7 +15,8 @@
 @property(nonatomic, strong) NSString *email;
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *about;
-@property(nonatomic, assign) NSInteger *pictureUpdateTime;
+@property(nonatomic, strong) NSNumber *pictureUpdateTime;
 @property(nonatomic, strong) NSArray *tags;
+
 
 @end

@@ -2,15 +2,14 @@
 //  User.m
 //  Nebulus
 //
-//  Created by Jike on 7/24/15.
+//  Created by Jike on 7/26/15.
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
 
 #import "User.h"
-@interface User()
 
-@end
 @implementation User
+
 
 
 @end

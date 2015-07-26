@@ -19,7 +19,8 @@
 		929B70D91B5D3FC000264D32 /* NebulusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70D81B5D3FC000264D32 /* NebulusTests.m */; };
 		929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70E31B5D48AC00264D32 /* LoginViewController.m */; };
 		92A574B61B62D20F0015032B /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574B51B62D20F0015032B /* HttpClient.m */; };
-		92A574F41B644A4B0015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F31B644A4B0015032B /* User.m */; };
+		92A574F71B655CAB0015032B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F61B655CAB0015032B /* Model.m */; };
+		92A574FA1B655CD70015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F91B655CD70015032B /* User.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -59,12 +60,12 @@
 		929B70D81B5D3FC000264D32 /* NebulusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulusTests.m; sourceTree = "<group>"; };
 		929B70E21B5D48AC00264D32 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		929B70E31B5D48AC00264D32 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		92A574AE1B62BDEE0015032B /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		92A574AF1B62BDFE0015032B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		92A574B41B62D20F0015032B /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		92A574B51B62D20F0015032B /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
-		92A574F21B644A4B0015032B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		92A574F31B644A4B0015032B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		92A574F51B655CAB0015032B /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		92A574F61B655CAB0015032B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		92A574F81B655CD70015032B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		92A574F91B655CD70015032B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
 		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -174,10 +175,10 @@
 			children = (
 				92A574B41B62D20F0015032B /* HttpClient.h */,
 				92A574B51B62D20F0015032B /* HttpClient.m */,
-				92A574AE1B62BDEE0015032B /* Model.h */,
-				92A574AF1B62BDFE0015032B /* Model.m */,
-				92A574F21B644A4B0015032B /* User.h */,
-				92A574F31B644A4B0015032B /* User.m */,
+				92A574F51B655CAB0015032B /* Model.h */,
+				92A574F61B655CAB0015032B /* Model.m */,
+				92A574F81B655CD70015032B /* User.h */,
+				92A574F91B655CD70015032B /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -288,13 +289,14 @@
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				AFE598001B6333FB00ED0520 /* CreateProject.m in Sources */,
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
+				92A574FA1B655CD70015032B /* User.m in Sources */,
 				AFE597F31B6322B900ED0520 /* (null) in Sources */,
 				92A574B61B62D20F0015032B /* HttpClient.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
-				92A574F41B644A4B0015032B /* User.m in Sources */,
 				AFE597BC1B62E22100ED0520 /* (null) in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
+				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
 			);

@@ -11,11 +11,6 @@
 
 @implementation HttpClient
 +(User*) getUser: (NSString*) username password: (NSString*) password; {
-    
-    User *user = [[User alloc] init];
-    
-    
-    
     NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/auth/login/"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -41,19 +36,25 @@
                                                          options:kNilOptions
                                                            error:&error];
     
-    
-    user.meta = [json objectForKey:@"_meta"];
+    User *user = [[User alloc] init];
+    [self getModel:json Model:user];
     user.objectID = [json objectForKey:@"_id"];
     user.username = [json objectForKey:@"username"];
     user.email = [json objectForKey:@"email"];
     user.about = [json objectForKey:@"about"];
-    user.pictureUpdateTime = (NSInteger)[json objectForKey:@"pictureUpdateTime"];
+    user.pictureUpdateTime = [json objectForKey:@"pictureUpdateTime"];
     user.tags = [json objectForKey:@"tags"];
-    
-    
     return user;
 }
 
++(void)getModel: (NSDictionary*) json Model: (Model*) model {
+    NSDictionary *meta = [json objectForKey: @"_meta"];
+    model.created = [meta objectForKey:@"created"];
+    model.edited = [meta objectForKey:@"edited"];
+    model.name = [meta objectForKey:@"name"];
+    
+    
+}
 
 
 @end

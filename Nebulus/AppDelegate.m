@@ -18,15 +18,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    // Override point for customization after application launch.
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    LoginViewController *loginView = [storyboard instantiateViewControllerWithIdentifier:@"loginView"];
-//    UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:loginView];
-//    
-//    self.window.rootViewController = navigation;
-
-    
-    
+    // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [defaults objectForKey:@"username"];
+    if (username == nil) {
+        NSLog(@"Login");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *loginView = [storyboard instantiateViewControllerWithIdentifier:@"loginView"];
+        self.window.rootViewController = loginView;
+    } else NSLog(@"123");
     return YES;
 }
 
@@ -42,6 +42,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
