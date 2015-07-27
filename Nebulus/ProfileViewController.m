@@ -59,6 +59,7 @@
         }
     } else if ([segue.identifier isEqualToString:@"logout"]){
         [HttpClient logout];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 

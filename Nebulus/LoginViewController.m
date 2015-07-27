@@ -35,6 +35,7 @@
     if (user != nil) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:user.username forKey:@"username"];
+        [defaults synchronize];
 //        //[self dismissViewControllerAnimated:YES completion:nil];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
