@@ -64,6 +64,41 @@
 
 }
 
++(BOOL) registerUser:(NSString*) username password: (NSString*) password email: (NSString*) email {
+    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/auth/register"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:username forKey:@"username"];
+    [dict setValue:password forKey:@"password"];
+    [dict setValue:email forKey:@"email"];
+    
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    [request setHTTPBody:postdata];
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                           error:&error];
+    if ([json count] > 0) {
+        return true;
+    } else {
+        NSLog(@"%@", error.localizedDescription);
+        return false;
+    }
+
+}
+
 
 +(void)getModel: (NSDictionary*) json Model: (Model*) model {
     NSDictionary *meta = [json objectForKey: @"_meta"];
