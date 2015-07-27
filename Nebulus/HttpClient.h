@@ -15,4 +15,8 @@
 +(void) logout;
 +(BOOL) registerUser:(NSString*) username password: (NSString*) password email: (NSString*) email;
 +(User*) getCurrentUser;
++(NSArray*) getFollowers:(User*) user;
++(NSArray*) getFollowing:(User*) user;
++(NSArray*) getTimeline:(User*) user;
+
 @end
