@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface CreateProject ()
+@interface CreateProject () <UIActionSheetDelegate>
 @property (nonatomic) NSMutableArray *capturedImages;
 //@property (nonatomic) UITabBarController *toolBar;
 @property (nonatomic) IBOutlet UIView *overlayView;
@@ -165,9 +165,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (CFStringCompare ((CFStringRef) mediaType, kUTTypeMovie, 0)
         == kCFCompareEqualTo) {
         
-        NSString *moviePath = [[info objectForKey:
-                                UIImagePickerControllerMediaURL] path];
-        
+//        NSString *moviePath = [[info objectForKey:
+//                                UIImagePickerControllerMediaURL] path];
+//        
         // Do something with the picked movie available at moviePath
         
         
