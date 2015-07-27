@@ -92,10 +92,10 @@
                                                          options:kNilOptions
                                                            error:&error];
     if ([json count] > 0) {
-        return true;
+        return YES;
     } else {
         NSLog(@"%@", error.localizedDescription);
-        return false;
+        return NO;
     }
 
 }
