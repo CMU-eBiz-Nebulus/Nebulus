@@ -24,12 +24,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nebulus/User.h"
-            timestampString = "459634822.557481"
+            timestampString = "459652147.507576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "about"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "name"
             landmarkType = "19">
          </BreakpointContent>
       </BreakpointProxy>

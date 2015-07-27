@@ -21,7 +21,7 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:username forKey:@"username" ];
+    [dict setValue:username forKey:@"username"];
     [dict setValue:password forKey:@"password"];
     
     NSError *error;
@@ -35,17 +35,35 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
-    
     User *user = [[User alloc] init];
     [self getModel:json Model:user];
     user.objectID = [json objectForKey:@"_id"];
     user.username = [json objectForKey:@"username"];
     user.email = [json objectForKey:@"email"];
+    user.name = [json objectForKey:@"name"];
     user.about = [json objectForKey:@"about"];
     user.pictureUpdateTime = [json objectForKey:@"pictureUpdateTime"];
     user.tags = [json objectForKey:@"tags"];
     return user;
 }
+
++(void) logout {
+
+    NSUserDefaults *defaluts = [NSUserDefaults standardUserDefaults];;
+    [defaluts delete:@"username"];
+    
+    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/auth/logout/"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    [NSURLConnection sendAsynchronousRequest:request
+                                                  queue:[NSOperationQueue mainQueue]
+                                      completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                                      }];
+
+}
+
 
 +(void)getModel: (NSDictionary*) json Model: (Model*) model {
     NSDictionary *meta = [json objectForKey: @"_meta"];
