@@ -49,8 +49,8 @@
 
 +(void) logout {
 
-    NSUserDefaults *defaluts = [NSUserDefaults standardUserDefaults];;
-    [defaluts delete:@"username"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];;
+    [defaults removeObjectForKey:@"username"];
     
     NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/auth/logout/"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
@@ -60,6 +60,7 @@
     [NSURLConnection sendAsynchronousRequest:request
                                                   queue:[NSOperationQueue mainQueue]
                                       completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                                          if (error) NSLog(@"%@", error.localizedDescription);
                                       }];
 
 }
@@ -100,13 +101,14 @@
 }
 
 
+
+
+
 +(void)getModel: (NSDictionary*) json Model: (Model*) model {
     NSDictionary *meta = [json objectForKey: @"_meta"];
     model.created = [meta objectForKey:@"created"];
     model.edited = [meta objectForKey:@"edited"];
     model.objectName = [meta objectForKey:@"name"];
-    
-    
 }
 
 
