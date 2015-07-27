@@ -8,8 +8,10 @@
 
 #import "ProfileViewController.h"
 #import "ProfileDetailViewController.h"
+#import "HttpClient.h"
 
 @interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *headPhoto;
 @property (weak, nonatomic) IBOutlet UIButton *postsButton;
 @property (weak, nonatomic) IBOutlet UIButton *followedButton;
@@ -19,9 +21,11 @@
 @implementation ProfileViewController
 
 -(void)viewDidLoad{
-
     [self.headPhoto setImage:[UIImage imageNamed:@"pic2"]];
     [self.headPhoto sizeToFit];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self.userNameLabel setText:[defaults objectForKey:@"username"]];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -53,6 +57,9 @@
             UITableViewController *tvc = (UITableViewController *)segue.destinationViewController;
             tvc.title = @"Following";
         }
+    } else if ([segue.identifier isEqualToString:@"logout"]){
+        [HttpClient logout];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 

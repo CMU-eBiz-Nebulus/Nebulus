@@ -121,7 +121,7 @@
     UITableViewCell *cell = nil;
     if (self.mode == ALBUMS){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithPhoto"];
-        UIImageView *imageview = [cell viewWithTag:1];
+        UIImageView *imageview = (UIImageView *)[cell viewWithTag:1];
         [imageview setImage:[UIImage imageNamed:@"pic1"]];
         //[imageview setContentMode:UIViewContentModeScaleToFill];
         [imageview sizeToFit];
@@ -135,7 +135,7 @@
     UITableViewCell *cell = nil;
     if (self.mode == PROJECTS){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithPhoto"];
-        UIImageView *imageview = [cell viewWithTag:1];
+        UIImageView *imageview = (UIImageView *)[cell viewWithTag:1];
         [imageview setImage:[UIImage imageNamed:@"pic1"]];
         //[imageview setContentMode:UIViewContentModeScaleToFill];
         [imageview sizeToFit];
