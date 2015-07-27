@@ -11,33 +11,69 @@
 #import "HttpClient.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *indicatorButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+@property (nonatomic, getter=isLoginMode) BOOL loginMode;
 
 @end
 
 @implementation LoginViewController
 
+#define BUTTON_SIGN_IN @"Sign In"
+#define BUTTON_SIGN_UP @"Sign Up"
+
+#define INDICATOR_BUTTON_SIGN_IN @"Not have an account?"
+#define INDICATOR_BUTTON_SIGN_UP @"Already have an account"
+
+-(void)setLoginMode:(BOOL)loginMode{
+    if (loginMode){
+        self.emailLabel.hidden = YES;
+        self.emailField.hidden = YES;
+        [self.indicatorButton setTitle:INDICATOR_BUTTON_SIGN_IN forState:UIControlStateNormal];
+        [self.loginButton setTitle:BUTTON_SIGN_IN forState:UIControlStateNormal];
+        
+        self.usernameField.text = @"test";
+        self.passwordField.text = @"123456";
+    } else {
+        self.emailLabel.hidden = NO;
+        self.emailField.hidden = NO;
+        [self.indicatorButton setTitle:INDICATOR_BUTTON_SIGN_UP forState:UIControlStateNormal];
+        [self.loginButton setTitle:BUTTON_SIGN_UP forState:UIControlStateNormal];
+    }
+    _loginMode = loginMode;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.usernameField.text = @"test";
-    self.passwordField.text = @"123456";
+    
+    self.loginMode = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)login:(id)sender {
-    
+- (IBAction)login_resigter_triggered:(id)sender {
+    if([self isLoginMode])
+        [self login];
+    else
+        [self signup];
+}
+
+-(void)login{
     User *user = [HttpClient getUser:self.usernameField.text password:self.passwordField.text];
     if (user != nil) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:user.username forKey:@"username"];
         [defaults setObject:user.cookie forKey:@"cookie"];
         [defaults synchronize];
-//        //[self dismissViewControllerAnimated:YES completion:nil];
+        //        //[self dismissViewControllerAnimated:YES completion:nil];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
         [self presentViewController:tabBarController animated:NO completion:nil];
@@ -45,21 +81,26 @@
     } else {//Wrong username/password combination
         NSLog(@"Wrong password/username");
     }
-
-
-
-}
-- (IBAction)register:(id)sender {
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)signup{
+    
+    if([HttpClient registerUser:self.usernameField.text
+                       password:self.passwordField.text
+                          email:self.emailField.text]){
+        
+        [self login];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Register failed"
+                                                        message:@"Please check your input again!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
-*/
 
+- (IBAction)switchMode:(UIButton *)sender {
+    self.loginMode = ![self isLoginMode];
+}
 @end
