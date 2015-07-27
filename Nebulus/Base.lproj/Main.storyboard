@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Y1N-AL-6ly">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="post" id="Y1N-AL-6ly">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y1N-AL-6ly" id="7rB-1h-pcL">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quL-S0-BAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-526" y="502"/>
+            <point key="canvasLocation" x="3362" y="1930"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -319,10 +319,10 @@
         <scene sceneID="6G2-l3-cPB">
             <objects>
                 <tableViewController id="lc2-9v-eKk" customClass="ProfileViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Om0-sI-Czm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Om0-sI-Czm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="m1T-uH-Ejm">
                                 <cells>
@@ -543,17 +543,25 @@ Some text here ...</string>
                             <outlet property="delegate" destination="lc2-9v-eKk" id="3JQ-19-E6a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="JPW-dy-S7j"/>
+                    <navigationItem key="navigationItem" title="Profile" id="JPW-dy-S7j">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="a9w-BZ-OQ0">
+                            <connections>
+                                <action selector="logout:" destination="lc2-9v-eKk" id="Art-PN-idp"/>
+                                <segue destination="xZ7-1q-uyF" kind="presentation" identifier="logout" id="08H-cx-Rcw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="followedButton" destination="pRk-Xy-ecw" id="QOv-CK-avF"/>
                         <outlet property="followingButton" destination="Z4E-aA-aMG" id="M25-h0-hqf"/>
                         <outlet property="headPhoto" destination="ebL-1s-Ll5" id="CEe-qA-zNH"/>
                         <outlet property="postsButton" destination="fLB-4Z-HNx" id="dyi-8A-Nfb"/>
+                        <outlet property="userNameLabel" destination="z6X-77-xk4" id="Qug-ss-20n"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qw-Yu-prZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="2881"/>
+            <point key="canvasLocation" x="1391" y="2887"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="iNI-vJ-9qg">
@@ -564,7 +572,7 @@ Some text here ...</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YNB-3o-Yh7">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="person" id="YNB-3o-Yh7">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YNB-3o-Yh7" id="Ywp-bq-fgY">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1049,8 +1057,8 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4nv-Y9-mp1"/>
-        <segue reference="VVs-Zt-gem"/>
         <segue reference="qQS-Uj-4QZ"/>
+        <segue reference="VVs-Zt-gem"/>
+        <segue reference="hWk-RA-vL1"/>
     </inferredMetricsTieBreakers>
 </document>
