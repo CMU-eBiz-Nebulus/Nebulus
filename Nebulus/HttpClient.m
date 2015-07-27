@@ -35,6 +35,11 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
+    if ([json count] == 0) return nil;
+    NSDictionary* headers = [(NSHTTPURLResponse *)response allHeaderFields];
+    NSString *cookie = [headers objectForKey:@"Set-Cookie"];
+    
+    
     User *user = [[User alloc] init];
     [self getModel:json Model:user];
     user.objectID = [json objectForKey:@"_id"];
@@ -44,6 +49,7 @@
     user.about = [json objectForKey:@"about"];
     user.pictureUpdateTime = [json objectForKey:@"pictureUpdateTime"];
     user.tags = [json objectForKey:@"tags"];
+    user.cookie = cookie;
     return user;
 }
 
@@ -51,6 +57,7 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];;
     [defaults removeObjectForKey:@"username"];
+    [defaults removeObjectForKey:@"cookie"];
     
     NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/auth/logout/"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl

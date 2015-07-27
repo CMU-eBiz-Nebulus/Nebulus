@@ -16,6 +16,7 @@
 @property(nonatomic, strong) NSNumber *pictureUpdateTime;
 @property(nonatomic, strong) NSArray *tags;
 @property(nonatomic, strong) NSString *about;
+@property(nonatomic, strong) NSString *cookie;
 
 
 @end

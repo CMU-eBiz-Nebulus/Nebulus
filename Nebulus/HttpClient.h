@@ -12,5 +12,7 @@
 
 @interface HttpClient : NSObject
 +(User*) getUser: (NSString*) username password: (NSString*) password;
++(void) logout
++(BOOL) registerUser:(NSString*) username password: (NSString*) password email: (NSString*) email
 
 @end
