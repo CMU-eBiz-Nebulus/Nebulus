@@ -97,6 +97,7 @@
 
 }
 
+//Update a user's profile by given user object, return the updated user object if successful
 +(User*) updateUserInfo:(User*) user{
     NSString *urlString = [[NSString alloc]initWithFormat:@"http://test.nebulus.io:8080/api/user/%@", user.objectID];
     NSURL *aUrl = [NSURL URLWithString:urlString];
@@ -109,36 +110,61 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSDictionary *dict = [user convertToDict];
-    
     NSError *error;
     NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
     [request setHTTPBody:postdata];
+    
+    
+    
     NSURLResponse *response = nil;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:&response
                                                              error:&error];
-    
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
-//    User *receivedUser = User 
-    return nil;
+    User *receivedUser = [[User alloc] initWithDict:json];
+    return receivedUser;
 }
 
 
-
-
-
-
-+(void)getModel: (NSDictionary*) json Model: (Model*) model {
-    NSDictionary *meta = [json objectForKey: @"_meta"];
-    model.created = [meta objectForKey:@"created"];
-    model.edited = [meta objectForKey:@"edited"];
-    model.objectName = [meta objectForKey:@"name"];
+//Returns the user object of the currently logged in user
++(User*) getCurrentUser {
+    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/auth/session"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                           error:&error];
+    User *currentUser = [[User alloc] initWithDict:json];
+    return currentUser;
 }
 
-+(void)addTag:(NSString*) tag {
+//Return a array of user objects of followers
++(NSArray*) getFollowers:(User*) user{
+    NSMutableArray *followers = [[NSMutableArray alloc]init];
+
+
+    return followers;
 }
+
+//Return a array of user objects of following users
++(NSArray*) getFollowing:(User*) user{
+    NSMutableArray *following = [[NSMutableArray alloc]init];
+    
+    
+    return following;
+}
+
 
 
 @end
