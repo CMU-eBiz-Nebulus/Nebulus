@@ -36,6 +36,8 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:user.username forKey:@"username"];
         [defaults setObject:user.cookie forKey:@"cookie"];
+        [defaults synchronize];
+//        //[self dismissViewControllerAnimated:YES completion:nil];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
         [self presentViewController:tabBarController animated:NO completion:nil];
