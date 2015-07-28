@@ -17,12 +17,12 @@
 
 @implementation RecordViewController
 @synthesize stopButton, playButton, recordPauseButton, sampleratelabel, bitratelabel, sampleratecontrol, bitratecontrol;
-float samplerate, bitrate;
+float samplerate, bitdepth;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     samplerate = 44100;
-    bitrate = 128000;
+    bitdepth= 32;
     // Disable Stop/Play button when application launches
     [stopButton setEnabled:NO];
     [playButton setEnabled:NO];
@@ -44,7 +44,7 @@ float samplerate, bitrate;
     [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
     [recordSetting setValue:[NSNumber numberWithFloat:samplerate] forKey:AVSampleRateKey];
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
-    [recordSetting setObject:[NSNumber numberWithInt:bitrate] forKey:AVEncoderBitRateKey];
+    [recordSetting setObject:[NSNumber numberWithInt:bitdepth] forKey:AVEncoderBitDepthHintKey];
     
     // Initiate and prepare the recorder
     recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:nil];
@@ -133,16 +133,16 @@ float samplerate, bitrate;
         switch (bitratecontrol.selectedSegmentIndex)
         {
             case 0:
-                bitratelabel.text = @"Bit Rate: 48000";
-                bitrate = 48000;
+                bitratelabel.text = @"Bit Depth: 8";
+                bitdepth = 8;
                 break;
             case 1:
-                bitratelabel.text = @"Bit Rate: 96000";
-                bitrate = 96000;
+                bitratelabel.text = @"Bit Depth: 16";
+                bitdepth = 16;
                 break;
             case 2:
-                bitratelabel.text = @"Bit Rate: 128000";
-                bitrate = 128000;
+                bitratelabel.text = @"Bit Depth: 32";
+                bitdepth = 32;
                 break;
             default:
                 break; 
