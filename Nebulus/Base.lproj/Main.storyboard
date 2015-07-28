@@ -831,7 +831,7 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sid-dE-0P3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3386" y="2584"/>
+            <point key="canvasLocation" x="3790.5" y="2616"/>
         </scene>
         <!--Detail-->
         <scene sceneID="ZMk-ID-UnJ">
@@ -1121,7 +1121,7 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qx-YF-sdt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2523" y="3352"/>
+            <point key="canvasLocation" x="3790.5" y="3456"/>
         </scene>
         <!--Me-->
         <scene sceneID="b5r-XF-P8o">
