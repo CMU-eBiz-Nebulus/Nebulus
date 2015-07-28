@@ -21,12 +21,13 @@
 		92A574B61B62D20F0015032B /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574B51B62D20F0015032B /* HttpClient.m */; };
 		92A574F71B655CAB0015032B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F61B655CAB0015032B /* Model.m */; };
 		92A574FA1B655CD70015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F91B655CD70015032B /* User.m */; };
+		981F9B931B670EFB00031869 /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F9B921B670EFB00031869 /* FollowViewController.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFE597F31B6322B900ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		AFE597FC1B6333DA00ED0520 /* CreateAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597FB1B6333DA00ED0520 /* CreateAlbum.m */; };
-		AFE598001B6333FB00ED0520 /* CreateProject.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597FF1B6333FB00ED0520 /* CreateProject.m */; };
+		AFE597FC1B6333DA00ED0520 /* CreateAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597FB1B6333DA00ED0520 /* CreateAlbumViewController.m */; };
+		AFE598001B6333FB00ED0520 /* CreateProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597FF1B6333FB00ED0520 /* CreateProjectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,14 +67,16 @@
 		92A574F61B655CAB0015032B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		92A574F81B655CD70015032B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		92A574F91B655CD70015032B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		981F9B911B670EFB00031869 /* FollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowViewController.h; sourceTree = "<group>"; };
+		981F9B921B670EFB00031869 /* FollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowViewController.m; sourceTree = "<group>"; };
 		98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
 		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		98C947321B62D5B8000E0CB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		AFE597FB1B6333DA00ED0520 /* CreateAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAlbum.m; sourceTree = "<group>"; };
-		AFE597FD1B6333E300ED0520 /* CreateAlbum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateAlbum.h; sourceTree = "<group>"; };
-		AFE597FE1B6333EF00ED0520 /* CreateProject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProject.h; sourceTree = "<group>"; };
-		AFE597FF1B6333FB00ED0520 /* CreateProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProject.m; sourceTree = "<group>"; };
+		AFE597FB1B6333DA00ED0520 /* CreateAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAlbumViewController.m; sourceTree = "<group>"; };
+		AFE597FD1B6333E300ED0520 /* CreateAlbumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateAlbumViewController.h; sourceTree = "<group>"; };
+		AFE597FE1B6333EF00ED0520 /* CreateProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProjectViewController.h; sourceTree = "<group>"; };
+		AFE597FF1B6333FB00ED0520 /* CreateProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProjectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +136,12 @@
 				98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */,
 				98C947311B62D5B8000E0CB8 /* ProfileViewController.h */,
 				98C947321B62D5B8000E0CB8 /* ProfileViewController.m */,
-				AFE597FB1B6333DA00ED0520 /* CreateAlbum.m */,
-				AFE597FD1B6333E300ED0520 /* CreateAlbum.h */,
-				AFE597FE1B6333EF00ED0520 /* CreateProject.h */,
-				AFE597FF1B6333FB00ED0520 /* CreateProject.m */,
+				981F9B911B670EFB00031869 /* FollowViewController.h */,
+				981F9B921B670EFB00031869 /* FollowViewController.m */,
+				AFE597FB1B6333DA00ED0520 /* CreateAlbumViewController.m */,
+				AFE597FD1B6333E300ED0520 /* CreateAlbumViewController.h */,
+				AFE597FE1B6333EF00ED0520 /* CreateProjectViewController.h */,
+				AFE597FF1B6333FB00ED0520 /* CreateProjectViewController.m */,
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
 				929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */,
 				929B70B91B5D3FC000264D32 /* Supporting Files */,
@@ -285,9 +290,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
-				AFE597FC1B6333DA00ED0520 /* CreateAlbum.m in Sources */,
+				AFE597FC1B6333DA00ED0520 /* CreateAlbumViewController.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
-				AFE598001B6333FB00ED0520 /* CreateProject.m in Sources */,
+				981F9B931B670EFB00031869 /* FollowViewController.m in Sources */,
+				AFE598001B6333FB00ED0520 /* CreateProjectViewController.m in Sources */,
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
 				92A574FA1B655CD70015032B /* User.m in Sources */,
 				AFE597F31B6322B900ED0520 /* (null) in Sources */,
