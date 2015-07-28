@@ -36,6 +36,8 @@
     NSArray *follower_list = [HttpClient getFollowers:user];
     NSArray *following_list = [HttpClient getFollowing:user];
     
+    NSLog(@"Username = %@", user.username);
+    
     [self.followedButton setTitle:[NSString stringWithFormat:@"Following: %lu", (unsigned long)[following_list count]]
                          forState:UIControlStateNormal];
     

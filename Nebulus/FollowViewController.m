@@ -26,7 +26,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"person"];
-    [cell.textLabel setText:[self.follow_list objectAtIndex:indexPath.row]];
+    User *user = [self.follow_list objectAtIndex:indexPath.row];
+    [cell.textLabel setText: user.username];
     return cell;
 }
 
