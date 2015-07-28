@@ -7,8 +7,8 @@
 //
 
 #import "ProfileDetailViewController.h"
-#import "CreateAlbum.h"
-#import "CreateProject.h"
+#import "CreateAlbumViewController.h"
+#import "CreateProjectViewController.h"
 #import "RecordViewController.h"
 
 @interface ProfileDetailViewController ()
@@ -22,10 +22,10 @@
 - (IBAction)manualSegueForCreation:(UIBarButtonItem *)sender {
     
     if(self.mode == PROJECTS){
-        CreateProject *cpvc = [self.storyboard instantiateViewControllerWithIdentifier:@"createProject"];
+        CreateProjectViewController *cpvc = [self.storyboard instantiateViewControllerWithIdentifier:@"createProject"];
         [self.navigationController pushViewController:cpvc animated:YES];
     } else if (self.mode == ALBUMS){
-        CreateAlbum *cavc = [self.storyboard instantiateViewControllerWithIdentifier:@"createAlbum"];
+        CreateAlbumViewController *cavc = [self.storyboard instantiateViewControllerWithIdentifier:@"createAlbum"];
         [self.navigationController pushViewController:cavc animated:YES];
     } else if (self.mode == CLIPS){
         RecordViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"recordViewController"];

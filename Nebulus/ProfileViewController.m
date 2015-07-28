@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "ProfileDetailViewController.h"
 #import "HttpClient.h"
+#import "FollowViewController.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -21,6 +22,8 @@
 @implementation ProfileViewController
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
+    
     [self.headPhoto setImage:[UIImage imageNamed:@"pic2"]];
     [self.headPhoto sizeToFit];
     
@@ -28,7 +31,22 @@
     [self.userNameLabel setText:[defaults objectForKey:@"username"]];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    User *user = [HttpClient getCurrentUser];
+    NSArray *follower_list = [HttpClient getFollowers:user];
+    NSArray *following_list = [HttpClient getFollowing:user];
+    
+    [self.followedButton setTitle:[NSString stringWithFormat:@"Following: %lu", (unsigned long)[following_list count]]
+                         forState:UIControlStateNormal];
+    
+    [self.followingButton setTitle:[NSString stringWithFormat:@"Followers: %lu", (unsigned long)[follower_list count]]
+                         forState:UIControlStateNormal];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([sender isKindOfClass:[UITableViewCell class]]){
+        [((UITableViewCell *)sender) setSelected:NO];
+    }
     if ([segue.identifier isEqualToString:@"Clips"]) {
         if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
             ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
@@ -48,14 +66,14 @@
             pdvc.title = segue.identifier;
         }
     } else if ([segue.identifier isEqualToString:@"followedSegue"]) {
-        if ([segue.destinationViewController isKindOfClass:[UITableViewController class]]) {
-            UITableViewController *tvc = (UITableViewController *)segue.destinationViewController;
-            tvc.title = @"Followed";
+        if ([segue.destinationViewController isKindOfClass:[FollowViewController class]]) {
+            FollowViewController *tvc = (FollowViewController *)segue.destinationViewController;
+            tvc.followingMode = YES;
         }
     } else if ([segue.identifier isEqualToString:@"followingSegue"]) {
-        if ([segue.destinationViewController isKindOfClass:[UITableViewController class]]) {
-            UITableViewController *tvc = (UITableViewController *)segue.destinationViewController;
-            tvc.title = @"Following";
+        if ([segue.destinationViewController isKindOfClass:[FollowViewController class]]) {
+            FollowViewController *tvc = (FollowViewController *)segue.destinationViewController;
+            tvc.followingMode = NO;
         }
     } else if ([segue.identifier isEqualToString:@"logout"]){
         [HttpClient logout];
