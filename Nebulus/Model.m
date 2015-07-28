@@ -17,7 +17,7 @@
 -(id)initWithDict:(NSDictionary*) json {
     self = [super init];
     self.objectID = [json objectForKey:@"_id"];
-    NSDictionary *meta = [json objectForKey:@"meta"];
+    NSDictionary *meta = [json objectForKey:@"_meta"];
     self.objectName = [meta objectForKey:@"name"];
     self.created = [meta objectForKey:@"created"];
     self.edited = [meta objectForKey:@"edited"];
