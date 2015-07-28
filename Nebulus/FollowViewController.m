@@ -16,12 +16,18 @@
 
 @implementation FollowViewController
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    self.follow_list = nil;
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     self.title = self.followingMode ? @"Following" : @"Followers";
     User *user = [HttpClient getCurrentUser];
     self.follow_list = self.followingMode ? [HttpClient getFollowing:user] : [HttpClient getFollowers:user];
+    [self.tableView reloadData];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
