@@ -151,18 +151,60 @@
 
 //Return a array of user objects of followers
 +(NSArray*) getFollowers:(User*) user{
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/followers?followee=%@", user.objectID ];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSLog(@"starttopost");
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *rawFollowers = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
     NSMutableArray *followers = [[NSMutableArray alloc]init];
-
-
+    for (int i = 0; i < [rawFollowers count]; i++) {
+        NSDictionary* json = rawFollowers[i];
+        NSDictionary *follower = [json objectForKey:@"follower"];
+        User *f = [[User alloc] initWithDict:follower];
+        [followers addObject:f];
+    }
     return followers;
 }
 
-//Return a array of user objects of following users
+//Return a array of user objects of followee
 +(NSArray*) getFollowing:(User*) user{
-    NSMutableArray *following = [[NSMutableArray alloc]init];
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/followers?follower=%@", user.objectID ];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
     
     
-    return following;
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSLog(@"starttopost");
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *rawFollowers = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *followers = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [rawFollowers count]; i++) {
+        NSDictionary* json = rawFollowers[i];
+        NSDictionary *follower = [json objectForKey:@"followee"];
+        User *f = [[User alloc] initWithDict:follower];
+        [followers addObject:f];
+    }
+    return followers;
 }
 
 
