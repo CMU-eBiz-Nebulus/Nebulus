@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "User.h"
+#import "HttpClient.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +27,10 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *loginView = [storyboard instantiateViewControllerWithIdentifier:@"loginView"];
         self.window.rootViewController = loginView;
-    } else NSLog(@"123");
+    } else {
+        [HttpClient getUser:username password:[defaults objectForKey:@"password"]];
+    
+    };
     return YES;
 }
 

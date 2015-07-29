@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Clip.h"
 
 @interface HttpClient : NSObject
 +(User*) getUser: (NSString*) username password: (NSString*) password;
@@ -18,5 +18,7 @@
 +(NSArray*) getFollowers:(User*) user;
 +(NSArray*) getFollowing:(User*) user;
 +(NSArray*) getTimeline:(User*) user;
++(BOOL) follow:(User*) followee follower:(User*) follower;
++(NSArray*) getClip:(NSString*) userId;
 
 @end

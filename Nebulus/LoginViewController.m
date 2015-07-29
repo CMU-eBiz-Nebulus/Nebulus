@@ -71,6 +71,7 @@
     if (user != nil) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:user.username forKey:@"username"];
+        [defaults setObject:self.passwordField.text forKey:@"password"];
         [defaults setObject:user.cookie forKey:@"cookie"];
         [defaults synchronize];
         //        //[self dismissViewControllerAnimated:YES completion:nil];

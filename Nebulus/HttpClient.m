@@ -207,8 +207,69 @@
     return followers;
 }
 
++(BOOL) follow:(User*) followee follower:(User*) follower{
+    NSString *urlString = @"http://test.nebulus.io:8080/api/followers";
+    NSURL *aUrl = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *followerDict = [follower convertToDict];
+    NSDictionary *followeeDict = [followee convertToDict];
+    NSMutableArray *postDict = [[NSMutableArray alloc]init];
+    [postDict setValue:followeeDict forKey:@"followee"];
+    [postDict setValue:followerDict forKey:@"follower"];
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:postDict options:0 error:&error];
+    [request setHTTPBody:postdata];
+    
+    
+    
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                          error:&error];
+    if(json) {
+        return YES;
+    } else {
+        NSLog(@"%@", error);
+        return NO;
+    }
+}
 
-
+//Return all the clips that belongs to the given user id
++(NSArray*) getClip:(NSString*) userId {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/clips?user=%@",userId ];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSLog(@"starttopost");
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *rawClips = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *clips = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [rawClips count]; i++) {
+        NSDictionary* json = rawClips[i];
+        Clip *c = [[Clip alloc] initWithDict:json];
+        [clips addObject:c];
+    }
+    return clips;}
 
 
 @end
