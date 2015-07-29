@@ -260,12 +260,18 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                                                          returningResponse:&response
                                                                                      error:&error];
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
-                                                                                 options:kNilOptions
+    NSArray* arr = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                                 options:NSJSONReadingMutableLeaves
                                                                                    error:&error];
-    Model *followModel = [[Model alloc]initWithDict:json];
     //If there is no such relationship, return false
-    if (followModel.objectID == nil) return false;
+    if ([arr count] == 0) {
+        NSLog(@"No such a relationship");
+        return false;
+    }
+    NSDictionary *json = arr[0];
+    NSLog(json.description);
+    Model *followModel = [[Model alloc]initWithDict:json];
+
     
     NSString *modelId = followModel.objectID;
     
@@ -275,7 +281,7 @@
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
     
-    [request setHTTPMethod:@"DELETE"];
+    [deleteRequest setHTTPMethod:@"DELETE"];
     
     
     [NSURLConnection sendSynchronousRequest:deleteRequest
