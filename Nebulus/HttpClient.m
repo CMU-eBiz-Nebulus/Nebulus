@@ -269,9 +269,7 @@
         return false;
     }
     NSDictionary *json = arr[0];
-    NSLog(json.description);
     Model *followModel = [[Model alloc]initWithDict:json];
-
     
     NSString *modelId = followModel.objectID;
     
