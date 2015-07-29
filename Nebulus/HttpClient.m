@@ -207,6 +207,43 @@
     return followers;
 }
 
++(BOOL) follow:(User*) followee follower:(User*) follower{
+    NSString *urlString = @"http://test.nebulus.io:8080/api/followers";
+    NSURL *aUrl = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *followerDict = [follower convertToDict];
+    NSDictionary *followeeDict = [followee convertToDict];
+    NSMutableArray *postDict = [[NSMutableArray alloc]init];
+    [postDict setValue:followeeDict forKey:@"followee"];
+    [postDict setValue:followerDict forKey:@"follower"];
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:postDict options:0 error:&error];
+    [request setHTTPBody:postdata];
+    
+    
+    
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                          error:&error];
+    if(json) {
+        return YES;
+    } else {
+        NSLog(@"%@", error);
+        return NO;
+    }
+}
+
 
 
 

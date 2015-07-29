@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "User.h"
 
@@ -18,5 +17,7 @@
 +(NSArray*) getFollowers:(User*) user;
 +(NSArray*) getFollowing:(User*) user;
 +(NSArray*) getTimeline:(User*) user;
++(BOOL) follow:(User*) followee follower:(User*) follower;
+
 
 @end
