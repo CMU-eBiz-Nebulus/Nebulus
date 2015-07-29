@@ -685,7 +685,7 @@ Some text here ...</string>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Nrq-SX-lMR" kind="show" identifier="otherPerson" id="1ZF-uh-o9b"/>
+                                    <segue destination="XZ8-e2-OiE" kind="show" identifier="otherPerson" id="JGv-R4-yS7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1354,7 +1354,11 @@ Some text here ...</string>
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="rXv-5d-qNf">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Sef-Y2-dGF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Sef-Y2-dGF">
+                            <connections>
+                                <action selector="followButtonClicked:" destination="XZ8-e2-OiE" id="e8l-jl-jw3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1367,25 +1371,7 @@ Some text here ...</string>
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2203" y="4345"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="g9p-LX-Hwb">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nrq-SX-lMR" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1lV-pJ-UPq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XZ8-e2-OiE" kind="relationship" relationship="rootViewController" id="irc-CD-3Ns"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TGv-q1-2qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1391" y="4345"/>
+            <point key="canvasLocation" x="1391" y="4523"/>
         </scene>
     </scenes>
     <resources>

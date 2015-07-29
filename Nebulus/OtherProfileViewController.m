@@ -26,6 +26,7 @@
     if([self.followButton.title isEqualToString:@"Follow"]){
         [HttpClient follow:self.me follower:self.other];
     } else if ([self.followButton.title isEqualToString:@"Unfollow"]){
+        [HttpClient unfollow:self.other follower:self.me];
     }
     
     

@@ -51,7 +51,7 @@
             opvc.me = [HttpClient getCurrentUser];
             opvc.other = [self.follow_list objectAtIndex:[self.tableView indexPathForCell:cell].row];
             
-            NSLog(@"%@, %@", opvc.me.username, opvc.other.username);
+            NSLog(@"Segue info: %@, %@", opvc.me.username, opvc.other.username);
         }
     }
 }
