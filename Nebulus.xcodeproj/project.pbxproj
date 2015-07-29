@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		848660801B615848000D849B /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486607F1B615848000D849B /* RecordViewController.m */; };
 		848660821B615916000D849B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848660811B615916000D849B /* AVFoundation.framework */; };
+		9283EE1F1B686AC8004A553B /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE1E1B686AC8004A553B /* Clip.m */; };
+		9283EE221B686ADD004A553B /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE211B686ADD004A553B /* Project.m */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
 		929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BE1B5D3FC000264D32 /* AppDelegate.m */; };
 		929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70C11B5D3FC000264D32 /* FirstViewController.m */; };
@@ -21,6 +23,7 @@
 		92A574B61B62D20F0015032B /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574B51B62D20F0015032B /* HttpClient.m */; };
 		92A574F71B655CAB0015032B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F61B655CAB0015032B /* Model.m */; };
 		92A574FA1B655CD70015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F91B655CD70015032B /* User.m */; };
+		92A574FD1B6857AA0015032B /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574FC1B6857AA0015032B /* Album.m */; };
 		981F9B931B670EFB00031869 /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F9B921B670EFB00031869 /* FollowViewController.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
@@ -44,6 +47,10 @@
 		8486607E1B615848000D849B /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		8486607F1B615848000D849B /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		848660811B615916000D849B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9283EE1D1B686AC8004A553B /* Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clip.h; sourceTree = "<group>"; };
+		9283EE1E1B686AC8004A553B /* Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clip.m; sourceTree = "<group>"; };
+		9283EE201B686ADD004A553B /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		9283EE211B686ADD004A553B /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		929B70B61B5D3FC000264D32 /* Nebulus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		929B70BA1B5D3FC000264D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929B70BB1B5D3FC000264D32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,6 +74,8 @@
 		92A574F61B655CAB0015032B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		92A574F81B655CD70015032B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		92A574F91B655CD70015032B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		92A574FB1B6857910015032B /* Album.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		92A574FC1B6857AA0015032B /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		981F9B911B670EFB00031869 /* FollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowViewController.h; sourceTree = "<group>"; };
 		981F9B921B670EFB00031869 /* FollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowViewController.m; sourceTree = "<group>"; };
 		98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
@@ -184,6 +193,12 @@
 				92A574F61B655CAB0015032B /* Model.m */,
 				92A574F81B655CD70015032B /* User.h */,
 				92A574F91B655CD70015032B /* User.m */,
+				92A574FB1B6857910015032B /* Album.h */,
+				92A574FC1B6857AA0015032B /* Album.m */,
+				9283EE201B686ADD004A553B /* Project.h */,
+				9283EE211B686ADD004A553B /* Project.m */,
+				9283EE1D1B686AC8004A553B /* Clip.h */,
+				9283EE1E1B686AC8004A553B /* Clip.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -291,6 +306,7 @@
 			files = (
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				AFE597FC1B6333DA00ED0520 /* CreateAlbumViewController.m in Sources */,
+				9283EE221B686ADD004A553B /* Project.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				981F9B931B670EFB00031869 /* FollowViewController.m in Sources */,
 				AFE598001B6333FB00ED0520 /* CreateProjectViewController.m in Sources */,
@@ -298,10 +314,12 @@
 				92A574FA1B655CD70015032B /* User.m in Sources */,
 				AFE597F31B6322B900ED0520 /* (null) in Sources */,
 				92A574B61B62D20F0015032B /* HttpClient.m in Sources */,
+				9283EE1F1B686AC8004A553B /* Clip.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
 				AFE597BC1B62E22100ED0520 /* (null) in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
+				92A574FD1B6857AA0015032B /* Album.m in Sources */,
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,

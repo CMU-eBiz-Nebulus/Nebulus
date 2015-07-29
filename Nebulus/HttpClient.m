@@ -244,8 +244,32 @@
     }
 }
 
-
-
+//Return all the clips that belongs to the given user id
++(NSArray*) getClip:(NSString*) userId {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/clips?user=%@",userId ];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSLog(@"starttopost");
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *rawClips = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *clips = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [rawClips count]; i++) {
+        NSDictionary* json = rawClips[i];
+        Clip *c = [[Clip alloc] initWithDict:json];
+        [clips addObject:c];
+    }
+    return clips;}
 
 
 @end

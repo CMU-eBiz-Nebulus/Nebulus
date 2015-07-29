@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Clip.h"
 
 @interface HttpClient : NSObject
 +(User*) getUser: (NSString*) username password: (NSString*) password;
@@ -18,6 +19,6 @@
 +(NSArray*) getFollowing:(User*) user;
 +(NSArray*) getTimeline:(User*) user;
 +(BOOL) follow:(User*) followee follower:(User*) follower;
-
++(NSArray*) getClip:(NSString*) userId;
 
 @end
