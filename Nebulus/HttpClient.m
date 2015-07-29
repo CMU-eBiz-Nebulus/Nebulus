@@ -162,7 +162,6 @@
     
     NSError *error;
     NSURLResponse *response = nil;
-    NSLog(@"starttopost");
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:&response
                                                              error:&error];
@@ -237,6 +236,52 @@
                                                          options:kNilOptions
                                                           error:&error];
     if(json) {
+        return YES;
+    } else {
+        NSLog(@"%@", error);
+        return NO;
+    }
+}
+
++(BOOL) unfollow:(User*) followee follower:(User*) follower{
+    
+    NSString *getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/followers?followee=%@&follower=%@", followee.objectID, follower.objectID];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+                            
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                                         returningResponse:&response
+                                                                                     error:&error];
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                                 options:kNilOptions
+                                                                                   error:&error];
+    Model *followModel = [[Model alloc]initWithDict:json];
+    //If there is no such relationship, return false
+    if (followModel.objectID == nil) return false;
+    
+    NSString *modelId = followModel.objectID;
+    
+    NSString * urlStr = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/followers/%@", modelId];
+    NSURL *deleteUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *deleteRequest = [NSMutableURLRequest requestWithURL:deleteUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"DELETE"];
+    
+    
+    [NSURLConnection sendSynchronousRequest:deleteRequest
+                                                 returningResponse:&response
+                                                             error:&error];
+    if(error) {
         return YES;
     } else {
         NSLog(@"%@", error);
