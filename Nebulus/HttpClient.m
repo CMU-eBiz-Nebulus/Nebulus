@@ -219,7 +219,7 @@
     
     NSDictionary *followerDict = [follower convertToDict];
     NSDictionary *followeeDict = [followee convertToDict];
-    NSDictionary *postDict = [[NSDictionary alloc]init];
+    NSMutableDictionary *postDict = [[NSMutableDictionary alloc]init];
     [postDict setValue:followeeDict forKey:@"followee"];
     [postDict setValue:followerDict forKey:@"follower"];
     NSError *error;
