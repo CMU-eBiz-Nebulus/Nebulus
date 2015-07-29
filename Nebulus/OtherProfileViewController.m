@@ -24,7 +24,7 @@
 @implementation OtherProfileViewController
 - (IBAction)followButtonClicked:(UIBarButtonItem *)sender {
     if([self.followButton.title isEqualToString:@"Follow"]){
-        [HttpClient follow:self.me follower:self.other];
+        [HttpClient follow:self.other follower:self.me];
     } else if ([self.followButton.title isEqualToString:@"Unfollow"]){
         [HttpClient unfollow:self.other follower:self.me];
     }
