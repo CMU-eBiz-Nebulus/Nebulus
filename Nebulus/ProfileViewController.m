@@ -13,6 +13,7 @@
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UITextView *tags;
 @property (weak, nonatomic) IBOutlet UIImageView *headPhoto;
 @property (weak, nonatomic) IBOutlet UIButton *postsButton;
 @property (weak, nonatomic) IBOutlet UIButton *followedButton;
@@ -37,6 +38,11 @@
     NSArray *following_list = [HttpClient getFollowing:user];
     
     NSLog(@"Username = %@", user.username);
+    
+    NSString *descripton = [[NSString stringWithFormat:@"Tags: %@", [user.tags componentsJoinedByString:@", "]]
+                            stringByAppendingString:[NSString stringWithFormat:@"\n\n%@", user.about]];
+    
+    [self.tags setText:descripton];
     
     [self.followedButton setTitle:[NSString stringWithFormat:@"Following: %lu", (unsigned long)[following_list count]]
                          forState:UIControlStateNormal];

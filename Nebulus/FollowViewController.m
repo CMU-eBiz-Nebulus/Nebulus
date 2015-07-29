@@ -9,6 +9,7 @@
 #import "FollowViewController.h"
 #import "User.h"
 #import "HttpClient.h"
+#import "OtherProfileViewController.h"
 
 @interface FollowViewController ()
 @property (strong, nonatomic) NSArray *follow_list;
@@ -34,6 +35,17 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //NSLog(@"Number of entries : %d", self.contents.count);
     return self.follow_list ? [self.follow_list count] : 0;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"otherPerson"]) {
+        if ([segue.destinationViewController isKindOfClass:[OtherProfileViewController class]]) {
+            OtherProfileViewController *opvc = (OtherProfileViewController *)segue.destinationViewController;
+            UITableViewCell *cell = (UITableViewCell *)sender;
+            opvc.me = [HttpClient getCurrentUser];
+            opvc.other = [self.follow_list objectAtIndex:[self.tableView indexPathForCell:cell].row];
+        }
+    }
 }
 
 @end
