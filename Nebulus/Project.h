@@ -34,9 +34,21 @@
 //}
 
 #import "Model.h"
+#import "User.h"
 
 @interface Project : Model
 -(id) initWithDict:(NSDictionary *)json;
 -(NSDictionary*)convertToDict;
+
+
+@property(nonatomic, strong) NSArray *arrangements;
+@property(nonatomic, strong) NSArray *bounces;
+@property(nonatomic, strong) NSArray *clips;
+@property(nonatomic, strong) NSString *currentVersion;
+@property(nonatomic, strong) NSArray *docs;
+@property(nonatomic, strong) User *creator;
+@property(nonatomic, strong) NSArray *editors;
+
+
 
 @end
