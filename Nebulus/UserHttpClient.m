@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
 
-#import "HttpClient.h"
+#import "UserHttpClient.h"
 
 
-@implementation HttpClient
-+(User*) getUser: (NSString*) username password: (NSString*) password; {
+@implementation UserHttpClient
++(User*) login: (NSString*) username password: (NSString*) password; {
     NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/auth/login/"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -99,7 +99,7 @@
 
 //Update a user's profile by given user object, return the updated user object if successful
 +(User*) updateUserInfo:(User*) user{
-    NSString *urlString = [[NSString alloc]initWithFormat:@"http://test.nebulus.io:8080/api/user/%@", user.objectID];
+    NSString *urlString = [[NSString alloc]initWithFormat:@"http://test.nebulus.io:8080/api/users/%@", user.objectID];
     NSURL *aUrl = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -294,8 +294,35 @@
 }
 
 //Return all the clips that belongs to the given user id
++(NSArray*) searchUser:(NSString*) searchStr {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/users/?search=%@", searchStr];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *raw = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *users = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [raw count]; i++) {
+        NSDictionary* json = raw[i];
+        User *u = [[User alloc] initWithDict:json];
+        [users addObject:u];
+    }
+    return users;
+}
+
+//Return all the clips that belongs to the given user id
 +(NSArray*) getClip:(NSString*) userId {
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/clips?user=%@",userId ];
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/clips/?user=%@",userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -318,7 +345,8 @@
         Clip *c = [[Clip alloc] initWithDict:json];
         [clips addObject:c];
     }
-    return clips;}
+    return clips;
+}
 
 
 @end

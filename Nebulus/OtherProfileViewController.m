@@ -8,7 +8,7 @@
 
 #import "OtherProfileViewController.h"
 #import "User.h"
-#import "HttpClient.h"
+#import "UserHttpClient.h"
 
 @interface OtherProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *followButton;
@@ -24,9 +24,9 @@
 @implementation OtherProfileViewController
 - (IBAction)followButtonClicked:(UIBarButtonItem *)sender {
     if([self.followButton.title isEqualToString:@"Follow"]){
-        [HttpClient follow:self.other follower:self.me];
+        [UserHttpClient follow:self.other follower:self.me];
     } else if ([self.followButton.title isEqualToString:@"Unfollow"]){
-        [HttpClient unfollow:self.other follower:self.me];
+        [UserHttpClient unfollow:self.other follower:self.me];
     }
     
     
@@ -42,8 +42,8 @@
 -(void)updateUI{
     [self.username setText: self.other.username];
     
-    NSArray *follower_list = [HttpClient getFollowers:self.other];
-    NSArray *following_list = [HttpClient getFollowing:self.other];
+    NSArray *follower_list = [UserHttpClient getFollowers:self.other];
+    NSArray *following_list = [UserHttpClient getFollowing:self.other];
     
     NSString *descripton = [[NSString stringWithFormat:@"Tags: %@",
                              [self.other.tags componentsJoinedByString:@", "]]
