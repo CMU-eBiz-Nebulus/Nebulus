@@ -20,6 +20,7 @@
 		929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */; };
 		929B70D91B5D3FC000264D32 /* NebulusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70D81B5D3FC000264D32 /* NebulusTests.m */; };
 		929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70E31B5D48AC00264D32 /* LoginViewController.m */; };
+		929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 929DA63A1B6A91AA00F2663C /* MusicHttpClient.m */; };
 		92A574B61B62D20F0015032B /* UserHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574B51B62D20F0015032B /* UserHttpClient.m */; };
 		92A574F71B655CAB0015032B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F61B655CAB0015032B /* Model.m */; };
 		92A574FA1B655CD70015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F91B655CD70015032B /* User.m */; };
@@ -70,6 +71,8 @@
 		929B70D81B5D3FC000264D32 /* NebulusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulusTests.m; sourceTree = "<group>"; };
 		929B70E21B5D48AC00264D32 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		929B70E31B5D48AC00264D32 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		929DA6391B6A91AA00F2663C /* MusicHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicHttpClient.h; sourceTree = "<group>"; };
+		929DA63A1B6A91AA00F2663C /* MusicHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicHttpClient.m; sourceTree = "<group>"; };
 		92A574B41B62D20F0015032B /* UserHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHttpClient.h; sourceTree = "<group>"; };
 		92A574B51B62D20F0015032B /* UserHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHttpClient.m; sourceTree = "<group>"; };
 		92A574F51B655CAB0015032B /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 			children = (
 				92A574B41B62D20F0015032B /* UserHttpClient.h */,
 				92A574B51B62D20F0015032B /* UserHttpClient.m */,
+				929DA6391B6A91AA00F2663C /* MusicHttpClient.h */,
+				929DA63A1B6A91AA00F2663C /* MusicHttpClient.m */,
 				92A574F51B655CAB0015032B /* Model.h */,
 				92A574F61B655CAB0015032B /* Model.m */,
 				92A574F81B655CD70015032B /* User.h */,
@@ -332,6 +337,7 @@
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
+				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,

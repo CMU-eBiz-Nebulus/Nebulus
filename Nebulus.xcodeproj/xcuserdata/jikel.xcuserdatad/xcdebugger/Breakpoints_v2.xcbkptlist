@@ -31,6 +31,38 @@
             endingLineNumber = "17"
             landmarkName = "name"
             landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[User name]"
+                  moduleName = "Nebulus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/User.h"
+                  timestampString = "459969279.594896"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[User setName:]"
+                  moduleName = "Nebulus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/User.h"
+                  timestampString = "459969279.595066"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,6 +94,22 @@
             startingLineNumber = "102"
             endingLineNumber = "102"
             landmarkName = "+updateUserInfo:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nebulus/MusicHttpClient.m"
+            timestampString = "459969279.578066"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "+searchUser:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
