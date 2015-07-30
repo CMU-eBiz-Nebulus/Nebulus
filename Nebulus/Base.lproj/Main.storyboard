@@ -127,7 +127,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPn-yj-ZQ6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPn-yj-ZQ6">
                                 <rect key="frame" x="161" y="194" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -144,13 +144,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMA-Xo-bmv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMA-Xo-bmv">
                                 <rect key="frame" x="161" y="128" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="please type your email / phone number " minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ozu-Ty-SOY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="please type your email / phone number " minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ozu-Ty-SOY">
                                 <rect key="frame" x="161" y="154" width="277" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -296,7 +296,7 @@
                     <connections>
                         <segue destination="sxZ-CJ-g0X" kind="relationship" relationship="viewControllers" id="4nv-Y9-mp1"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="fH7-Iz-8iI" kind="relationship" relationship="viewControllers" id="Tiq-RU-hQq"/>
+                        <segue destination="Ug0-iL-j3E" kind="relationship" relationship="viewControllers" id="8Oq-aT-pz6"/>
                         <segue destination="hyv-9B-sIv" kind="relationship" relationship="viewControllers" id="e4D-vT-NPQ"/>
                         <segue destination="xfc-7R-eZk" kind="relationship" relationship="viewControllers" id="HTn-hS-nXY"/>
                     </connections>
@@ -421,7 +421,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCa-zx-wgz" sceneMemberID="firstResponder"/>
                 <exit id="s0e-o4-b7c" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="756" y="579"/>
+            <point key="canvasLocation" x="1748" y="595"/>
         </scene>
         <!--Profile-->
         <scene sceneID="6G2-l3-cPB">
@@ -456,8 +456,8 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-d7-1dF">
-                                                    <rect key="frame" x="160" y="58.5" width="412" height="75"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-d7-1dF">
+                                                    <rect key="frame" x="160" y="59" width="412" height="75"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Rock, Bass, etc.
 Some text here ...</string>
@@ -465,7 +465,7 @@ Some text here ...</string>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6X-77-xk4">
-                                                    <rect key="frame" x="170" y="28" width="81.5" height="20.5"/>
+                                                    <rect key="frame" x="170" y="28" width="82" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -988,7 +988,7 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGA-Fq-zjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424" y="585"/>
+            <point key="canvasLocation" x="2416" y="601"/>
         </scene>
         <!--album-->
         <scene sceneID="MxX-My-u4u">
@@ -1207,8 +1207,8 @@ Some text here ...</string>
                                                         </fragment>
                                                     </attributedString>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Kv-G5f">
-                                                    <rect key="frame" x="160" y="58.5" width="412" height="75"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Kv-G5f">
+                                                    <rect key="frame" x="160" y="59" width="412" height="75"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Rock, Bass, etc.
 Some text here ...</string>
@@ -1216,7 +1216,7 @@ Some text here ...</string>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEe-lm-T9r">
-                                                    <rect key="frame" x="170" y="28" width="81.5" height="20.5"/>
+                                                    <rect key="frame" x="170" y="28" width="82" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1419,7 +1419,7 @@ Some text here ...</string>
                                                     </attributedString>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Project Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0w-8P-JVB">
-                                                    <rect key="frame" x="170" y="28" width="81.5" height="20.5"/>
+                                                    <rect key="frame" x="170" y="28" width="82" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1601,14 +1601,143 @@ Some text here ...</string>
             </objects>
             <point key="canvasLocation" x="2288" y="1188"/>
         </scene>
+        <!--Record-->
+        <scene sceneID="5nI-ie-P8x">
+            <objects>
+                <viewController id="Ug0-iL-j3E" customClass="RecordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T8D-KO-r00"/>
+                        <viewControllerLayoutGuide type="bottom" id="UuL-Pf-mm9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ChU-3Y-iBS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3N-Oy-4vw" customClass="EZAudioPlotGL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MLM-rc-UPZ">
+                                        <rect key="frame" x="0.0" y="455" width="600" height="145"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHR-dQ-Fvy">
+                                                <rect key="frame" x="18" y="57" width="51" height="31"/>
+                                                <color key="onTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="toggleMicrophone:" destination="Ug0-iL-j3E" eventType="valueChanged" id="ajZ-f8-TJK"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Microphone On" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kad-Dr-zc3">
+                                                <rect key="frame" x="85" y="65" width="497" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0VT-Av-zzs">
+                                                <rect key="frame" x="18" y="96" width="51" height="31"/>
+                                                <color key="onTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="toggleRecording:" destination="Ug0-iL-j3E" eventType="valueChanged" id="3HO-y8-SZ2"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording On" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nft-eq-wO0">
+                                                <rect key="frame" x="85" y="104" width="497" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Playing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-WO-Qow">
+                                                <rect key="frame" x="85" y="26" width="497" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPv-Rs-chf">
+                                                <rect key="frame" x="13" y="19" width="59" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="QQM-Zs-tJQ"/>
+                                                    <constraint firstAttribute="width" constant="59" id="qtJ-74-XTc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Play">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playFile:" destination="Ug0-iL-j3E" eventType="touchUpInside" id="PSh-Sj-M3R"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="WPv-Rs-chf" firstAttribute="top" secondItem="MLM-rc-UPZ" secondAttribute="top" constant="19" id="2vX-wd-sAS"/>
+                                            <constraint firstItem="gcS-WO-Qow" firstAttribute="top" secondItem="MLM-rc-UPZ" secondAttribute="top" constant="26" id="C1a-j1-C9F"/>
+                                            <constraint firstItem="WPv-Rs-chf" firstAttribute="leading" secondItem="MLM-rc-UPZ" secondAttribute="leading" constant="13" id="W5M-8g-xIW"/>
+                                            <constraint firstAttribute="trailing" secondItem="gcS-WO-Qow" secondAttribute="trailing" constant="18" id="bZc-2I-NEy"/>
+                                            <constraint firstAttribute="height" constant="145" id="d4d-ft-GdX"/>
+                                            <constraint firstItem="gcS-WO-Qow" firstAttribute="leading" secondItem="WPv-Rs-chf" secondAttribute="trailing" constant="13" id="eVw-2M-DrA"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1A-Hw-Of0">
+                                        <rect key="frame" x="18" y="18" width="80" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fxs-dC-tx7" customClass="EZAudioPlot">
+                                        <rect key="frame" x="107" y="18" width="475" height="39"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="o3a-BU-g22"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="MLM-rc-UPZ" firstAttribute="leading" secondItem="J3N-Oy-4vw" secondAttribute="leading" id="E2q-LV-pEy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fxs-dC-tx7" secondAttribute="trailing" constant="18" id="OIc-Y3-UJi"/>
+                                    <constraint firstItem="y1A-Hw-Of0" firstAttribute="leading" secondItem="J3N-Oy-4vw" secondAttribute="leading" constant="18" id="VlS-g0-qut"/>
+                                    <constraint firstAttribute="bottom" secondItem="MLM-rc-UPZ" secondAttribute="bottom" id="ZeK-bl-hbi"/>
+                                    <constraint firstItem="Fxs-dC-tx7" firstAttribute="leading" secondItem="y1A-Hw-Of0" secondAttribute="trailing" constant="9" id="bUk-nj-n8F"/>
+                                    <constraint firstItem="Fxs-dC-tx7" firstAttribute="top" secondItem="J3N-Oy-4vw" secondAttribute="top" constant="18" id="f61-4E-fVh"/>
+                                    <constraint firstAttribute="trailing" secondItem="MLM-rc-UPZ" secondAttribute="trailing" id="lD2-Rg-NEY"/>
+                                    <constraint firstItem="y1A-Hw-Of0" firstAttribute="top" secondItem="J3N-Oy-4vw" secondAttribute="top" constant="18" id="mqo-fD-1RA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UuL-Pf-mm9" firstAttribute="top" secondItem="J3N-Oy-4vw" secondAttribute="bottom" id="8Wp-tb-BjQ"/>
+                            <constraint firstAttribute="trailing" secondItem="J3N-Oy-4vw" secondAttribute="trailing" id="awL-Tg-fS7"/>
+                            <constraint firstItem="J3N-Oy-4vw" firstAttribute="top" secondItem="ChU-3Y-iBS" secondAttribute="top" id="qTa-LU-2K8"/>
+                            <constraint firstItem="J3N-Oy-4vw" firstAttribute="leading" secondItem="ChU-3Y-iBS" secondAttribute="leading" id="t7M-Xf-YUI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Record" id="AOy-L7-6CC"/>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="y1A-Hw-Of0" id="kVr-5z-Agf"/>
+                        <outlet property="microphoneStateLabel" destination="kad-Dr-zc3" id="8kQ-fi-x9t"/>
+                        <outlet property="microphoneSwitch" destination="DHR-dQ-Fvy" id="Whd-bs-JqY"/>
+                        <outlet property="playButton" destination="WPv-Rs-chf" id="86q-Es-sqT"/>
+                        <outlet property="playingAudioPlot" destination="Fxs-dC-tx7" id="bcR-rN-Q67"/>
+                        <outlet property="playingStateLabel" destination="gcS-WO-Qow" id="pr3-GR-ote"/>
+                        <outlet property="recordSwitch" destination="0VT-Av-zzs" id="xY9-bk-Wu0"/>
+                        <outlet property="recordingAudioPlot" destination="J3N-Oy-4vw" id="Aka-TR-OjF"/>
+                        <outlet property="recordingStateLabel" destination="nft-eq-wO0" id="HzM-ye-1yB"/>
+                        <outlet property="view" destination="ChU-3Y-iBS" id="vbZ-pr-I9w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgo-X3-S6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="744" y="713"/>
+        </scene>
     </scenes>
     <resources>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="4nv-Y9-mp1"/>
+        <segue reference="a7l-Ip-Am4"/>
         <segue reference="NuJ-Dk-jo4"/>
         <segue reference="KAz-Xu-9Nu"/>
-        <segue reference="a7l-Ip-Am4"/>
-        <segue reference="hWk-RA-vL1"/>
     </inferredMetricsTieBreakers>
 </document>
