@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "User.h"
-#import "HttpClient.h"
+#import "UserHttpClient.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
@@ -67,7 +67,7 @@
 }
 
 -(void)login{
-    User *user = [HttpClient getUser:self.usernameField.text password:self.passwordField.text];
+    User *user = [UserHttpClient login:self.usernameField.text password:self.passwordField.text];
     if (user != nil) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:user.username forKey:@"username"];
@@ -86,7 +86,7 @@
 
 -(void)signup{
     
-    if([HttpClient registerUser:self.usernameField.text
+    if([UserHttpClient registerUser:self.usernameField.text
                        password:self.passwordField.text
                           email:self.emailField.text]){
         

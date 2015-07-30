@@ -8,7 +8,7 @@
 
 #import "FollowViewController.h"
 #import "User.h"
-#import "HttpClient.h"
+#import "UserHttpClient.h"
 #import "OtherProfileViewController.h"
 
 @interface FollowViewController ()
@@ -26,8 +26,8 @@
     [super viewWillAppear:animated];
     
     self.title = self.followingMode ? @"Following" : @"Followers";
-    User *user = [HttpClient getCurrentUser];
-    self.follow_list = self.followingMode ? [HttpClient getFollowing:user] : [HttpClient getFollowers:user];
+    User *user = [UserHttpClient getCurrentUser];
+    self.follow_list = self.followingMode ? [UserHttpClient getFollowing:user] : [UserHttpClient getFollowers:user];
     [self.tableView reloadData];
 }
 
@@ -48,7 +48,7 @@
         if ([segue.destinationViewController isKindOfClass:[OtherProfileViewController class]]) {
             OtherProfileViewController *opvc = (OtherProfileViewController *)segue.destinationViewController;
             UITableViewCell *cell = (UITableViewCell *)sender;
-            opvc.me = [HttpClient getCurrentUser];
+            opvc.me = [UserHttpClient getCurrentUser];
             opvc.other = [self.follow_list objectAtIndex:[self.tableView indexPathForCell:cell].row];
             
             NSLog(@"Segue info: %@, %@", opvc.me.username, opvc.other.username);

@@ -10,8 +10,8 @@
 #import "User.h"
 #import "Clip.h"
 
-@interface HttpClient : NSObject
-+(User*) getUser: (NSString*) username password: (NSString*) password;
+@interface UserHttpClient : NSObject
++(User*) login: (NSString*) username password: (NSString*) password;
 +(void) logout;
 +(BOOL) registerUser:(NSString*) username password: (NSString*) password email: (NSString*) email;
 +(User*) getCurrentUser;
@@ -21,6 +21,7 @@
 +(BOOL) follow:(User*) followee follower:(User*) follower;
 +(BOOL) unfollow:(User*) followee follower:(User*) follower;
 +(NSArray*) getClip:(NSString*) userId;
+
 
 
 @end

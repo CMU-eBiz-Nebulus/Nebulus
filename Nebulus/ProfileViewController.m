@@ -8,7 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "ProfileDetailViewController.h"
-#import "HttpClient.h"
+#import "UserHttpClient.h"
 #import "FollowViewController.h"
 
 @interface ProfileViewController ()
@@ -33,9 +33,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    User *user = [HttpClient getCurrentUser];
-    NSArray *follower_list = [HttpClient getFollowers:user];
-    NSArray *following_list = [HttpClient getFollowing:user];
+    User *user = [UserHttpClient getCurrentUser];
+    NSArray *follower_list = [UserHttpClient getFollowers:user];
+    NSArray *following_list = [UserHttpClient getFollowing:user];
     
     NSLog(@"Username = %@", user.username);
     
@@ -84,7 +84,7 @@
             tvc.followingMode = NO;
         }
     } else if ([segue.identifier isEqualToString:@"logout"]){
-        [HttpClient logout];
+        [UserHttpClient logout];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }

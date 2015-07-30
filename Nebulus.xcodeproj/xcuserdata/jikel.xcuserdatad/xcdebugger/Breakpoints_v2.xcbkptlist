@@ -55,7 +55,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Nebulus/HttpClient.m"
+            filePath = "Nebulus/UserHttpClient.m"
             timestampString = "459722996.818525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

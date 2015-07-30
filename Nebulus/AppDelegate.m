@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "User.h"
-#import "HttpClient.h"
+#import "UserHttpClient.h"
 
 @interface AppDelegate ()
 
@@ -28,7 +28,7 @@
         LoginViewController *loginView = [storyboard instantiateViewControllerWithIdentifier:@"loginView"];
         self.window.rootViewController = loginView;
     } else {
-        [HttpClient getUser:username password:[defaults objectForKey:@"password"]];
+        [UserHttpClient login:username password:[defaults objectForKey:@"password"]];
     
     };
     return YES;
