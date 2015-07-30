@@ -20,6 +20,7 @@
 +(NSArray*) getTimeline:(User*) user;
 +(BOOL) follow:(User*) followee follower:(User*) follower;
 +(BOOL) unfollow:(User*) followee follower:(User*) follower;
++(NSArray*) searchUser:(NSString*) searchStr;
 +(NSArray*) getClip:(NSString*) userId;
 
 
