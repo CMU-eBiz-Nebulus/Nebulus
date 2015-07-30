@@ -28,6 +28,7 @@
 		9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9893D9A91B695D210033ED33 /* OtherProfileViewController.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
+		98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFE597F31B6322B900ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFE597FC1B6333DA00ED0520 /* CreateAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597FB1B6333DA00ED0520 /* CreateAlbumViewController.m */; };
@@ -85,6 +86,8 @@
 		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		98C947321B62D5B8000E0CB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		98FF60C91B69B52F00DE90B4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		AFE597FB1B6333DA00ED0520 /* CreateAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAlbumViewController.m; sourceTree = "<group>"; };
 		AFE597FD1B6333E300ED0520 /* CreateAlbumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateAlbumViewController.h; sourceTree = "<group>"; };
 		AFE597FE1B6333EF00ED0520 /* CreateProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProjectViewController.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				8486607E1B615848000D849B /* RecordViewController.h */,
 				8486607F1B615848000D849B /* RecordViewController.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
+				98FF60C91B69B52F00DE90B4 /* SearchViewController.h */,
+				98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */,
 				9893D9A81B695D210033ED33 /* OtherProfileViewController.h */,
 				9893D9A91B695D210033ED33 /* OtherProfileViewController.m */,
 				98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */,
@@ -322,6 +327,7 @@
 				92A574B61B62D20F0015032B /* UserHttpClient.m in Sources */,
 				9283EE1F1B686AC8004A553B /* Clip.m in Sources */,
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
+				98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */,
 				AFE597BC1B62E22100ED0520 /* (null) in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
 				848660801B615848000D849B /* RecordViewController.m in Sources */,
