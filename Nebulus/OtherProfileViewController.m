@@ -62,7 +62,14 @@
             break;
         }
     }
-    [self.followButton setTitle:isFollowed ? @"Unfollow" : @"Follow"];
+    
+    if([self.me.objectID isEqualToString:self.other.objectID]){
+        [self.followButton setEnabled:NO];
+        [self.followButton setTitle:@""];
+    }else {
+        [self.followButton setTitle:isFollowed ? @"Unfollow" : @"Follow"];
+        [self.followButton setEnabled:YES];
+    }
 }
 
 @end

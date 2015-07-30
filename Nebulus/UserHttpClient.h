@@ -21,7 +21,7 @@
 +(BOOL) follow:(User*) followee follower:(User*) follower;
 +(BOOL) unfollow:(User*) followee follower:(User*) follower;
 +(NSArray*) getClip:(NSString*) userId;
-
++(NSArray*) searchUser:(NSString*) searchStr;
 
 
 @end
