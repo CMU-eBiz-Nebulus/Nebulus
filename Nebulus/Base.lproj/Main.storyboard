@@ -442,7 +442,6 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ebL-1s-Ll5">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                    <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <accessibility key="accessibilityConfiguration" label=""/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="eY4-sR-kCX"/>
@@ -1735,9 +1734,9 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4nv-Y9-mp1"/>
-        <segue reference="a7l-Ip-Am4"/>
-        <segue reference="NuJ-Dk-jo4"/>
         <segue reference="KAz-Xu-9Nu"/>
+        <segue reference="NuJ-Dk-jo4"/>
+        <segue reference="hWk-RA-vL1"/>
+        <segue reference="a7l-Ip-Am4"/>
     </inferredMetricsTieBreakers>
 </document>
