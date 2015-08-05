@@ -25,7 +25,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    [self.headPhoto setImage:[UIImage imageNamed:@"pic2"]];
+    [self.headPhoto setImage:[UIImage imageNamed:@"defaultUser"]];
     [self.headPhoto sizeToFit];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
