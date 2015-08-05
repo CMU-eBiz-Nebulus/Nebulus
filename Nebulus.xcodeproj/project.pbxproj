@@ -27,6 +27,12 @@
 		848660821B615916000D849B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848660811B615916000D849B /* AVFoundation.framework */; };
 		9283EE1F1B686AC8004A553B /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE1E1B686AC8004A553B /* Clip.m */; };
 		9283EE221B686ADD004A553B /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE211B686ADD004A553B /* Project.m */; };
+		9289842E1B728F1500D6FB6F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289842D1B728F1500D6FB6F /* Activity.m */; };
+		928984311B729E6300D6FB6F /* AlbumShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984301B729E6300D6FB6F /* AlbumShare.m */; };
+		928984351B729E9D00D6FB6F /* ClipShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984341B729E9D00D6FB6F /* ClipShare.m */; };
+		928984381B729EAF00D6FB6F /* ProjectClassified.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984371B729EAF00D6FB6F /* ProjectClassified.m */; };
+		9289843B1B729EBF00D6FB6F /* ProjectShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289843A1B729EBF00D6FB6F /* ProjectShare.m */; };
+		9289843E1B729EF800D6FB6F /* UserClassified.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289843D1B729EF800D6FB6F /* UserClassified.m */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
 		929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BE1B5D3FC000264D32 /* AppDelegate.m */; };
 		929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70C11B5D3FC000264D32 /* FirstViewController.m */; };
@@ -102,6 +108,18 @@
 		9283EE1E1B686AC8004A553B /* Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clip.m; sourceTree = "<group>"; };
 		9283EE201B686ADD004A553B /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
 		9283EE211B686ADD004A553B /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		9289842C1B728F1500D6FB6F /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		9289842D1B728F1500D6FB6F /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		9289842F1B729E6300D6FB6F /* AlbumShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumShare.h; sourceTree = "<group>"; };
+		928984301B729E6300D6FB6F /* AlbumShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumShare.m; sourceTree = "<group>"; };
+		928984331B729E9D00D6FB6F /* ClipShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipShare.h; sourceTree = "<group>"; };
+		928984341B729E9D00D6FB6F /* ClipShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipShare.m; sourceTree = "<group>"; };
+		928984361B729EAF00D6FB6F /* ProjectClassified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectClassified.h; sourceTree = "<group>"; };
+		928984371B729EAF00D6FB6F /* ProjectClassified.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectClassified.m; sourceTree = "<group>"; };
+		928984391B729EBF00D6FB6F /* ProjectShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectShare.h; sourceTree = "<group>"; };
+		9289843A1B729EBF00D6FB6F /* ProjectShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectShare.m; sourceTree = "<group>"; };
+		9289843C1B729EF800D6FB6F /* UserClassified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserClassified.h; sourceTree = "<group>"; };
+		9289843D1B729EF800D6FB6F /* UserClassified.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserClassified.m; sourceTree = "<group>"; };
 		929B70B61B5D3FC000264D32 /* Nebulus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		929B70BA1B5D3FC000264D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929B70BB1B5D3FC000264D32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -203,6 +221,25 @@
 			name = EZAudio;
 			sourceTree = "<group>";
 		};
+		928984321B729E6A00D6FB6F /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				9289842C1B728F1500D6FB6F /* Activity.h */,
+				9289842D1B728F1500D6FB6F /* Activity.m */,
+				9289842F1B729E6300D6FB6F /* AlbumShare.h */,
+				928984301B729E6300D6FB6F /* AlbumShare.m */,
+				928984331B729E9D00D6FB6F /* ClipShare.h */,
+				928984341B729E9D00D6FB6F /* ClipShare.m */,
+				928984361B729EAF00D6FB6F /* ProjectClassified.h */,
+				928984371B729EAF00D6FB6F /* ProjectClassified.m */,
+				928984391B729EBF00D6FB6F /* ProjectShare.h */,
+				9289843A1B729EBF00D6FB6F /* ProjectShare.m */,
+				9289843C1B729EF800D6FB6F /* UserClassified.h */,
+				9289843D1B729EF800D6FB6F /* UserClassified.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
 		929B70AD1B5D3FC000264D32 = {
 			isa = PBXGroup;
 			children = (
@@ -225,10 +262,10 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				92A574AD1B62BDC70015032B /* Model */,
 				8430F41C1B6A942C00CB2EE0 /* EZAudio */,
 				8430F4191B6A941F00CB2EE0 /* RecordViewController.h */,
 				8430F41A1B6A941F00CB2EE0 /* RecordViewController.m */,
-				92A574AD1B62BDC70015032B /* Model */,
 				929B70E21B5D48AC00264D32 /* LoginViewController.h */,
 				929B70E31B5D48AC00264D32 /* LoginViewController.m */,
 				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
@@ -288,6 +325,7 @@
 		92A574AD1B62BDC70015032B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				928984321B729E6A00D6FB6F /* Activity */,
 				92A574B41B62D20F0015032B /* UserHttpClient.h */,
 				92A574B51B62D20F0015032B /* UserHttpClient.m */,
 				929DA6391B6A91AA00F2663C /* MusicHttpClient.h */,
@@ -409,20 +447,25 @@
 			files = (
 				8430F44B1B6A943800CB2EE0 /* EZRecorder.m in Sources */,
 				8430F4401B6A943800CB2EE0 /* EZAudioFFT.m in Sources */,
+				9289843B1B729EBF00D6FB6F /* ProjectShare.m in Sources */,
 				8430F4411B6A943800CB2EE0 /* EZAudioFile.m in Sources */,
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				AFE597FC1B6333DA00ED0520 /* CreateAlbumViewController.m in Sources */,
 				9283EE221B686ADD004A553B /* Project.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				8430F43F1B6A943800CB2EE0 /* EZAudioDisplayLink.m in Sources */,
+				9289843E1B729EF800D6FB6F /* UserClassified.m in Sources */,
 				981F9B931B670EFB00031869 /* FollowViewController.m in Sources */,
 				AFE598001B6333FB00ED0520 /* CreateProjectViewController.m in Sources */,
+				928984351B729E9D00D6FB6F /* ClipShare.m in Sources */,
 				9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */,
 				8430F44A1B6A943800CB2EE0 /* EZPlot.m in Sources */,
 				8430F4431B6A943800CB2EE0 /* EZAudioFloatData.m in Sources */,
 				8430F43D1B6A943800CB2EE0 /* EZAudio.m in Sources */,
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
 				92A574FA1B655CD70015032B /* User.m in Sources */,
+				9289842E1B728F1500D6FB6F /* Activity.m in Sources */,
+				928984381B729EAF00D6FB6F /* ProjectClassified.m in Sources */,
 				AFE597F31B6322B900ED0520 /* (null) in Sources */,
 				92A574B61B62D20F0015032B /* UserHttpClient.m in Sources */,
 				8430F44C1B6A943800CB2EE0 /* TPCircularBuffer.c in Sources */,
@@ -441,6 +484,7 @@
 				8430F4421B6A943800CB2EE0 /* EZAudioFloatConverter.m in Sources */,
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
 				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
+				928984311B729E6300D6FB6F /* AlbumShare.m in Sources */,
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,

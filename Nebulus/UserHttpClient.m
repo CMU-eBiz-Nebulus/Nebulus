@@ -333,7 +333,6 @@
     
     NSError *error;
     NSURLResponse *response = nil;
-    NSLog(@"starttopost");
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:&response
                                                              error:&error];
