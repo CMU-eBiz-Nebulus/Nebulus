@@ -10,6 +10,54 @@
 
 @implementation MusicHttpClient
 
++(NSArray*) getUserActivity:(User*) user {
+    
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/activity/followersOf=%@", user.objectID ];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *rawActivities = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    
+    NSMutableArray *activites = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [rawActivities count]; i++) {
+        NSDictionary *act = [rawActivities objectAtIndex:i];
+        NSString *type = [act objectForKey:@"type"];
+        if ([type isEqualToString:@"albumShare"]) {
+            AlbumShare *activity = [[AlbumShare alloc] initWithDict:act];
+            [activites addObject:activity];
+        } else if ([type isEqualToString:@"clipShare"]) {
+            ClipShare *activity = [[ClipShare alloc] initWithDict:act];
+            [activites addObject:activity];
+        } else if ([type isEqualToString:@"projectShare"]) {
+            ProjectShare *activity = [[ProjectShare alloc] initWithDict:act];
+            [activites addObject:activity];
+        } else if ([type isEqualToString:@"projectClassified"]) {
+            ProjectClassified *activity = [[ProjectClassified alloc] initWithDict:act];
+            [activites addObject:activity];
+        } else if ([type isEqualToString:@"userClassified"]) {
+            UserClassified *activity = [[UserClassified alloc] initWithDict:act];
+            [activites addObject:activity];
+        } else {
+            NSLog(@"Wrong Type");
+        }
+        
+    }
+    return activites;
+    
+
+}
+
 
 +(Activity*)creatActivity:(Activity*) activity {
     NSString *urlString = @"http://test.nebulus.io:8080/api/activity";
