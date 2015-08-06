@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 #import "Clip.h"
+#import <UIKit/UIKit.h>
 
 @interface UserHttpClient : NSObject
 +(User*) login: (NSString*) username password: (NSString*) password;
@@ -22,5 +23,6 @@
 +(BOOL) unfollow:(User*) followee follower:(User*) follower;
 +(NSArray*) searchUser:(NSString*) searchStr;
 +(NSArray*) getClip:(NSString*) userId;
++(UIImage*) getUserImage:(NSString*) userId;
 
 @end

@@ -21,6 +21,6 @@
 
 +(NSArray*) getAllFollowingActivities:(User*) user;
 
-+(NSArray*) getUserActivity:(User*) user;
++(NSArray*) getUserActivity:(NSString*) userId;
 
 @end
