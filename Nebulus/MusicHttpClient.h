@@ -25,6 +25,10 @@
 
 +(Album*) createAlbum:(Album*) album;
 
-//+(void) uploadRecording();
++(NSArray*) getAlbumsCreatedByUser:(NSString*) userId;
+
++(Project*) createProject:(Project*) project;
+
++(NSArray*) getProjectsCreatedByUser:(NSString*) userId;
 
 @end
