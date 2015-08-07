@@ -14,6 +14,7 @@
 #import "ProjectShare.h"
 #import "ProjectClassified.h"
 #import "UserClassified.h"
+#import <UIKit/UIKit.h>
 
 @interface MusicHttpClient : Model
 
@@ -30,5 +31,9 @@
 +(Project*) createProject:(Project*) project;
 
 +(NSArray*) getProjectsByUser:(NSString*) userId;
+
++(UIImage*) getAlbumImage:(NSString*) albumId;
+
++(BOOL) setAlbumImage:(UIImage*) image AlbumId: (NSString*) albumId;
 
 @end
