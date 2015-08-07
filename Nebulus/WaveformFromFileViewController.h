@@ -51,4 +51,11 @@
  */
 @property (nonatomic,weak) IBOutlet UILabel *filePathLabel;
 
+@property (nonatomic,strong) AVPlayer* player;
+@property (nonatomic,strong) AVMutableComposition* composition;
+@property (nonatomic,strong) NSMutableDictionary* audioMixValues;  // track name -> volume level 0.0 - 1.0
+@property (nonatomic,strong) NSMutableDictionary* audioMixTrackIDs; // track name -> track ID
+
+
+
 @end
