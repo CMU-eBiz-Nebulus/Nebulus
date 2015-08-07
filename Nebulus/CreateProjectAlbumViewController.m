@@ -11,17 +11,20 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 //#import <QuartzCore/QuartzCore.h>
 
+#import "MusicHttpClient.h"
+#import "Album.h"
+#import "Project.h"
+#import "UserHttpClient.h"
+
 
 @interface CreateProjectAlbumViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *tags;
-@property (weak, nonatomic) IBOutlet UITextView *albumDesc;
+@property (weak, nonatomic) IBOutlet UITextView *desc;
 
 @property (strong, nonatomic) UIImagePickerController *picker;
-@property (strong, nonatomic) NSMutableArray *capturedImages;
-@property (strong, nonatomic) IBOutlet UIView *overlayView;
 @end
 
 @implementation CreateProjectAlbumViewController
@@ -32,9 +35,9 @@
     [self.imageView.layer setBorderWidth: 0.5];
     [self.imageView.layer setCornerRadius:5];
     
-    [[self.albumDesc layer] setBorderColor:[[UIColor grayColor] CGColor]];
-    [[self.albumDesc layer] setBorderWidth:0.5];
-    [[self.albumDesc layer] setCornerRadius:5];
+    [[self.desc layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[self.desc layer] setBorderWidth:0.5];
+    [[self.desc layer] setCornerRadius:5];
     
     self.picker = [[UIImagePickerController alloc] init];
     [self.picker setDelegate:self];
@@ -45,7 +48,25 @@
 }
 
 -(void)performDone{
-    [self.navigationController popToViewController:self.parentViewController animated:YES];
+    if(self.mode == ALBUM){
+        
+        Album *album = [[Album alloc] init];
+        album.name = self.name.text;
+        album.albumDescription = [self.desc.textStorage string];
+        album.tags = @[self.tags.text];
+        
+        album.groupName = @"testname";
+        album.pictureUpdateTime = @0;
+        
+        album.projects = @[];
+        album.creator = [UserHttpClient getCurrentUser];
+        [MusicHttpClient createAlbum:album];
+        
+    }else { // PROJECT
+        
+    }
+    
+    [self.navigationController popToViewController:self.backVC animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

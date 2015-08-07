@@ -877,7 +877,7 @@ Some text here ...</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="albumDesc" destination="dgM-0F-iXt" id="N6T-xz-mG0"/>
+                        <outlet property="desc" destination="dgM-0F-iXt" id="lSs-S3-ehQ"/>
                         <outlet property="imageView" destination="m1Y-OF-8xM" id="u8r-oy-dI0"/>
                         <outlet property="name" destination="mea-qj-hRG" id="Jwv-2Z-sEh"/>
                         <outlet property="tags" destination="A8h-d8-aKD" id="LKy-tn-vTr"/>
