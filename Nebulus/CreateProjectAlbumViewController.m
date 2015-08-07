@@ -61,6 +61,7 @@
         album.projects = @[];
         album.creator = [UserHttpClient getCurrentUser];
         [MusicHttpClient createAlbum:album];
+        NSLog(@"done");
         
     }else { // PROJECT
         

@@ -32,8 +32,15 @@
         self.tags = [json objectForKey:@"tags"];
         self.projects = [json objectForKey:@"projects"];
         NSDictionary *users = [json objectForKey:@"users"];
-        self.creator = [users objectForKey:@"creator"];
-        self.editors = [users objectForKey:@"editors"];
+        self.creator = [[User alloc] initWithDict:[users objectForKey:@"creator"]];
+        
+        NSArray *rawEditors = [users objectForKey:@"editors"];
+        NSMutableArray *editors = [[NSMutableArray alloc] init];
+        for (int i = 0; i < [rawEditors count]; i++) {
+            User *editor = [[User alloc] initWithDict:rawEditors[i]];
+            [editors addObject:editor];
+        }
+        self.editors = editors;
     }
     return self;
     
@@ -47,8 +54,12 @@
     [dict setObject:self.tags forKey:@"tags"];
     [dict setObject:self.projects forKey:@"projects"];
     NSMutableDictionary *users = [[NSMutableDictionary alloc]init];
-    [users setValue:self.creator forKey:@"creator"];
-    [users setValue:self.editors forKey:@"editors"];
+    NSMutableArray *editors = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [self.editors count]; i++) {
+        [editors addObject:[editors[i] convertToDict]];
+    }
+    [users setValue: [self.creator convertToDict] forKey:@"creator"];
+    [users setValue: editors forKey:@"editors"];
     [dict setValue:users forKey:@"users"];
     return dict;
 }
