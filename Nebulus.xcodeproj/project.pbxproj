@@ -25,6 +25,8 @@
 		8430F44B1B6A943800CB2EE0 /* EZRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8430F43A1B6A943800CB2EE0 /* EZRecorder.m */; };
 		8430F44C1B6A943800CB2EE0 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 8430F43B1B6A943800CB2EE0 /* TPCircularBuffer.c */; };
 		848660821B615916000D849B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848660811B615916000D849B /* AVFoundation.framework */; };
+		84C8A6421B74706F0005B6E8 /* simple-drum-beat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C8A6411B74706F0005B6E8 /* simple-drum-beat.wav */; };
+		84C8A6461B7470950005B6E8 /* WaveformFromFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C8A6451B7470950005B6E8 /* WaveformFromFileViewController.m */; };
 		9283EE1F1B686AC8004A553B /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE1E1B686AC8004A553B /* Clip.m */; };
 		9283EE221B686ADD004A553B /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE211B686ADD004A553B /* Project.m */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
@@ -97,6 +99,9 @@
 		8430F43B1B6A943800CB2EE0 /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
 		8430F43C1B6A943800CB2EE0 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
 		848660811B615916000D849B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		84C8A6411B74706F0005B6E8 /* simple-drum-beat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "simple-drum-beat.wav"; sourceTree = "<group>"; };
+		84C8A6441B7470950005B6E8 /* WaveformFromFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveformFromFileViewController.h; sourceTree = "<group>"; };
+		84C8A6451B7470950005B6E8 /* WaveformFromFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveformFromFileViewController.m; sourceTree = "<group>"; };
 		9283EE1D1B686AC8004A553B /* Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clip.h; sourceTree = "<group>"; };
 		9283EE1E1B686AC8004A553B /* Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clip.m; sourceTree = "<group>"; };
 		9283EE201B686ADD004A553B /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
@@ -200,6 +205,13 @@
 			name = EZAudio;
 			sourceTree = "<group>";
 		};
+		84C8A6431B7470760005B6E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		929B70AD1B5D3FC000264D32 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +234,10 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				84C8A6441B7470950005B6E8 /* WaveformFromFileViewController.h */,
+				84C8A6451B7470950005B6E8 /* WaveformFromFileViewController.m */,
+				84C8A6431B7470760005B6E8 /* Resources */,
+				84C8A6411B74706F0005B6E8 /* simple-drum-beat.wav */,
 				8430F41C1B6A942C00CB2EE0 /* EZAudio */,
 				8430F4191B6A941F00CB2EE0 /* RecordViewController.h */,
 				8430F41A1B6A941F00CB2EE0 /* RecordViewController.m */,
@@ -382,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C8A6421B74706F0005B6E8 /* simple-drum-beat.wav in Resources */,
 				929B70C81B5D3FC000264D32 /* Main.storyboard in Resources */,
 				929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */,
 				929B70CA1B5D3FC000264D32 /* Images.xcassets in Resources */,
@@ -428,6 +445,7 @@
 				929B70C21B5D3FC000264D32 /* FirstViewController.m in Sources */,
 				8430F43E1B6A943800CB2EE0 /* EZAudioDevice.m in Sources */,
 				98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */,
+				84C8A6461B7470950005B6E8 /* WaveformFromFileViewController.m in Sources */,
 				8430F4491B6A943800CB2EE0 /* EZOutput.m in Sources */,
 				AFE597BC1B62E22100ED0520 /* (null) in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
