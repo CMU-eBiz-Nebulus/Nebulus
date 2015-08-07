@@ -23,4 +23,12 @@
 
 +(NSArray*) getUserActivity:(NSString*) userId;
 
++(Album*) createAlbum:(Album*) album;
+
++(NSArray*) getAlbumsCreatedByUser:(NSString*) userId;
+
++(Project*) createProject:(Project*) project;
+
++(NSArray*) getProjectsCreatedByUser:(NSString*) userId;
+
 @end
