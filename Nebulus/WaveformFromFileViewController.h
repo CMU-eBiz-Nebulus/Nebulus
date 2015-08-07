@@ -15,6 +15,10 @@
  Here's the default audio file included with the example
  */
 #define kAudioFileDefault [[NSBundle mainBundle] pathForResource:@"simple-drum-beat" ofType:@"wav"]
+#define kAudioFile1 [[NSBundle mainBundle] pathForResource:@"track1" ofType:@"wav"]
+#define kAudioFile2 [[NSBundle mainBundle] pathForResource:@"track2" ofType:@"wav"]
+#define kAudioFile3 [[NSBundle mainBundle] pathForResource:@"track3" ofType:@"wav"]
+#define kAudioFile4 [[NSBundle mainBundle] pathForResource:@"track4" ofType:@"wav"]
 
 @interface WaveformFromFileViewController : UIViewController
 
@@ -22,12 +26,19 @@
 /**
  The EZAudioFile representing of the currently selected audio file
  */
-@property (nonatomic,strong) EZAudioFile *audioFile;
+@property (nonatomic,strong) EZAudioFile *audioFile1;
+@property (nonatomic,strong) EZAudioFile *audioFile2;
+@property (nonatomic,strong) EZAudioFile *audioFile3;
+@property (nonatomic,strong) EZAudioFile *audioFile4;
 
 /**
  The CoreGraphics based audio plot
  */
-@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot;
+@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot1;
+@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot2;
+@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot3;
+@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot4;
+
 
 /**
  A BOOL indicating whether or not we've reached the end of the file

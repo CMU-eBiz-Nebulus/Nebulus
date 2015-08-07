@@ -27,6 +27,10 @@
 		848660821B615916000D849B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848660811B615916000D849B /* AVFoundation.framework */; };
 		84C8A6421B74706F0005B6E8 /* simple-drum-beat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C8A6411B74706F0005B6E8 /* simple-drum-beat.wav */; };
 		84C8A6461B7470950005B6E8 /* WaveformFromFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C8A6451B7470950005B6E8 /* WaveformFromFileViewController.m */; };
+		84C8A6531B74FF400005B6E8 /* track1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C8A64F1B74FF400005B6E8 /* track1.wav */; };
+		84C8A6541B74FF400005B6E8 /* track2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C8A6501B74FF400005B6E8 /* track2.wav */; };
+		84C8A6551B74FF400005B6E8 /* track3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C8A6511B74FF400005B6E8 /* track3.wav */; };
+		84C8A6561B74FF400005B6E8 /* track4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C8A6521B74FF400005B6E8 /* track4.wav */; };
 		9283EE1F1B686AC8004A553B /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE1E1B686AC8004A553B /* Clip.m */; };
 		9283EE221B686ADD004A553B /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE211B686ADD004A553B /* Project.m */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
@@ -102,6 +106,10 @@
 		84C8A6411B74706F0005B6E8 /* simple-drum-beat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "simple-drum-beat.wav"; sourceTree = "<group>"; };
 		84C8A6441B7470950005B6E8 /* WaveformFromFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveformFromFileViewController.h; sourceTree = "<group>"; };
 		84C8A6451B7470950005B6E8 /* WaveformFromFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveformFromFileViewController.m; sourceTree = "<group>"; };
+		84C8A64F1B74FF400005B6E8 /* track1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = track1.wav; sourceTree = "<group>"; };
+		84C8A6501B74FF400005B6E8 /* track2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = track2.wav; sourceTree = "<group>"; };
+		84C8A6511B74FF400005B6E8 /* track3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = track3.wav; sourceTree = "<group>"; };
+		84C8A6521B74FF400005B6E8 /* track4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = track4.wav; sourceTree = "<group>"; };
 		9283EE1D1B686AC8004A553B /* Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clip.h; sourceTree = "<group>"; };
 		9283EE1E1B686AC8004A553B /* Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clip.m; sourceTree = "<group>"; };
 		9283EE201B686ADD004A553B /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
@@ -234,6 +242,10 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				84C8A64F1B74FF400005B6E8 /* track1.wav */,
+				84C8A6501B74FF400005B6E8 /* track2.wav */,
+				84C8A6511B74FF400005B6E8 /* track3.wav */,
+				84C8A6521B74FF400005B6E8 /* track4.wav */,
 				84C8A6441B7470950005B6E8 /* WaveformFromFileViewController.h */,
 				84C8A6451B7470950005B6E8 /* WaveformFromFileViewController.m */,
 				84C8A6431B7470760005B6E8 /* Resources */,
@@ -399,9 +411,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C8A6421B74706F0005B6E8 /* simple-drum-beat.wav in Resources */,
+				84C8A6551B74FF400005B6E8 /* track3.wav in Resources */,
 				929B70C81B5D3FC000264D32 /* Main.storyboard in Resources */,
+				84C8A6531B74FF400005B6E8 /* track1.wav in Resources */,
 				929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */,
 				929B70CA1B5D3FC000264D32 /* Images.xcassets in Resources */,
+				84C8A6541B74FF400005B6E8 /* track2.wav in Resources */,
+				84C8A6561B74FF400005B6E8 /* track4.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
