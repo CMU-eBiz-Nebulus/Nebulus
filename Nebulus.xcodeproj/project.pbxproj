@@ -55,8 +55,7 @@
 		98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFE597F31B6322B900ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		AFE597FC1B6333DA00ED0520 /* CreateAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597FB1B6333DA00ED0520 /* CreateAlbumViewController.m */; };
-		AFE598001B6333FB00ED0520 /* CreateProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597FF1B6333FB00ED0520 /* CreateProjectViewController.m */; };
+		AFE597FC1B6333DA00ED0520 /* CreateProjectAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,10 +159,8 @@
 		98C947321B62D5B8000E0CB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		98FF60C91B69B52F00DE90B4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		AFE597FB1B6333DA00ED0520 /* CreateAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAlbumViewController.m; sourceTree = "<group>"; };
-		AFE597FD1B6333E300ED0520 /* CreateAlbumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateAlbumViewController.h; sourceTree = "<group>"; };
-		AFE597FE1B6333EF00ED0520 /* CreateProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProjectViewController.h; sourceTree = "<group>"; };
-		AFE597FF1B6333FB00ED0520 /* CreateProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProjectViewController.m; sourceTree = "<group>"; };
+		AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProjectAlbumViewController.m; sourceTree = "<group>"; };
+		AFE597FD1B6333E300ED0520 /* CreateProjectAlbumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProjectAlbumViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,10 +285,8 @@
 				98C947321B62D5B8000E0CB8 /* ProfileViewController.m */,
 				981F9B911B670EFB00031869 /* FollowViewController.h */,
 				981F9B921B670EFB00031869 /* FollowViewController.m */,
-				AFE597FB1B6333DA00ED0520 /* CreateAlbumViewController.m */,
-				AFE597FD1B6333E300ED0520 /* CreateAlbumViewController.h */,
-				AFE597FE1B6333EF00ED0520 /* CreateProjectViewController.h */,
-				AFE597FF1B6333FB00ED0520 /* CreateProjectViewController.m */,
+				AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */,
+				AFE597FD1B6333E300ED0520 /* CreateProjectAlbumViewController.h */,
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
 				929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */,
 				929B70B91B5D3FC000264D32 /* Supporting Files */,
@@ -455,13 +450,12 @@
 				9289843B1B729EBF00D6FB6F /* ProjectShare.m in Sources */,
 				8430F4411B6A943800CB2EE0 /* EZAudioFile.m in Sources */,
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
-				AFE597FC1B6333DA00ED0520 /* CreateAlbumViewController.m in Sources */,
+				AFE597FC1B6333DA00ED0520 /* CreateProjectAlbumViewController.m in Sources */,
 				9283EE221B686ADD004A553B /* Project.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				8430F43F1B6A943800CB2EE0 /* EZAudioDisplayLink.m in Sources */,
 				9289843E1B729EF800D6FB6F /* UserClassified.m in Sources */,
 				981F9B931B670EFB00031869 /* FollowViewController.m in Sources */,
-				AFE598001B6333FB00ED0520 /* CreateProjectViewController.m in Sources */,
 				928984351B729E9D00D6FB6F /* ClipShare.m in Sources */,
 				9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */,
 				8430F44A1B6A943800CB2EE0 /* EZPlot.m in Sources */,
