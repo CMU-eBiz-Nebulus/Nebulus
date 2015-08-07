@@ -60,7 +60,10 @@
         
         album.projects = @[];
         album.creator = [UserHttpClient getCurrentUser];
-        [MusicHttpClient createAlbum:album];
+        album = [MusicHttpClient createAlbum:album];
+        
+
+        [MusicHttpClient setAlbumImage:self.imageView.image AlbumId:album.objectID];
         NSLog(@"done");
         
     }else { // PROJECT
