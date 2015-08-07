@@ -169,7 +169,7 @@
 }
 
 +(Album*) createAlbum:(Album*) album{
-    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/albums"];
+    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/albums/"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
