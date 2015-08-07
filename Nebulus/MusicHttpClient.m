@@ -173,6 +173,33 @@
 
 }
 
++(Album*) createAlbum:(Album*) album{
+    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/albums"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *dict = [album convertToDict];
+    
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    [request setHTTPBody:postdata];
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                           error:&error];
+    Album *returnAlbum = [[Album alloc]initWithDict:json];
+    return returnAlbum;
+}
+
 
 
 @end

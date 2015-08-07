@@ -23,4 +23,8 @@
 
 +(NSArray*) getUserActivity:(NSString*) userId;
 
++(Album*) createAlbum:(Album*) album;
+
+//+(void) uploadRecording();
+
 @end
