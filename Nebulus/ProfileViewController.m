@@ -49,6 +49,9 @@
     
     [self.followingButton setTitle:[NSString stringWithFormat:@"Followers: %lu", (unsigned long)[follower_list count]]
                          forState:UIControlStateNormal];
+    
+    [self.headPhoto setImage: [UserHttpClient getUserImage:user.objectID]];
+    //[self.headPhoto sizeToFit];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

@@ -12,6 +12,7 @@
 
 @interface OtherProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *followButton;
+@property (weak, nonatomic) IBOutlet UIImageView *headPhoto;
 
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UITextView *tags;
@@ -55,6 +56,9 @@
     [self.followerBtn setTitle:[NSString stringWithFormat:@"Followers: %lu", (unsigned long)[follower_list count]]
                       forState:UIControlStateNormal];
     
+    [self.headPhoto setImage: [UserHttpClient getUserImage:self.other.objectID]];
+    //[self.headPhoto sizeToFit];
+    
     BOOL isFollowed = NO;
     for (User *user in follower_list){
         if([user.objectID isEqualToString:self.me.objectID]){
@@ -70,6 +74,7 @@
         [self.followButton setTitle:isFollowed ? @"Unfollow" : @"Follow"];
         [self.followButton setEnabled:YES];
     }
+    
 }
 
 @end
