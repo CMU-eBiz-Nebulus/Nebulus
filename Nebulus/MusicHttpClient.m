@@ -196,7 +196,7 @@
 }
 
 +(NSArray*) getAlbumsByUser:(NSString*) userId {
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/albums/?creator=%@", userId ];
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/albums/?user=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
