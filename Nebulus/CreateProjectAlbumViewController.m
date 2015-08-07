@@ -39,6 +39,13 @@
     self.picker = [[UIImagePickerController alloc] init];
     [self.picker setDelegate:self];
     self.picker.allowsEditing = YES;
+    
+    UIBarButtonItem *Done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(performDone)];
+    self.navigationItem.rightBarButtonItem = Done;
+}
+
+-(void)performDone{
+    [self.navigationController popToViewController:self.parentViewController animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

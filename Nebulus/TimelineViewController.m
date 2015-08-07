@@ -10,6 +10,12 @@
 #import "MusicHttpClient.h"
 #import "UserHttpClient.h"
 
+#import "AlbumShare.h"
+#import "ClipShare.h"
+#import "ProjectClassified.h"
+#import "ProjectShare.h"
+#import "UserClassified.h"
+
 @interface TimelineViewController ()
 @property (strong, nonatomic) NSArray *activity;
 @end
@@ -30,8 +36,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    //return [self.activity count];
-    return 1;
+    return [self.activity count] + 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -40,20 +45,35 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = nil;
-
-    if(indexPath.row == 0){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"topCell"];
+    
+    if(indexPath.section == [self.activity count]){
+        if(indexPath.row == 0){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"topCell"];
             [(UILabel *)[cell viewWithTag:102] setText:@"Bon Jovi"];
             [(UILabel *)[cell viewWithTag:103] setText:@"1 min ago"];
             [(UILabel *)[cell viewWithTag:104] setText:@"Shared a song"];
-    } else if(indexPath.row == 1){
+        } else if(indexPath.row == 1){
             cell = [tableView dequeueReusableCellWithIdentifier:@"textCell"];
             UITextView *textView = (UITextView *)[cell viewWithTag:101];
             [textView setText:@"Rock the world"];
-    } else {
+        } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"buttomCell"];
+        }
+    } else {
+        Activity *activity = self.activity[indexPath.section];
+        if([activity isKindOfClass:[AlbumShare class]]){
+            
+        } else if([activity isKindOfClass:[AlbumShare class]]){
+        
+        } else if([activity isKindOfClass:[ClipShare class]]){
+        
+        } else if([activity isKindOfClass:[ProjectClassified class]]){
+        
+        } else if([activity isKindOfClass:[UserClassified class]]){
+        
+        }
     }
-    
+
     return cell;
 }
 
