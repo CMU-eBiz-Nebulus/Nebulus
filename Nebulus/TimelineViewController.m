@@ -23,7 +23,7 @@
 
 #pragma mark - View Controller
 -(void)viewWillAppear:(BOOL)animated{
-    //self.activity = [MusicHttpClient getAllFollowingActivities:[UserHttpClient getCurrentUser]];
+ self.activity = [MusicHttpClient getAllFollowingActivities:[UserHttpClient getCurrentUser]];
 }
 
 #pragma mark - UITableViewDataSource
