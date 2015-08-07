@@ -11,8 +11,9 @@
 @implementation MusicHttpClient
 
 +(NSArray*) getUserActivity:(NSString*) userId {
+    NSLog(@"activities begin");
     
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/activity/creator=%@", userId ];
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/activity/user=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -53,6 +54,7 @@
         }
         
     }
+    NSLog(@"activities done");
     return activites;
     
 
@@ -200,7 +202,7 @@
     return returnAlbum;
 }
 
-+(NSArray*) getAlbumsCreatedByUser:(NSString*) userId {
++(NSArray*) getAlbumsByUser:(NSString*) userId {
     NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/albums?creator=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
@@ -254,8 +256,8 @@
 
 }
 
-+(NSArray*) getProjectsCreatedByUser:(NSString*) userId{
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/projects?creator=%@", userId ];
++(NSArray*) getProjectsByUser:(NSString*) userId{
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/projects?user=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy

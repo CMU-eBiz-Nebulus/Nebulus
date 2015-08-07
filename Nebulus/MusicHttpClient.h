@@ -25,10 +25,10 @@
 
 +(Album*) createAlbum:(Album*) album;
 
-+(NSArray*) getAlbumsCreatedByUser:(NSString*) userId;
++(NSArray*) getAlbumsByUser:(NSString*) userId;
 
 +(Project*) createProject:(Project*) project;
 
-+(NSArray*) getProjectsCreatedByUser:(NSString*) userId;
++(NSArray*) getProjectsByUser:(NSString*) userId;
 
 @end
