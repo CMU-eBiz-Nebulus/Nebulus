@@ -19,7 +19,7 @@
 
 +(NSArray*) creatActivity:(Activity*) activity;
 
-+(NSArray*) getAllFollowingActivities:(User*) user;
++(NSArray*) getAllFollowingActivities:(NSString*) userId;
 
 +(NSArray*) getUserActivity:(NSString*) userId;
 

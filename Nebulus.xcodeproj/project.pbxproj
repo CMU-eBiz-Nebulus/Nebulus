@@ -33,6 +33,7 @@
 		928984381B729EAF00D6FB6F /* ProjectClassified.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984371B729EAF00D6FB6F /* ProjectClassified.m */; };
 		9289843B1B729EBF00D6FB6F /* ProjectShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289843A1B729EBF00D6FB6F /* ProjectShare.m */; };
 		9289843E1B729EF800D6FB6F /* UserClassified.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289843D1B729EF800D6FB6F /* UserClassified.m */; };
+		928984411B7463A400D6FB6F /* Doc.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984401B7463A400D6FB6F /* Doc.m */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
 		929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BE1B5D3FC000264D32 /* AppDelegate.m */; };
 		929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70C41B5D3FC000264D32 /* SecondViewController.m */; };
@@ -120,6 +121,8 @@
 		9289843A1B729EBF00D6FB6F /* ProjectShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectShare.m; sourceTree = "<group>"; };
 		9289843C1B729EF800D6FB6F /* UserClassified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserClassified.h; sourceTree = "<group>"; };
 		9289843D1B729EF800D6FB6F /* UserClassified.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserClassified.m; sourceTree = "<group>"; };
+		9289843F1B7463A400D6FB6F /* Doc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doc.h; sourceTree = "<group>"; };
+		928984401B7463A400D6FB6F /* Doc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doc.m; sourceTree = "<group>"; };
 		929B70B61B5D3FC000264D32 /* Nebulus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		929B70BA1B5D3FC000264D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929B70BB1B5D3FC000264D32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				9283EE211B686ADD004A553B /* Project.m */,
 				9283EE1D1B686AC8004A553B /* Clip.h */,
 				9283EE1E1B686AC8004A553B /* Clip.m */,
+				9289843F1B7463A400D6FB6F /* Doc.h */,
+				928984401B7463A400D6FB6F /* Doc.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				8430F4421B6A943800CB2EE0 /* EZAudioFloatConverter.m in Sources */,
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
 				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
+				928984411B7463A400D6FB6F /* Doc.m in Sources */,
 				928984311B729E6300D6FB6F /* AlbumShare.m in Sources */,
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,

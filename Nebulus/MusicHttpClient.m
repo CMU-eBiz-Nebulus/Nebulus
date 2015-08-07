@@ -11,7 +11,7 @@
 @implementation MusicHttpClient
 
 +(NSArray*) getUserActivity:(NSString*) userId {
-    NSLog(@"activities begin");
+
     
     NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/activity/user=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
@@ -54,7 +54,7 @@
         }
         
     }
-    NSLog(@"activities done");
+
     return activites;
     
 
@@ -122,22 +122,17 @@
         NSLog(@"%@", error);
         return nil;
     }
-
-
-
 }
 
 
-+(NSArray*) getAllFollowingActivities:(User*) user {
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/activity/followersOf=%@", user.objectID ];
++(NSArray*) getAllFollowingActivities:(NSString*) userId {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/activity/?followersOf=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
     
     [request setHTTPMethod:@"GET"];
-    
-    
     NSError *error;
     NSURLResponse *response = nil;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request
@@ -148,7 +143,7 @@
     
     NSMutableArray *activites = [[NSMutableArray alloc]init];
     for (int i = 0; i < [rawActivities count]; i++) {
-        NSDictionary *act = [rawActivities objectAtIndex:i];
+        NSDictionary *act = rawActivities[i];
         NSString *type = [act objectForKey:@"type"];
         if ([type isEqualToString:@"albumShare"]) {
             AlbumShare *activity = [[AlbumShare alloc] initWithDict:act];
@@ -171,8 +166,6 @@
         
     }
     return activites;
-
-
 }
 
 +(Album*) createAlbum:(Album*) album{
@@ -203,7 +196,7 @@
 }
 
 +(NSArray*) getAlbumsByUser:(NSString*) userId {
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/albums?creator=%@", userId ];
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/albums/?creator=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -257,7 +250,7 @@
 }
 
 +(NSArray*) getProjectsByUser:(NSString*) userId{
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/projects?user=%@", userId ];
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/projects/?user=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
