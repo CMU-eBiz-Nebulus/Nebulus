@@ -9,7 +9,8 @@
 #import "ProfileDetailViewController.h"
 #import "CreateProjectAlbumViewController.h"
 #import "RecordViewController.h"
-
+#import "MusicHttpClient.h"
+#import "UserHttpClient.h"
 @interface ProfileDetailViewController ()
 
 @property (nonatomic, strong) NSArray *contents;
@@ -23,10 +24,12 @@
     if(self.mode == PROJECTS){
         CreateProjectAlbumViewController *cpvc = [self.storyboard instantiateViewControllerWithIdentifier:@"createProjectOrAlbum"];
         cpvc.mode = PROJECT;
+        cpvc.backVC = self;
         [self.navigationController pushViewController:cpvc animated:YES];
     } else if (self.mode == ALBUMS){
         CreateProjectAlbumViewController *cavc = [self.storyboard instantiateViewControllerWithIdentifier:@"createProjectOrAlbum"];
         cavc.mode = ALBUM;
+        cavc.backVC = self;
         [self.navigationController pushViewController:cavc animated:YES];
     } else if (self.mode == CLIPS){
         RecordViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"recordViewController"];
@@ -98,7 +101,8 @@
 }
 
 -(void)fetch_albums{
-    self.contents = @[@"album 1", @"album 2", @"album 3"];
+    self.contents = [MusicHttpClient getAlbumsByUser:
+                     [UserHttpClient getCurrentUser].objectID];
 }
 
 -(void)fetch_projects{
@@ -109,9 +113,6 @@
     UITableViewCell *cell = nil;
     if (self.mode == CLIPS){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithoutPhoto"];
-//        if(!cell) {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellWithoutPhoto"];
-//        }
         [cell.textLabel setText:[self.contents objectAtIndex:indexPath.row]];
         cell.detailTextLabel.text = @"2015-07-24";
     }
@@ -122,11 +123,14 @@
     UITableViewCell *cell = nil;
     if (self.mode == ALBUMS){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithPhoto"];
+        Album *album = self.contents[indexPath.row];
+
         UIImageView *imageview = (UIImageView *)[cell viewWithTag:1];
-        [imageview setImage:[UIImage imageNamed:@"pic1"]];
-        //[imageview setContentMode:UIViewContentModeScaleToFill];
-        [imageview sizeToFit];
-        [((UILabel *)[cell viewWithTag:2]) setText:[self.contents objectAtIndex:indexPath.row]];
+                [imageview setContentMode:UIViewContentModeScaleToFill];
+        [imageview setImage:[MusicHttpClient getAlbumImage:album.objectID]];
+        
+        //[imageview sizeToFit];
+        [((UILabel *)[cell viewWithTag:2]) setText:album.name];
         [cell sizeToFit];
     }
     return cell;

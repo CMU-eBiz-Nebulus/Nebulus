@@ -16,4 +16,5 @@ typedef NS_ENUM(NSInteger, CreateMode) {
 
 @interface CreateProjectAlbumViewController : UIViewController 
 @property (nonatomic) CreateMode mode;
+@property (nonatomic, strong) UIViewController *backVC;
 @end
