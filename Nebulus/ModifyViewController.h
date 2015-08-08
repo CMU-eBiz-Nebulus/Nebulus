@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CreateProjectAlbumViewController.h"
 
-@interface ModifyAlbumProjectViewController : UIViewController
-@property (nonatomic) CreateMode mode;
+typedef NS_ENUM(NSInteger, ModifyMode) {
+    M_PROJECT,
+    M_ALBUM,
+    M_PROFILE
+};
+
+@interface ModifyViewController : UIViewController
+@property (nonatomic) ModifyMode mode;
 @property (nonatomic, strong) UIViewController *backVC;
 @property (nonatomic, strong) id content;
 @property (nonatomic, strong) UIImage *image;

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
 
-#import "ModifyAlbumProjectViewController.h"
+#import "ModifyViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 //#import <QuartzCore/QuartzCore.h>
 
@@ -14,8 +14,9 @@
 #import "Album.h"
 #import "Project.h"
 #import "UserHttpClient.h"
+#import "User.h"
 
-@interface ModifyAlbumProjectViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface ModifyViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *name;
@@ -23,25 +24,35 @@
 @property (weak, nonatomic) IBOutlet UITextView *desc;
 
 @property (strong, nonatomic) UIImagePickerController *picker;
+@property (nonatomic, getter=isImageChanged) BOOL imageChanged;
 
 @end
 
-@implementation ModifyAlbumProjectViewController
+@implementation ModifyViewController
 
 #pragma mark - View Controller
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    if (self.mode == PROJECT){
-    } else {        // ALBUM
+    if (self.mode == M_PROJECT){
+    } else if(self.mode == M_ALBUM) {        // ALBUM
         Album *album   = (Album *)self.content;
 
         self.name.text = album.name;
         [self.tags setText:[album.tags componentsJoinedByString:@","]];
         [self.desc setText:album.albumDescription];
         self.imageView.image = self.image;
+    } else if(self.mode == M_PROFILE){
+        User *user = (User *)self.content;
+        
+        self.name.text = user.name;
+        [self.tags setText:[user.tags componentsJoinedByString:@","]];
+        [self.desc setText:user.about];
+        self.imageView.image = [UserHttpClient getUserImage:user.objectID];
     }
+    
+    self.imageChanged = NO;
 }
 
 -(void)viewDidLoad{
@@ -60,7 +71,7 @@
 #pragma mark - Update Modification
 
 -(void)performDone{
-    if(self.mode == ALBUM){
+    if(self.mode == M_ALBUM){
         
         Album *album = (Album *)self.content;
         album.name = self.name.text;
@@ -73,9 +84,13 @@
 //                               AlbumId:album.objectID];
 
         
-    }else { // PROJECT
+    }else if(self.mode == M_PROJECT){ // PROJECT
+        
+    }else if(self.mode == M_PROFILE) {
         
     }
+    
+    self.imageChanged = NO;
     
     [self.navigationController popToViewController:self.backVC animated:YES];
 }
@@ -134,6 +149,8 @@
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageView.clipsToBounds = YES;
         [self.imageView setImage:imageToUse];
+        
+        self.imageChanged = YES;
         
         // PROCESS IMAGE HERE
     }

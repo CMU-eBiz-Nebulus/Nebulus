@@ -7,7 +7,8 @@
 //
 
 #import "AlbumProjectViewController.h"
-#import "ModifyAlbumProjectViewController.h"
+#import "ModifyViewController.h"
+#import "CreateProjectAlbumViewController.h"
 
 @interface AlbumProjectViewController ()
 @property (nonatomic, strong) Album *album;
@@ -55,13 +56,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"editAlbumOrProject"]) {
-        if ([segue.destinationViewController isKindOfClass:[ModifyAlbumProjectViewController class]]) {
-            ModifyAlbumProjectViewController *vc = (ModifyAlbumProjectViewController *)segue.destinationViewController;
+        if ([segue.destinationViewController isKindOfClass:[ModifyViewController class]]) {
+            ModifyViewController *vc = (ModifyViewController *)segue.destinationViewController;
             
             if(self.mode == PROJECT){
-                vc.mode = PROJECT;
+                vc.mode = M_PROJECT;
             } else if (self.mode == ALBUM){
-                vc.mode = ALBUM;
+                vc.mode = M_ALBUM;
             }
             vc.content = self.content;
             vc.backVC = self;

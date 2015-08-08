@@ -10,6 +10,7 @@
 #import "ProfileDetailViewController.h"
 #import "UserHttpClient.h"
 #import "FollowViewController.h"
+#import "ModifyViewController.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -89,6 +90,14 @@
     } else if ([segue.identifier isEqualToString:@"logout"]){
         [UserHttpClient logout];
         [self.navigationController popToRootViewControllerAnimated:YES];
+    } else if ([segue.identifier isEqualToString:@"modifyProfile"]) {
+        if ([segue.destinationViewController isKindOfClass:[ModifyViewController class]]) {
+            ModifyViewController *vc = (ModifyViewController *)segue.destinationViewController;
+            
+            vc.content = [UserHttpClient getCurrentUser];
+            vc.mode = M_PROFILE;
+            vc.backVC = self;
+        }
     }
 }
 
