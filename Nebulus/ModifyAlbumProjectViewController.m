@@ -1,13 +1,12 @@
 //
-//  CreateAlbum.m
+//  ModifyAlbumProjectViewController.m
 //  Nebulus
 //
-//  Created by ballade on 7/24/15.
+//  Created by Gang Wu on 8/7/15.
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "CreateProjectAlbumViewController.h"
+#import "ModifyAlbumProjectViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 //#import <QuartzCore/QuartzCore.h>
 
@@ -16,8 +15,7 @@
 #import "Project.h"
 #import "UserHttpClient.h"
 
-
-@interface CreateProjectAlbumViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface ModifyAlbumProjectViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *name;
@@ -25,19 +23,29 @@
 @property (weak, nonatomic) IBOutlet UITextView *desc;
 
 @property (strong, nonatomic) UIImagePickerController *picker;
+
 @end
 
-@implementation CreateProjectAlbumViewController
+@implementation ModifyAlbumProjectViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.imageView.layer setBorderColor: [[UIColor grayColor] CGColor]];
-    [self.imageView.layer setBorderWidth: 0.5];
-    [self.imageView.layer setCornerRadius:5];
+#pragma mark - View Controller
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
-    [[self.desc layer] setBorderColor:[[UIColor grayColor] CGColor]];
-    [[self.desc layer] setBorderWidth:0.5];
-    [[self.desc layer] setCornerRadius:5];
+    if (self.mode == PROJECT){
+    } else {        // ALBUM
+        Album *album   = (Album *)self.content;
+
+        self.name.text = album.name;
+        [self.tags setText:[album.tags componentsJoinedByString:@","]];
+        [self.desc setText:album.albumDescription];
+        self.imageView.image = self.image;
+    }
+}
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
     
     self.picker = [[UIImagePickerController alloc] init];
     [self.picker setDelegate:self];
@@ -49,24 +57,10 @@
     self.navigationItem.rightBarButtonItem = Done;
 }
 
+#pragma mark - Update Modification
+
 -(void)performDone{
     if(self.mode == ALBUM){
-        
-        Album *album = [[Album alloc] init];
-        album.name = self.name.text;
-        album.albumDescription = [self.desc.textStorage string];
-        album.tags = @[self.tags.text];
-        
-        album.groupName = @"testname";
-        album.pictureUpdateTime = @0;
-        
-        album.projects = @[];
-        album.creator = [UserHttpClient getCurrentUser];
-        album = [MusicHttpClient createAlbum:album];
-        
-
-        [MusicHttpClient setAlbumImage:self.imageView.image AlbumId:album.objectID];
-        NSLog(@"done");
         
     }else { // PROJECT
         
@@ -75,15 +69,7 @@
     [self.navigationController popToViewController:self.backVC animated:YES];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self setTitle:self.mode == PROJECT ? @"New Project" : @"New Album" ];
-}
-
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
+#pragma mark - Head photo
 
 - (IBAction)add:(id)sender {
     
@@ -100,7 +86,7 @@
         self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:self.picker animated:YES completion:nil];
     }
-
+    
 }
 
 
@@ -151,8 +137,4 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
-
-
-
 @end
-
