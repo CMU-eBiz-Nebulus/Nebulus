@@ -50,6 +50,7 @@
                                   [self.album.tags componentsJoinedByString:@","]]];
         [self.desc setText:self.album.albumDescription];
     }
+    [self.tableView reloadData];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

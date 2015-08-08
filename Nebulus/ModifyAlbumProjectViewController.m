@@ -62,6 +62,17 @@
 -(void)performDone{
     if(self.mode == ALBUM){
         
+        Album *album = (Album *)self.content;
+        album.name = self.name.text;
+        album.albumDescription = [self.desc.textStorage string];
+        album.tags = @[self.tags.text];
+        
+        album = [MusicHttpClient createAlbum:album];
+//
+//        [MusicHttpClient setAlbumImage:self.imageView.image
+//                               AlbumId:album.objectID];
+
+        
     }else { // PROJECT
         
     }
