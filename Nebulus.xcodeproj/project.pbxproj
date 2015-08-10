@@ -53,6 +53,8 @@
 		9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9893D9A91B695D210033ED33 /* OtherProfileViewController.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
+		98DFE11F1B759A7000C1DBDE /* AlbumProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */; };
+		98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */; };
 		98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFE597F31B6322B900ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -160,6 +162,10 @@
 		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		98C947321B62D5B8000E0CB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		98DFE11D1B759A7000C1DBDE /* AlbumProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumProjectViewController.h; sourceTree = "<group>"; };
+		98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumProjectViewController.m; sourceTree = "<group>"; };
+		98DFE1211B75B2F600C1DBDE /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
+		98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
 		98FF60C91B69B52F00DE90B4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProjectAlbumViewController.m; sourceTree = "<group>"; };
@@ -276,20 +282,11 @@
 				929B70C31B5D3FC000264D32 /* SecondViewController.h */,
 				929B70C41B5D3FC000264D32 /* SecondViewController.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
+				98DFE1201B759A9A00C1DBDE /* Profile */,
 				9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */,
 				9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */,
 				98FF60C91B69B52F00DE90B4 /* SearchViewController.h */,
 				98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */,
-				9893D9A81B695D210033ED33 /* OtherProfileViewController.h */,
-				9893D9A91B695D210033ED33 /* OtherProfileViewController.m */,
-				98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */,
-				98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */,
-				98C947311B62D5B8000E0CB8 /* ProfileViewController.h */,
-				98C947321B62D5B8000E0CB8 /* ProfileViewController.m */,
-				981F9B911B670EFB00031869 /* FollowViewController.h */,
-				981F9B921B670EFB00031869 /* FollowViewController.m */,
-				AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */,
-				AFE597FD1B6333E300ED0520 /* CreateProjectAlbumViewController.h */,
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
 				929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */,
 				929B70B91B5D3FC000264D32 /* Supporting Files */,
@@ -347,6 +344,27 @@
 				92F158C91B782E46005C84C8 /* Comment.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		98DFE1201B759A9A00C1DBDE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				98DFE1211B75B2F600C1DBDE /* ModifyViewController.h */,
+				98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */,
+				98DFE11D1B759A7000C1DBDE /* AlbumProjectViewController.h */,
+				98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */,
+				9893D9A81B695D210033ED33 /* OtherProfileViewController.h */,
+				9893D9A91B695D210033ED33 /* OtherProfileViewController.m */,
+				98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */,
+				98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */,
+				98C947311B62D5B8000E0CB8 /* ProfileViewController.h */,
+				98C947321B62D5B8000E0CB8 /* ProfileViewController.m */,
+				981F9B911B670EFB00031869 /* FollowViewController.h */,
+				981F9B921B670EFB00031869 /* FollowViewController.m */,
+				AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */,
+				AFE597FD1B6333E300ED0520 /* CreateProjectAlbumViewController.h */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +482,7 @@
 				928984351B729E9D00D6FB6F /* ClipShare.m in Sources */,
 				9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */,
 				8430F44A1B6A943800CB2EE0 /* EZPlot.m in Sources */,
+				98DFE11F1B759A7000C1DBDE /* AlbumProjectViewController.m in Sources */,
 				8430F4431B6A943800CB2EE0 /* EZAudioFloatData.m in Sources */,
 				8430F43D1B6A943800CB2EE0 /* EZAudio.m in Sources */,
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
@@ -489,6 +508,7 @@
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
 				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
 				928984411B7463A400D6FB6F /* Doc.m in Sources */,
+				98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */,
 				928984311B729E6300D6FB6F /* AlbumShare.m in Sources */,
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,

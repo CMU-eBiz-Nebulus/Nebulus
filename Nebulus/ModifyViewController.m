@@ -1,13 +1,12 @@
 //
-//  CreateAlbum.m
+//  ModifyAlbumProjectViewController.m
 //  Nebulus
 //
-//  Created by ballade on 7/24/15.
+//  Created by Gang Wu on 8/7/15.
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "CreateProjectAlbumViewController.h"
+#import "ModifyViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 //#import <QuartzCore/QuartzCore.h>
 
@@ -15,9 +14,9 @@
 #import "Album.h"
 #import "Project.h"
 #import "UserHttpClient.h"
+#import "User.h"
 
-
-@interface CreateProjectAlbumViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface ModifyViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *name;
@@ -25,19 +24,39 @@
 @property (weak, nonatomic) IBOutlet UITextView *desc;
 
 @property (strong, nonatomic) UIImagePickerController *picker;
+@property (nonatomic, getter=isImageChanged) BOOL imageChanged;
+
 @end
 
-@implementation CreateProjectAlbumViewController
+@implementation ModifyViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.imageView.layer setBorderColor: [[UIColor grayColor] CGColor]];
-    [self.imageView.layer setBorderWidth: 0.5];
-    [self.imageView.layer setCornerRadius:5];
+#pragma mark - View Controller
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
-    [[self.desc layer] setBorderColor:[[UIColor grayColor] CGColor]];
-    [[self.desc layer] setBorderWidth:0.5];
-    [[self.desc layer] setCornerRadius:5];
+    if (self.mode == M_PROJECT){
+    } else if(self.mode == M_ALBUM) {        // ALBUM
+        Album *album   = (Album *)self.content;
+
+        self.name.text = album.name;
+        [self.tags setText:[album.tags componentsJoinedByString:@","]];
+        [self.desc setText:album.albumDescription];
+        self.imageView.image = self.image;
+    } else if(self.mode == M_PROFILE){
+        User *user = (User *)self.content;
+        
+        self.name.text = user.name;
+        [self.tags setText:[user.tags componentsJoinedByString:@","]];
+        [self.desc setText:user.about];
+        self.imageView.image = [UserHttpClient getUserImage:user.objectID];
+    }
+    
+    self.imageChanged = NO;
+}
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
     
     self.picker = [[UIImagePickerController alloc] init];
     [self.picker setDelegate:self];
@@ -49,41 +68,34 @@
     self.navigationItem.rightBarButtonItem = Done;
 }
 
+#pragma mark - Update Modification
+
 -(void)performDone{
-    if(self.mode == ALBUM){
+    if(self.mode == M_ALBUM){
         
-        Album *album = [[Album alloc] init];
+        Album *album = (Album *)self.content;
         album.name = self.name.text;
         album.albumDescription = [self.desc.textStorage string];
         album.tags = @[self.tags.text];
         
-        album.groupName = @"testname";
-        album.pictureUpdateTime = @0;
-        
-        album.projects = @[];
-        album.creator = [UserHttpClient getCurrentUser];
         album = [MusicHttpClient createAlbum:album];
-        //NSLog(album.objectID);
-
-        [MusicHttpClient setAlbumImage:self.imageView.image AlbumId:album.objectID];
+//
+//        [MusicHttpClient setAlbumImage:self.imageView.image
+//                               AlbumId:album.objectID];
 
         
-    }else { // PROJECT
+    }else if(self.mode == M_PROJECT){ // PROJECT
+        
+    }else if(self.mode == M_PROFILE) {
         
     }
+    
+    self.imageChanged = NO;
     
     [self.navigationController popToViewController:self.backVC animated:YES];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self setTitle:self.mode == PROJECT ? @"New Project" : @"New Album" ];
-}
-
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
+#pragma mark - Head photo
 
 - (IBAction)add:(id)sender {
     
@@ -100,7 +112,7 @@
         self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:self.picker animated:YES completion:nil];
     }
-
+    
 }
 
 
@@ -138,6 +150,8 @@
         self.imageView.clipsToBounds = YES;
         [self.imageView setImage:imageToUse];
         
+        self.imageChanged = YES;
+        
         // PROCESS IMAGE HERE
     }
     
@@ -151,8 +165,4 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
-
-
-
 @end
-

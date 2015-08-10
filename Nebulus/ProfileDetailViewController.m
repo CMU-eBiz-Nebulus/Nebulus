@@ -11,6 +11,7 @@
 #import "RecordViewController.h"
 #import "MusicHttpClient.h"
 #import "UserHttpClient.h"
+#import "AlbumProjectViewController.h"
 @interface ProfileDetailViewController ()
 
 @property (nonatomic, strong) NSArray *contents;
@@ -91,6 +92,7 @@
             [self fetch_albums];
             break;
     }
+    [self.tableView reloadData];
 }
 
 
@@ -149,4 +151,21 @@
     return cell;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"detailAlbumProject"]) {
+        if ([segue.destinationViewController isKindOfClass:[AlbumProjectViewController class]]) {
+            AlbumProjectViewController *vc = (AlbumProjectViewController *)segue.destinationViewController;
+            
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            id content = [self.contents objectAtIndex:indexPath.row];
+            if(self.mode == PROJECTS){
+                vc.mode = PROJECT_DETAIL;
+                vc.content = content;
+            } else if (self.mode == ALBUMS){
+                vc.mode = ALBUM_DETAIL;
+                vc.content = content;
+            }
+        }
+    }
+}
 @end
