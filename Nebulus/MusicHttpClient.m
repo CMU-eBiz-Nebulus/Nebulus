@@ -169,8 +169,7 @@
 }
 
 +(Album*) createAlbum:(Album*) album{
-    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/albums/%@", album.objectID];
-    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/albums/"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
@@ -197,7 +196,8 @@
 }
 
 +(Album*) updateAlbum:(Album*) album{
-    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/albums/"];
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/albums/%@", album.objectID];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
@@ -330,7 +330,7 @@
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     [request setHTTPMethod:@"POST"];
     
-    NSString *boundary = @"aS3eS9A8zSo1";
+    NSString *boundary = @"---aS3eS9A8zSo1";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
     [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
     
@@ -446,20 +446,32 @@
     
     
     
-    if (conn)
-        
-    {
-        
+    if (conn)  {
         return YES;
         
     } else {
         
         NSLog(@"Connection Failed");
         return NO;
-        
     }
     
 
+}
++(BOOL) deleteAlbum:(NSString*) albumId {
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/albums/%@", albumId];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                   timeoutInterval:60.0];
+    [request setHTTPMethod:@"DELETE"];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if (error) NSLog(@"%@", error.localizedDescription);
+                           }];
+
+    return YES;
 }
 
 @end
