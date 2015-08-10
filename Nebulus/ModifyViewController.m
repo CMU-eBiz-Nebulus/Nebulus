@@ -78,8 +78,8 @@
         album.albumDescription = [self.desc.textStorage string];
         album.tags = @[self.tags.text];
         
-        album = [MusicHttpClient createAlbum:album];
-//
+        album = [MusicHttpClient updateAlbum:album];
+
 //        [MusicHttpClient setAlbumImage:self.imageView.image
 //                               AlbumId:album.objectID];
 
