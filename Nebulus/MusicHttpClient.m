@@ -195,6 +195,10 @@
     return returnAlbum;
 }
 
++(Album*) updateAlbum:(Album*) album{
+    return [self createAlbum:album];
+}
+
 +(NSArray*) getAlbumsByUser:(NSString*) userId {
     NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/albums/?user=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];

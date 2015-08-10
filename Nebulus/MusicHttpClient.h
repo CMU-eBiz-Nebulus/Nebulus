@@ -26,6 +26,8 @@
 
 +(Album*) createAlbum:(Album*) album;
 
++(Album*) updateAlbum:(Album*) album;
+
 +(NSArray*) getAlbumsByUser:(NSString*) userId;
 
 +(Project*) createProject:(Project*) project;

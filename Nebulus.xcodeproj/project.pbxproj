@@ -47,6 +47,7 @@
 		92A574F71B655CAB0015032B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F61B655CAB0015032B /* Model.m */; };
 		92A574FA1B655CD70015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F91B655CD70015032B /* User.m */; };
 		92A574FD1B6857AA0015032B /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574FC1B6857AA0015032B /* Album.m */; };
+		92F158CA1B782E46005C84C8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158C91B782E46005C84C8 /* Comment.m */; };
 		981F9B931B670EFB00031869 /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F9B921B670EFB00031869 /* FollowViewController.m */; };
 		9889F0FF1B72FB9E00685E18 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */; };
 		9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9893D9A91B695D210033ED33 /* OtherProfileViewController.m */; };
@@ -147,6 +148,8 @@
 		92A574F91B655CD70015032B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		92A574FB1B6857910015032B /* Album.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		92A574FC1B6857AA0015032B /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		92F158C81B782E46005C84C8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		92F158C91B782E46005C84C8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		981F9B911B670EFB00031869 /* FollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowViewController.h; sourceTree = "<group>"; };
 		981F9B921B670EFB00031869 /* FollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowViewController.m; sourceTree = "<group>"; };
 		9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				9283EE1E1B686AC8004A553B /* Clip.m */,
 				9289843F1B7463A400D6FB6F /* Doc.h */,
 				928984401B7463A400D6FB6F /* Doc.m */,
+				92F158C81B782E46005C84C8 /* Comment.h */,
+				92F158C91B782E46005C84C8 /* Comment.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
+				92F158CA1B782E46005C84C8 /* Comment.m in Sources */,
 				8430F4481B6A943800CB2EE0 /* EZMicrophone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
