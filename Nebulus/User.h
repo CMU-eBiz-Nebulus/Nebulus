@@ -9,8 +9,6 @@
 #import "Model.h"
 
 @interface User : Model
--(id) initWithDict:(NSDictionary *)json;
--(NSDictionary*)convertToDict;
 
 @property(nonatomic, strong) NSString *username;
 @property(nonatomic, strong) NSString *email;
@@ -20,6 +18,8 @@
 @property(nonatomic, strong) NSString *about;
 @property(nonatomic, strong) NSString *cookie;
 
-
+-(id) initWithDict:(NSDictionary *)json;
+-(NSDictionary*)convertToDict;
++(NSArray*) dictToArray:(NSDictionary*) dict withObjectName:(NSString*) name;
 
 @end

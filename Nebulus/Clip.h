@@ -23,4 +23,5 @@
 @property (nonatomic, strong) NSArray *tags;
 -(id) initWithDict:(NSDictionary *)json;
 -(NSDictionary*)convertToDict;
++(NSArray*) dictToArray:(NSDictionary*) dict withObjectName:(NSString*) name;
 @end

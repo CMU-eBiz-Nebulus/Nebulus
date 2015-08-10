@@ -19,7 +19,7 @@
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
-        self.creator = [json objectForKey:@"creator"];
+        self.creator = [[User alloc]initWithDict:[json objectForKey:@"creator"]];
         self.duration = [json objectForKey:@"groupName"];
         self.name = [json objectForKey:@"name"];
         self.recordingId = [json objectForKey:@"recordingId"];
@@ -30,12 +30,23 @@
 }
 -(NSDictionary*) convertToDict {
     NSMutableDictionary *dict = [super convertToDict].mutableCopy;
-    [dict setObject:self.creator forKey:@"creator"];
+    [dict setObject:[self.creator convertToDict] forKey:@"creator"];
     [dict setObject:self.duration forKey:@"duration"];
     [dict setObject:self.name forKey:@"name"];
     [dict setObject:self.recordingId forKey:@"recordingId"];
     [dict setObject:self.tags forKey:@"tags"];
     return dict;
+}
+
++(NSArray*) dictToArray:(NSDictionary*) dict withObjectName:(NSString*) name {
+    if (!name) name = @"clips";
+    NSArray *raw = [dict objectForKey:name];
+    NSMutableArray *clips = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [raw count]; i++) {
+        [clips addObject:[[Clip alloc] initWithDict:raw[i]]];
+    }
+
+    return clips;
 }
 
 @end

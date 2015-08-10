@@ -48,6 +48,9 @@
 		92A574FA1B655CD70015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F91B655CD70015032B /* User.m */; };
 		92A574FD1B6857AA0015032B /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574FC1B6857AA0015032B /* Album.m */; };
 		92F158CA1B782E46005C84C8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158C91B782E46005C84C8 /* Comment.m */; };
+		92F158CD1B783219005C84C8 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CC1B783219005C84C8 /* Task.m */; };
+		92F158D01B783CE9005C84C8 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CF1B783CE9005C84C8 /* Like.m */; };
+		92F158D31B783D01005C84C8 /* Arrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158D21B783D01005C84C8 /* Arrangement.m */; };
 		981F9B931B670EFB00031869 /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F9B921B670EFB00031869 /* FollowViewController.m */; };
 		9889F0FF1B72FB9E00685E18 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */; };
 		9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9893D9A91B695D210033ED33 /* OtherProfileViewController.m */; };
@@ -152,6 +155,12 @@
 		92A574FC1B6857AA0015032B /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		92F158C81B782E46005C84C8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		92F158C91B782E46005C84C8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		92F158CB1B783219005C84C8 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		92F158CC1B783219005C84C8 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		92F158CE1B783CE9005C84C8 /* Like.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Like.h; sourceTree = "<group>"; };
+		92F158CF1B783CE9005C84C8 /* Like.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Like.m; sourceTree = "<group>"; };
+		92F158D11B783D01005C84C8 /* Arrangement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrangement.h; sourceTree = "<group>"; };
+		92F158D21B783D01005C84C8 /* Arrangement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrangement.m; sourceTree = "<group>"; };
 		981F9B911B670EFB00031869 /* FollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowViewController.h; sourceTree = "<group>"; };
 		981F9B921B670EFB00031869 /* FollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowViewController.m; sourceTree = "<group>"; };
 		9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
@@ -324,6 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				928984321B729E6A00D6FB6F /* Activity */,
+				92F158CE1B783CE9005C84C8 /* Like.h */,
+				92F158CF1B783CE9005C84C8 /* Like.m */,
 				92A574B41B62D20F0015032B /* UserHttpClient.h */,
 				92A574B51B62D20F0015032B /* UserHttpClient.m */,
 				929DA6391B6A91AA00F2663C /* MusicHttpClient.h */,
@@ -342,6 +353,10 @@
 				928984401B7463A400D6FB6F /* Doc.m */,
 				92F158C81B782E46005C84C8 /* Comment.h */,
 				92F158C91B782E46005C84C8 /* Comment.m */,
+				92F158CB1B783219005C84C8 /* Task.h */,
+				92F158CC1B783219005C84C8 /* Task.m */,
+				92F158D11B783D01005C84C8 /* Arrangement.h */,
+				92F158D21B783D01005C84C8 /* Arrangement.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -472,9 +487,11 @@
 				8430F4401B6A943800CB2EE0 /* EZAudioFFT.m in Sources */,
 				9289843B1B729EBF00D6FB6F /* ProjectShare.m in Sources */,
 				8430F4411B6A943800CB2EE0 /* EZAudioFile.m in Sources */,
+				92F158CD1B783219005C84C8 /* Task.m in Sources */,
 				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				AFE597FC1B6333DA00ED0520 /* CreateProjectAlbumViewController.m in Sources */,
 				9283EE221B686ADD004A553B /* Project.m in Sources */,
+				92F158D01B783CE9005C84C8 /* Like.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				8430F43F1B6A943800CB2EE0 /* EZAudioDisplayLink.m in Sources */,
 				9289843E1B729EF800D6FB6F /* UserClassified.m in Sources */,
@@ -514,6 +531,7 @@
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
 				92F158CA1B782E46005C84C8 /* Comment.m in Sources */,
+				92F158D31B783D01005C84C8 /* Arrangement.m in Sources */,
 				8430F4481B6A943800CB2EE0 /* EZMicrophone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -169,7 +169,8 @@
 }
 
 +(Album*) createAlbum:(Album*) album{
-    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/albums/"];
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/albums/%@", album.objectID];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
@@ -196,7 +197,30 @@
 }
 
 +(Album*) updateAlbum:(Album*) album{
-    return [self createAlbum:album];
+    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/albums/"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *dict = [album convertToDict];
+    
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    [request setHTTPBody:postdata];
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                           error:&error];
+    Album *returnAlbum = [[Album alloc]initWithDict:json];
+    return returnAlbum;
 }
 
 +(NSArray*) getAlbumsByUser:(NSString*) userId {
@@ -375,5 +399,67 @@
 //    }];    return YES;
 }
 
++(BOOL) uploadRecording:(NSData*) data Id: (NSString*) recordingId {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"sample" ofType:@"wav"];
+    
+    // NSLog(@"filePath : %@", filePath);
+    
+    
+    
+    NSData *postData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSLog(@"postLength : %@", postLength);
+    
+    
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    [request setURL:[NSURL URLWithString:@"http://test.nebulus.io:8080/api/recordings/"]];
+    
+    
+    
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    
+    
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    
+    
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    [request setHTTPBody:postData];
+    
+    [request setTimeoutInterval:30.0];
+    
+    
+    
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    
+    
+    if (conn)
+        
+    {
+        
+        return YES;
+        
+    } else {
+        
+        NSLog(@"Connection Failed");
+        return NO;
+        
+    }
+    
+
+}
 
 @end

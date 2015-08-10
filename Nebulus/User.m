@@ -42,4 +42,14 @@
     return dict;
 }
 
++(NSArray*) dictToArray:(NSDictionary*) dict withObjectName:(NSString*) name {
+    if (!name) name = @"users";
+    NSArray *raw = [dict objectForKey:name];
+    NSMutableArray *users = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [raw count]; i++) {
+        [users addObject:[[User alloc] initWithDict:raw[i]]];
+    }
+    return users;
+}
+
 @end
