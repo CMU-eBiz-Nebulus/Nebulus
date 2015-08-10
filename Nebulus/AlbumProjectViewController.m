@@ -9,6 +9,7 @@
 #import "AlbumProjectViewController.h"
 #import "ModifyViewController.h"
 #import "CreateProjectAlbumViewController.h"
+#import "MusicHttpClient.h"
 
 @interface AlbumProjectViewController ()
 @property (nonatomic, strong) Album *album;
@@ -52,6 +53,13 @@
         [self.desc setText:self.album.albumDescription];
     }
     [self.tableView reloadData];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // DELETE
+    if(indexPath.section == 2 && indexPath.row == 1){
+        MusicHttpClient 
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

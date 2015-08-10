@@ -1939,10 +1939,10 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="a7l-Ip-Am4"/>
         <segue reference="KAz-Xu-9Nu"/>
-        <segue reference="jTN-oo-tTb"/>
-        <segue reference="Osm-Oy-nlm"/>
         <segue reference="hWk-RA-vL1"/>
+        <segue reference="jTN-oo-tTb"/>
+        <segue reference="a7l-Ip-Am4"/>
+        <segue reference="izh-mw-nZz"/>
     </inferredMetricsTieBreakers>
 </document>
