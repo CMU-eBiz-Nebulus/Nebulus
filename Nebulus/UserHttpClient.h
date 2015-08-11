@@ -25,5 +25,7 @@
 +(NSArray*) searchUser:(NSString*) searchStr;
 +(NSArray*) getClip:(NSString*) userId;
 +(UIImage*) getUserImage:(NSString*) userId;
++(BOOL) setUserImage:(UIImage*) image userId:(NSString*) userId;
+
 
 @end

@@ -39,4 +39,5 @@
 +(BOOL) setAlbumImage:(UIImage*) image AlbumId: (NSString*) albumId;
 
 +(BOOL) deleteAlbum:(NSString*) albumId;
+
 @end
