@@ -64,7 +64,8 @@
         album.creator = [UserHttpClient getCurrentUser];
         album = [MusicHttpClient createAlbum:album];
 
-        [MusicHttpClient setAlbumImage:self.imageView.image AlbumId:album.objectID];
+        if(self.imageView.image)
+            [MusicHttpClient setAlbumImage:self.imageView.image AlbumId:album.objectID];
 
         
     }else { // PROJECT

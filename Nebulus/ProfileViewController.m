@@ -97,6 +97,7 @@
             vc.content = [UserHttpClient getCurrentUser];
             vc.mode = M_PROFILE;
             vc.backVC = self;
+            vc.image = self.headPhoto.image;
         }
     }
 }

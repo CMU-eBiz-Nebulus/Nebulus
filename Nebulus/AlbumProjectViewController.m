@@ -52,6 +52,8 @@
         [self.tags setText:[NSString stringWithFormat:@"Tags: %@",
                                   [self.album.tags componentsJoinedByString:@","]]];
         [self.desc setText:self.album.albumDescription];
+        
+        [self.imageView setImage:[MusicHttpClient getAlbumImage:self.album.objectID]];
     }
     [self.tableView reloadData];
 }
