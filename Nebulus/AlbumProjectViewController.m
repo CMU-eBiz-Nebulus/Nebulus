@@ -42,7 +42,7 @@
         self.project = (Project *)self.content;
         [self.songsLabel setText:@"Clips"];
         self.title = @"Project Name"; //self.project.name;
-    } else {        // ALBUM_DETAIL
+    } else if(self.mode == ALBUM_DETAIL) {        // ALBUM_DETAIL
         self.album   = (Album *)self.content;
         self.project = nil;
         [self.songsLabel setText:@"Projects"];
@@ -55,10 +55,15 @@
     [self.tableView reloadData];
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // DELETE
     if(indexPath.section == 2 && indexPath.row == 1){
-        MusicHttpClient 
+        if (self.mode == PROJECT_DETAIL){
+            
+        } else if(self.mode == ALBUM_DETAIL){
+            [MusicHttpClient deleteAlbum:self.album.objectID];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
