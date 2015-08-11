@@ -108,7 +108,7 @@
 }
 
 -(void)fetch_projects{
-    self.contents = @[@"project 1", @"project 2", @"project 3", @"project 4"];
+    self.contents = [MusicHttpClient getProjectsByUser:[UserHttpClient getCurrentUser].objectID];
 }
 
 -(UITableViewCell *)create_clip_cell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -128,9 +128,8 @@
         Album *album = self.contents[indexPath.row];
 
         UIImageView *imageview = (UIImageView *)[cell viewWithTag:1];
-                [imageview setContentMode:UIViewContentModeScaleToFill];
+        [imageview setContentMode:UIViewContentModeScaleToFill];
         [imageview setImage:[MusicHttpClient getAlbumImage:album.objectID]];
-        
         //[imageview sizeToFit];
         [((UILabel *)[cell viewWithTag:2]) setText:album.name];
         [cell sizeToFit];
@@ -142,11 +141,17 @@
     UITableViewCell *cell = nil;
     if (self.mode == PROJECTS){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithPhoto"];
+        Project *project = self.contents[indexPath.row];
+        
         UIImageView *imageview = (UIImageView *)[cell viewWithTag:1];
         [imageview setImage:[UIImage imageNamed:@"pic1"]];
-        //[imageview setContentMode:UIViewContentModeScaleToFill];
-        [imageview sizeToFit];
-        [((UILabel *)[cell viewWithTag:2]) setText:[self.contents objectAtIndex:indexPath.row]];
+        [imageview setContentMode:UIViewContentModeScaleToFill];
+        //[imageview setImage:[MusicHttpClient getProjectImage:project.objectID]];
+
+        //[imageview sizeToFit];
+        //[((UILabel *)[cell viewWithTag:2]) setText:project.name];
+        [((UILabel *)[cell viewWithTag:2]) setText:@"Project X"];
+        [cell sizeToFit];
     }
     return cell;
 }

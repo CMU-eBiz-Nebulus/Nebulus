@@ -52,6 +52,7 @@
 		92F158D01B783CE9005C84C8 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CF1B783CE9005C84C8 /* Like.m */; };
 		92F158D31B783D01005C84C8 /* Arrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158D21B783D01005C84C8 /* Arrangement.m */; };
 		981F9B931B670EFB00031869 /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981F9B921B670EFB00031869 /* FollowViewController.m */; };
+		983261F51B7978DF000FE97A /* CollaboratorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983261F41B7978DF000FE97A /* CollaboratorsViewController.m */; };
 		9889F0FF1B72FB9E00685E18 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */; };
 		9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9893D9A91B695D210033ED33 /* OtherProfileViewController.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
@@ -163,6 +164,8 @@
 		92F158D21B783D01005C84C8 /* Arrangement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrangement.m; sourceTree = "<group>"; };
 		981F9B911B670EFB00031869 /* FollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowViewController.h; sourceTree = "<group>"; };
 		981F9B921B670EFB00031869 /* FollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowViewController.m; sourceTree = "<group>"; };
+		983261F31B7978DF000FE97A /* CollaboratorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollaboratorsViewController.h; sourceTree = "<group>"; };
+		983261F41B7978DF000FE97A /* CollaboratorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollaboratorsViewController.m; sourceTree = "<group>"; };
 		9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		9893D9A81B695D210033ED33 /* OtherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherProfileViewController.h; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 		98DFE1201B759A9A00C1DBDE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				983261F31B7978DF000FE97A /* CollaboratorsViewController.h */,
+				983261F41B7978DF000FE97A /* CollaboratorsViewController.m */,
 				98DFE1211B75B2F600C1DBDE /* ModifyViewController.h */,
 				98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */,
 				98DFE11D1B759A7000C1DBDE /* AlbumProjectViewController.h */,
@@ -518,6 +523,7 @@
 				98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */,
 				8430F4491B6A943800CB2EE0 /* EZOutput.m in Sources */,
 				AFE597BC1B62E22100ED0520 /* (null) in Sources */,
+				983261F51B7978DF000FE97A /* CollaboratorsViewController.m in Sources */,
 				98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */,
 				8430F4461B6A943800CB2EE0 /* EZAudioPlotGL.m in Sources */,
 				8430F4471B6A943800CB2EE0 /* EZAudioUtilities.m in Sources */,

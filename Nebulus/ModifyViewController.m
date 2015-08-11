@@ -79,7 +79,7 @@
         album.tags = @[self.tags.text];
         
         album = [MusicHttpClient updateAlbum:album];
-
+//
 //        [MusicHttpClient setAlbumImage:self.imageView.image
 //                               AlbumId:album.objectID];
 
