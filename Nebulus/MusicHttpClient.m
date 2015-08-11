@@ -323,31 +323,79 @@
 +(BOOL) setAlbumImage:(UIImage*) image AlbumId: (NSString*) albumId {
     NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/images/users/%@", @"55b526356df6bd8840fd739d" ];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
     
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[imageData length]];
+    
+    NSLog(@"postLength : %@", postLength);
+    
+    
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
     [request setHTTPMethod:@"POST"];
     
-    NSString *boundary = @"---aS3eS9A8zSo1";
+    [request setURL:aUrl];
+    
+    
+    
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    
     [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
     
-    NSMutableData *body = [NSMutableData data];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image\"; filename=\"%@\"\r\n", @"image"]] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[NSData dataWithData:imageData]];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setHTTPBody:body];
     
-    NSLog(request.HTTPBody.description);
-    NSURLResponse *response = [[NSURLResponse alloc]init];
-    NSError *error = [[NSError alloc] init];
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSLog(response.description);
-    NSLog(error.description);
+    
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    
+    
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    [request setHTTPBody:imageData];
+    
+    [request setTimeoutInterval:30.0];
+    
+    
+    
+        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            if(data.length > 0)
+            {
+                //success
+            }
+            
+            NSLog(response.description);
+            NSLog(error.description);
+        }];
+    
+    
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+//                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+//                                                       timeoutInterval:60.0];
+//    
+//    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+//    [request setHTTPMethod:@"POST"];
+//    
+//    NSString *boundary = @"---aS3eS9A8zSo1";
+//    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+//    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+//    
+//    NSMutableData *body = [NSMutableData data];
+//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image\"; filename=\"%@\"\r\n", @"image"]] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[NSData dataWithData:imageData]];
+//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [request setHTTPBody:body];
+//    
+//    NSLog(request.HTTPBody.description);
+//    NSURLResponse *response = [[NSURLResponse alloc]init];
+//    NSError *error = [[NSError alloc] init];
+//    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//    NSLog(response.description);
+//    NSLog(error.description);
     return YES;
 
 //
@@ -404,8 +452,6 @@
     
     // NSLog(@"filePath : %@", filePath);
     
-    
-    
     NSData *postData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -443,8 +489,6 @@
     
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    
     
     if (conn)  {
         return YES;

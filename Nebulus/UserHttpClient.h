@@ -15,6 +15,7 @@
 +(User*) login: (NSString*) username password: (NSString*) password;
 +(void) logout;
 +(BOOL) registerUser:(NSString*) username password: (NSString*) password email: (NSString*) email;
++(User*) updateUserInfo:(User*) user;
 +(User*) getCurrentUser;
 +(NSArray*) getFollowers:(User*) user;
 +(NSArray*) getFollowing:(User*) user;
