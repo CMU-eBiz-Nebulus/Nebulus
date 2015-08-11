@@ -36,6 +36,8 @@
     [super viewWillAppear:animated];
     
     if (self.mode == M_PROJECT){
+        
+        [self setTitle:@"Edit Project"];
     } else if(self.mode == M_ALBUM) {        // ALBUM
         Album *album   = (Album *)self.content;
 
@@ -43,6 +45,8 @@
         [self.tags setText:[album.tags componentsJoinedByString:@","]];
         [self.desc setText:album.albumDescription];
         self.imageView.image = self.image;
+        
+        [self setTitle:@"Edit Album"];
     } else if(self.mode == M_PROFILE){
         User *user = (User *)self.content;
         
@@ -50,6 +54,8 @@
         [self.tags setText:[user.tags componentsJoinedByString:@","]];
         [self.desc setText:user.about];
         self.imageView.image = [UserHttpClient getUserImage:user.objectID];
+        
+        [self setTitle:user.username];
     }
     
     self.imageChanged = NO;
@@ -87,7 +93,13 @@
     }else if(self.mode == M_PROJECT){ // PROJECT
         
     }else if(self.mode == M_PROFILE) {
+        User *user = (User *)self.content;
         
+        user.name = self.name.text;
+        user.about = [self.desc.textStorage string];
+        user.tags = @[self.tags.text];
+        
+        user = [UserHttpClient updateUserInfo:user];
     }
     
     self.imageChanged = NO;

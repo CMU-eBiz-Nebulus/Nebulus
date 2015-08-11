@@ -55,15 +55,15 @@
     NSString *name = @"";
     if(indexPath.section == 0){
         if(self.mode == ALBUM_DETAIL){
-            name = ((Album *)self.content).creator.name;
+            name = ((Album *)self.content).creator.username;
         } else {  //  PROJECT_DETAIL
-            name = ((Project *)self.content).creator.name;
+            name = ((Project *)self.content).creator.username;
         }
     } else {
         if(self.mode == ALBUM_DETAIL){
-            name = ((User *)[((Album *)self.content).editors objectAtIndex:indexPath.row]).name;
+            name = ((User *)[((Album *)self.content).editors objectAtIndex:indexPath.row]).username;
         } else {  //  PROJECT_DETAIL
-            name = ((User *)[((Project *)self.content).editors objectAtIndex:indexPath.row]).name;
+            name = ((User *)[((Project *)self.content).editors objectAtIndex:indexPath.row]).username;
         }
     }
 
