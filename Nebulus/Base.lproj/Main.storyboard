@@ -1095,6 +1095,9 @@ Some text here ...</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="b0B-dU-uuw" kind="show" identifier="collaborators" id="vTH-J1-v66"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="PEP-uJ-zdJ" style="IBUITableViewCellStyleDefault" id="mv8-W4-k8t">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1164,6 +1167,40 @@ Some text here ...</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3w-s5-Y9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3840" y="2869"/>
+        </scene>
+        <!--Collaborators View Controller-->
+        <scene sceneID="0lV-Y0-S8x">
+            <objects>
+                <tableViewController id="b0B-dU-uuw" customClass="CollaboratorsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IVC-Gx-Upc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="editorCell" textLabel="MvH-kX-Aq5" style="IBUITableViewCellStyleDefault" id="ix9-jx-keh">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ix9-jx-keh" id="wqV-da-EAj">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MvH-kX-Aq5">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="b0B-dU-uuw" id="zGr-sX-A7K"/>
+                            <outlet property="delegate" destination="b0B-dU-uuw" id="8dY-tX-8dT"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W4B-7Q-mrD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4530" y="2869"/>
         </scene>
         <!--Title-->
         <scene sceneID="bNF-Y9-qZY">
@@ -1939,10 +1976,10 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KAz-Xu-9Nu"/>
         <segue reference="hWk-RA-vL1"/>
-        <segue reference="Osm-Oy-nlm"/>
         <segue reference="jTN-oo-tTb"/>
         <segue reference="a7l-Ip-Am4"/>
+        <segue reference="izh-mw-nZz"/>
+        <segue reference="KAz-Xu-9Nu"/>
     </inferredMetricsTieBreakers>
 </document>

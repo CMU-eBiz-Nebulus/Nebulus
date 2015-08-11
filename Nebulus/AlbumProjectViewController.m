@@ -10,6 +10,7 @@
 #import "ModifyViewController.h"
 #import "CreateProjectAlbumViewController.h"
 #import "MusicHttpClient.h"
+#import "CollaboratorsViewController.h"
 
 @interface AlbumProjectViewController ()
 @property (nonatomic, strong) Album *album;
@@ -80,6 +81,17 @@
             vc.content = self.content;
             vc.backVC = self;
             vc.image = self.imageView.image;
+        }
+    } else if ([segue.identifier isEqualToString:@"collaborators"]){
+        if ([segue.destinationViewController isKindOfClass:[CollaboratorsViewController class]]) {
+            CollaboratorsViewController *vc = (CollaboratorsViewController *)segue.destinationViewController;
+            
+            if(self.mode == PROJECT){
+                vc.mode = PROJECT_DETAIL;
+            } else if (self.mode == ALBUM){
+                vc.mode = ALBUM_DETAIL;
+            }
+            vc.content = self.content;
         }
     }
 }
