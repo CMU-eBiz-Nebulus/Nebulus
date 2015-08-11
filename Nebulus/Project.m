@@ -13,6 +13,7 @@
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
+        self.raw = json;
         self.arrangements = [json objectForKey:@"arrangements"];
         self.bounces= [json objectForKey:@"bounces"];
         //self.clips = [json objectForKey:@"clips"];
