@@ -16,4 +16,7 @@
 +(Clip*) createClip:(Clip*) clip recording:(NSData*) data;
 
 
+//Return all the clips that belongs to the given user id
++(NSArray*) getClips:(NSString*) userId;
+
 @end

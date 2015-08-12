@@ -13,18 +13,32 @@
 
 @interface UserHttpClient : NSObject
 +(User*) login: (NSString*) username password: (NSString*) password;
+
 +(void) logout;
+
 +(BOOL) registerUser:(NSString*) username password: (NSString*) password email: (NSString*) email;
+
 +(User*) updateUserInfo:(User*) user;
+
+//Return the currently logged-in user
 +(User*) getCurrentUser;
+
 +(NSArray*) getFollowers:(User*) user;
+
 +(NSArray*) getFollowing:(User*) user;
+
 +(NSArray*) getTimeline:(User*) user;
+
 +(BOOL) follow:(User*) followee follower:(User*) follower;
+
 +(BOOL) unfollow:(User*) followee follower:(User*) follower;
+
+
+//Search and return the matched users by the given search querry
 +(NSArray*) searchUser:(NSString*) searchStr;
-+(NSArray*) getClip:(NSString*) userId;
+
 +(UIImage*) getUserImage:(NSString*) userId;
+
 +(BOOL) setUserImage:(UIImage*) image userId:(NSString*) userId;
 
 
