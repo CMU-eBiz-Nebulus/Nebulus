@@ -18,5 +18,6 @@ typedef NS_ENUM(NSInteger, ModifyMode) {
 @property (nonatomic) ModifyMode mode;
 @property (nonatomic, strong) UIViewController *backVC;
 @property (nonatomic, strong) id content;
+
 @property (nonatomic, strong) UIImage *image;
 @end

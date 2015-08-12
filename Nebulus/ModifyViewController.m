@@ -23,8 +23,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *tags;
 @property (weak, nonatomic) IBOutlet UITextView *desc;
 
+@property (nonatomic) BOOL changePic;
+
 @property (strong, nonatomic) UIImagePickerController *picker;
-@property (nonatomic, getter=isImageChanged) BOOL imageChanged;
 
 @end
 
@@ -44,7 +45,8 @@
         self.name.text = album.name;
         [self.tags setText:[album.tags componentsJoinedByString:@","]];
         [self.desc setText:album.albumDescription];
-        self.imageView.image = self.image;
+        
+        self.imageView.image = self.image;//[MusicHttpClient getAlbumImage:album.objectID];
         
         [self setTitle:@"Edit Album"];
     } else if(self.mode == M_PROFILE){
@@ -53,12 +55,10 @@
         self.name.text = user.name;
         [self.tags setText:[user.tags componentsJoinedByString:@","]];
         [self.desc setText:user.about];
-        self.imageView.image = [UserHttpClient getUserImage:user.objectID];
+        self.imageView.image = self.image;//[UserHttpClient getUserImage:user.objectID];
         
         [self setTitle:user.username];
     }
-    
-    self.imageChanged = NO;
 }
 
 -(void)viewDidLoad{
@@ -85,11 +85,6 @@
         album.tags = @[self.tags.text];
         
         album = [MusicHttpClient updateAlbum:album];
-
-        [MusicHttpClient setAlbumImage:self.imageView.image
-                               AlbumId:album.objectID];
-
-        
     }else if(self.mode == M_PROJECT){ // PROJECT
         
     }else if(self.mode == M_PROFILE) {
@@ -102,7 +97,17 @@
         user = [UserHttpClient updateUserInfo:user];
     }
     
-    self.imageChanged = NO;
+    if (self.changePic == YES){
+        if(self.mode == M_ALBUM){
+            [MusicHttpClient setAlbumImage:self.image AlbumId:((Album *)self.content).objectID];
+        }else if(self.mode == M_PROJECT){ // PROJECT
+            
+        }else if(self.mode == M_PROFILE) {
+            [UserHttpClient setUserImage:self.image userId:((User *)self.content).objectID];
+        }
+        
+        self.changePic = NO;
+    }
     
     [self.navigationController popToViewController:self.backVC animated:YES];
 }
@@ -162,9 +167,8 @@
         self.imageView.clipsToBounds = YES;
         [self.imageView setImage:imageToUse];
         
-        self.imageChanged = YES;
-        
-        // PROCESS IMAGE HERE
+        self.image = imageToUse;
+        self.changePic = YES;
     }
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
