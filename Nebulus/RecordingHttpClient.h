@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Clip.h"
 
 @interface RecordingHttpClient : NSObject
 
-+(BOOL) uploadRecording:(NSData*) data Id: (NSString*) recordingId;
+
+//Create and upload the clip to the server. the creator of the clip should be speciafied and the recording id should be null. A clip with recording id will be returned if uploaded successful.
++(Clip*) createClip:(Clip*) clip recording:(NSData*) data;
+
 
 @end
