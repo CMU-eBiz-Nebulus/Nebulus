@@ -70,6 +70,7 @@
     if(indexPath.section == 2 && indexPath.row == 1){
         if (self.mode == PROJECT_DETAIL){
             [ProjectHttpClient deleteProject:self.project.objectID];
+            NSLog(@"Project deletion");
         } else if(self.mode == ALBUM_DETAIL){
             [MusicHttpClient deleteAlbum:self.album.objectID];
         }

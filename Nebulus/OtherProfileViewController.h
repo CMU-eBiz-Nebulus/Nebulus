@@ -12,4 +12,7 @@
 @interface OtherProfileViewController : UITableViewController
 @property (nonatomic, strong) User *me;
 @property (nonatomic, strong) User *other;
+
+@property (nonatomic, getter=isInvitationMode) BOOL invitation_mode;
+
 @end

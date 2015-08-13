@@ -136,6 +136,7 @@
         [imageview setImage:[MusicHttpClient getAlbumImage:album.objectID]];
         //[imageview sizeToFit];
         [((UILabel *)[cell viewWithTag:2]) setText:album.name];
+        [((UILabel *)[cell viewWithTag:3]) setText:[NSString stringWithFormat:@"%ld Songs", [album.projects count]]];
         [cell sizeToFit];
     }
     return cell;
@@ -153,6 +154,7 @@
 
         //[imageview sizeToFit];
         [((UILabel *)[cell viewWithTag:2]) setText:project.projectName];
+        ((UILabel *)[cell viewWithTag:3]).hidden = YES;
         [cell sizeToFit];
     }
     return cell;

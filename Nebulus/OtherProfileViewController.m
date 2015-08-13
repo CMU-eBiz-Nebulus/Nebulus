@@ -11,7 +11,7 @@
 #import "UserHttpClient.h"
 
 @interface OtherProfileViewController ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *followButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 @property (weak, nonatomic) IBOutlet UIImageView *headPhoto;
 
 @property (weak, nonatomic) IBOutlet UILabel *username;
@@ -23,15 +23,18 @@
 @end
 
 @implementation OtherProfileViewController
-- (IBAction)followButtonClicked:(UIBarButtonItem *)sender {
-    if([self.followButton.title isEqualToString:@"Follow"]){
-        [UserHttpClient follow:self.other follower:self.me];
-    } else if ([self.followButton.title isEqualToString:@"Unfollow"]){
-        [UserHttpClient unfollow:self.other follower:self.me];
+- (IBAction)buttonClicked:(UIBarButtonItem *)sender {
+    
+    if(!self.isInvitationMode){
+        if([self.actionButton.title isEqualToString:@"Follow"]){
+            [UserHttpClient follow:self.other follower:self.me];
+        } else if ([self.actionButton.title isEqualToString:@"Unfollow"]){
+            [UserHttpClient unfollow:self.other follower:self.me];
+        }
+        [self updateUI];
     }
     
     
-    [self updateUI];
 }
 
 
@@ -59,20 +62,34 @@
     [self.headPhoto setImage: [UserHttpClient getUserImage:self.other.objectID]];
     //[self.headPhoto sizeToFit];
     
-    BOOL isFollowed = NO;
-    for (User *user in follower_list){
-        if([user.objectID isEqualToString:self.me.objectID]){
-            isFollowed = YES;
-            break;
-        }
-    }
+
     
     if([self.me.objectID isEqualToString:self.other.objectID]){
-        [self.followButton setEnabled:NO];
-        [self.followButton setTitle:@""];
+        [self.actionButton setEnabled:NO];
+        [self.actionButton setTitle:@""];
     }else {
-        [self.followButton setTitle:isFollowed ? @"Unfollow" : @"Follow"];
-        [self.followButton setEnabled:YES];
+        
+        if(self.isInvitationMode){
+            BOOL isEditor = NO;
+
+            if(isEditor){
+                [self.actionButton setTitle:@""];
+                [self.actionButton setEnabled:NO];
+            } else{
+                [self.actionButton setTitle:@"Invite"];
+                [self.actionButton setEnabled:YES];
+            }
+        }else{
+            BOOL isFollowed = NO;
+            for (User *user in follower_list){
+                if([user.objectID isEqualToString:self.me.objectID]){
+                    isFollowed = YES;
+                    break;
+                }
+            }
+            [self.actionButton setTitle:isFollowed ? @"Unfollow" : @"Follow"];
+        }
+        [self.actionButton setEnabled:YES];
     }
     
 }
