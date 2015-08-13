@@ -15,6 +15,7 @@
 #import "Project.h"
 #import "UserHttpClient.h"
 #import "User.h"
+#import "ProjectHttpClient.h"
 
 @interface ModifyViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
@@ -37,6 +38,13 @@
     [super viewWillAppear:animated];
     
     if (self.mode == M_PROJECT){
+        Project *project = (Project *)self.content;
+        
+        self.name.text = project.projectName;
+        [self.tags setText:[project.tags componentsJoinedByString:@","]];
+        [self.desc setText:project.projectDescription];
+        
+        self.imageView.image = self.image;
         
         [self setTitle:@"Edit Project"];
     } else if(self.mode == M_ALBUM) {        // ALBUM
@@ -46,7 +54,7 @@
         [self.tags setText:[album.tags componentsJoinedByString:@","]];
         [self.desc setText:album.albumDescription];
         
-        self.imageView.image = self.image;//[MusicHttpClient getAlbumImage:album.objectID];
+        self.imageView.image = self.image;
         
         [self setTitle:@"Edit Album"];
     } else if(self.mode == M_PROFILE){
@@ -55,7 +63,7 @@
         self.name.text = user.name;
         [self.tags setText:[user.tags componentsJoinedByString:@","]];
         [self.desc setText:user.about];
-        self.imageView.image = self.image;//[UserHttpClient getUserImage:user.objectID];
+        self.imageView.image = self.image;
         
         [self setTitle:user.username];
     }
@@ -86,6 +94,12 @@
         
         album = [MusicHttpClient updateAlbum:album];
     }else if(self.mode == M_PROJECT){ // PROJECT
+        Project *project = (Project *)self.content;
+        project.projectName = self.name.text;
+        project.projectDescription = [self.desc.textStorage string];
+        project.tags = @[self.tags.text];
+        
+        //TODO: modify project
         
     }else if(self.mode == M_PROFILE) {
         User *user = (User *)self.content;
@@ -101,7 +115,7 @@
         if(self.mode == M_ALBUM){
             [MusicHttpClient setAlbumImage:self.image AlbumId:((Album *)self.content).objectID];
         }else if(self.mode == M_PROJECT){ // PROJECT
-            
+            [ProjectHttpClient setProjectImage:self.image projectId:((Project *)self.content).objectID];
         }else if(self.mode == M_PROFILE) {
             [UserHttpClient setUserImage:self.image userId:((User *)self.content).objectID];
         }

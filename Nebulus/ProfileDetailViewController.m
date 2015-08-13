@@ -13,6 +13,7 @@
 #import "UserHttpClient.h"
 #import "AlbumProjectViewController.h"
 #import "RecordingHttpClient.h"
+#import "ProjectHttpClient.h"
 
 @interface ProfileDetailViewController ()
 
@@ -109,7 +110,7 @@
 }
 
 -(void)fetch_projects{
-    self.contents = [MusicHttpClient getProjectsByUser:[UserHttpClient getCurrentUser].objectID];
+    self.contents = [ProjectHttpClient getProjectsByUser:[UserHttpClient getCurrentUser].objectID];
 }
 
 -(UITableViewCell *)create_clip_cell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -147,13 +148,11 @@
         Project *project = self.contents[indexPath.row];
         
         UIImageView *imageview = (UIImageView *)[cell viewWithTag:1];
-        [imageview setImage:[UIImage imageNamed:@"pic1"]];
         [imageview setContentMode:UIViewContentModeScaleToFill];
-        //[imageview setImage:[MusicHttpClient getProjectImage:project.objectID]];
+        [imageview setImage:[ProjectHttpClient getProjectImage:project.objectID]];
 
         //[imageview sizeToFit];
-        //[((UILabel *)[cell viewWithTag:2]) setText:project.name];
-        [((UILabel *)[cell viewWithTag:2]) setText:@"Project X"];
+        [((UILabel *)[cell viewWithTag:2]) setText:project.projectName];
         [cell sizeToFit];
     }
     return cell;

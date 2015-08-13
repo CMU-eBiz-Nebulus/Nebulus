@@ -10,6 +10,7 @@
 #import "ModifyViewController.h"
 #import "CreateProjectAlbumViewController.h"
 #import "MusicHttpClient.h"
+#import "ProjectHttpClient.h"
 #import "CollaboratorsViewController.h"
 
 @interface AlbumProjectViewController ()
@@ -42,7 +43,13 @@
         self.album   = nil;
         self.project = (Project *)self.content;
         [self.songsLabel setText:@"Clips"];
-        self.title = @"Project Name"; //self.project.name;
+        
+        self.title = self.project.projectName;
+        [self.tags setText:[NSString stringWithFormat:@"Tags: %@",
+                            [self.project.tags componentsJoinedByString:@","]]];
+        [self.desc setText:self.project.projectDescription];
+        
+        [self.imageView setImage:[ProjectHttpClient getProjectImage:self.project.objectID]];
     } else if(self.mode == ALBUM_DETAIL) {        // ALBUM_DETAIL
         self.album   = (Album *)self.content;
         self.project = nil;
@@ -62,7 +69,7 @@
     // DELETE
     if(indexPath.section == 2 && indexPath.row == 1){
         if (self.mode == PROJECT_DETAIL){
-            
+            [ProjectHttpClient deleteProject:self.project.objectID];
         } else if(self.mode == ALBUM_DETAIL){
             [MusicHttpClient deleteAlbum:self.album.objectID];
         }
