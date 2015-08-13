@@ -57,6 +57,7 @@
 
 -(id) initWithDict:(NSDictionary *)json;
 -(NSDictionary*)convertToDict;
+-(bool) isUser:(NSString*) userId;
 
 
 
