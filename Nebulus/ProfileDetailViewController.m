@@ -152,8 +152,7 @@
         //[imageview setImage:[MusicHttpClient getProjectImage:project.objectID]];
 
         //[imageview sizeToFit];
-        //[((UILabel *)[cell viewWithTag:2]) setText:project.name];
-        [((UILabel *)[cell viewWithTag:2]) setText:@"Project X"];
+        [((UILabel *)[cell viewWithTag:2]) setText:project.projectName];
         [cell sizeToFit];
     }
     return cell;
