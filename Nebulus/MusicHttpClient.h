@@ -30,20 +30,11 @@
 
 +(NSArray*) getAlbumsByUser:(NSString*) userId;
 
-+(Project*) createProject:(Project*) project;
-
-+(NSArray*) getProjectsByUser:(NSString*) userId;
-
 +(UIImage*) getAlbumImage:(NSString*) albumId;
 
 +(BOOL) setAlbumImage:(UIImage*) image AlbumId: (NSString*) albumId;
 
 +(BOOL) deleteAlbum:(NSString*) albumId;
 
-+(UIImage*) getProjectImage:(NSString*) projectId;
-
-+(BOOL) setProjectImage:(UIImage*) image AlbumId: (NSString*) projectId;
-
-+(BOOL) deleteProject:(NSString*) projectId;
 
 @end

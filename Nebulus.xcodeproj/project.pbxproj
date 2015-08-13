@@ -48,6 +48,7 @@
 		92A574FA1B655CD70015032B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574F91B655CD70015032B /* User.m */; };
 		92A574FD1B6857AA0015032B /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A574FC1B6857AA0015032B /* Album.m */; };
 		92ED7E171B7A834C0015E6BB /* RecordingHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E161B7A834C0015E6BB /* RecordingHttpClient.m */; };
+		92ED7E1A1B7C37EE0015E6BB /* ProjectHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E191B7C37EE0015E6BB /* ProjectHttpClient.m */; };
 		92F158CA1B782E46005C84C8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158C91B782E46005C84C8 /* Comment.m */; };
 		92F158CD1B783219005C84C8 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CC1B783219005C84C8 /* Task.m */; };
 		92F158D01B783CE9005C84C8 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CF1B783CE9005C84C8 /* Like.m */; };
@@ -157,6 +158,8 @@
 		92A574FC1B6857AA0015032B /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		92ED7E151B7A834C0015E6BB /* RecordingHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingHttpClient.h; sourceTree = "<group>"; };
 		92ED7E161B7A834C0015E6BB /* RecordingHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingHttpClient.m; sourceTree = "<group>"; };
+		92ED7E181B7C37EE0015E6BB /* ProjectHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectHttpClient.h; sourceTree = "<group>"; };
+		92ED7E191B7C37EE0015E6BB /* ProjectHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectHttpClient.m; sourceTree = "<group>"; };
 		92F158C81B782E46005C84C8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		92F158C91B782E46005C84C8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		92F158CB1B783219005C84C8 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -343,6 +346,8 @@
 				92A574B51B62D20F0015032B /* UserHttpClient.m */,
 				929DA6391B6A91AA00F2663C /* MusicHttpClient.h */,
 				929DA63A1B6A91AA00F2663C /* MusicHttpClient.m */,
+				92ED7E181B7C37EE0015E6BB /* ProjectHttpClient.h */,
+				92ED7E191B7C37EE0015E6BB /* ProjectHttpClient.m */,
 				92ED7E151B7A834C0015E6BB /* RecordingHttpClient.h */,
 				92ED7E161B7A834C0015E6BB /* RecordingHttpClient.m */,
 				92F158CE1B783CE9005C84C8 /* Like.h */,
@@ -536,6 +541,7 @@
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
 				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
 				928984411B7463A400D6FB6F /* Doc.m in Sources */,
+				92ED7E1A1B7C37EE0015E6BB /* ProjectHttpClient.m in Sources */,
 				98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */,
 				928984311B729E6300D6FB6F /* AlbumShare.m in Sources */,
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
