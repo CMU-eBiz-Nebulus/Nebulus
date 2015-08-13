@@ -21,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextView *desc;
 @property (weak, nonatomic) IBOutlet UILabel *tags;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *editCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *deleteCell;
+
 @end
 
 @implementation AlbumProjectViewController
@@ -28,11 +32,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                    target:self
-                                    action:@selector(shareAction)];
-    self.navigationItem.rightBarButtonItem = shareButton;
+    if(self.viewMode){
+        self.editCell.hidden = YES;
+        self.deleteCell.hidden = YES;
+        
+    } else{
+        UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
+                                        initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                        target:self
+                                        action:@selector(shareAction)];
+        self.navigationItem.rightBarButtonItem = shareButton;
+    }
+    
 }
 
 -(void)shareAction{}

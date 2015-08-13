@@ -322,7 +322,7 @@
         <!--Search View Controller-->
         <scene sceneID="NYs-VT-YD9">
             <objects>
-                <viewController id="RNR-Eg-7w3" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchViewController" id="RNR-Eg-7w3" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QMO-6o-m1Q"/>
                         <viewControllerLayoutGuide type="bottom" id="2RU-fS-6zl"/>
@@ -1110,10 +1110,10 @@ Some text here ...</string>
         <scene sceneID="fhs-Ba-mj2">
             <objects>
                 <tableViewController id="rF1-8H-BuT" customClass="AlbumProjectViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="onx-pY-jbD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="onx-pY-jbD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="" id="o73-B6-lA0">
                                 <cells>
@@ -1213,14 +1213,14 @@ Some text here ...</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Setting" id="J9P-Iw-Zou">
+                            <tableViewSection headerTitle=" " id="J9P-Iw-Zou">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="AbS-97-cld" style="IBUITableViewCellStyleDefault" id="DQQ-Th-8kb">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DQQ-Th-8kb" id="BzG-u3-uha">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Edit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AbS-97-cld">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AbS-97-cld">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1256,7 +1256,9 @@ Some text here ...</string>
                     </tableView>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="deleteCell" destination="0yL-dM-oUN" id="I47-WZ-DTK"/>
                         <outlet property="desc" destination="htO-ri-tbz" id="05M-1S-Fdt"/>
+                        <outlet property="editCell" destination="DQQ-Th-8kb" id="blj-T4-m0g"/>
                         <outlet property="imageView" destination="2Cc-HA-nRl" id="Q0I-mQ-DF3"/>
                         <outlet property="songsLabel" destination="AUF-Mh-vGv" id="3y2-nP-hjI"/>
                         <outlet property="tags" destination="2k3-g2-A9d" id="gt5-nx-AgJ"/>
@@ -2046,10 +2048,10 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="4nv-Y9-mp1"/>
         <segue reference="OPr-Qg-P5T"/>
         <segue reference="1oK-Qf-whG"/>
-        <segue reference="hWk-RA-vL1"/>
-        <segue reference="Osm-Oy-nlm"/>
+        <segue reference="izh-mw-nZz"/>
         <segue reference="jTN-oo-tTb"/>
         <segue reference="a7l-Ip-Am4"/>
     </inferredMetricsTieBreakers>

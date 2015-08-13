@@ -8,6 +8,7 @@
 
 #import "CollaboratorsViewController.h"
 #import "User.h"
+#import "SearchViewController.h"
 
 @interface CollaboratorsViewController ()
 @end
@@ -26,9 +27,17 @@
 
 -(void)performInvite{
     if(self.mode == ALBUM_DETAIL){
-        
+        SearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"searchViewController"];
+        vc.mode = M_ALBUM;
+        vc.content = self.content;
+        vc.searchForInvitation = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     } else if(self.mode == PROJECT_DETAIL){
-        
+        SearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"searchViewController"];
+        vc.mode = M_PROJECT;
+        vc.content = self.content;
+        vc.searchForInvitation = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

@@ -42,6 +42,8 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    //self.searchForInvitation = NO;
 }
 
 
@@ -58,7 +60,7 @@
 
 #pragma mark - Table View Data Source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return self.searchForInvitation ? 1 : 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -135,10 +137,10 @@
             OtherProfileViewController *vc = (OtherProfileViewController *)segue.destinationViewController;
             UITableViewCell *cell = (UITableViewCell *)sender;
             
-
+        
             vc.me = [UserHttpClient getCurrentUser];
             vc.other = [self.users objectAtIndex:[self.tableView indexPathForCell:cell].row];
-            vc.invitation_mode = NO;
+            vc.invitation_mode = self.searchForInvitation;
         }
     } else if([segue.identifier isEqualToString:@"searchAlbumProject"]){
         if ([segue.destinationViewController isKindOfClass:[AlbumProjectViewController class]]) {
@@ -150,6 +152,7 @@
             
             vc.mode = ALBUM_DETAIL;
             vc.content = album;
+            vc.viewMode = YES;
         }
     }
 }

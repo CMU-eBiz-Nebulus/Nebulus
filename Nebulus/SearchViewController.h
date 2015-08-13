@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModifyViewController.h"
 
 @interface SearchViewController : UIViewController
+
+@property (nonatomic) BOOL searchForInvitation;
+
+@property (nonatomic) ModifyMode mode;
+@property (nonatomic, strong) id content;
 
 @end

@@ -9,6 +9,8 @@
 #import "OtherProfileViewController.h"
 #import "User.h"
 #import "UserHttpClient.h"
+#import "Project.h"
+#import "Album.h"
 
 @interface OtherProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
@@ -31,10 +33,19 @@
         } else if ([self.actionButton.title isEqualToString:@"Unfollow"]){
             [UserHttpClient unfollow:self.other follower:self.me];
         }
-        [self updateUI];
+        
+    } else {
+        
+        if(self.mode == M_PROJECT){
+            Project *project = (Project *)self.content;
+        }else if (self.mode == M_ALBUM){
+            Album *album = (Album *)self.content;
+        }
+        
+        //TODO: invite this guy
     }
     
-    
+    [self updateUI];
 }
 
 
@@ -88,8 +99,8 @@
                 }
             }
             [self.actionButton setTitle:isFollowed ? @"Unfollow" : @"Follow"];
+            [self.actionButton setEnabled:YES];
         }
-        [self.actionButton setEnabled:YES];
     }
     
 }
