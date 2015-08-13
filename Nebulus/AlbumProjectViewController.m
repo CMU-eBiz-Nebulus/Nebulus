@@ -12,6 +12,10 @@
 #import "MusicHttpClient.h"
 #import "ProjectHttpClient.h"
 #import "CollaboratorsViewController.h"
+#import "Project.h"
+#import "Album.h"
+#import "User.h"
+#import "UserHttpClient.h"
 
 @interface AlbumProjectViewController ()
 @property (nonatomic, strong) Album *album;
@@ -35,8 +39,20 @@
     if(self.viewMode){
         self.editCell.hidden = YES;
         self.deleteCell.hidden = YES;
-        
-    } else{
+    }
+    
+    // Check whether current user has the right to share ALBUM / PROJECT
+    BOOL displayShare = NO;
+    User *user = [UserHttpClient getCurrentUser];
+    if (self.mode == PROJECT_DETAIL){
+        Project *project = (Project *)self.content;
+        displayShare = [project isUser:user.objectID];
+    }else if(self.mode == ALBUM_DETAIL){
+        Album *album = (Album *)self.content;
+        displayShare = [album isUser:user.objectID];
+    }
+    
+    if(displayShare){
         UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
                                         initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                         target:self
