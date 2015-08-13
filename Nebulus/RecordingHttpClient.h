@@ -19,4 +19,7 @@
 //Return all the clips that belongs to the given user id
 +(NSArray*) getClips:(NSString*) userId;
 
+//Get the recording data by the given recording id
++(NSData*) getRecoring:(NSString*) recordingId;
+
 @end

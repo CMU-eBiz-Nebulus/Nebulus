@@ -33,7 +33,6 @@
         self.projects = [json objectForKey:@"projects"];
         NSDictionary *users = [json objectForKey:@"users"];
         self.creator = [[User alloc] initWithDict:[users objectForKey:@"creator"]];
-        
         NSArray *rawEditors = [users objectForKey:@"editors"];
         NSMutableArray *editors = [[NSMutableArray alloc] init];
         for (int i = 0; i < [rawEditors count]; i++) {

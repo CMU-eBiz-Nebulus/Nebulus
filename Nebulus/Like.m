@@ -28,4 +28,8 @@
     return dict;
 }
 
++(NSArray*) dictToArray:(NSDictionary*) dict withObjectName:(NSString*) name {
+    return nil;
+}
+
 @end

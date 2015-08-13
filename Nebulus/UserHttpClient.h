@@ -27,8 +27,6 @@
 
 +(NSArray*) getFollowing:(User*) user;
 
-+(NSArray*) getTimeline:(User*) user;
-
 +(BOOL) follow:(User*) followee follower:(User*) follower;
 
 +(BOOL) unfollow:(User*) followee follower:(User*) follower;

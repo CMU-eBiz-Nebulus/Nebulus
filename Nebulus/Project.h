@@ -38,14 +38,22 @@
 
 @interface Project : Model
 
-@property(nonatomic, strong) NSArray *arrangements;
-@property(nonatomic, strong) NSArray *bounces;
-@property(nonatomic, strong) NSArray *clips;
+//@property(nonatomic, strong) NSArray *arrangements;
+//@property(nonatomic, strong) NSArray *bounces;
+//@property(nonatomic, strong) NSArray *clips;
 @property(nonatomic, strong) NSString *currentVersion;
-@property(nonatomic, strong) NSArray *docs;
+//@property(nonatomic, strong) NSArray *docs;
 @property(nonatomic, strong) User *creator;
 @property(nonatomic, strong) NSArray *editors;
-@property(nonatomic, strong) NSDictionary *raw;
+@property(nonatomic, strong) NSMutableDictionary *raw;
+
+@property(nonatomic, strong) NSString *projectDescription;
+@property(nonatomic, strong) NSString *groupName;
+@property(nonatomic, strong) NSString *projectName;
+@property(nonatomic, strong) NSArray *tags;
+
+
+
 
 -(id) initWithDict:(NSDictionary *)json;
 -(NSDictionary*)convertToDict;
