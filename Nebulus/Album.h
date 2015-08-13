@@ -14,6 +14,7 @@
 @interface Album : Model
 -(id) initWithDict:(NSDictionary *)json;
 -(NSDictionary*)convertToDict;
+-(bool) isUser:(NSString*) userId;
 
 @property(nonatomic, strong) NSString *albumDescription;
 @property(nonatomic, strong) NSString *groupName;

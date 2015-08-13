@@ -71,4 +71,12 @@
     return self.raw;
 }
 
+-(bool) isUser:(NSString*) userId {
+    if (self.creator.objectID == userId) return YES;
+    for (User *editor in self.editors) {
+        if (editor.objectID == userId) return YES;
+    }
+    return NO;
+}
+
 @end
