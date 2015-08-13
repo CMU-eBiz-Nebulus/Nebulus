@@ -40,4 +40,10 @@
 
 +(BOOL) deleteAlbum:(NSString*) albumId;
 
++(UIImage*) getProjectImage:(NSString*) projectId;
+
++(BOOL) setProjectImage:(UIImage*) image AlbumId: (NSString*) projectId;
+
++(BOOL) deleteProject:(NSString*) projectId;
+
 @end
