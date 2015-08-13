@@ -315,6 +315,32 @@
     return YES;
 }
 
+//Return all the clips that belongs to the given user id
++(NSArray*) searchAlbum:(NSString*) searchStr {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/albums/?name=%@", searchStr];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *raw = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *albums = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [raw count]; i++) {
+        NSDictionary* json = raw[i];
+        Album *u = [[Album alloc] initWithDict:json];
+        [albums addObject:u];
+    }
+    return albums;
+}
 
 
 
