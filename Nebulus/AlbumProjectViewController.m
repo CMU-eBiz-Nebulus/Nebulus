@@ -48,8 +48,7 @@
                             [self.project.tags componentsJoinedByString:@","]]];
         [self.desc setText:self.project.projectDescription];
         
-        //TODO: get project image
-        //[self.imageView setImage:[MusicHttpClient :self.project.objectID]];
+        [self.imageView setImage:[MusicHttpClient getProjectImage:self.project.objectID]];
     } else if(self.mode == ALBUM_DETAIL) {        // ALBUM_DETAIL
         self.album   = (Album *)self.content;
         self.project = nil;
@@ -69,7 +68,7 @@
     // DELETE
     if(indexPath.section == 2 && indexPath.row == 1){
         if (self.mode == PROJECT_DETAIL){
-            //TODO: delete project
+            [MusicHttpClient deleteProject:self.project.objectID];
         } else if(self.mode == ALBUM_DETAIL){
             [MusicHttpClient deleteAlbum:self.album.objectID];
         }

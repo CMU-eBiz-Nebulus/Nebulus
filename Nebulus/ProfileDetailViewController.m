@@ -147,9 +147,8 @@
         Project *project = self.contents[indexPath.row];
         
         UIImageView *imageview = (UIImageView *)[cell viewWithTag:1];
-        [imageview setImage:[UIImage imageNamed:@"pic1"]];
         [imageview setContentMode:UIViewContentModeScaleToFill];
-        //[imageview setImage:[MusicHttpClient getProjectImage:project.objectID]];
+        [imageview setImage:[MusicHttpClient getProjectImage:project.objectID]];
 
         //[imageview sizeToFit];
         [((UILabel *)[cell viewWithTag:2]) setText:project.projectName];

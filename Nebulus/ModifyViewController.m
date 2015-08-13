@@ -112,7 +112,7 @@
         if(self.mode == M_ALBUM){
             [MusicHttpClient setAlbumImage:self.image AlbumId:((Album *)self.content).objectID];
         }else if(self.mode == M_PROJECT){ // PROJECT
-            //TODO: upload project image
+            [MusicHttpClient setProjectImage:self.image AlbumId:((Project *)self.content).objectID];
         }else if(self.mode == M_PROFILE) {
             [UserHttpClient setUserImage:self.image userId:((User *)self.content).objectID];
         }
