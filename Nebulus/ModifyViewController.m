@@ -15,6 +15,7 @@
 #import "Project.h"
 #import "UserHttpClient.h"
 #import "User.h"
+#import "ProjectHttpClient.h"
 
 @interface ModifyViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
@@ -38,9 +39,11 @@
     
     if (self.mode == M_PROJECT){
         Project *project = (Project *)self.content;
+        
         self.name.text = project.projectName;
         [self.tags setText:[project.tags componentsJoinedByString:@","]];
         [self.desc setText:project.projectDescription];
+        
         self.imageView.image = self.image;
         
         [self setTitle:@"Edit Project"];
@@ -112,7 +115,7 @@
         if(self.mode == M_ALBUM){
             [MusicHttpClient setAlbumImage:self.image AlbumId:((Album *)self.content).objectID];
         }else if(self.mode == M_PROJECT){ // PROJECT
-            [MusicHttpClient setProjectImage:self.image AlbumId:((Project *)self.content).objectID];
+            [ProjectHttpClient setProjectImage:self.image projectId:((Project *)self.content).objectID];
         }else if(self.mode == M_PROFILE) {
             [UserHttpClient setUserImage:self.image userId:((User *)self.content).objectID];
         }
