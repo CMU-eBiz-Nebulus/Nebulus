@@ -49,6 +49,7 @@
     
     if([sender.text length] > 0){
         self.users = [UserHttpClient searchUser:sender.text];
+        self.albums = [MusicHttpClient searchAlbum:sender.text];
     }
     [self.tableView reloadData];
 
@@ -145,8 +146,10 @@
             UITableViewCell *cell = (UITableViewCell *)sender;
             
             
-//            vc.me = [UserHttpClient getCurrentUser];
-//            vc.other = [self.users objectAtIndex:[self.tableView indexPathForCell:cell].row];
+            Album *album = [self.albums objectAtIndex:[self.tableView indexPathForCell:cell].row];
+            
+            vc.mode = ALBUM_DETAIL;
+            vc.content = album;
         }
     }
 }
