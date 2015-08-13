@@ -286,9 +286,7 @@
     NSInteger i = [(UIButton*)sender tag];
     
     Clip *clip = [[Clip alloc] init];
-    NSLog(@"123");
     clip.name = [_directoryContent objectAtIndex:i];
-    NSLog(@"312");
     
     
     clip.creator = [UserHttpClient getCurrentUser];
@@ -339,7 +337,6 @@
         [data appendBytes:outBytes length:size];
         free(outBytes);
     }
-    NSLog(@"length: ", data.length);
     clip = [RecordingHttpClient createClip:clip recording:data];
     
     
