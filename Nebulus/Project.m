@@ -72,9 +72,9 @@
 }
 
 -(bool) isUser:(NSString*) userId {
-    if (self.creator.objectID == userId) return YES;
+    if ([self.creator.objectID isEqualToString: userId]) return YES;
     for (User *editor in self.editors) {
-        if (editor.objectID == userId) return YES;
+        if ([editor.objectID isEqualToString: userId]) return YES;
     }
     return NO;
 }

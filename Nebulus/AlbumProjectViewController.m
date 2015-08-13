@@ -12,6 +12,10 @@
 #import "MusicHttpClient.h"
 #import "ProjectHttpClient.h"
 #import "CollaboratorsViewController.h"
+#import "Project.h"
+#import "Album.h"
+#import "User.h"
+#import "UserHttpClient.h"
 
 @interface AlbumProjectViewController ()
 @property (nonatomic, strong) Album *album;
@@ -21,6 +25,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextView *desc;
 @property (weak, nonatomic) IBOutlet UILabel *tags;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *editCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *deleteCell;
+
 @end
 
 @implementation AlbumProjectViewController
@@ -28,11 +36,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                    target:self
-                                    action:@selector(shareAction)];
-    self.navigationItem.rightBarButtonItem = shareButton;
+    if(self.viewMode){
+        self.editCell.hidden = YES;
+        self.deleteCell.hidden = YES;
+    }
+    
+    // Check whether current user has the right to share ALBUM / PROJECT
+    BOOL displayShare = NO;
+    User *user = [UserHttpClient getCurrentUser];
+    if (self.mode == PROJECT_DETAIL){
+        Project *project = (Project *)self.content;
+        displayShare = [project isUser:user.objectID];
+    }else if(self.mode == ALBUM_DETAIL){
+        Album *album = (Album *)self.content;
+        displayShare = [album isUser:user.objectID];
+    }
+    
+    if(displayShare){
+        UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
+                                        initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                        target:self
+                                        action:@selector(shareAction)];
+        self.navigationItem.rightBarButtonItem = shareButton;
+    }
+    
 }
 
 -(void)shareAction{}

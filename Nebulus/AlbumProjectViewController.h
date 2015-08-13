@@ -18,4 +18,6 @@ typedef NS_ENUM(NSInteger, ContentMode) {
 @interface AlbumProjectViewController : UITableViewController
 @property (nonatomic) ContentMode mode;
 @property (nonatomic, strong) id content;
+
+@property (nonatomic) BOOL viewMode;
 @end

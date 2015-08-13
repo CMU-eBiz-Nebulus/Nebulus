@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModifyViewController.h"
+
 @class User;
 
 @interface OtherProfileViewController : UITableViewController
@@ -14,5 +16,8 @@
 @property (nonatomic, strong) User *other;
 
 @property (nonatomic, getter=isInvitationMode) BOOL invitation_mode;
+
+@property (nonatomic) ModifyMode mode;
+@property (nonatomic, strong) id content;
 
 @end
