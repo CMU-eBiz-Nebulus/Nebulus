@@ -33,7 +33,9 @@
     [dict setObject:[self.creator convertToDict] forKey:@"creator"];
     [dict setObject:self.duration forKey:@"duration"];
     [dict setObject:self.name forKey:@"name"];
-    [dict setObject:self.recordingId forKey:@"recordingId"];
+    if (self.recordingId) {
+        [dict setObject:self.recordingId forKey:@"recordingId"];
+    } else [dict setObject:nil forKey:@"recordingId"];
     [dict setObject:self.tags forKey:@"tags"];
     return dict;
 }
