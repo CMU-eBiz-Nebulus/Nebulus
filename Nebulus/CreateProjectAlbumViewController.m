@@ -15,6 +15,7 @@
 #import "Album.h"
 #import "Project.h"
 #import "UserHttpClient.h"
+#import "ProjectHttpClient.h"
 
 
 @interface CreateProjectAlbumViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
@@ -62,6 +63,7 @@
         
         album.projects = @[];
         album.creator = [UserHttpClient getCurrentUser];
+        album.editors = @[];
         album = [MusicHttpClient createAlbum:album];
 
         if(self.imageView.image)
@@ -69,6 +71,22 @@
 
         
     }else { // PROJECT
+        
+        Project *project = [[Project alloc] init];
+        project.projectName = self.name.text;
+        project.tags = @[self.tags.text];
+        project.projectDescription = [self.desc.textStorage string];
+        
+        project.creator = [UserHttpClient getCurrentUser];
+        
+        project.editors = @[];
+        project.groupName = @"testname";
+        project.currentVersion = @"";
+        
+        project = [ProjectHttpClient createProject:project];
+        
+        if(self.imageView.image)
+            [ProjectHttpClient setProjectImage:self.imageView.image projectId:project.objectID];
         
     }
     
@@ -138,7 +156,6 @@
         self.imageView.clipsToBounds = YES;
         [self.imageView setImage:imageToUse];
         
-        // PROCESS IMAGE HERE
     }
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
