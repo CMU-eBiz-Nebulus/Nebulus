@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "User.h"
 #import "Clip.h"
-#import <UIKit/UIKit.h>
+#import "Notification.h"
+
 
 @interface UserHttpClient : NSObject
 +(User*) login: (NSString*) username password: (NSString*) password;
@@ -40,6 +42,12 @@
 +(UIImage*) getUserImage:(NSString*) userId;
 
 +(BOOL) setUserImage:(UIImage*) image userId:(NSString*) userId;
+
+//Get all notifications for a user
++(NSArray*) getUserNotification:(NSString*) userId;
+
+//Set the notification to be read
++(Notification*) readNotification:(Notification*) notification;
 
 
 @end

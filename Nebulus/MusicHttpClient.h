@@ -46,4 +46,7 @@
 +(BOOL) deleteAlbum:(NSString*) albumId;
 
 
++(NSArray*) searchAlbum:(NSString*) searchStr;
+
+
 @end

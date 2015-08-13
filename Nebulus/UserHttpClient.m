@@ -367,6 +367,60 @@
     return YES;
 }
 
++(NSArray*) getUserNotification:(NSString*) userId {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/notifications/?recipient=%@", userId];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *raw = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *notifications = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [raw count]; i++) {
+        NSDictionary* json = raw[i];
+        Notification *u = [[Notification alloc] initWithDict:json];
+        [notifications addObject:u];
+    }
+    return notifications;
+}
+
+//Set the notification to be read
++(Notification*) readNotification:(Notification*) notification {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/notifications/%@", notification.objectID];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *dict = [notification convertToDict];
+    
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    [request setHTTPBody:postdata];
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                           error:&error];
+    notification = [[Notification alloc]initWithDict:json];
+    return notification;
+}
+
 
 
 
