@@ -35,7 +35,6 @@
                                                          options:kNilOptions
                                                            error:&error];
     Project *returnpProject = [[Project alloc]initWithDict:json];
-    NSLog(json.description);
     return returnpProject;
     
 }

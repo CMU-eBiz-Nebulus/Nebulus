@@ -58,7 +58,11 @@
     [users setValue: editors forKey:@"editors"];
     [self.raw setObject:users forKey:@"users"];
 
+    if (![self.raw objectForKey:@"meta"]) {
+        [self.raw setObject:[[NSMutableDictionary alloc] init] forKey:@"meta"];
+    }
     NSMutableDictionary *meta = [self.raw objectForKey:@"meta"];
+
     [meta setObject:self.projectDescription forKey:@"description"];
     [meta setObject:self.projectName forKey:@"name"];
     [meta setObject:self.groupName forKey:@"groupName"];

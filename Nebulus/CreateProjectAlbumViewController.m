@@ -82,7 +82,6 @@
         project.groupName = @"testname";
         project.currentVersion = @"55b526356df6bd8840fd739d";
         project = [ProjectHttpClient createProject:project];
-        NSLog(@"Done  %@", project.objectID);
         
         if(self.imageView.image)
             [ProjectHttpClient setProjectImage:self.imageView.image projectId:project.objectID];
