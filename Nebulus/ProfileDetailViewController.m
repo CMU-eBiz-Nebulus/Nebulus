@@ -12,6 +12,8 @@
 #import "MusicHttpClient.h"
 #import "UserHttpClient.h"
 #import "AlbumProjectViewController.h"
+#import "RecordingHttpClient.h"
+
 @interface ProfileDetailViewController ()
 
 @property (nonatomic, strong) NSArray *contents;
@@ -99,12 +101,11 @@
 #pragma mark - CLIPS
 
 -(void)fetch_clips{
-    self.contents = @[@"clip 1", @"clip 2", @"clip 3", @"clip 4"];
+    self.contents =  [RecordingHttpClient getClips:[UserHttpClient getCurrentUser].objectID];
 }
 
 -(void)fetch_albums{
-    self.contents = [MusicHttpClient getAlbumsByUser:
-                     [UserHttpClient getCurrentUser].objectID];
+    self.contents = [MusicHttpClient getAlbumsByUser:[UserHttpClient getCurrentUser].objectID];
 }
 
 -(void)fetch_projects{
@@ -114,9 +115,11 @@
 -(UITableViewCell *)create_clip_cell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = nil;
     if (self.mode == CLIPS){
+        Clip *clip = self.contents[indexPath.row];
+        
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithoutPhoto"];
-        [cell.textLabel setText:[self.contents objectAtIndex:indexPath.row]];
-        cell.detailTextLabel.text = @"2015-07-24";
+        [cell.textLabel setText:clip.name];
+        cell.detailTextLabel.text = clip.duration.stringValue;
     }
     return cell;
 }
