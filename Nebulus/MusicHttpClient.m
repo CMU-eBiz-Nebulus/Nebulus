@@ -368,4 +368,69 @@
     return YES;
 }
 
++(UIImage*) getProjectImage:(NSString*) projectId {
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/images/projects/%@", projectId ];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"GET"];
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    UIImage *image = [[UIImage alloc] initWithData:responseData];
+    return image;
+}
+
++(BOOL) setProjectImage:(UIImage*) image AlbumId: (NSString*) projectId {
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/images/projects/%@", projectId ];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *boundary = @"---aS3eS9A8zSo1";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    NSMutableData *body = [NSMutableData data];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image\"; filename=\"%@\"\r\n", @"picture.png"]] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[NSData dataWithData:imageData]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:body];
+    
+    NSURLResponse *response = [[NSURLResponse alloc]init];
+    NSError *error = [[NSError alloc] init];
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) return NO;
+    return YES;
+}
+
+
++(BOOL) deleteProject:(NSString*) projectId {
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/projects/%@", projectId];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"DELETE"];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if (error) NSLog(@"%@", error.localizedDescription);
+                           }];
+    
+    return YES;
+}
+
 @end
