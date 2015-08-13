@@ -35,6 +35,7 @@
                                                          options:kNilOptions
                                                            error:&error];
     Project *returnpProject = [[Project alloc]initWithDict:json];
+    NSLog(json.description);
     return returnpProject;
     
 }
@@ -82,7 +83,7 @@
     return image;
 }
 
-+(BOOL) setProjectImage:(UIImage*) image AlbumId: (NSString*) projectId {
++(BOOL) setProjectImage:(UIImage*) image projectId: (NSString*) projectId {
     NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/images/projects/%@", projectId ];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl

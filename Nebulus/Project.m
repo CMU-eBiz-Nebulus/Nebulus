@@ -32,6 +32,7 @@
             User *editor = [[User alloc] initWithDict:rawEditors[i]];
             [editors addObject:editor];
         }
+        self.editors = editors;
         
         NSDictionary *meta = [json objectForKey:@"meta"];
         self.projectDescription = [meta objectForKey:@"description"];
@@ -44,11 +45,17 @@
     
 }
 -(NSDictionary*) convertToDict {
-    
+    if (!self.raw) {
+        self.raw = [[NSMutableDictionary alloc] init];
+    }
     [self.raw setObject:self.currentVersion forKey:@"currentVersion"];
-    NSMutableDictionary *users = [[NSMutableDictionary alloc] init];
-    [users setObject:self.creator forKey:@"creator"];
-    [users setObject:self.editors forKey:@"editors"];
+    NSMutableDictionary *users = [[NSMutableDictionary alloc]init];
+    NSMutableArray *editors = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [self.editors count]; i++) {
+        [editors addObject:[editors[i] convertToDict]];
+    }
+    [users setValue: [self.creator convertToDict] forKey:@"creator"];
+    [users setValue: editors forKey:@"editors"];
     [self.raw setObject:users forKey:@"users"];
 
     NSMutableDictionary *meta = [self.raw objectForKey:@"meta"];

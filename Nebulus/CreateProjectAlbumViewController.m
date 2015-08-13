@@ -78,12 +78,11 @@
         project.projectDescription = [self.desc.textStorage string];
         
         project.creator = [UserHttpClient getCurrentUser];
-        
         project.editors = @[];
         project.groupName = @"testname";
-        project.currentVersion = @"";
-        
+        project.currentVersion = @"55b526356df6bd8840fd739d";
         project = [ProjectHttpClient createProject:project];
+        NSLog(@"Done  %@", project.objectID);
         
         if(self.imageView.image)
             [ProjectHttpClient setProjectImage:self.imageView.image projectId:project.objectID];
