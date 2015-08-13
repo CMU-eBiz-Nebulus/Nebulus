@@ -21,7 +21,7 @@
 
 +(UIImage*) getProjectImage:(NSString*) projectId;
 
-+(BOOL) setProjectImage:(UIImage*) image AlbumId: (NSString*) projectId;
++(BOOL) setProjectImage:(UIImage*) image projectId: (NSString*) projectId;
 
 +(BOOL) deleteProject:(NSString*) projectId;
 
