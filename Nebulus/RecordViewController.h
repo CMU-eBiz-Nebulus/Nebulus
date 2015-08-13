@@ -12,15 +12,19 @@
 #import "EZAudio.h"
 
 // By default this will record a file to the application's documents directory (within the application's sandbox)
-#define kAudioFilePath @"EZAudioTest.m4a"
+#define kAudioFilePath @"t.m4a"
 
 //------------------------------------------------------------------------------
 #pragma mark - RecordViewController
 //------------------------------------------------------------------------------
 
 @interface RecordViewController : UIViewController <EZAudioPlayerDelegate,
-                                                    EZMicrophoneDelegate,
-                                                    EZRecorderDelegate>
+EZMicrophoneDelegate,
+EZRecorderDelegate,
+UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) UITableView *secondTableView;
+
 
 /**
  The label used to display the current time for recording/playback in the top left
@@ -134,6 +138,8 @@
  */
 - (IBAction)toggleRecording:(id)sender;
 
+
+@property (nonatomic, strong) NSMutableArray *directoryContent;
 @end
 
 
