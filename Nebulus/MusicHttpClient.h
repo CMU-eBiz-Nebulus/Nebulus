@@ -20,19 +20,28 @@
 
 +(NSArray*) creatActivity:(Activity*) activity;
 
+//Get the activities of all following user of the given user
 +(NSArray*) getAllFollowingActivities:(NSString*) userId;
 
+
+//Get the activities of the given user
 +(NSArray*) getUserActivity:(NSString*) userId;
+
 
 +(Album*) createAlbum:(Album*) album;
 
+
 +(Album*) updateAlbum:(Album*) album;
 
+//Get the albums of the given user
 +(NSArray*) getAlbumsByUser:(NSString*) userId;
+
 
 +(UIImage*) getAlbumImage:(NSString*) albumId;
 
+
 +(BOOL) setAlbumImage:(UIImage*) image AlbumId: (NSString*) albumId;
+
 
 +(BOOL) deleteAlbum:(NSString*) albumId;
 

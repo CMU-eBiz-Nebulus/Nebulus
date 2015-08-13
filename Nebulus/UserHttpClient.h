@@ -14,10 +14,12 @@
 @interface UserHttpClient : NSObject
 +(User*) login: (NSString*) username password: (NSString*) password;
 
+//Logout out the currently logged-in user
 +(void) logout;
 
 +(BOOL) registerUser:(NSString*) username password: (NSString*) password email: (NSString*) email;
 
+//Update the user's info by input a user model
 +(User*) updateUserInfo:(User*) user;
 
 //Return the currently logged-in user
