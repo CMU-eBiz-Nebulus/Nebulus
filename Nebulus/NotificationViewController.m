@@ -11,10 +11,14 @@
 #import "AlbumProjectViewController.h"
 #import "ProjectHttpClient.h"
 #import "MusicHttpClient.h"
+#import "UserHttpClient.h"
+#import "OtherProfileViewController.h"
 
 @interface NotificationViewController()
 
 @property (nonatomic, strong) NSArray *notifications;
+
+@property (nonatomic) NSUInteger unread;
 
 @end
 
@@ -25,13 +29,59 @@
     return _notifications;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.notifications = [UserHttpClient getUserNotification:[UserHttpClient getCurrentUser].objectID];
+-(void)fetch_notifications{
+    NSMutableArray *tmpNots = [UserHttpClient getUserNotification:[UserHttpClient getCurrentUser].objectID].mutableCopy;
     
-    NSLog(@"count : %ld", [self.notifications count]);
+    NSMutableArray *dstArray = [[NSMutableArray alloc] init];
+    
+    self.unread = 0;
+    for(Notification *notification in tmpNots.reverseObjectEnumerator){
+        if([notification.model isEqualToString:@"invites"]){
+
+        }else if([notification.model isEqualToString:@"albums"]){
+            Album *album = [MusicHttpClient getAlbum:notification.modelId];
+            if(!album || !album.name){
+                continue;
+            }
+        }else if([notification.model isEqualToString:@"projects"]){
+            Project *project = [ProjectHttpClient getProject:notification.modelId];
+            if(!project || !project.projectName){
+                continue;
+            }
+        }else if([notification.model isEqualToString:@"followers"]){
+            User* follower = [UserHttpClient getFollowerByModelId:notification.modelId];
+            if(!follower || !follower.username){
+                continue;
+            }
+        }else if([notification.model isEqualToString:@"activity"]){
+        }else if([notification.model isEqualToString:@"likes"]){
+        }else if([notification.model isEqualToString:@"comments"]){
+        }else if([notification.model isEqualToString:@"conversations"]){
+        }else if([notification.model isEqualToString:@"tasks"]){
+        }else if([notification.model isEqualToString:@"userSettings"]){
+        }else{
+            
+        }
+        if(!notification.read) self.unread++;
+        [dstArray addObject:notification];
+    }
+
+    self.notifications = dstArray.copy;
+    if(self.unread){
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:1]
+         setBadgeValue: [NSString stringWithFormat:@"%tu", self.unread]];
+    }else{
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:1]
+         setBadgeValue:nil];
+    }
     
     [self.tableView reloadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    [self fetch_notifications];
 }
 
 
@@ -59,8 +109,9 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"albumprojectCell"];
         [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
     }else if([notification.model isEqualToString:@"followers"]){
+        User* follower = [UserHttpClient getFollowerByModelId:notification.modelId];
         cell = [tableView dequeueReusableCellWithIdentifier:@"followersCell"];
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@", follower.username, msg]];
 //    }else if([notification.model isEqualToString:@"activity"]){
 //    }else if([notification.model isEqualToString:@"likes"]){
 //    }else if([notification.model isEqualToString:@"comments"]){
@@ -129,10 +180,26 @@
             }
             
             vc.viewMode = NO;
+            
+            // READ notification
+            if(!notification.read) [UserHttpClient readNotification:notification];
+        }
+    } else if ([segue.identifier isEqualToString:@"followNotification"]) {
+        if ([segue.destinationViewController isKindOfClass:[OtherProfileViewController class]]) {
+            OtherProfileViewController *vc = (OtherProfileViewController *)segue.destinationViewController;
+            UITableViewCell *cell = (UITableViewCell *)sender;
+            
+            Notification *notification = [self.notifications objectAtIndex:[self.tableView indexPathForCell:cell].row];
+            
+            vc.me = [UserHttpClient getCurrentUser];
+            vc.other = [UserHttpClient getFollowerByModelId:notification.modelId];
+            vc.invitation_mode = NO;
+            
+            // READ notification
+            if(!notification.read) [UserHttpClient readNotification:notification];
         }
     }
+
 }
-
-
 
 @end
