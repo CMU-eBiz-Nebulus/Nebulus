@@ -36,7 +36,9 @@
     if (self.recordingId) {
         [dict setObject:self.recordingId forKey:@"recordingId"];
     } else [dict setObject:@"" forKey:@"recordingId"];
-    [dict setObject:self.tags forKey:@"tags"];
+    if (self.tags) {
+        [dict setObject:self.tags forKey:@"tags"];
+    } else [dict setObject:@[] forKey:@"tags"];
     return dict;
 }
 
