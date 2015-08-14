@@ -18,6 +18,7 @@
 @interface ProfileDetailViewController ()
 
 @property (nonatomic, strong) NSArray *contents;
+@property (strong, nonatomic) IBOutlet UITableView *currTableView;
 
 @end
 
@@ -158,6 +159,18 @@
         [cell sizeToFit];
     }
     return cell;
+}
+
+#pragma mark - delete clip
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    if (editingStyle ==UITableViewCellEditingStyleDelete)
+    {
+        
+        //[tableView deleteRowsAtIndexPaths:[NSArrayarrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
