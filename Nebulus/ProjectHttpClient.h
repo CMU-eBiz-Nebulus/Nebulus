@@ -27,6 +27,8 @@
 
 +(BOOL) deleteProject:(NSString*) projectId;
 
++(Project*) getProject:(NSString*) projectId;
+
 
 //Add the user to the editor of given project
 +(BOOL) addEditor:(NSString*) userId project:(Project*) project;

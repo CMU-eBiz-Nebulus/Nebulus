@@ -52,4 +52,6 @@
 //Add the user to the editor of given album
 +(BOOL) addEditor:(NSString*) userId album:(NSString*) albumId;
 
++(Album*) getAlbum:(NSString*) albumId;
+
 @end
