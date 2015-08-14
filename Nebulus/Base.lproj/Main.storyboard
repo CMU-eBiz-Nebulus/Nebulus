@@ -457,9 +457,9 @@
                     <connections>
                         <segue destination="sxZ-CJ-g0X" kind="relationship" relationship="viewControllers" id="4nv-Y9-mp1"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="BIn-8t-NfJ" kind="relationship" relationship="viewControllers" id="hJC-7w-gp3"/>
                         <segue destination="hyv-9B-sIv" kind="relationship" relationship="viewControllers" id="e4D-vT-NPQ"/>
                         <segue destination="xfc-7R-eZk" kind="relationship" relationship="viewControllers" id="HTn-hS-nXY"/>
-                        <segue destination="BIn-8t-NfJ" kind="relationship" relationship="viewControllers" id="hJC-7w-gp3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1407,7 +1407,7 @@ Some text here ...</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMZ-on-CKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-512" y="3694"/>
+            <point key="canvasLocation" x="-616" y="3686"/>
         </scene>
         <!--Other Profile View Controller-->
         <scene sceneID="67l-lS-SlV">

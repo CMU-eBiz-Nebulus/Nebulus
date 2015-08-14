@@ -57,4 +57,10 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController *)viewController popToRootViewControllerAnimated:YES];
+    }
+}
+
 @end
