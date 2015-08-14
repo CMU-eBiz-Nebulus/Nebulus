@@ -129,7 +129,7 @@
 
 +(BOOL) deleteRecording:(NSString*) recoringId {
     
-    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/recordings/%@", recoringId];
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/clips/%@", clipId];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
