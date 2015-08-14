@@ -23,6 +23,6 @@
 //Get the recording data by the given recording id
 +(NSData*) getRecording:(NSString*) recordingId;
 
-+(BOOL) deleteClip:(NSString*) clipId;
++(BOOL) deleteClip:(Clip*) clip;
 
 @end
