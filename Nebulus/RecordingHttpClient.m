@@ -106,7 +106,7 @@
     return clips;
 }
 
-+(NSData*) getRecoring:(NSString*) recordingId {
++(NSData*) getRecording:(NSString*) recordingId {
     
     NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/recordings/%@/waveform", recordingId];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
@@ -127,9 +127,29 @@
 
 }
 
-+(BOOL) deleteRecoring:(NSString*) recoringId {
++(BOOL) deleteClip:(Clip*) clip {
     
-    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/recordings/%@", recoringId];
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/clips/%@", clip.objectID];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"DELETE"];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if (clip.recordingId) [self deleteRecording:clip.recordingId];
+                               if (error) NSLog(@"%@", error.localizedDescription);
+                           }];
+    
+    return YES;
+
+
+}
+
++(BOOL) deleteRecording:(NSString *) recordingId {
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/recodings/%@", recordingId];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -143,8 +163,6 @@
                            }];
     
     return YES;
-
-
 }
 
 @end

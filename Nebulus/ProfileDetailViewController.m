@@ -18,6 +18,7 @@
 @interface ProfileDetailViewController ()
 
 @property (nonatomic, strong) NSArray *contents;
+@property (strong, nonatomic) IBOutlet UITableView *currTableView;
 
 @end
 
@@ -103,6 +104,7 @@
 
 -(void)fetch_clips{
     self.contents =  [RecordingHttpClient getClips:[UserHttpClient getCurrentUser].objectID];
+    [self setTitle:[NSString stringWithFormat:@"%ld clips", [self.contents count]]];
 }
 
 -(void)fetch_albums{
@@ -158,6 +160,20 @@
         [cell sizeToFit];
     }
     return cell;
+}
+
+#pragma mark - delete clip
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.mode == CLIPS){
+        if (editingStyle ==UITableViewCellEditingStyleDelete) {
+            Clip *clip = [self.contents objectAtIndex: indexPath.row];
+            [RecordingHttpClient deleteClip:clip];
+            [self fetch_clips];
+            [tableView reloadData];
+            //[tableView deleteRowsAtIndexPaths:[NSArrayarrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
