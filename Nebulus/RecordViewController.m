@@ -411,6 +411,7 @@
 
 - (void)toggleMicrophone:(id)sender
 {
+    
     [self.player pause];
     
     BOOL isOn = [(UISwitch*)sender isOn];
@@ -428,6 +429,13 @@
 
 - (void)toggleRecording:(id)sender
 {
+    [self.secondTableView beginUpdates];
+    if (self.expandedIndexPath!=nil){
+        [self.secondTableView deselectRowAtIndexPath:self.expandedIndexPath animated:YES];
+        self.expandedIndexPath = nil;
+        
+    }
+    [self.secondTableView endUpdates];
     [self.microphone stopFetchingAudio];
     [self.player pause];
     if ([sender isOn])
