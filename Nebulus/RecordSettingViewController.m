@@ -7,6 +7,7 @@
 //
 
 #import "RecordSettingViewController.h"
+#import "RecordViewController.h"
 
 @interface RecordSettingViewController ()
 
@@ -24,7 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Title.text = @"Sample Rate\n\nBit Depth\n\nBit Rate\n\nEstimate Size";
-    Value.text = [NSString stringWithFormat:@"%@\n\n%@\n\n%@\n\n%.1fMB/Minute\n\n",[[NSNumber numberWithInt:SAMPLERATE_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]],[[NSNumber numberWithInt:BITDEPTH_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]],[[NSNumber numberWithInt:BITRATE_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]], ESTIMATEDSIZE_MEDIUM];
+//    Value.text = [NSString stringWithFormat:@"%@\n\n%@\n\n%@\n\n%.1fMB/Minute\n\n",[[NSNumber numberWithInt:SAMPLERATE_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]],[[NSNumber numberWithInt:BITDEPTH_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]],[[NSNumber numberWithInt:BITRATE_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]], ESTIMATEDSIZE_MEDIUM];
+    [Quality setSelectedSegmentIndex:_qualityValue];
+    [self QualityChanged:Quality];
     // Do any additional setup after loading the view.
 }
 
@@ -32,6 +35,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//-(void)viewWillDisappear:(BOOL)animated {
+//    NSInteger currentVCIndex = [self.navigationController.viewControllers indexOfObject:self.navigationController.topViewController];
+//    
+//    RecordViewController *parent = (RecordViewController *)[self.navigationController.viewControllers objectAtIndex:currentVCIndex];
+//    
+//    parent.quality = Quality.selectedSegmentIndex;
+//    NSLog(@"set quality%d", Quality.selectedSegmentIndex);
+//}
 
 /*
 #pragma mark - Navigation
@@ -46,6 +58,7 @@
 - (IBAction)QualityChanged:(id)sender {
     switch (Quality.selectedSegmentIndex)
         {
+                
             case 0:
                 Value.text = [NSString stringWithFormat:@"%@\n\n%@\n\n%@\n\n%.1fMB/Minute\n\n",[[NSNumber numberWithInt:SAMPLERATE_LOW] descriptionWithLocale:[NSLocale currentLocale]],[[NSNumber numberWithInt:BITDEPTH_LOW] descriptionWithLocale:[NSLocale currentLocale]],[[NSNumber numberWithInt:BITRATE_LOW] descriptionWithLocale:[NSLocale currentLocale]], ESTIMATEDSIZE_LOW];
                 break;
@@ -60,4 +73,5 @@
         }
 
 }
+
 @end

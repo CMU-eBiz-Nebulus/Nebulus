@@ -12,8 +12,10 @@
 #import "Clip.h"
 #import "UserHttpClient.h"
 #import "RecordingHttpClient.h"
+#import "RecordSettingViewController.h"
 
 @implementation RecordViewController
+@synthesize quality;
 
 //------------------------------------------------------------------------------
 #pragma mark - Dealloc
@@ -527,7 +529,29 @@ withNumberOfChannels:(UInt32)numberOfChannels
     }
     return;
 }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"setting"])
+    {
+        // Get reference to the destination view controller
+        RecordSettingViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        [vc setQualityValue:quality];
+    }
+}
+- (IBAction)back:(UIStoryboardSegue *)segue {
+    if ([segue.sourceViewController isKindOfClass:[RecordSettingViewController class]]) {
+        RecordSettingViewController *sc = segue.sourceViewController;
+        // if the user clicked Cancel, we don't want to change the color
+        quality = sc.Quality.selectedSegmentIndex;
+        NSLog(@"quality:%ld", quality);
+    
+    }
+}
 @end
+
 
 
 

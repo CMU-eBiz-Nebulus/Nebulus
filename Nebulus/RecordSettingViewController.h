@@ -26,10 +26,12 @@
 
 
 @interface RecordSettingViewController : UIViewController
+    
 - (IBAction)QualityChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *Quality;
 @property (weak, nonatomic) IBOutlet UITextView *Title;
 @property (weak, nonatomic) IBOutlet UITextView *Value;
 
 
+@property NSInteger qualityValue;
 @end
