@@ -8,7 +8,7 @@
 
 #import "RecordViewController.h"
 
-#define COUNTRY_TAG 100
+#define COUNTRY_TAG 200
 #import "Clip.h"
 #import "UserHttpClient.h"
 #import "RecordingHttpClient.h"
@@ -90,6 +90,7 @@
     self.playingStateLabel.text = @"Not Playing";
     self.playButton.enabled = NO;
     
+    quality = 2;
     //
     // Setup notifications
     //
@@ -110,7 +111,7 @@
     //
     // Start the microphone
     //
-    [self.microphone startFetchingAudio];
+    //[self.microphone startFetchingAudio];
     
     [self listFileAtPath];
     [self.secondTableView reloadData];
@@ -134,7 +135,7 @@
                 reuseIdentifier:cellIdentifier];
         
         //create custom labels and button inside the cell view
-        CGRect myFrame = CGRectMake(10.0, 5.0, 200, 25.0);
+        CGRect myFrame = CGRectMake(10.0, 5.0, 250, 25.0);
         countryLabel = [[UILabel alloc] initWithFrame:myFrame];
         countryLabel.tag = COUNTRY_TAG;
         countryLabel.font = [UIFont boldSystemFontOfSize:17.0];
@@ -142,7 +143,7 @@
         [cell.contentView addSubview:countryLabel];
         
         detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        detailInfoButton.frame = CGRectMake(200.0, 5.0, 50, 25.0);
+        detailInfoButton.frame = CGRectMake(5, 40.0, 50, 25.0);
         [detailInfoButton setTitle:@"Play"
                           forState:UIControlStateNormal];
         detailInfoButton.tag = indexPath.row;
@@ -161,6 +162,14 @@
                          action:@selector(upload:)
                forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:uploadButton];
+        
+        UIProgressView *pv = [[UIProgressView alloc] init];
+        pv.frame = CGRectMake(50, 50, 200, 15);
+        pv.tag =100+indexPath.row;
+       [cell addSubview:pv];
+        
+        cell.clipsToBounds = YES;
+
         
     }
     else {
@@ -184,6 +193,35 @@
     [_directoryContent removeObjectAtIndex:indexPath.row];
     [_secondTableView reloadData];
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Compares the index path for the current cell to the index path stored in the expanded
+    // index path variable. If the two match, return a height of 100 points, otherwise return
+    // a height of 44 points.
+    if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+        return 80.0; // Expanded height
+    }
+    return 44.0; // Normal height
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView beginUpdates]; // tell the table you're about to start making changes
+    
+    // If the index path of the currently expanded cell is the same as the index that
+    // has just been tapped set the expanded index to nil so that there aren't any
+    // expanded cells, otherwise, set the expanded index to the index that has just
+    // been selected.
+    if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+        self.expandedIndexPath = nil;
+        [self.secondTableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else {
+        self.expandedIndexPath = indexPath;
+    }
+    
+    [tableView endUpdates]; // tell the table you're done making your changes
 }
 
 - (void)removeImage:(NSString *)fileName
@@ -366,6 +404,7 @@
 
 - (void)toggleRecording:(id)sender
 {
+    [self.microphone stopFetchingAudio];
     [self.player pause];
     if ([sender isOn])
     {
@@ -478,6 +517,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
     __weak typeof (self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         weakSelf.currentTimeLabel.text = [audioPlayer formattedCurrentTime];
+        [((UIProgressView*)[weakSelf.secondTableView viewWithTag:(100+_expandedIndexPath.row)]) setProgress:([audioPlayer currentTime]/[audioPlayer duration])];
     });
 }
 
