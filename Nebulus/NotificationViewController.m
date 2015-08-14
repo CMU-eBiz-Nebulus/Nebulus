@@ -25,6 +25,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.notifications = [UserHttpClient getUserNotification:[UserHttpClient getCurrentUser].objectID];
+    
+    NSLog(@"count : %ld", [self.notifications count]);
+    
     [self.tableView reloadData];
 }
 
@@ -39,17 +42,63 @@
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"info"];
-    
+    UITableViewCell *cell = nil;
     Notification *notification = [self.notifications objectAtIndex:indexPath.row];
+    NSString *msg = [self htmlStr2Str:notification.message];
     
-    [cell.textLabel setText:[NSString stringWithFormat:@"Type: %@, Msg: %@", notification.type, notification.message]];
+    if([notification.model isEqualToString:@"invites"]){
+    }else if([notification.model isEqualToString:@"albums"]){
+    }else if([notification.model isEqualToString:@"projects"]){
+    }else if([notification.model isEqualToString:@"followers"]){
+//    }else if([notification.model isEqualToString:@"activity"]){
+//    }else if([notification.model isEqualToString:@"likes"]){
+//    }else if([notification.model isEqualToString:@"comments"]){
+//    }else if([notification.model isEqualToString:@"conversations"]){
+//    }else if([notification.model isEqualToString:@"tasks"]){
+//    }else if([notification.model isEqualToString:@"userSettings"]){
+    }else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"info"];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
+    }
+    
+
+    [tableView dequeueReusableCellWithIdentifier:@"noti"];
+    
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"info"];
-    return cell.frame.size.height;
+    Notification *notification = [self.notifications objectAtIndex:indexPath.row];
+    if([notification.model isEqualToString:@"invites"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"albums"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"projects"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"followers"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"activity"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"likes"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"comments"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"conversations"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"tasks"]){
+        return 25.0;
+    }else if([notification.model isEqualToString:@"userSettings"]){
+        return 25.0;
+    }
+    return 0.0;
+}
+
+-(NSString *)htmlStr2Str:(NSString *)htmlString{
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding]
+                                                                            options:@{ NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType }
+                                                                 documentAttributes:nil
+                                                                              error:nil];
+    return attributedString.string;
 }
 
 @end
