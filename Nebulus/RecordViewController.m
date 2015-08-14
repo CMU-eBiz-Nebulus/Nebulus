@@ -8,7 +8,7 @@
 
 #import "RecordViewController.h"
 
-#define COUNTRY_TAG 200
+#define COUNTRY_TAG 1000
 #import "Clip.h"
 #import "UserHttpClient.h"
 #import "RecordingHttpClient.h"
@@ -126,7 +126,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     
-    UILabel *countryLabel;
+    UILabel *fileNameLabel, *startTimeLabel, *endTimeLabel;
     UIButton *detailInfoButton, *uploadButton;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil){
@@ -136,11 +136,11 @@
         
         //create custom labels and button inside the cell view
         CGRect myFrame = CGRectMake(10.0, 5.0, 250, 25.0);
-        countryLabel = [[UILabel alloc] initWithFrame:myFrame];
-        countryLabel.tag = COUNTRY_TAG;
-        countryLabel.font = [UIFont boldSystemFontOfSize:17.0];
-        countryLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:countryLabel];
+        fileNameLabel = [[UILabel alloc] initWithFrame:myFrame];
+        fileNameLabel.tag = COUNTRY_TAG;
+        fileNameLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        fileNameLabel.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:fileNameLabel];
         
         detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         detailInfoButton.frame = CGRectMake(5, 40.0, 50, 25.0);
@@ -163,8 +163,23 @@
                forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:uploadButton];
         
+        
+        startTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 44, 30, 15)];
+        startTimeLabel.tag = 200+indexPath.row;;
+        startTimeLabel.font = [UIFont systemFontOfSize:15.0];
+        startTimeLabel.textColor = [UIColor grayColor];
+        startTimeLabel.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:startTimeLabel];
+        
+        endTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(290, 44, 30, 15)];
+        endTimeLabel.tag = 300+indexPath.row;;
+        endTimeLabel.font = [UIFont systemFontOfSize:15.0];
+        endTimeLabel.textColor = [UIColor grayColor];
+        endTimeLabel.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:endTimeLabel];
+        
         UIProgressView *pv = [[UIProgressView alloc] init];
-        pv.frame = CGRectMake(50, 50, 200, 15);
+        pv.frame = CGRectMake(80, 50, 200, 15);
         pv.tag =100+indexPath.row;
        [cell addSubview:pv];
         
@@ -173,12 +188,12 @@
         
     }
     else {
-        countryLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
+        fileNameLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
     }
     
     
     //populate data from your country object to table view cell
-    countryLabel.text = [NSString stringWithFormat:@"New Recording %d: %@", indexPath.row +1, [_directoryContent objectAtIndex:indexPath.row]];
+    fileNameLabel.text = [NSString stringWithFormat:@"New Recording %d: %@", indexPath.row +1, [_directoryContent objectAtIndex:indexPath.row]];
     
     
     return cell;
@@ -220,6 +235,14 @@
     } else {
         self.expandedIndexPath = indexPath;
     }
+//    NSString *fileName = [_directoryContent objectAtIndex: indexPath.row];
+//    
+//    EZAudioFile *audioFile = [EZAudioFile audioFileWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                                                                   [self applicationDocumentsDirectory],
+//                                                                                   fileName]]];
+//    
+//    [((UILabel*)[self.secondTableView viewWithTag:(200+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"%.1f",0.0]];
+//    [((UILabel*)[self.secondTableView viewWithTag:(300+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"-%.1f",[audioFile duration]]];
     
     [tableView endUpdates]; // tell the table you're done making your changes
 }
@@ -312,6 +335,7 @@
     EZAudioFile *audioFile = [EZAudioFile audioFileWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                                                    [self applicationDocumentsDirectory],
                                                                                    fileName]]];
+
     [self.player playAudioFile:audioFile];
     
     
@@ -518,6 +542,8 @@ withNumberOfChannels:(UInt32)numberOfChannels
     dispatch_async(dispatch_get_main_queue(), ^{
         weakSelf.currentTimeLabel.text = [audioPlayer formattedCurrentTime];
         [((UIProgressView*)[weakSelf.secondTableView viewWithTag:(100+_expandedIndexPath.row)]) setProgress:([audioPlayer currentTime]/[audioPlayer duration])];
+         [((UILabel*)[weakSelf.secondTableView viewWithTag:(200+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"%.1f",[audioPlayer currentTime]]];
+        [((UILabel*)[weakSelf.secondTableView viewWithTag:(300+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"-%.1f",[audioPlayer duration]-[audioPlayer currentTime]]];
     });
 }
 
