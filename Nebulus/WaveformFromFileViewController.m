@@ -38,13 +38,13 @@
     
     
     // Setup
-    _composition = [AVMutableComposition composition];
+ //   _composition = [AVMutableComposition composition];
     
-    _audioMixValues = [[NSMutableDictionary alloc] initWithCapacity:0];
-    _audioMixTrackIDs = [[NSMutableDictionary alloc] initWithCapacity:0];
+//    _audioMixValues = [[NSMutableDictionary alloc] initWithCapacity:0];
+//    _audioMixTrackIDs = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     // Insert the audio tracks into our composition
-    NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
+/*    NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
     NSString* audioFileType = @"wav";
     
     for (NSString* trackName in tracks)
@@ -83,7 +83,7 @@
                     context:NULL];
     
     _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
-
+*/
     self.moveMeView = [[APLMoveMeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.moveMeView setupNextDisplayString];
     [self.view addSubview:self.moveMeView];
