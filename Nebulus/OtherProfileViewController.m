@@ -37,9 +37,9 @@
     } else {
         
         if(self.mode == M_PROJECT){
-            Project *project = (Project *)self.content;
+            //Project *project = (Project *)self.content;
         }else if (self.mode == M_ALBUM){
-            Album *album = (Album *)self.content;
+            //Album *album = (Album *)self.content;
         }
         
         //TODO: invite this guy
