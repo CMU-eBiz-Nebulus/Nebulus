@@ -23,6 +23,9 @@ EZMicrophoneDelegate,
 EZRecorderDelegate,
 UITableViewDataSource, UITableViewDelegate>
 
+
+
+
 @property (strong, nonatomic) UITableView *secondTableView;
 
 
@@ -140,6 +143,8 @@ UITableViewDataSource, UITableViewDelegate>
 
 
 @property (nonatomic, strong) NSMutableArray *directoryContent;
+
+@property NSInteger quality;
 @end
 
 
