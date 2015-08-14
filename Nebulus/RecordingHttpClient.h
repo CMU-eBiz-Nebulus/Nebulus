@@ -21,8 +21,8 @@
 
 
 //Get the recording data by the given recording id
-+(NSData*) getRecoring:(NSString*) recordingId;
++(NSData*) getRecording:(NSString*) recordingId;
 
-+(BOOL) deleteRecoring:(NSString*) recoringId;
++(BOOL) deleteRecording:(NSString*) recoringId;
 
 @end

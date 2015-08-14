@@ -51,6 +51,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self fetch_contents];
+    
+    if(self.mode == CLIPS){
+        [self setTitle:[NSString stringWithFormat:@"%ld clips", [self.contents count]]];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -163,13 +167,17 @@
 
 #pragma mark - delete clip
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.mode == CLIPS){
+        if (editingStyle ==UITableViewCellEditingStyleDelete) {
+            Clip *clip = [self.contents objectAtIndex: indexPath.row];
+            [RecordingHttpClient deleteRecording:clip.objectID];
+            [self fetch_clips];
 
-    if (editingStyle ==UITableViewCellEditingStyleDelete)
-    {
-        
-        //[tableView deleteRowsAtIndexPaths:[NSArrayarrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            NSLog(@"Deleted");
+            [tableView reloadData];
+            //[tableView deleteRowsAtIndexPaths:[NSArrayarrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
     }
 }
 
