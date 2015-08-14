@@ -2028,7 +2028,7 @@ Some text here ...</string>
                     <navigationItem key="navigationItem" id="HVk-QV-2bD">
                         <barButtonItem key="rightBarButtonItem" title="Mixer" id="PvT-MT-3y1">
                             <connections>
-                                <segue destination="hkK-iO-hRe" kind="showDetail" id="fun-kk-rby"/>
+                                <segue destination="P4h-Yp-cL6" kind="show" id="Iua-FO-UgA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2050,22 +2050,22 @@ Some text here ...</string>
             <point key="canvasLocation" x="2084" y="757"/>
         </scene>
         <!--Waveform From File View Controller-->
-        <scene sceneID="o4A-T7-GCa">
+        <scene sceneID="XkK-8G-nj5">
             <objects>
-                <viewController id="hkK-iO-hRe" customClass="WaveformFromFileViewController" sceneMemberID="viewController">
+                <viewController id="P4h-Yp-cL6" customClass="WaveformFromFileViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="si4-3D-gV9"/>
-                        <viewControllerLayoutGuide type="bottom" id="x1R-Po-X5A"/>
+                        <viewControllerLayoutGuide type="top" id="gKc-sb-h3o"/>
+                        <viewControllerLayoutGuide type="bottom" id="02b-qo-rRd"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Nff-yj-pb9">
+                    <view key="view" contentMode="scaleToFill" id="XJK-An-lKF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3vu-f1-U4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYd-q4-m71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2740" y="750"/>
+            <point key="canvasLocation" x="2808" y="736"/>
         </scene>
         <!--Record-->
         <scene sceneID="WPI-1h-XpN">
