@@ -342,6 +342,37 @@
     return albums;
 }
 
++(BOOL) addEditor:(NSString*) userId album:(NSString*) albumId {
+    User *user = [UserHttpClient getUser:userId];
+    Album * album = [self getAlbum:albumId];
+    NSMutableArray *editors = album.editors.mutableCopy;
+    [editors addObject:user];
+    album.editors = editors;
+    [self updateAlbum:album];
+    return YES;
+}
+
++(Album*) getAlbum:(NSString*) albumId {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/albums/%@", albumId];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    Album *album = [[Album alloc]initWithDict:raw];
+    return album;
+}
+
 
 
 @end

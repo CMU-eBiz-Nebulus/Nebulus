@@ -34,7 +34,6 @@
                                                          options:kNilOptions
                                                            error:&error];
     Clip *returnClip = [[Clip alloc]initWithDict:json];
-    NSLog(returnClip.objectID);
     [self uploadRecording:data Id:returnClip.recordingId];
     return returnClip;
 }
