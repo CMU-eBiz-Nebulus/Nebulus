@@ -72,6 +72,14 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
+    [self.imageView.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    [self.imageView.layer setBorderWidth: 0.5];
+    [self.imageView.layer setCornerRadius:5];
+    
+    [[self.desc layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[self.desc layer] setBorderWidth:0.5];
+    [[self.desc layer] setCornerRadius:5];
+    
     self.picker = [[UIImagePickerController alloc] init];
     [self.picker setDelegate:self];
     self.picker.allowsEditing = YES;
@@ -99,8 +107,7 @@
         project.projectDescription = [self.desc.textStorage string];
         project.tags = @[self.tags.text];
         
-        //TODO: modify project
-        
+        [ProjectHttpClient updateProject:project];
     }else if(self.mode == M_PROFILE) {
         User *user = (User *)self.content;
         
