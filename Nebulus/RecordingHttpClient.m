@@ -127,7 +127,7 @@
 
 }
 
-+(BOOL) deleteRecording:(NSString*) recoringId {
++(BOOL) deleteClip:(NSString*) clipId {
     
     NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/clips/%@", clipId];
     NSURL *aUrl = [NSURL URLWithString:urlStr];

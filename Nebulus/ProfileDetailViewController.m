@@ -171,7 +171,7 @@
     if(self.mode == CLIPS){
         if (editingStyle ==UITableViewCellEditingStyleDelete) {
             Clip *clip = [self.contents objectAtIndex: indexPath.row];
-            [RecordingHttpClient deleteRecording:clip.objectID];
+            [RecordingHttpClient deleteClip:clip.objectID];
             [self fetch_clips];
 
             NSLog(@"Deleted");
