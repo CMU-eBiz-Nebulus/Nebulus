@@ -56,12 +56,12 @@
                   moduleName = "Nebulus"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/Activity.h"
-                  timestampString = "461015357.693408"
+                  timestampString = "461202159.774618"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -71,12 +71,12 @@
                   moduleName = "Nebulus"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/Activity.h"
-                  timestampString = "461015357.693686"
+                  timestampString = "461202159.77479"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "22">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -104,12 +104,12 @@
                   moduleName = "Nebulus"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/ProjectClassified.h"
-                  timestampString = "461015357.694146"
+                  timestampString = "461202159.788177"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -119,12 +119,12 @@
                   moduleName = "Nebulus"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/ProjectClassified.h"
-                  timestampString = "461015357.694338"
+                  timestampString = "461202159.788327"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -148,15 +148,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nebulus/RecordingHttpClient.m"
-            timestampString = "461034241.02002"
+            timestampString = "461202255.604489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "+uploadRecording:Id:"
             landmarkType = "5">
          </BreakpointContent>
