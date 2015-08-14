@@ -57,13 +57,8 @@
         album.name = self.name.text;
         album.albumDescription = [self.desc.textStorage string];
         album.tags = @[self.tags.text];
-        
-        album.groupName = @"testname";
-        album.pictureUpdateTime = @0;
-        
-        album.projects = @[];
         album.creator = [UserHttpClient getCurrentUser];
-        album.editors = @[];
+
         album = [MusicHttpClient createAlbum:album];
 
         if(self.imageView.image)
@@ -76,11 +71,8 @@
         project.projectName = self.name.text;
         project.tags = @[self.tags.text];
         project.projectDescription = [self.desc.textStorage string];
-        
         project.creator = [UserHttpClient getCurrentUser];
-        project.editors = @[];
-        project.groupName = @"testname";
-        project.currentVersion = @"55b526356df6bd8840fd739d";
+        
         project = [ProjectHttpClient createProject:project];
         
         if(self.imageView.image)

@@ -51,10 +51,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self fetch_contents];
-    
-    if(self.mode == CLIPS){
-        [self setTitle:[NSString stringWithFormat:@"%ld clips", [self.contents count]]];
-    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -108,6 +104,7 @@
 
 -(void)fetch_clips{
     self.contents =  [RecordingHttpClient getClips:[UserHttpClient getCurrentUser].objectID];
+    [self setTitle:[NSString stringWithFormat:@"%ld clips", [self.contents count]]];
 }
 
 -(void)fetch_albums{
@@ -173,8 +170,6 @@
             Clip *clip = [self.contents objectAtIndex: indexPath.row];
             [RecordingHttpClient deleteClip:clip.objectID];
             [self fetch_clips];
-
-            NSLog(@"Deleted");
             [tableView reloadData];
             //[tableView deleteRowsAtIndexPaths:[NSArrayarrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }

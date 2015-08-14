@@ -19,6 +19,25 @@
 
 @implementation Project
 
+#pragma mark - Property
+
+-(NSString *)groupName{
+    if(!_groupName) _groupName = @"";
+    return _groupName;
+}
+
+-(NSString *)currentVersion{
+    if(!_currentVersion) _currentVersion = @"55b526356df6bd8840fd739d";
+    return _currentVersion;
+}
+
+-(NSArray *)editors{
+    if(!_editors) _editors = @[];
+    return _editors;
+}
+
+#pragma mark - JSON methods
+
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {

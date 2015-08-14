@@ -22,6 +22,30 @@
 
 @implementation Album
 
+#pragma mark - Property
+
+-(NSString *)groupName{
+    if(!_groupName) _groupName = @"";
+    return _groupName;
+}
+
+-(NSNumber *)pictureUpdateTime{
+    if(!_pictureUpdateTime) _pictureUpdateTime = @0;
+    return _pictureUpdateTime;
+}
+
+-(NSArray *)projects{
+    if(!_projects) _projects = @[];
+    return _projects;
+}
+
+-(NSArray *)editors{
+    if(!_editors) _editors = @[];
+    return _editors;
+}
+
+#pragma mark - JSON methods
+
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
