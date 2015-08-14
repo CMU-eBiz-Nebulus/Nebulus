@@ -175,44 +175,63 @@
             <point key="canvasLocation" x="-512" y="4669"/>
         </scene>
         <!--Notification-->
-        <scene sceneID="wg7-f3-ORb">
+        <scene sceneID="B59-8F-PNh">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                <tableViewController id="zjR-Cr-5Pb" customClass="NotificationViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mIb-Er-PIZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="195" y="279" width="210" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="192" y="329" width="216" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Notification" image="second" id="cPa-gy-q4n"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="invitation" rowHeight="72" id="A5V-kH-gHC">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A5V-kH-gHC" id="qZb-o1-f5h">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="scaleToFill" editable="NO" text="Paul invited you to join project X" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-YO-QQX">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FBL-YO-QQX" firstAttribute="leading" secondItem="qZb-o1-f5h" secondAttribute="leading" id="8ei-XY-nFZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FBL-YO-QQX" secondAttribute="bottom" constant="-8.5" id="MFl-DL-m9Y"/>
+                                        <constraint firstItem="FBL-YO-QQX" firstAttribute="top" secondItem="qZb-o1-f5h" secondAttribute="top" id="l8X-or-8WF"/>
+                                        <constraint firstAttribute="trailing" secondItem="FBL-YO-QQX" secondAttribute="trailing" id="rtJ-PR-JuF"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xxz-ce-KLe">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xxz-ce-KLe" id="Trv-s0-os2">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Zvg-FP-Qj8">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zvg-FP-Qj8" id="bXc-Iz-iba">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ruf-B2-hUT">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ruf-B2-hUT" id="7ok-gq-Phf">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zjR-Cr-5Pb" id="DOI-Tl-0lC"/>
+                            <outlet property="delegate" destination="zjR-Cr-5Pb" id="Uqg-5L-25D"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Notification" id="upL-ge-T74"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rcE-HK-BR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-104"/>
+            <point key="canvasLocation" x="672" y="709"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ohB-04-RET">
@@ -317,7 +336,7 @@
             </objects>
             <point key="canvasLocation" x="3290" y="1866"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="NYs-VT-YD9">
             <objects>
                 <viewController storyboardIdentifier="searchViewController" id="RNR-Eg-7w3" customClass="SearchViewController" sceneMemberID="viewController">
@@ -432,7 +451,7 @@
                             <constraint firstAttribute="centerX" secondItem="WCE-hZ-G6f" secondAttribute="centerX" id="y0c-XZ-1Dc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yov-oh-yi9"/>
+                    <navigationItem key="navigationItem" title="Search" id="yov-oh-yi9"/>
                     <connections>
                         <outlet property="searchBar" destination="WCE-hZ-G6f" id="8LZ-qn-edc"/>
                         <outlet property="tableView" destination="lgM-SQ-E9W" id="zxI-Tv-kNK"/>
@@ -454,7 +473,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="sxZ-CJ-g0X" kind="relationship" relationship="viewControllers" id="4nv-Y9-mp1"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="O5z-Oc-vlZ" kind="relationship" relationship="viewControllers" id="9uF-s4-QgQ"/>
                         <segue destination="BIn-8t-NfJ" kind="relationship" relationship="viewControllers" id="hJC-7w-gp3"/>
                         <segue destination="hyv-9B-sIv" kind="relationship" relationship="viewControllers" id="e4D-vT-NPQ"/>
                         <segue destination="xfc-7R-eZk" kind="relationship" relationship="viewControllers" id="HTn-hS-nXY"/>
@@ -1211,7 +1230,7 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGA-Fq-zjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4040" y="601"/>
+            <point key="canvasLocation" x="4852" y="601"/>
         </scene>
         <!--Me-->
         <scene sceneID="b5r-XF-P8o">
@@ -1480,7 +1499,7 @@ Some text here ...</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDW-nx-As7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3912" y="1188"/>
+            <point key="canvasLocation" x="4724" y="1188"/>
         </scene>
         <!--Modify View Controller-->
         <scene sceneID="dhG-9b-5yi">
@@ -1898,7 +1917,7 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDY-yq-wog" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="757"/>
+            <point key="canvasLocation" x="2896" y="757"/>
         </scene>
         <!--Waveform From File View Controller-->
         <scene sceneID="XkK-8G-nj5">
@@ -1916,7 +1935,7 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYd-q4-m71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2808" y="736"/>
+            <point key="canvasLocation" x="3620" y="736"/>
         </scene>
         <!--Record-->
         <scene sceneID="WPI-1h-XpN">
@@ -1935,7 +1954,7 @@ Some text here ...</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TrA-J7-H7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="757"/>
+            <point key="canvasLocation" x="2084" y="757"/>
         </scene>
         <!--Record-->
         <scene sceneID="Kou-K3-0fp">
@@ -2016,7 +2035,26 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8HQ-iu-Y1v" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="116"/>
+            <point key="canvasLocation" x="3632" y="116"/>
+        </scene>
+        <!--Notification-->
+        <scene sceneID="8MG-u9-CzH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O5z-Oc-vlZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notification" id="H44-vq-PnF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j4J-De-eS1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zjR-Cr-5Pb" kind="relationship" relationship="rootViewController" id="r8o-cF-7xv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQg-T4-2fI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-140" y="709"/>
         </scene>
     </scenes>
     <resources>
@@ -2028,10 +2066,10 @@ Some text here ...</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4nv-Y9-mp1"/>
-        <segue reference="1oK-Qf-whG"/>
         <segue reference="a7l-Ip-Am4"/>
         <segue reference="jTN-oo-tTb"/>
-        <segue reference="lps-BD-uhJ"/>
+        <segue reference="OPr-Qg-P5T"/>
+        <segue reference="1oK-Qf-whG"/>
         <segue reference="izh-mw-nZz"/>
     </inferredMetricsTieBreakers>
 </document>

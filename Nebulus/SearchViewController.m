@@ -137,16 +137,20 @@
             OtherProfileViewController *vc = (OtherProfileViewController *)segue.destinationViewController;
             UITableViewCell *cell = (UITableViewCell *)sender;
             
-        
             vc.me = [UserHttpClient getCurrentUser];
             vc.other = [self.users objectAtIndex:[self.tableView indexPathForCell:cell].row];
             vc.invitation_mode = self.searchForInvitation;
+            
+            if(self.searchForInvitation){
+                vc.mode = self.mode;
+                vc.content = self.content;
+            }
+            
         }
     } else if([segue.identifier isEqualToString:@"searchAlbumProject"]){
         if ([segue.destinationViewController isKindOfClass:[AlbumProjectViewController class]]) {
             AlbumProjectViewController *vc = (AlbumProjectViewController *)segue.destinationViewController;
             UITableViewCell *cell = (UITableViewCell *)sender;
-            
             
             Album *album = [self.albums objectAtIndex:[self.tableView indexPathForCell:cell].row];
             
