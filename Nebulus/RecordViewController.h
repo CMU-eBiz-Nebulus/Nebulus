@@ -145,6 +145,7 @@ UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *directoryContent;
 
 @property NSInteger quality;
+@property (strong, nonatomic) NSIndexPath *expandedIndexPath;
 @end
 
 
