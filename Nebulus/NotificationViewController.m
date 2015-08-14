@@ -25,6 +25,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.notifications = [UserHttpClient getUserNotification:[UserHttpClient getCurrentUser].objectID];
+    if (self.notifications) NSLog(@"%lu",(unsigned long)self.notifications.count);
     [self.tableView reloadData];
 }
 
@@ -49,7 +50,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"info"];
-    return cell.frame.size.height;
+    return 35.0;
 }
 
 @end

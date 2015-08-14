@@ -306,6 +306,10 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				92A574AD1B62BDC70015032B /* Model */,
+				92ED7E1B1B7D20450015E6BB /* HttpClient */,
+				8430F41C1B6A942C00CB2EE0 /* EZAudio */,
+				98DFE1201B759A9A00C1DBDE /* Profile */,
 				847412681B7D768F009EA92E /* RecordSettingViewController.h */,
 				847412691B7D768F009EA92E /* RecordSettingViewController.m */,
 				847412581B7D6EB7009EA92E /* APLMoveMeView.h */,
@@ -315,9 +319,6 @@
 				8474125C1B7D6EB7009EA92E /* ViewProjectViewController.m */,
 				8474125D1B7D6EB7009EA92E /* WaveformFromFileViewController.h */,
 				8474125E1B7D6EB7009EA92E /* WaveformFromFileViewController.m */,
-				92ED7E1B1B7D20450015E6BB /* HttpClient */,
-				92A574AD1B62BDC70015032B /* Model */,
-				8430F41C1B6A942C00CB2EE0 /* EZAudio */,
 				8430F4191B6A941F00CB2EE0 /* RecordViewController.h */,
 				8430F41A1B6A941F00CB2EE0 /* RecordViewController.m */,
 				929B70E21B5D48AC00264D32 /* LoginViewController.h */,
@@ -325,7 +326,6 @@
 				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
 				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
-				98DFE1201B759A9A00C1DBDE /* Profile */,
 				9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */,
 				9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */,
 				9899C26E1B7D7D49006ED563 /* NotificationViewController.h */,
