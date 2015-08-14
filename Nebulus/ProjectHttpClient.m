@@ -188,6 +188,38 @@
     return project;
 }
 
-
++(BOOL) invite: (User*) to from:(User*) from Project: (Project*) project {
+    Invite *invite = [[Invite alloc] init];
+    invite.project = project;
+    invite.from =from;
+    invite.to = to;
+    invite.request = NO;
+    
+    NSString *urlStr = [[NSString alloc]initWithFormat:@"http://test.nebulus.io:8080/api/invites"];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *dict = [project convertToDict];
+    
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    [request setHTTPBody:postdata];
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                           error:&error];
+    
+    return YES;
+}
 
 @end

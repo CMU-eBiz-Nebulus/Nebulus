@@ -40,7 +40,7 @@
 
 +(BOOL) uploadRecording:(NSData*) data Id: (NSString*) recordingId {
     NSLog(@"%ld",(unsigned long)data.length);
-    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/recordings/"];
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/recordings/%@", recordingId];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -53,12 +53,6 @@
     [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
     
     NSMutableData *body = [NSMutableData data];
-    
-    //recording ID
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"id\"\r\n"]] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[recordingId dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
     //recording file
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
