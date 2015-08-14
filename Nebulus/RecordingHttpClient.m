@@ -127,4 +127,24 @@
 
 }
 
++(BOOL) deleteRecoring:(NSString*) recoringId {
+    
+    NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/recordings/%@", recoringId];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"DELETE"];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if (error) NSLog(@"%@", error.localizedDescription);
+                           }];
+    
+    return YES;
+
+
+}
+
 @end
