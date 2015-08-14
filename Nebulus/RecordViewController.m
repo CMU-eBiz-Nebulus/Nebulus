@@ -129,7 +129,7 @@
     UILabel *fileNameLabel, *startTimeLabel, *endTimeLabel;
     UIButton *detailInfoButton, *uploadButton;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil){
+    //if (cell == nil){
         cell = [[UITableViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:cellIdentifier];
@@ -186,10 +186,10 @@
         cell.clipsToBounds = YES;
 
         
-    }
-    else {
-        fileNameLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
-    }
+    //}
+//    else {
+//        fileNameLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
+//    }
     
     
     //populate data from your country object to table view cell
