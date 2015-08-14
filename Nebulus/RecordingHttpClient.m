@@ -34,7 +34,6 @@
                                                          options:kNilOptions
                                                            error:&error];
     Clip *returnClip = [[Clip alloc]initWithDict:json];
-    NSLog(returnClip.objectID);
     [self uploadRecording:data Id:returnClip.recordingId];
     return returnClip;
 }
@@ -55,11 +54,11 @@
     
     NSMutableData *body = [NSMutableData data];
     
-//    //recording ID
-//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"id\"\r\n"]] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[recordingId dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    //recording ID
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"id\"\r\n"]] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[recordingId dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
     //recording file
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];

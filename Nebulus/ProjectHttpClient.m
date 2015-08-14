@@ -39,6 +39,34 @@
     
 }
 
++(BOOL) updateProject:(Project*) project {
+    NSString *urlStr = [[NSString alloc]initWithFormat:@"http://test.nebulus.io:8080/api/projects/%@", project.objectID];
+    NSURL *aUrl = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *dict = [project convertToDict];
+    
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    [request setHTTPBody:postdata];
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                           error:&error];
+    Project *returnpProject = [[Project alloc]initWithDict:json];
+    return returnpProject;
+}
+
 +(NSArray*) getProjectsByUser:(NSString*) userId{
     NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/projects/?user=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
@@ -128,6 +156,38 @@
     
     return YES;
 }
+
++(BOOL) addEditor:(NSString*) userId project:(NSString*) projectId {
+    User *user = [UserHttpClient getUser:userId];
+    Project * project = [self getProject:projectId];
+    NSMutableArray *editors = project.editors.mutableCopy;
+    [editors addObject:user];
+    project.editors = editors;
+    [self updateProject:project];
+    return YES;
+}
+
++(Project*) getProject:(NSString*) projectId {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/projects/%@", projectId];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    Project *project = [[Project alloc]initWithDict:raw];
+    return project;
+}
+
 
 
 @end

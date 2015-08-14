@@ -41,7 +41,6 @@
 		928984411B7463A400D6FB6F /* Doc.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984401B7463A400D6FB6F /* Doc.m */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
 		929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BE1B5D3FC000264D32 /* AppDelegate.m */; };
-		929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70C41B5D3FC000264D32 /* SecondViewController.m */; };
 		929B70C81B5D3FC000264D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B70C61B5D3FC000264D32 /* Main.storyboard */; };
 		929B70CA1B5D3FC000264D32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 929B70C91B5D3FC000264D32 /* Images.xcassets */; };
 		929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */; };
@@ -63,6 +62,7 @@
 		983261F51B7978DF000FE97A /* CollaboratorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983261F41B7978DF000FE97A /* CollaboratorsViewController.m */; };
 		9889F0FF1B72FB9E00685E18 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */; };
 		9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9893D9A91B695D210033ED33 /* OtherProfileViewController.m */; };
+		9899C2701B7D7D49006ED563 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9899C26F1B7D7D49006ED563 /* NotificationViewController.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
 		98DFE11F1B759A7000C1DBDE /* AlbumProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */; };
@@ -151,8 +151,6 @@
 		929B70BB1B5D3FC000264D32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		929B70BD1B5D3FC000264D32 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		929B70BE1B5D3FC000264D32 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		929B70C31B5D3FC000264D32 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		929B70C41B5D3FC000264D32 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		929B70C71B5D3FC000264D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		929B70C91B5D3FC000264D32 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		929B70CC1B5D3FC000264D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -193,6 +191,8 @@
 		9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		9893D9A81B695D210033ED33 /* OtherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherProfileViewController.h; sourceTree = "<group>"; };
 		9893D9A91B695D210033ED33 /* OtherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherProfileViewController.m; sourceTree = "<group>"; };
+		9899C26E1B7D7D49006ED563 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		9899C26F1B7D7D49006ED563 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
 		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -306,6 +306,10 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				92A574AD1B62BDC70015032B /* Model */,
+				92ED7E1B1B7D20450015E6BB /* HttpClient */,
+				8430F41C1B6A942C00CB2EE0 /* EZAudio */,
+				98DFE1201B759A9A00C1DBDE /* Profile */,
 				847412681B7D768F009EA92E /* RecordSettingViewController.h */,
 				847412691B7D768F009EA92E /* RecordSettingViewController.m */,
 				847412581B7D6EB7009EA92E /* APLMoveMeView.h */,
@@ -315,21 +319,17 @@
 				8474125C1B7D6EB7009EA92E /* ViewProjectViewController.m */,
 				8474125D1B7D6EB7009EA92E /* WaveformFromFileViewController.h */,
 				8474125E1B7D6EB7009EA92E /* WaveformFromFileViewController.m */,
-				92ED7E1B1B7D20450015E6BB /* HttpClient */,
-				92A574AD1B62BDC70015032B /* Model */,
-				8430F41C1B6A942C00CB2EE0 /* EZAudio */,
 				8430F4191B6A941F00CB2EE0 /* RecordViewController.h */,
 				8430F41A1B6A941F00CB2EE0 /* RecordViewController.m */,
 				929B70E21B5D48AC00264D32 /* LoginViewController.h */,
 				929B70E31B5D48AC00264D32 /* LoginViewController.m */,
 				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
 				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
-				929B70C31B5D3FC000264D32 /* SecondViewController.h */,
-				929B70C41B5D3FC000264D32 /* SecondViewController.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
-				98DFE1201B759A9A00C1DBDE /* Profile */,
 				9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */,
 				9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */,
+				9899C26E1B7D7D49006ED563 /* NotificationViewController.h */,
+				9899C26F1B7D7D49006ED563 /* NotificationViewController.m */,
 				98FF60C91B69B52F00DE90B4 /* SearchViewController.h */,
 				98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */,
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
@@ -540,8 +540,8 @@
 				9289843B1B729EBF00D6FB6F /* ProjectShare.m in Sources */,
 				8430F4411B6A943800CB2EE0 /* EZAudioFile.m in Sources */,
 				8474126A1B7D768F009EA92E /* RecordSettingViewController.m in Sources */,
+				9899C2701B7D7D49006ED563 /* NotificationViewController.m in Sources */,
 				92F158CD1B783219005C84C8 /* Task.m in Sources */,
-				929B70C51B5D3FC000264D32 /* SecondViewController.m in Sources */,
 				AFE597FC1B6333DA00ED0520 /* CreateProjectAlbumViewController.m in Sources */,
 				847412621B7D6EB7009EA92E /* WaveformFromFileViewController.m in Sources */,
 				9283EE221B686ADD004A553B /* Project.m in Sources */,

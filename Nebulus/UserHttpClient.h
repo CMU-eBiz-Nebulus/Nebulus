@@ -49,5 +49,10 @@
 //Set the notification to be read
 +(Notification*) readNotification:(Notification*) notification;
 
++(User*) getUser:(NSString*) userId;
+
++(User*) getFollowerByModelId:(NSString*) followingId ;
+
+
 
 @end
