@@ -13,6 +13,7 @@
 #import "UserHttpClient.h"
 #import "RecordingHttpClient.h"
 #import "RecordSettingViewController.h"
+#import "EZAudioUtilities.h"
 
 @implementation RecordViewController
 @synthesize quality;

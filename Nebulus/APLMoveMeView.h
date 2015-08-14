@@ -68,7 +68,7 @@
 /**
  The CoreGraphics based audio plot
  */
-@property (nonatomic,strong) IBOutlet EZAudioPlot *placardView;
+//@property (nonatomic,strong) IBOutlet EZAudioPlot *placardView;
 
 /**
  A BOOL indicating whether or not we've reached the end of the file
@@ -85,5 +85,24 @@
 
 - (void)setupNextDisplayString;
 
+
+@property (nonatomic, strong) NSMutableArray *directoryContent;
+@property (nonatomic, strong) NSMutableArray *views;
+
+/**
+ The EZAudioFile representing of the currently selected audio file
+ */
+@property (nonatomic,strong) EZAudioFile *audioFile1;
+@property (nonatomic,strong) EZAudioFile *audioFile2;
+@property (nonatomic,strong) EZAudioFile *audioFile3;
+@property (nonatomic,strong) EZAudioFile *audioFile4;
+
+/**
+ The CoreGraphics based audio plot
+ */
+@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot1;
+@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot2;
+@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot3;
+@property (nonatomic,strong) IBOutlet EZAudioPlot *audioPlot4;
 @end
 
