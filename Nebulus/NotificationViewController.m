@@ -8,6 +8,9 @@
 
 #import "NotificationViewController.h"
 #import "UserHttpClient.h"
+#import "AlbumProjectViewController.h"
+#import "ProjectHttpClient.h"
+#import "MusicHttpClient.h"
 
 @interface NotificationViewController()
 
@@ -47,9 +50,17 @@
     NSString *msg = [self htmlStr2Str:notification.message];
     
     if([notification.model isEqualToString:@"invites"]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"invitesCell"];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
     }else if([notification.model isEqualToString:@"albums"]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"albumprojectCell"];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
     }else if([notification.model isEqualToString:@"projects"]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"albumprojectCell"];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
     }else if([notification.model isEqualToString:@"followers"]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"followersCell"];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
 //    }else if([notification.model isEqualToString:@"activity"]){
 //    }else if([notification.model isEqualToString:@"likes"]){
 //    }else if([notification.model isEqualToString:@"comments"]){
@@ -61,34 +72,31 @@
         [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
     }
     
-
-    [tableView dequeueReusableCellWithIdentifier:@"noti"];
-    
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Notification *notification = [self.notifications objectAtIndex:indexPath.row];
     if([notification.model isEqualToString:@"invites"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"albums"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"projects"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"followers"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"activity"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"likes"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"comments"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"conversations"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"tasks"]){
-        return 25.0;
+        return 35.0;
     }else if([notification.model isEqualToString:@"userSettings"]){
-        return 25.0;
+        return 35.0;
     }
     return 0.0;
 }
@@ -100,5 +108,31 @@
                                                                               error:nil];
     return attributedString.string;
 }
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.identifier isEqualToString:@"notificationAlbumProject"]) {
+        if ([segue.destinationViewController isKindOfClass:[AlbumProjectViewController class]]) {
+            AlbumProjectViewController *vc = (AlbumProjectViewController *)segue.destinationViewController;
+
+            UITableViewCell *cell = (UITableViewCell *)sender;
+            
+            Notification *notification = [self.notifications objectAtIndex:[self.tableView indexPathForCell:cell].row];
+            
+            if([notification.model isEqualToString:@"albums"]){
+                vc.mode = ALBUM_DETAIL;
+                vc.content = [MusicHttpClient getAlbum:notification.modelId];
+            }else if([notification.model isEqualToString:@"projects"]){
+                vc.mode = PROJECT_DETAIL;
+                vc.content = [ProjectHttpClient getProject:notification.modelId];
+            }
+            
+            vc.viewMode = NO;
+        }
+    }
+}
+
+
 
 @end
