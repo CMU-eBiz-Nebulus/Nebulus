@@ -15,6 +15,7 @@
 #import "ProjectClassified.h"
 #import "UserClassified.h"
 #import <UIKit/UIKit.h>
+#import "UserHttpClient.h"
 
 @interface MusicHttpClient : Model
 
@@ -48,5 +49,7 @@
 
 +(NSArray*) searchAlbum:(NSString*) searchStr;
 
+//Add the user to the editor of given album
++(BOOL) addEditor:(NSString*) userId album:(NSString*) albumId;
 
 @end

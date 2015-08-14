@@ -11,11 +11,13 @@
 #import "Model.h"
 #import "User.h"
 #import "Project.h"
-
+#import "UserHttpClient.h"
 
 @interface ProjectHttpClient : NSObject
 
 +(Project*) createProject:(Project*) project;
+
++(BOOL) updateProject:(Project*) project;
 
 +(NSArray*) getProjectsByUser:(NSString*) userId;
 
@@ -24,5 +26,9 @@
 +(BOOL) setProjectImage:(UIImage*) image projectId: (NSString*) projectId;
 
 +(BOOL) deleteProject:(NSString*) projectId;
+
+
+//Add the user to the editor of given project
++(BOOL) addEditor:(NSString*) userId project:(Project*) project;
 
 @end
