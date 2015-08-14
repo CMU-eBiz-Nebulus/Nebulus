@@ -51,5 +51,8 @@
 
 +(User*) getUser:(NSString*) userId;
 
++(User*) getFollowerByModelId:(NSString*) followingId ;
+
+
 
 @end
