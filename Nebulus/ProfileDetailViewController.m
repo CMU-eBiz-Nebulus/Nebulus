@@ -168,7 +168,7 @@
     if(self.mode == CLIPS){
         if (editingStyle ==UITableViewCellEditingStyleDelete) {
             Clip *clip = [self.contents objectAtIndex: indexPath.row];
-            [RecordingHttpClient deleteClip:clip.objectID];
+            [RecordingHttpClient deleteClip:clip];
             [self fetch_clips];
             [tableView reloadData];
             //[tableView deleteRowsAtIndexPaths:[NSArrayarrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
