@@ -87,48 +87,69 @@
     
     UITouch *touch = [touches anyObject];
     
-    // If the touch was in the placardView, move the placardView to its location.
-    if ([touch view] == self.placardView) {
+     //If the touch was in the placardView, move the placardView to its location.
+   
+    if ([touch view] == self.audioPlot1) {
         CGPoint location = [touch locationInView:self];
-        self.placardView.center = location;
+        self.audioPlot1.center = location;
         return;
     }
-}
-
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    
-    // If the touch was in the placardView, bounce it back to the center.
-    if ([touch view] == self.placardView) {
-        /*
-         Disable user interaction so subsequent touches don't interfere with animation until the placard has returned to the center. Interaction is reenabled in animationDidStop:finished:.
-         */
-        //		self.userInteractionEnabled = NO;
-        ////		[self animatePlacardViewToCenter];
-        return;
-    }
-}
-
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    /*
-     To impose as little impact on the device as possible, simply set the placard view's center and transformation to the original values.
-     */
-    //	self.placardView.center = self.center;
-    //	self.placardView.transform = CGAffineTransformIdentity;
-    
-    // If the touch was in the placardView, move the placardView to its location.
-    UITouch *touch = [touches anyObject];
-    if ([touch view] == self.placardView) {
+    if ([touch view] == self.audioPlot2) {
         CGPoint location = [touch locationInView:self];
-        self.placardView.center = location;
+        self.audioPlot2.center = location;
+        return;
+    }
+    if ([touch view] == self.audioPlot3) {
+        CGPoint location = [touch locationInView:self];
+        self.audioPlot3.center = location;
+        return;
+    }
+    if ([touch view] == self.audioPlot4) {
+        CGPoint location = [touch locationInView:self];
+        self.audioPlot4.center = location;
         return;
     }
     
 }
+
+
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+//    
+//    UITouch *touch = [touches anyObject];
+//    
+//    // If the touch was in the placardView, bounce it back to the center.
+//    
+//    for (EZAudioPlot v : _views){
+//    if ([touch view] == v) {
+//        /*
+//         Disable user interaction so subsequent touches don't interfere with animation until the placard has returned to the center. Interaction is reenabled in animationDidStop:finished:.
+//         */
+//        //		self.userInteractionEnabled = NO;
+//        ////		[self animatePlacardViewToCenter];
+//        return;
+//    }
+//    }
+//    
+//}
+
+
+//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+//    
+//    /*
+//     To impose as little impact on the device as possible, simply set the placard view's center and transformation to the original values.
+//     */
+//    //	self.placardView.center = self.center;
+//    //	self.placardView.transform = CGAffineTransformIdentity;
+//    
+//    // If the touch was in the placardView, move the placardView to its location.
+//    UITouch *touch = [touches anyObject];
+//    if ([touch view] == self.placardView) {
+//        CGPoint location = [touch locationInView:self];
+//        self.placardView.center = location;
+//        return;
+//    }
+//    
+//}
 
 
 /*
@@ -144,41 +165,41 @@
 /**
  "Pulse" the placard view by scaling up then down, then move the placard to under the finger.
  */
-- (void)animateFirstTouchAtPoint:(CGPoint)touchPoint {
-    /*
-     This illustrates using UIView's built-in animation.  We want, though, to animate the same property (transform) twice -- first to scale up, then to shrink.  You can't animate the same property more than once using the built-in animation -- the last one wins.  So we'll set a delegate action to be invoked after the first animation has finished.  It will complete the sequence.
-     
-     The touch point is passed in an NSValue object as the context to beginAnimations:. To make sure the object survives until the delegate method, pass the reference as retained.
-     */
-    
-#define GROW_ANIMATION_DURATION_SECONDS 0.15
-    
-    NSValue *touchPointValue = [NSValue valueWithCGPoint:touchPoint];
-    [UIView beginAnimations:nil context:(__bridge_retained void *)touchPointValue];
-    [UIView setAnimationDuration:GROW_ANIMATION_DURATION_SECONDS];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(growAnimationDidStop:finished:context:)];
-    CGAffineTransform transform = CGAffineTransformMakeScale(GROW_FACTOR, GROW_FACTOR);
-    self.placardView.transform = transform;
-    [UIView commitAnimations];
-}
+//- (void)animateFirstTouchAtPoint:(CGPoint)touchPoint {
+//    /*
+//     This illustrates using UIView's built-in animation.  We want, though, to animate the same property (transform) twice -- first to scale up, then to shrink.  You can't animate the same property more than once using the built-in animation -- the last one wins.  So we'll set a delegate action to be invoked after the first animation has finished.  It will complete the sequence.
+//     
+//     The touch point is passed in an NSValue object as the context to beginAnimations:. To make sure the object survives until the delegate method, pass the reference as retained.
+//     */
+//    
+//#define GROW_ANIMATION_DURATION_SECONDS 0.15
+//    
+//    NSValue *touchPointValue = [NSValue valueWithCGPoint:touchPoint];
+//    [UIView beginAnimations:nil context:(__bridge_retained void *)touchPointValue];
+//    [UIView setAnimationDuration:GROW_ANIMATION_DURATION_SECONDS];
+//    [UIView setAnimationDelegate:self];
+//    [UIView setAnimationDidStopSelector:@selector(growAnimationDidStop:finished:context:)];
+//    CGAffineTransform transform = CGAffineTransformMakeScale(GROW_FACTOR, GROW_FACTOR);
+//    self.placardView.transform = transform;
+//    [UIView commitAnimations];
+//}
 
 
-- (void)growAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-    
-#define MOVE_ANIMATION_DURATION_SECONDS 0.15
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:MOVE_ANIMATION_DURATION_SECONDS];
-    self.placardView.transform = CGAffineTransformMakeScale(SHRINK_FACTOR, SHRINK_FACTOR);
-    /*
-     Move the placardView to under the touch.
-     We passed the location wrapped in an NSValue as the context. Get the point from the value, and transfer ownership to ARC to balance the bridge retain in touchesBegan:withEvent:.
-     */
-    NSValue *touchPointValue = (__bridge_transfer NSValue *)context;
-    self.placardView.center = [touchPointValue CGPointValue];
-    [UIView commitAnimations];
-}
+//- (void)growAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+//    
+//#define MOVE_ANIMATION_DURATION_SECONDS 0.15
+//    
+//    [UIView beginAnimations:nil context:NULL];
+//    [UIView setAnimationDuration:MOVE_ANIMATION_DURATION_SECONDS];
+//    self.placardView.transform = CGAffineTransformMakeScale(SHRINK_FACTOR, SHRINK_FACTOR);
+//    /*
+//     Move the placardView to under the touch.
+//     We passed the location wrapped in an NSValue as the context. Get the point from the value, and transfer ownership to ARC to balance the bridge retain in touchesBegan:withEvent:.
+//     */
+//    NSValue *touchPointValue = (__bridge_transfer NSValue *)context;
+//    self.placardView.center = [touchPointValue CGPointValue];
+//    [UIView commitAnimations];
+//}
 
 #else
 
@@ -254,122 +275,161 @@
 #endif
 
 
-/**
- Bounce the placard back to the center.
- */
-- (void)animatePlacardViewToCenter {
-    
-    EZAudioPlot *placardView = self.placardView;
-    CALayer *welcomeLayer = placardView.layer;
-    
-    // Create a keyframe animation to follow a path back to the center.
-    CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    bounceAnimation.removedOnCompletion = NO;
-    
-    CGFloat animationDuration = 1.5f;
-    
-    
-    // Create the path for the bounces.
-    UIBezierPath *bouncePath = [[UIBezierPath alloc] init];
-    
-    CGPoint centerPoint = self.center;
-    CGFloat midX = centerPoint.x;
-    CGFloat midY = centerPoint.y;
-    CGFloat originalOffsetX = placardView.center.x - midX;
-    CGFloat originalOffsetY = placardView.center.y - midY;
-    CGFloat offsetDivider = 4.0f;
-    
-    BOOL stopBouncing = NO;
-    
-    // Start the path at the placard's current location.
-    [bouncePath moveToPoint:CGPointMake(placardView.center.x, placardView.center.y)];
-    [bouncePath addLineToPoint:CGPointMake(midX, midY)];
-    
-    // Add to the bounce path in decreasing excursions from the center.
-    while (stopBouncing != YES) {
-        
-        CGPoint excursion = CGPointMake(midX + originalOffsetX/offsetDivider, midY + originalOffsetY/offsetDivider);
-        [bouncePath addLineToPoint:excursion];
-        [bouncePath addLineToPoint:centerPoint];
-        
-        offsetDivider += 4;
-        animationDuration += 1/offsetDivider;
-        if ((abs(originalOffsetX/offsetDivider) < 6) && (abs(originalOffsetY/offsetDivider) < 6)) {
-            stopBouncing = YES;
-        }
-    }
-    
-    bounceAnimation.path = [bouncePath CGPath];
-    bounceAnimation.duration = animationDuration;
-    
-    // Create a basic animation to restore the size of the placard.
-    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    transformAnimation.removedOnCompletion = YES;
-    transformAnimation.duration = animationDuration;
-    transformAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-    
-    
-    // Create an animation group to combine the keyframe and basic animations.
-    CAAnimationGroup *theGroup = [CAAnimationGroup animation];
-    
-    // Set self as the delegate to allow for a callback to reenable user interaction.
-    theGroup.delegate = self;
-    theGroup.duration = animationDuration;
-    theGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    
-    theGroup.animations = @[bounceAnimation, transformAnimation];
-    
-    
-    // Add the animation group to the layer.
-    [welcomeLayer addAnimation:theGroup forKey:@"animatePlacardViewToCenter"];
-    
-    // Set the placard view's center and transformation to the original values in preparation for the end of the animation.
-    placardView.center = centerPoint;
-    placardView.transform = CGAffineTransformIdentity;
-}
+///**
+// Bounce the placard back to the center.
+// */
+//- (void)animatePlacardViewToCenter {
+//    
+//    EZAudioPlot *placardView = self.placardView;
+//    CALayer *welcomeLayer = placardView.layer;
+//    
+//    // Create a keyframe animation to follow a path back to the center.
+//    CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+//    bounceAnimation.removedOnCompletion = NO;
+//    
+//    CGFloat animationDuration = 1.5f;
+//    
+//    
+//    // Create the path for the bounces.
+//    UIBezierPath *bouncePath = [[UIBezierPath alloc] init];
+//    
+//    CGPoint centerPoint = self.center;
+//    CGFloat midX = centerPoint.x;
+//    CGFloat midY = centerPoint.y;
+//    CGFloat originalOffsetX = placardView.center.x - midX;
+//    CGFloat originalOffsetY = placardView.center.y - midY;
+//    CGFloat offsetDivider = 4.0f;
+//    
+//    BOOL stopBouncing = NO;
+//    
+//    // Start the path at the placard's current location.
+//    [bouncePath moveToPoint:CGPointMake(placardView.center.x, placardView.center.y)];
+//    [bouncePath addLineToPoint:CGPointMake(midX, midY)];
+//    
+//    // Add to the bounce path in decreasing excursions from the center.
+//    while (stopBouncing != YES) {
+//        
+//        CGPoint excursion = CGPointMake(midX + originalOffsetX/offsetDivider, midY + originalOffsetY/offsetDivider);
+//        [bouncePath addLineToPoint:excursion];
+//        [bouncePath addLineToPoint:centerPoint];
+//        
+//        offsetDivider += 4;
+//        animationDuration += 1/offsetDivider;
+//        if ((abs(originalOffsetX/offsetDivider) < 6) && (abs(originalOffsetY/offsetDivider) < 6)) {
+//            stopBouncing = YES;
+//        }
+//    }
+//    
+//    bounceAnimation.path = [bouncePath CGPath];
+//    bounceAnimation.duration = animationDuration;
+//    
+//    // Create a basic animation to restore the size of the placard.
+//    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+//    transformAnimation.removedOnCompletion = YES;
+//    transformAnimation.duration = animationDuration;
+//    transformAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+//    
+//    
+//    // Create an animation group to combine the keyframe and basic animations.
+//    CAAnimationGroup *theGroup = [CAAnimationGroup animation];
+//    
+//    // Set self as the delegate to allow for a callback to reenable user interaction.
+//    theGroup.delegate = self;
+//    theGroup.duration = animationDuration;
+//    theGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+//    
+//    theGroup.animations = @[bounceAnimation, transformAnimation];
+//    
+//    
+//    // Add the animation group to the layer.
+//    [welcomeLayer addAnimation:theGroup forKey:@"animatePlacardViewToCenter"];
+//    
+//    // Set the placard view's center and transformation to the original values in preparation for the end of the animation.
+//    placardView.center = centerPoint;
+//    placardView.transform = CGAffineTransformIdentity;
+//}
 
 
 /**
  Animation delegate method called when the animation's finished: restore the transform and reenable user interaction.
  */
-- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag {
-    
-    self.placardView.transform = CGAffineTransformIdentity;
-    self.userInteractionEnabled = YES;
+//- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag {
+//    
+//    self.placardView.transform = CGAffineTransformIdentity;
+//    self.userInteractionEnabled = YES;
+//}
+
+- (void)setupNextDisplayString{
+    [self listFileAtPath];
+    if ([_directoryContent count]>0)
+        [self setupNextDisplayStringAudioPlot:self.audioPlot1 number:1];
+    if ([_directoryContent count]>1)
+        [self setupNextDisplayStringAudioPlot:self.audioPlot2 number:2];
+    if ([_directoryContent count]>2)
+        [self setupNextDisplayStringAudioPlot:self.audioPlot3 number:3];
+    if ([_directoryContent count]>3)
+        [self setupNextDisplayStringAudioPlot:self.audioPlot4 number:4];
 }
+- (void)setupNextDisplayStringAudioPlot:(EZAudioPlot*)placardView number:(NSInteger)number{
 
 
-- (void)setupNextDisplayString {
     
-    self.placardView = [[EZAudioPlot alloc] initWithFrame:CGRectMake(30, 60, 180, 60)];
+    placardView = [[EZAudioPlot alloc] initWithFrame:CGRectMake(60, 60*number, 180, 60)];
+    UILabel *fileNameLabel;
+    CGRect myFrame = CGRectMake(-50,0,80,50);
+    fileNameLabel = [[UILabel alloc] initWithFrame:myFrame];
+    //fileNameLabel.font = [UIFont boldSystemFontOfSize:17.0];
+    //fileNameLabel.backgroundColor = [UIColor clearColor];
+    fileNameLabel.text =[NSString stringWithFormat:@"Track%ld", (long)number] ;
+    [placardView addSubview:fileNameLabel];
     
     //
     // Customizing the audio plot's look
     //
     // Background color
-    self.placardView.backgroundColor = [UIColor colorWithRed: 0.169 green: 0.643 blue: 0.675 alpha: 1];
+    placardView.backgroundColor = [UIColor colorWithRed: 0.169 green: 0.643 blue: 0.675 alpha: 1];
     // Waveform color
-    self.placardView.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    placardView.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     // Plot type
-    self.placardView.plotType        = EZPlotTypeBuffer;
+    placardView.plotType        = EZPlotTypeBuffer;
     // Fill
-    self.placardView.shouldFill      = YES;
+    placardView.shouldFill      = YES;
     // Mirror
-    self.placardView.shouldMirror    = YES;
+    placardView.shouldMirror    = YES;
     // No need to optimze for realtime
-    self.placardView.shouldOptimizeForRealtimePlot = NO;
+    placardView.shouldOptimizeForRealtimePlot = NO;
     // Customize the layer with a shadow for fun
-    self.placardView.waveformLayer.shadowOffset = CGSizeMake(0.0, 1.0);
-    self.placardView.waveformLayer.shadowRadius = 0.0;
-    self.placardView.waveformLayer.shadowColor = [UIColor colorWithRed: 0.069 green: 0.543 blue: 0.575 alpha: 1].CGColor;
-    self.placardView.waveformLayer.shadowOpacity = 1.0;
-    [self addSubview:self.placardView];
-    //
-    // Load in the sample file
-    //
-    [self openFileWithFilePathURL:[NSURL fileURLWithPath:kAudioFileDefault]];
+    placardView.waveformLayer.shadowOffset = CGSizeMake(0.0, 1.0);
+    placardView.waveformLayer.shadowRadius = 0.0;
+    placardView.waveformLayer.shadowColor = [UIColor colorWithRed: 0.069 green: 0.543 blue: 0.575 alpha: 1].CGColor;
+    placardView.waveformLayer.shadowOpacity = 1.0;
+    [self addSubview:placardView];
+//    
+//    //
+//    // Load in the sample file
+//    //
+//    [self openFileWithFilePathURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                                          [self applicationDocumentsDirectory],
+//                                                         [_directoryContent objectAtIndex:0]]]];
+    [self openFileWithFilePathURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                          [self applicationDocumentsDirectory],
+                                                          [_directoryContent objectAtIndex:(number-1)]]] audioPlot:placardView number:number] ;
     
-    NSUInteger nextIndex = self.nextDisplayStringIndex;
+    switch(number){
+        case 1:
+            self.audioPlot1 = placardView;
+            break;
+        case 2:
+            self.audioPlot2 = placardView;
+            break;
+        case 3:
+            self.audioPlot3 = placardView;
+            break;
+        case 4:
+            self.audioPlot4 = placardView;
+            break;
+        }
+        NSUInteger nextIndex = self.nextDisplayStringIndex;
     NSString *displayString = self.displayStrings[nextIndex];
     //    [self.placardView setDisplayString:displayString];
     //
@@ -379,35 +439,107 @@
     }
     self.nextDisplayStringIndex = nextIndex;
     
-    self.placardView.center = self.center;
+//    self.placardView.center = self.center;
+    
 }
 
 
 //------------------------------------------------------------------------------
 #pragma mark - Action Extensions
 //------------------------------------------------------------------------------
-
-- (void)openFileWithFilePathURL:(NSURL*)filePathURL
+- (void)openFileWithFilePathURL:(NSURL*)filePathURL audioPlot:(EZAudioPlot*)audioPlot number:(NSInteger)number
 {
-    self.audioFile          = [EZAudioFile audioFileWithURL:filePathURL];
     self.eof                = NO;
     self.filePathLabel.text = filePathURL.lastPathComponent;
     
     // Plot the whole waveform
-    self.placardView.plotType     = EZPlotTypeBuffer;
-    self.placardView.shouldFill   = YES;
-    self.placardView.shouldMirror = YES;
-    
-    __weak typeof (self) weakSelf = self;
-    [self.audioFile getWaveformDataWithCompletionBlock:^(float **waveformData,
-                                                         int length)
-     {
-         [weakSelf.placardView updateBuffer:waveformData[0]
-                           withBufferSize:length];
-     }];
+    audioPlot.plotType     = EZPlotTypeBuffer;
+    audioPlot.shouldFill   = YES;
+    audioPlot.shouldMirror = YES;
+    switch(number){
+        case 1:{self.audioFile1         = [EZAudioFile audioFileWithURL:filePathURL];
+            [self.audioFile1 getWaveformDataWithCompletionBlock:^(float **waveformData,
+                                                                  int length)
+             {
+                 [audioPlot updateBuffer:waveformData[0]
+                          withBufferSize:length];
+             }];
+            
+            break;}
+        case 2:{
+            self.audioFile2         = [EZAudioFile audioFileWithURL:filePathURL];
+            [self.audioFile2 getWaveformDataWithCompletionBlock:^(float **waveformData,
+                                                                  int length)
+             {
+                 [audioPlot updateBuffer:waveformData[0]
+                          withBufferSize:length];
+             }];
+            
+            break;}
+            
+        case 3:{
+            self.audioFile3         = [EZAudioFile audioFileWithURL:filePathURL];
+            [self.audioFile3 getWaveformDataWithCompletionBlock:^(float **waveformData,
+                                                                  int length)
+             {
+                 [audioPlot updateBuffer:waveformData[0]
+                          withBufferSize:length];
+             }];
+            
+            break;}
+            
+        case 4:{
+            self.audioFile4         = [EZAudioFile audioFileWithURL:filePathURL];
+            [self.audioFile4 getWaveformDataWithCompletionBlock:^(float **waveformData,
+                                                                  int length)
+             {
+                 [audioPlot updateBuffer:waveformData[0]
+                          withBufferSize:length];
+             }];
+            
+            break;}
+    }
 }
+//- (void)openFileWithFilePathURL:(NSURL*)filePathURL
+//{
+//    self.audioFile          = [EZAudioFile audioFileWithURL:filePathURL];
+//    self.eof                = NO;
+//    self.filePathLabel.text = filePathURL.lastPathComponent;
+//    
+//    // Plot the whole waveform
+//    self.placardView.plotType     = EZPlotTypeBuffer;
+//    self.placardView.shouldFill   = YES;
+//    self.placardView.shouldMirror = YES;
+//    
+//    __weak typeof (self) weakSelf = self;
+//    [self.audioFile getWaveformDataWithCompletionBlock:^(float **waveformData,
+//                                                         int length)
+//     {
+//         [weakSelf.placardView updateBuffer:waveformData[0]
+//                           withBufferSize:length];
+//     }];
+//}
 
 //------------------------------------------------------------------------------
-
+- (NSString *)applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+-(void)listFileAtPath
+{
+    //-----> LIST ALL FILES <-----//
+    NSLog(@"LISTING ALL FILES FOUND");
+    
+    int count;
+    
+    _directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:NULL];
+    for (count = 0; count < (int)[_directoryContent count]; count++)
+    {
+        NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
+    }
+    return;
+}
 
 @end

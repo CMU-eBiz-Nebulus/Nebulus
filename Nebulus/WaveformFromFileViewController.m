@@ -306,5 +306,12 @@
 }
 
 //------------------------------------------------------------------------------
+- (NSArray *)applicationDocuments
+{
+    return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+}
+
+//------------------------------------------------------------------------------
+
 
 @end

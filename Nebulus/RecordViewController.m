@@ -8,12 +8,15 @@
 
 #import "RecordViewController.h"
 
-#define COUNTRY_TAG 100
+#define COUNTRY_TAG 1000
 #import "Clip.h"
 #import "UserHttpClient.h"
 #import "RecordingHttpClient.h"
+#import "RecordSettingViewController.h"
+#import "EZAudioUtilities.h"
 
 @implementation RecordViewController
+@synthesize quality;
 
 //------------------------------------------------------------------------------
 #pragma mark - Dealloc
@@ -88,6 +91,7 @@
     self.playingStateLabel.text = @"Not Playing";
     self.playButton.enabled = NO;
     
+    quality = 2;
     //
     // Setup notifications
     //
@@ -108,7 +112,7 @@
     //
     // Start the microphone
     //
-    [self.microphone startFetchingAudio];
+    //[self.microphone startFetchingAudio];
     
     [self listFileAtPath];
     [self.secondTableView reloadData];
@@ -123,24 +127,24 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     
-    UILabel *countryLabel;
+    UILabel *fileNameLabel, *startTimeLabel, *endTimeLabel;
     UIButton *detailInfoButton, *uploadButton;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil){
+    //if (cell == nil){
         cell = [[UITableViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:cellIdentifier];
         
         //create custom labels and button inside the cell view
-        CGRect myFrame = CGRectMake(10.0, 5.0, 200, 25.0);
-        countryLabel = [[UILabel alloc] initWithFrame:myFrame];
-        countryLabel.tag = COUNTRY_TAG;
-        countryLabel.font = [UIFont boldSystemFontOfSize:17.0];
-        countryLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:countryLabel];
+        CGRect myFrame = CGRectMake(10.0, 5.0, 250, 25.0);
+        fileNameLabel = [[UILabel alloc] initWithFrame:myFrame];
+        fileNameLabel.tag = COUNTRY_TAG;
+        fileNameLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        fileNameLabel.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:fileNameLabel];
         
         detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        detailInfoButton.frame = CGRectMake(200.0, 5.0, 50, 25.0);
+        detailInfoButton.frame = CGRectMake(5, 40.0, 50, 25.0);
         [detailInfoButton setTitle:@"Play"
                           forState:UIControlStateNormal];
         detailInfoButton.tag = indexPath.row;
@@ -160,14 +164,37 @@
                forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:uploadButton];
         
-    }
-    else {
-        countryLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
-    }
+        
+        startTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 44, 30, 15)];
+        startTimeLabel.tag = 200+indexPath.row;;
+        startTimeLabel.font = [UIFont systemFontOfSize:15.0];
+        startTimeLabel.textColor = [UIColor grayColor];
+        startTimeLabel.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:startTimeLabel];
+        
+        endTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(290, 44, 30, 15)];
+        endTimeLabel.tag = 300+indexPath.row;;
+        endTimeLabel.font = [UIFont systemFontOfSize:15.0];
+        endTimeLabel.textColor = [UIColor grayColor];
+        endTimeLabel.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:endTimeLabel];
+        
+        UIProgressView *pv = [[UIProgressView alloc] init];
+        pv.frame = CGRectMake(80, 50, 200, 15);
+        pv.tag =100+indexPath.row;
+       [cell addSubview:pv];
+        
+        cell.clipsToBounds = YES;
+
+        
+    //}
+//    else {
+//        fileNameLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
+//    }
     
     
     //populate data from your country object to table view cell
-    countryLabel.text = [NSString stringWithFormat:@"New Recording %d: %@", indexPath.row +1, [_directoryContent objectAtIndex:indexPath.row]];
+    fileNameLabel.text = [NSString stringWithFormat:@"New Recording %d: %@", indexPath.row +1, [_directoryContent objectAtIndex:indexPath.row]];
     
     
     return cell;
@@ -182,6 +209,43 @@
     [_directoryContent removeObjectAtIndex:indexPath.row];
     [_secondTableView reloadData];
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Compares the index path for the current cell to the index path stored in the expanded
+    // index path variable. If the two match, return a height of 100 points, otherwise return
+    // a height of 44 points.
+    if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+        return 80.0; // Expanded height
+    }
+    return 44.0; // Normal height
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView beginUpdates]; // tell the table you're about to start making changes
+    
+    // If the index path of the currently expanded cell is the same as the index that
+    // has just been tapped set the expanded index to nil so that there aren't any
+    // expanded cells, otherwise, set the expanded index to the index that has just
+    // been selected.
+    if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+        self.expandedIndexPath = nil;
+        [self.secondTableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else {
+        self.expandedIndexPath = indexPath;
+    }
+//    NSString *fileName = [_directoryContent objectAtIndex: indexPath.row];
+//    
+//    EZAudioFile *audioFile = [EZAudioFile audioFileWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                                                                   [self applicationDocumentsDirectory],
+//                                                                                   fileName]]];
+//    
+//    [((UILabel*)[self.secondTableView viewWithTag:(200+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"%.1f",0.0]];
+//    [((UILabel*)[self.secondTableView viewWithTag:(300+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"-%.1f",[audioFile duration]]];
+    
+    [tableView endUpdates]; // tell the table you're done making your changes
 }
 
 - (void)removeImage:(NSString *)fileName
@@ -272,6 +336,7 @@
     EZAudioFile *audioFile = [EZAudioFile audioFileWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                                                    [self applicationDocumentsDirectory],
                                                                                    fileName]]];
+
     [self.player playAudioFile:audioFile];
     
     
@@ -347,6 +412,7 @@
 
 - (void)toggleMicrophone:(id)sender
 {
+    
     [self.player pause];
     
     BOOL isOn = [(UISwitch*)sender isOn];
@@ -364,6 +430,14 @@
 
 - (void)toggleRecording:(id)sender
 {
+    [self.secondTableView beginUpdates];
+    if (self.expandedIndexPath!=nil){
+        [self.secondTableView deselectRowAtIndexPath:self.expandedIndexPath animated:YES];
+        self.expandedIndexPath = nil;
+        
+    }
+    [self.secondTableView endUpdates];
+    [self.microphone stopFetchingAudio];
     [self.player pause];
     if ([sender isOn])
     {
@@ -476,6 +550,9 @@ withNumberOfChannels:(UInt32)numberOfChannels
     __weak typeof (self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         weakSelf.currentTimeLabel.text = [audioPlayer formattedCurrentTime];
+        [((UIProgressView*)[weakSelf.secondTableView viewWithTag:(100+_expandedIndexPath.row)]) setProgress:([audioPlayer currentTime]/[audioPlayer duration])];
+         [((UILabel*)[weakSelf.secondTableView viewWithTag:(200+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"%.1f",[audioPlayer currentTime]]];
+        [((UILabel*)[weakSelf.secondTableView viewWithTag:(300+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"-%.1f",[audioPlayer duration]-[audioPlayer currentTime]]];
     });
 }
 
@@ -527,7 +604,29 @@ withNumberOfChannels:(UInt32)numberOfChannels
     }
     return;
 }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"setting"])
+    {
+        // Get reference to the destination view controller
+        RecordSettingViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        [vc setQualityValue:quality];
+    }
+}
+- (IBAction)back:(UIStoryboardSegue *)segue {
+    if ([segue.sourceViewController isKindOfClass:[RecordSettingViewController class]]) {
+        RecordSettingViewController *sc = segue.sourceViewController;
+        // if the user clicked Cancel, we don't want to change the color
+        quality = sc.Quality.selectedSegmentIndex;
+        NSLog(@"quality:%ld", quality);
+    
+    }
+}
 @end
+
 
 
 
