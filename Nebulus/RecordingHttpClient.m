@@ -106,7 +106,7 @@
     return clips;
 }
 
-+(NSData*) getRecoring:(NSString*) recordingId {
++(NSData*) getRecording:(NSString*) recordingId {
     
     NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/recordings/%@/waveform", recordingId];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
