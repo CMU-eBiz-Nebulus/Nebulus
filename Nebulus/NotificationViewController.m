@@ -7,6 +7,7 @@
 //
 
 #import "NotificationViewController.h"
+#import "UserHttpClient.h"
 
 @interface NotificationViewController()
 
@@ -21,6 +22,12 @@
     return _notifications;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.notifications = [UserHttpClient getUserNotification:[UserHttpClient getCurrentUser].objectID];
+    [self.tableView reloadData];
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -32,7 +39,17 @@
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"info"];
+    
+    Notification *notification = [self.notifications objectAtIndex:indexPath.row];
+    
+    [cell.textLabel setText:[NSString stringWithFormat:@"Type: %@, Msg: %@", notification.type, notification.message]];
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"info"];
+    return cell.frame.size.height;
 }
 
 @end
