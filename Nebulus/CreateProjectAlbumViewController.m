@@ -44,6 +44,9 @@
     [self.picker setDelegate:self];
     self.picker.allowsEditing = YES;
     
+    
+    ((UIScrollView *)self.view).contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height * 1.5);
+    
     UIBarButtonItem *Done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                           target:self
                                                                           action:@selector(performDone)];
