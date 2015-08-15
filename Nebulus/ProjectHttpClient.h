@@ -12,6 +12,7 @@
 #import "User.h"
 #import "Project.h"
 #import "UserHttpClient.h"
+#import "Invite.h"
 
 @interface ProjectHttpClient : NSObject
 
@@ -28,6 +29,8 @@
 +(BOOL) deleteProject:(NSString*) projectId;
 
 +(Project*) getProject:(NSString*) projectId;
+
++(BOOL) invite: (User*) to from:(User*) from Project: (Project*) project;
 
 
 //Add the user to the editor of given project

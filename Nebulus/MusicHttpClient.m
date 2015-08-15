@@ -50,7 +50,7 @@
             UserClassified *activity = [[UserClassified alloc] initWithDict:act];
             [activites addObject:activity];
         } else {
-            NSLog(@"Wrong Type");
+            NSLog(@"Wrong Type: %@", type);
         }
         
     }

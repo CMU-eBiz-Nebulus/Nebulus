@@ -54,6 +54,7 @@
 		92ED7E171B7A834C0015E6BB /* RecordingHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E161B7A834C0015E6BB /* RecordingHttpClient.m */; };
 		92ED7E1A1B7C37EE0015E6BB /* ProjectHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E191B7C37EE0015E6BB /* ProjectHttpClient.m */; };
 		92ED7E1E1B7D223E0015E6BB /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E1D1B7D223E0015E6BB /* Notification.m */; };
+		92ED7E211B7E63150015E6BB /* Invite.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E201B7E63150015E6BB /* Invite.m */; };
 		92F158CA1B782E46005C84C8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158C91B782E46005C84C8 /* Comment.m */; };
 		92F158CD1B783219005C84C8 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CC1B783219005C84C8 /* Task.m */; };
 		92F158D01B783CE9005C84C8 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CF1B783CE9005C84C8 /* Like.m */; };
@@ -175,6 +176,8 @@
 		92ED7E191B7C37EE0015E6BB /* ProjectHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectHttpClient.m; sourceTree = "<group>"; };
 		92ED7E1C1B7D223E0015E6BB /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		92ED7E1D1B7D223E0015E6BB /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		92ED7E1F1B7E63150015E6BB /* Invite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invite.h; sourceTree = "<group>"; };
+		92ED7E201B7E63150015E6BB /* Invite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invite.m; sourceTree = "<group>"; };
 		92F158C81B782E46005C84C8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		92F158C91B782E46005C84C8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		92F158CB1B783219005C84C8 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 				92F158D21B783D01005C84C8 /* Arrangement.m */,
 				92ED7E1C1B7D223E0015E6BB /* Notification.h */,
 				92ED7E1D1B7D223E0015E6BB /* Notification.m */,
+				92ED7E1F1B7E63150015E6BB /* Invite.h */,
+				92ED7E201B7E63150015E6BB /* Invite.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				92F158CD1B783219005C84C8 /* Task.m in Sources */,
 				AFE597FC1B6333DA00ED0520 /* CreateProjectAlbumViewController.m in Sources */,
 				847412621B7D6EB7009EA92E /* WaveformFromFileViewController.m in Sources */,
+				92ED7E211B7E63150015E6BB /* Invite.m in Sources */,
 				9283EE221B686ADD004A553B /* Project.m in Sources */,
 				92F158D01B783CE9005C84C8 /* Like.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,

@@ -47,6 +47,38 @@
             endingLineNumber = "15"
             landmarkName = "type"
             landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[Activity type]"
+                  moduleName = "Nebulus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/Activity.h"
+                  timestampString = "461270302.267274"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[Activity setType:]"
+                  moduleName = "Nebulus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/Activity.h"
+                  timestampString = "461270302.267472"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -72,12 +104,12 @@
                   moduleName = "Nebulus"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/ProjectClassified.h"
-                  timestampString = "461211178.976241"
+                  timestampString = "461270302.295187"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -87,12 +119,12 @@
                   moduleName = "Nebulus"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/ProjectClassified.h"
-                  timestampString = "461211178.976426"
+                  timestampString = "461270302.295435"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -136,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nebulus/RecordingHttpClient.m"
-            timestampString = "461210778.017891"
+            timestampString = "461270134.371113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "+deleteClip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -158,6 +190,38 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nebulus/Invite.m"
+            timestampString = "461268173.449693"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-initWithDict:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nebulus/Invite.m"
+            timestampString = "461270134.371113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-convertToDict"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
