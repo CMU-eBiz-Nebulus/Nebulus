@@ -64,6 +64,9 @@
         }
         if(!notification.read) self.unread++;
         [dstArray addObject:notification];
+        
+        NSLog(notification.read ? @"Notification Read\n" : @"Unread\n");
+        
     }
 
     self.notifications = dstArray.copy;
@@ -74,6 +77,7 @@
         [[[[[self tabBarController] tabBar] items] objectAtIndex:1]
          setBadgeValue:nil];
     }
+    
     
     [self.tableView reloadData];
 }
@@ -111,7 +115,15 @@
     }else if([notification.model isEqualToString:@"followers"]){
         User* follower = [UserHttpClient getFollowerByModelId:notification.modelId];
         cell = [tableView dequeueReusableCellWithIdentifier:@"followersCell"];
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@", follower.username, msg]];
+        
+        NSString *text = [NSString stringWithFormat:@"%@ %@", follower.username, msg];
+        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor purpleColor],
+                                        NSFontAttributeName:[UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize]}
+                                range: NSMakeRange(0, follower.username.length)];
+        
+        [cell.textLabel setAttributedText:attributedText];
 //    }else if([notification.model isEqualToString:@"activity"]){
 //    }else if([notification.model isEqualToString:@"likes"]){
 //    }else if([notification.model isEqualToString:@"comments"]){
@@ -182,7 +194,7 @@
             vc.viewMode = NO;
             
             // READ notification
-            if(!notification.read) [UserHttpClient readNotification:notification];
+            //if(!notification.read) [UserHttpClient readNotification:notification];
         }
     } else if ([segue.identifier isEqualToString:@"followNotification"]) {
         if ([segue.destinationViewController isKindOfClass:[OtherProfileViewController class]]) {
@@ -196,7 +208,7 @@
             vc.invitation_mode = NO;
             
             // READ notification
-            if(!notification.read) [UserHttpClient readNotification:notification];
+            //if(!notification.read) [UserHttpClient readNotification:notification];
         }
     }
 

@@ -30,6 +30,7 @@
 		847412621B7D6EB7009EA92E /* WaveformFromFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474125E1B7D6EB7009EA92E /* WaveformFromFileViewController.m */; };
 		8474126A1B7D768F009EA92E /* RecordSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847412691B7D768F009EA92E /* RecordSettingViewController.m */; };
 		848660821B615916000D849B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848660811B615916000D849B /* AVFoundation.framework */; };
+		84B56A401B7EE4C0009D5E63 /* PlayFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B56A3F1B7EE4C0009D5E63 /* PlayFileViewController.m */; };
 		9283EE1F1B686AC8004A553B /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE1E1B686AC8004A553B /* Clip.m */; };
 		9283EE221B686ADD004A553B /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE211B686ADD004A553B /* Project.m */; };
 		9289842E1B728F1500D6FB6F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289842D1B728F1500D6FB6F /* Activity.m */; };
@@ -130,6 +131,8 @@
 		847412681B7D768F009EA92E /* RecordSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordSettingViewController.h; sourceTree = "<group>"; };
 		847412691B7D768F009EA92E /* RecordSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordSettingViewController.m; sourceTree = "<group>"; };
 		848660811B615916000D849B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		84B56A3E1B7EE4C0009D5E63 /* PlayFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayFileViewController.h; sourceTree = "<group>"; };
+		84B56A3F1B7EE4C0009D5E63 /* PlayFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayFileViewController.m; sourceTree = "<group>"; };
 		9283EE1D1B686AC8004A553B /* Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clip.h; sourceTree = "<group>"; };
 		9283EE1E1B686AC8004A553B /* Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clip.m; sourceTree = "<group>"; };
 		9283EE201B686ADD004A553B /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				84B56A3E1B7EE4C0009D5E63 /* PlayFileViewController.h */,
+				84B56A3F1B7EE4C0009D5E63 /* PlayFileViewController.m */,
 				92A574AD1B62BDC70015032B /* Model */,
 				92ED7E1B1B7D20450015E6BB /* HttpClient */,
 				8430F41C1B6A942C00CB2EE0 /* EZAudio */,
@@ -594,6 +599,7 @@
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
 				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
 				928984411B7463A400D6FB6F /* Doc.m in Sources */,
+				84B56A401B7EE4C0009D5E63 /* PlayFileViewController.m in Sources */,
 				92ED7E1A1B7C37EE0015E6BB /* ProjectHttpClient.m in Sources */,
 				98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */,
 				928984311B729E6300D6FB6F /* AlbumShare.m in Sources */,
