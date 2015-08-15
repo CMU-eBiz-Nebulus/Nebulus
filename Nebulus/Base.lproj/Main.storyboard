@@ -825,7 +825,7 @@ Some text here ...</string>
                         <viewControllerLayoutGuide type="top" id="WpP-hu-lyM"/>
                         <viewControllerLayoutGuide type="bottom" id="qEb-fc-keT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZwS-JD-ngU">
+                    <view key="view" contentMode="scaleToFill" id="ZwS-JD-ngU" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1553,7 +1553,7 @@ Some text here ...</string>
                         <viewControllerLayoutGuide type="top" id="VWu-2F-IMF"/>
                         <viewControllerLayoutGuide type="bottom" id="qxj-oK-gw5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t44-rV-Bsq">
+                    <view key="view" contentMode="scaleToFill" id="t44-rV-Bsq" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
