@@ -117,14 +117,11 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"followersCell"];
         
         NSString *text = [NSString stringWithFormat:@"%@ %@", follower.username, msg];
-        
-        NSDictionary *attr = @{ NSForegroundColorAttributeName: cell.textLabel.textColor,
-                                NSFontAttributeName: cell.textLabel.font };
-        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text
-                                                                                           attributes:attr];
+        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+
         [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor purpleColor],
                                         NSFontAttributeName:[UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize]}
-                                range:[text rangeOfString:follower.username]];
+                                range: NSMakeRange(0, follower.username.length)];
         
         [cell.textLabel setAttributedText:attributedText];
 //    }else if([notification.model isEqualToString:@"activity"]){
