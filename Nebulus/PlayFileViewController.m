@@ -90,7 +90,7 @@
     /*
      Try opening the sample file
      */
-    [self openFileWithFilePathURL:[NSURL fileURLWithPath:kAudioFileDefault]];
+    [self openFileWithFilePathURL:self.filePath];
 }
 
 //------------------------------------------------------------------------------

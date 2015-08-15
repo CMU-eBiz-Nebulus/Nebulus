@@ -119,6 +119,63 @@
     
     [self.view addSubview:self.secondTableView];
 }
+-(void) viewDidAppear:(BOOL)animated
+{ [super viewDidAppear:animated];
+    
+    //
+    // Setup the AVAudioSession. EZMicrophone will not work properly on iOS
+    // if you don't do this!
+    //
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *error;
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    if (error)
+    {
+        NSLog(@"Error setting up audio session category: %@", error.localizedDescription);
+    }
+    [session setActive:YES error:&error];
+    if (error)
+    {
+        NSLog(@"Error setting up audio session active: %@", error.localizedDescription);
+    }
+    
+    //
+    // Customizing the audio plot that'll show the current microphone input/recording
+    //
+    self.recordingAudioPlot.backgroundColor = [UIColor colorWithRed: 0.984 green: 0.71 blue: 0.365 alpha: 1];
+    self.recordingAudioPlot.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    self.recordingAudioPlot.plotType        = EZPlotTypeRolling;
+    self.recordingAudioPlot.shouldFill      = YES;
+    self.recordingAudioPlot.shouldMirror    = YES;
+    
+    //
+    // Customizing the audio plot that'll show the playback
+    //
+    self.playingAudioPlot.color = [UIColor whiteColor];
+    self.playingAudioPlot.plotType = EZPlotTypeRolling;
+    self.playingAudioPlot.shouldFill = YES;
+    self.playingAudioPlot.shouldMirror = YES;
+    self.playingAudioPlot.gain = 2.5f;
+    
+    // Create an instance of the microphone and tell it to use this view controller instance as the delegate
+    self.microphone = [EZMicrophone microphoneWithDelegate:self];
+    self.player = [EZAudioPlayer audioPlayerWithDelegate:self];
+    
+    //
+    // Initialize UI components
+    //
+    self.microphoneStateLabel.text = @"Microphone On";
+    self.recordingStateLabel.text = @"Not Recording";
+    self.playingStateLabel.text = @"Not Playing";
+    self.playButton.enabled = NO;
+    
+    quality = 2;
+    //
+    // Setup notifications
+    //
+    [self setupNotifications];
+    
+    }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_directoryContent count]; // or other number, that you want
@@ -366,42 +423,47 @@
     clip.duration =[NSNumber numberWithFloat: audioDurationSeconds];
     
     
-    NSMutableData *data = [[NSMutableData alloc] init];
-    
-    const uint32_t sampleRate = 16000; // 16k sample/sec
-    const uint16_t bitDepth = 16; // 16 bit/sample/channel
-    const uint16_t channels = 2; // 2 channel/sample (stereo)
-    
-    NSDictionary *opts = [NSDictionary dictionary];
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:assetURL options:opts];
-    AVAssetReader *reader = [[AVAssetReader alloc] initWithAsset:asset error:NULL];
-    NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
-                              [NSNumber numberWithFloat:(float)sampleRate], AVSampleRateKey,
-                              [NSNumber numberWithInt:bitDepth], AVLinearPCMBitDepthKey,
-                              [NSNumber numberWithBool:NO], AVLinearPCMIsNonInterleaved,
-                              [NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
-                              [NSNumber numberWithBool:NO], AVLinearPCMIsBigEndianKey, nil];
-    
-    AVAssetReaderTrackOutput *output = [[AVAssetReaderTrackOutput alloc] initWithTrack:[[asset tracks] objectAtIndex:0] outputSettings:settings];
-    //    [asset release];
-    [reader addOutput:output];
-    [reader startReading];
-    
-    // read the samples from the asset and append them subsequently
-    while ([reader status] != AVAssetReaderStatusCompleted) {
-        CMSampleBufferRef buffer = [output copyNextSampleBuffer];
-        if (buffer == NULL) continue;
-        
-        CMBlockBufferRef blockBuffer = CMSampleBufferGetDataBuffer(buffer);
-        size_t size = CMBlockBufferGetDataLength(blockBuffer);
-        uint8_t *outBytes = malloc(size);
-        CMBlockBufferCopyDataBytes(blockBuffer, 0, size, outBytes);
-        CMSampleBufferInvalidate(buffer);
-        CFRelease(buffer);
-        [data appendBytes:outBytes length:size];
-        free(outBytes);
-    }
+//    NSMutableData *data = [[NSMutableData alloc] init];
+//    
+//    const uint32_t sampleRate = 16000; // 16k sample/sec
+//    const uint16_t bitDepth = 16; // 16 bit/sample/channel
+//    const uint16_t channels = 2; // 2 channel/sample (stereo)
+//    
+//    NSDictionary *opts = [NSDictionary dictionary];
+//    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:assetURL options:opts];
+//    AVAssetReader *reader = [[AVAssetReader alloc] initWithAsset:asset error:NULL];
+//    NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
+//                              [NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
+//                              [NSNumber numberWithFloat:(float)sampleRate], AVSampleRateKey,
+//                              [NSNumber numberWithInt:bitDepth], AVLinearPCMBitDepthKey,
+//                              [NSNumber numberWithBool:NO], AVLinearPCMIsNonInterleaved,
+//                              [NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
+//                              [NSNumber numberWithBool:NO], AVLinearPCMIsBigEndianKey, nil];
+//    
+//    AVAssetReaderTrackOutput *output = [[AVAssetReaderTrackOutput alloc] initWithTrack:[[asset tracks] objectAtIndex:0] outputSettings:settings];
+//    //    [asset release];
+//    [reader addOutput:output];
+//    [reader startReading];
+//    
+//    // read the samples from the asset and append them subsequently
+//    while ([reader status] != AVAssetReaderStatusCompleted) {
+//        CMSampleBufferRef buffer = [output copyNextSampleBuffer];
+//        if (buffer == NULL) continue;
+//        
+//        CMBlockBufferRef blockBuffer = CMSampleBufferGetDataBuffer(buffer);
+//        size_t size = CMBlockBufferGetDataLength(blockBuffer);
+//        uint8_t *outBytes = malloc(size);
+//        CMBlockBufferCopyDataBytes(blockBuffer, 0, size, outBytes);
+//        CMSampleBufferInvalidate(buffer);
+//        CFRelease(buffer);
+//        [data appendBytes:outBytes length:size];
+//        free(outBytes);
+//    }
+
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                                         [self applicationDocumentsDirectory],
+                                                                         fileName]]];
+
     clip = [RecordingHttpClient createClip:clip recording:data];
     
     

@@ -26,6 +26,7 @@
  */
 @interface PlayFileViewController : UIViewController <EZAudioPlayerDelegate>
 
+@property (nonatomic, strong) NSURL *filePath;
 //------------------------------------------------------------------------------
 #pragma mark - Components
 //------------------------------------------------------------------------------

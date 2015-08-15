@@ -14,6 +14,7 @@
 #import "AlbumProjectViewController.h"
 #import "RecordingHttpClient.h"
 #import "ProjectHttpClient.h"
+#import "PlayFileViewController.h"
 
 @interface ProfileDetailViewController ()
 
@@ -192,5 +193,29 @@
             }
         }
     }
+    if ([segue.identifier isEqualToString:@"playerView"]){
+        if ([segue.destinationViewController isKindOfClass:[PlayFileViewController class]]) {
+            PlayFileViewController *vc = (PlayFileViewController *)segue.destinationViewController;
+            
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            Clip *clip = (Clip*)[self.contents objectAtIndex:indexPath.row];
+            NSData *recording = [RecordingHttpClient getRecording:clip.recordingId];
+//            [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                                          [self applicationDocumentsDirectory],
+//                                                          clip.name]]  atomically:YES];
+            vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                 [self applicationDocumentsDirectory],
+                                                 clip.name]];
+        }
+ 
+    }
 }
+
+- (NSString *)applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+
 @end
