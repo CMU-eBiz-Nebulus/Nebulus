@@ -64,10 +64,9 @@
     
 }
 -(NSDictionary*) convertToDict {
-    if (!self.raw) {
-        self.raw = [[NSMutableDictionary alloc] init];
-    }
-    [self.raw setObject:self.currentVersion forKey:@"currentVersion"];
+
+    NSMutableDictionary *raw = [[NSMutableDictionary alloc] init];
+    [raw setObject:self.currentVersion forKey:@"currentVersion"];
     NSMutableDictionary *users = [[NSMutableDictionary alloc]init];
     NSMutableArray *editors = [[NSMutableArray alloc] init];
     for (int i = 0; i < [self.editors count]; i++) {
@@ -75,18 +74,15 @@
     }
     [users setValue: [self.creator convertToDict] forKey:@"creator"];
     [users setValue: editors forKey:@"editors"];
-    [self.raw setObject:users forKey:@"users"];
+    [raw setObject:users forKey:@"users"];
 
-    if (![self.raw objectForKey:@"meta"]) {
-        [self.raw setObject:[[NSMutableDictionary alloc] init] forKey:@"meta"];
-    }
-    NSMutableDictionary *meta = [self.raw objectForKey:@"meta"];
-
+    NSMutableDictionary *meta = [[NSMutableDictionary alloc] init];
     [meta setObject:self.projectDescription forKey:@"description"];
     [meta setObject:self.projectName forKey:@"name"];
     [meta setObject:self.groupName forKey:@"groupName"];
     [meta setObject:self.tags forKey:@"tags"];
-
+    [raw setObject:meta forKey:@"meta"];
+    self.raw = raw;
     return self.raw;
 }
 
