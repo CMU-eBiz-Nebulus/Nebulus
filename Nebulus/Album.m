@@ -49,11 +49,13 @@
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
-        self.albumDescription = [json objectForKey:@"description"];
-        self.groupName = [json objectForKey:@"groupName"];
-        self.name = [json objectForKey:@"name"];
+        NSDictionary *meta = [json objectForKey:@"meta"];
+        self.albumDescription = [meta objectForKey:@"description"];
+        self.groupName = [meta objectForKey:@"groupName"];
+        self.name = [meta objectForKey:@"name"];
+        self.tags = [meta objectForKey:@"tags"];
+        
         self.pictureUpdateTime = [json objectForKey:@"pictureUpdateTime"];
-        self.tags = [json objectForKey:@"tags"];
         self.projects = [json objectForKey:@"projects"];
         NSDictionary *users = [json objectForKey:@"users"];
         self.creator = [[User alloc] initWithDict:[users objectForKey:@"creator"]];
@@ -70,10 +72,13 @@
 }
 -(NSDictionary*) convertToDict {
     NSMutableDictionary *dict = [super convertToDict].mutableCopy;
-    [dict setObject:self.albumDescription forKey:@"description"];
-    [dict setObject:self.groupName forKey:@"groupName"];
+    NSMutableDictionary *meta = [[NSMutableDictionary alloc]init];
+    [meta setObject:self.groupName forKey:@"groupName"];
+    [meta setObject:self.albumDescription forKey:@"description"];
+    [meta setObject:self.groupName forKey:@"groupName"];
+    [meta setObject:self.name forKey:@"name"];
+    [dict setObject:meta forKey:@"meta"];
     [dict setObject:self.pictureUpdateTime forKey:@"pictureUpdateTime"];
-    [dict setObject:self.name forKey:@"name"];
     [dict setObject:self.tags forKey:@"tags"];
     [dict setObject:self.projects forKey:@"projects"];
     NSMutableDictionary *users = [[NSMutableDictionary alloc]init];
