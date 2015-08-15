@@ -169,7 +169,7 @@
     self.playingStateLabel.text = @"Not Playing";
     self.playButton.enabled = NO;
     
-    quality = 2;
+    
     //
     // Setup notifications
     //

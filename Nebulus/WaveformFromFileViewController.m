@@ -37,21 +37,24 @@
 //    [self loadAudioPlot:self.audioPlot4 number:4];
     
     
-    // Setup
- //   _composition = [AVMutableComposition composition];
+     //Setup
+    _composition = [AVMutableComposition composition];
     
-//    _audioMixValues = [[NSMutableDictionary alloc] initWithCapacity:0];
-//    _audioMixTrackIDs = [[NSMutableDictionary alloc] initWithCapacity:0];
+    _audioMixValues = [[NSMutableDictionary alloc] initWithCapacity:0];
+    _audioMixTrackIDs = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     // Insert the audio tracks into our composition
-/*    NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
-    NSString* audioFileType = @"wav";
-    
-    for (NSString* trackName in tracks)
+    //NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
+    //NSString* audioFileType = @"wav";
+    [self listFileAtPath];
+    for (NSString* trackName in _directoryContent)
     {
-        AVURLAsset* audioAsset = [[AVURLAsset alloc]initWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:trackName ofType:audioFileType]]
-                                                        options:nil];
-        
+//        AVURLAsset* audioAsset = [[AVURLAsset alloc]initWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:trackName ofType:audioFileType]]
+//                                                        options:nil];
+
+        AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                                                         [self applicationDocumentsDirectory],
+                                                                                         trackName]]  options:nil];
         AVMutableCompositionTrack* audioTrack = [_composition addMutableTrackWithMediaType:AVMediaTypeAudio
                                                                           preferredTrackID:kCMPersistentTrackID_Invalid];
         
@@ -83,11 +86,20 @@
                     context:NULL];
     
     _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
-*/
-    self.moveMeView = [[APLMoveMeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+
+    self.moveMeView = [[APLMoveMeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200)];
     [self.moveMeView setupNextDisplayString];
     [self.view addSubview:self.moveMeView];
     
+    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    playButton.frame = CGRectMake(0, self.view.frame.size.height - 200, 100, 100);
+    [playButton setTitle:@"Play"
+                  forState:UIControlStateNormal];
+    
+    [playButton addTarget:self
+                     action:@selector(playButtonClicked:)
+           forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:playButton];
 }
 
 
@@ -312,6 +324,25 @@
 }
 
 //------------------------------------------------------------------------------
-
+- (NSString *)applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+-(void)listFileAtPath
+{
+    //-----> LIST ALL FILES <-----//
+    NSLog(@"LISTING ALL FILES FOUND");
+    
+    int count;
+    
+    _directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:NULL];
+    for (count = 0; count < (int)[_directoryContent count]; count++)
+    {
+        NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
+    }
+    return;
+}
 
 @end

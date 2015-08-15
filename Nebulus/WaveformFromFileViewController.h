@@ -59,5 +59,6 @@
 @property (nonatomic,strong) NSMutableDictionary* audioMixValues;  // track name -> volume level 0.0 - 1.0
 @property (nonatomic,strong) NSMutableDictionary* audioMixTrackIDs; // track name -> track ID
 
+@property (nonatomic, strong) NSMutableArray *directoryContent;
 
 @end
