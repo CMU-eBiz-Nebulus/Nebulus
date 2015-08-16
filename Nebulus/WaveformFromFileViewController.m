@@ -306,7 +306,7 @@
     [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 100) queue:nil
                                      usingBlock:^(CMTime time){
                                          NSLog(@"%lld %d ",_player.currentTime.value,_player.currentTime.timescale);
-                                         self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*5, 0, 1, 500);
+                                         self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*5, 0, 1, 300);
                                          [self.timeLine setNeedsDisplay];
                                      }];
 }
