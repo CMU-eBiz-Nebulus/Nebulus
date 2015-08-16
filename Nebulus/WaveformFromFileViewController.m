@@ -85,6 +85,8 @@
                     options:0
                     context:NULL];
     
+ [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
+    
     _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
 
     self.moveMeView = [[APLMoveMeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200)];
@@ -100,9 +102,21 @@
                      action:@selector(playButtonClicked:)
            forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playButton];
+    
+    UIButton *exportButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    exportButton.frame = CGRectMake(200, self.view.frame.size.height - 200, 100, 100);
+    [exportButton setTitle:@"Export"
+                forState:UIControlStateNormal];
+    
+    [exportButton addTarget:self
+                   action:@selector(export:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:exportButton];
 }
 
-
+-(void)itemDidFinishPlaying:(NSNotification *) notification {
+    [_player seekToTime:kCMTimeZero];
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -244,7 +258,31 @@
 }
 - (IBAction)playButtonClicked:(id)sender {
    if (AVPlayerItemStatusReadyToPlay == _player.currentItem.status) [_player play];
-
+}
+- (IBAction)export:(id)sender {
+    AVAssetExportSession* _assetExport = [[AVAssetExportSession alloc] initWithAsset:_composition
+                                                                          presetName:AVAssetExportPresetAppleM4A];
+    
+    NSString* videoName = @"export.m4a";
+    
+    NSString *exportPath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:videoName];
+    NSURL    *exportUrl = [NSURL fileURLWithPath:exportPath];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:exportPath])
+    {
+        [[NSFileManager defaultManager] removeItemAtPath:exportPath error:nil];
+    }
+    
+    _assetExport.outputFileType = AVFileTypeAppleM4A;
+    _assetExport.outputURL = exportUrl;
+    _assetExport.shouldOptimizeForNetworkUse = YES;
+    
+    [_assetExport exportAsynchronouslyWithCompletionHandler:
+     ^(void ) {
+         NSLog(@"export finished");
+        }
+     
+     ];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

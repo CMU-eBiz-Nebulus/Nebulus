@@ -175,6 +175,10 @@
     //
     [self setupNotifications];
     
+    [self listFileAtPath];
+    [self.secondTableView reloadData];
+
+    
     }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -240,7 +244,8 @@
         pv.frame = CGRectMake(80, 50, 200, 15);
         pv.tag =100+indexPath.row;
        [cell addSubview:pv];
-        
+    
+    
         cell.clipsToBounds = YES;
 
         
@@ -249,10 +254,21 @@
 //        fileNameLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
 //    }
     
+    NSString *fileName =[_directoryContent objectAtIndex:indexPath.row];
+    
+    NSURL *assetURL =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [self applicationDocumentsDirectory], fileName]];
+    
+
+    AVURLAsset* audioAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
+    CMTime audioDuration = audioAsset.duration;
+    float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
     
     //populate data from your country object to table view cell
-    fileNameLabel.text = [NSString stringWithFormat:@"New Recording %d: %@", indexPath.row +1, [_directoryContent objectAtIndex:indexPath.row]];
+    fileNameLabel.text = [NSString stringWithFormat:@"%@", fileName];
     
+    startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
+    endTimeLabel.text =[NSString stringWithFormat:@"%-.1f", audioDurationSeconds];
+
     
     return cell;
 }
