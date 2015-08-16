@@ -191,10 +191,10 @@
 +(Invite*) invite: (User*) to from:(User*) from Project: (Project*) project {
     Invite *invite = [[Invite alloc] init];
     invite.project = project;
-    invite.from =from;
+    invite.from = from;
     invite.to = to;
     invite.request = NO;
-    
+    NSLog(@"%@ %@ %@", invite.project.projectName, invite.to.username, invite.from.username);
     NSString *urlStr = [[NSString alloc]initWithFormat:@"http://test.nebulus.io:8080/api/invites"];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
@@ -205,7 +205,7 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSDictionary *dict = [project convertToDict];
+    NSDictionary *dict = [invite convertToDict];
     
     NSError *error;
     NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
@@ -214,7 +214,18 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:&response
                                                              error:&error];
+
     
+//    if (responseData) {
+//        NSLog(@"invite");
+//        NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+//    
+//        if (responseString) NSLog(responseData);
+//    }
+    NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *) response;
+    int errorCode = httpResponse.statusCode;
+    NSString *fileMIMEType = [httpResponse debugDescription];
+    NSLog(fileMIMEType);
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
