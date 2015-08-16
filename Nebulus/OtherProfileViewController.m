@@ -40,6 +40,9 @@
         if(self.mode == M_PROJECT){
             Project *project = (Project *)self.content;
             Invite *intive = [ProjectHttpClient invite:self.other from:self.me Project:project];
+            
+            
+            
             //NSLog(intive);
             [self.navigationController popViewControllerAnimated:YES];
         }else if (self.mode == M_ALBUM){

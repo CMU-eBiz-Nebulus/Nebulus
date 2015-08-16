@@ -17,6 +17,7 @@
 #import "UserClassified.h"
 
 @interface TimelineViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
 @property (strong, nonatomic) NSArray *activity;
 @end
 
@@ -36,7 +37,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [self.activity count] + 1;
+    return [self.activity count] + 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -46,7 +47,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = nil;
     
-    if(indexPath.section == [self.activity count]){
+    if(indexPath.section == 0 || indexPath.section == 1){
         if(indexPath.row == 0){
             cell = [tableView dequeueReusableCellWithIdentifier:@"topCell"];
             [(UILabel *)[cell viewWithTag:102] setText:@"Bon Jovi"];
@@ -92,6 +93,12 @@
     return 0.0;
 }
 
+- (IBAction)like:(UIButton *)sender {
+    UIButton *likeButton = sender;
+    CGRect buttonFrame = [likeButton convertRect:likeButton.bounds toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+    NSLog(@"Clicked at %ld %ld", indexPath.section, indexPath.row);
+}
 
 
 
