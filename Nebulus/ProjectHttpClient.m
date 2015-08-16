@@ -223,4 +223,27 @@
     return returnInvite;
 }
 
++(BOOL) responseToInvite: (NSString*) inviteId accept: (BOOL) accept {
+    NSString *reply;
+    if (accept) reply = @"accept";
+    else reply = @"reject";
+    NSString * urlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/invites/%@/%@", inviteId, reply];
+    NSURL *aUrl = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+   [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    return YES;
+}
+
+
+
 @end

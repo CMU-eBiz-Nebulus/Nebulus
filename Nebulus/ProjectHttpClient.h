@@ -32,6 +32,8 @@
 
 +(Invite*) invite: (User*) to from:(User*) from Project: (Project*) project;
 
++(BOOL) responseToInvite: (NSString*) inviteId accept: (BOOL) accept;
+
 
 //Add the user to the editor of given project
 +(BOOL) addEditor:(NSString*) userId project:(Project*) project;
