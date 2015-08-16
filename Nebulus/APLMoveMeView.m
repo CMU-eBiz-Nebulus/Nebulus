@@ -370,19 +370,39 @@
     if ([_directoryContent count]>3)
         [self setupNextDisplayStringAudioPlot:self.audioPlot4 number:4];
 }
+- (NSArray*) getLocation{
+    NSNumber *lo1 = [NSNumber numberWithInteger:self.audioPlot1.frame.origin.x];
+    NSNumber *lo2 = [NSNumber numberWithInteger:self.audioPlot2.frame.origin.x];
+    NSNumber *lo3 = [NSNumber numberWithInteger:self.audioPlot3.frame.origin.x];
+    NSNumber *lo4 = [NSNumber numberWithInteger:self.audioPlot4.frame.origin.x];
+    NSMutableArray *r = [[NSMutableArray alloc] initWithObjects:lo1,lo2,lo3,lo4, nil];
+    return r;
+    
+}
 - (void)setupNextDisplayStringAudioPlot:(EZAudioPlot*)placardView number:(NSInteger)number{
 
 
     
-    placardView = [[EZAudioPlot alloc] initWithFrame:CGRectMake(60, 60*number, 180, 60)];
+    
+    
+    NSString *fileName =[_directoryContent objectAtIndex:(number-1)];
+    
+    NSURL *assetURL =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [self applicationDocumentsDirectory], fileName]];
+    
+    
+    AVURLAsset* audioAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
+    CMTime audioDuration = audioAsset.duration;
+    float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
+
+    placardView = [[EZAudioPlot alloc] initWithFrame:CGRectMake(0, 60*number, audioDurationSeconds*5, 60)];
     UILabel *fileNameLabel;
-    CGRect myFrame = CGRectMake(-50,0,80,50);
+    CGRect myFrame = CGRectMake(0,-10,50,50);
     fileNameLabel = [[UILabel alloc] initWithFrame:myFrame];
-    //fileNameLabel.font = [UIFont boldSystemFontOfSize:17.0];
+    fileNameLabel.font = [UIFont boldSystemFontOfSize:10.0];
     //fileNameLabel.backgroundColor = [UIColor clearColor];
     fileNameLabel.text =[NSString stringWithFormat:@"Track%ld", (long)number] ;
     [placardView addSubview:fileNameLabel];
-    
+
     //
     // Customizing the audio plot's look
     //

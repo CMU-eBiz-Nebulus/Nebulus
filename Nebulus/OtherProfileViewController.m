@@ -83,7 +83,15 @@
     }else {
         
         if(self.isInvitationMode){
-            BOOL isEditor = NO;
+            BOOL isEditor = YES;
+            User *user = self.other;
+            if (self.mode == M_PROJECT){
+                Project *project = (Project *)self.content;
+                isEditor = [project isUser:user.objectID];
+            }else if(self.mode == M_ALBUM){
+                Album *album = (Album *)self.content;
+                isEditor = [album isUser:user.objectID];
+            }
 
             if(isEditor){
                 [self.actionButton setTitle:@""];
