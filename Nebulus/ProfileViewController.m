@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "ProfileDetailViewController.h"
 #import "UserHttpClient.h"
+#import "MusicHttpClient.h"
 #import "FollowViewController.h"
 #import "ModifyViewController.h"
 
@@ -37,6 +38,7 @@
     User *user = [UserHttpClient getCurrentUser];
     NSArray *follower_list = [UserHttpClient getFollowers:user];
     NSArray *following_list = [UserHttpClient getFollowing:user];
+    NSArray *post_list = @[];//[MusicHttpClient getUserActivity:user.objectID];
     
     NSLog(@"Username = %@", user.username);
     
@@ -50,6 +52,9 @@
     
     [self.followingButton setTitle:[NSString stringWithFormat:@"Followers: %lu", (unsigned long)[follower_list count]]
                          forState:UIControlStateNormal];
+    
+    [self.postsButton setTitle:[NSString stringWithFormat:@"Posts: %lu", (unsigned long)[post_list count]]
+                      forState:UIControlStateNormal];
     
     [self.headPhoto setImage: [UserHttpClient getUserImage:user.objectID]];
     //[self.headPhoto sizeToFit];

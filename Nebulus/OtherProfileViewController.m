@@ -11,6 +11,7 @@
 #import "UserHttpClient.h"
 #import "Project.h"
 #import "Album.h"
+#import "ProjectHttpClient.h"
 
 @interface OtherProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
@@ -35,14 +36,15 @@
         }
         
     } else {
-        
+        //TODO: invite this guy
         if(self.mode == M_PROJECT){
-            //Project *project = (Project *)self.content;
+            Project *project = (Project *)self.content;
+            Invite *intive = [ProjectHttpClient invite:self.other from:self.me Project:project];
+            //NSLog(intive);
+            [self.navigationController popViewControllerAnimated:YES];
         }else if (self.mode == M_ALBUM){
             //Album *album = (Album *)self.content;
         }
-        
-        //TODO: invite this guy
     }
     
     [self updateUI];
