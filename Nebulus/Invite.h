@@ -17,8 +17,6 @@
 #import "User.h"
 #import "Project.h"
 #import "Album.h"
-#import "ProjectHttpClient.h"
-#import "MusicHttpClient.h"
 
 @interface Invite : Model
 

@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nebulus/Invite.m"
-            timestampString = "461268173.449693"
+            timestampString = "461460413.720388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "-initWithDict:"
             landmarkType = "5">
          </BreakpointContent>

@@ -188,9 +188,10 @@
     return project;
 }
 
-+(Invite*) invite: (User*) to from:(User*) from Project: (Project*) project {
++(Invite*) invite: (User*) to from:(User*) from Model: (NSString*) model ModelId: (NSString*) modelId  {
     Invite *invite = [[Invite alloc] init];
-    invite.project = project;
+    invite.model = model;
+    invite.modelId = modelId;
     invite.from = from;
     invite.to = to;
     invite.request = NO;
@@ -214,7 +215,13 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:&response
                                                              error:&error];
-
+//    if ([self.model isEqualToString:@"project"]) {
+//        self.project = [ProjectHttpClient getProject:self.modelId];
+//    } else if ([self.model isEqualToString:@"album"]) {
+//        self.album = [MusicHttpClient getAlbum:self.modelId];
+//    } else {
+//        NSLog(@"Wrong Type : %@", self.model);
+//    }
     
 //    if (responseData) {
 //        NSLog(@"invite");
