@@ -85,7 +85,7 @@
     } else if ([type isEqualToString:@"userClassified"]) {
         postDict = [(UserClassified*) activity convertToDict];
     } else {
-        NSLog(@"Wrong Type");
+        NSLog(@"Wrong Type: %@", type);
     }
 
     NSError *error;
@@ -115,7 +115,7 @@
         } else if ([type isEqualToString:@"userClassified"]) {
             resActivity = [[UserClassified alloc] initWithDict:json];
         } else {
-            NSLog(@"Wrong Type");
+            NSLog(@"Wrong Type: %@", type);
         }
         return resActivity;
     } else {
@@ -161,7 +161,7 @@
             UserClassified *activity = [[UserClassified alloc] initWithDict:act];
             [activites addObject:activity];
         } else {
-            NSLog(@"Wrong Type");
+            NSLog(@"Wrong Type: %@", type);
         }
         
     }

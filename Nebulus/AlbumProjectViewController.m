@@ -83,8 +83,7 @@
         [self.songsLabel setText:@"Projects"];
         
         self.title = self.album.name;
-        [self.tags setText:[NSString stringWithFormat:@"Tags: %@",
-                                  [self.album.tags componentsJoinedByString:@","]]];
+        [self.tags setText:[NSString stringWithFormat:@"Tags: %@", [self.album.tags componentsJoinedByString:@","]]];
         [self.desc setText:self.album.albumDescription];
         
         [self.imageView setImage:[MusicHttpClient getAlbumImage:self.album.objectID]];

@@ -56,6 +56,7 @@
 		92ED7E1A1B7C37EE0015E6BB /* ProjectHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E191B7C37EE0015E6BB /* ProjectHttpClient.m */; };
 		92ED7E1E1B7D223E0015E6BB /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E1D1B7D223E0015E6BB /* Notification.m */; };
 		92ED7E211B7E63150015E6BB /* Invite.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E201B7E63150015E6BB /* Invite.m */; };
+		92ED7E241B7ED36D0015E6BB /* TextShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E231B7ED36D0015E6BB /* TextShare.m */; };
 		92F158CA1B782E46005C84C8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158C91B782E46005C84C8 /* Comment.m */; };
 		92F158CD1B783219005C84C8 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CC1B783219005C84C8 /* Task.m */; };
 		92F158D01B783CE9005C84C8 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CF1B783CE9005C84C8 /* Like.m */; };
@@ -181,6 +182,8 @@
 		92ED7E1D1B7D223E0015E6BB /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		92ED7E1F1B7E63150015E6BB /* Invite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invite.h; sourceTree = "<group>"; };
 		92ED7E201B7E63150015E6BB /* Invite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invite.m; sourceTree = "<group>"; };
+		92ED7E221B7ED36D0015E6BB /* TextShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextShare.h; sourceTree = "<group>"; };
+		92ED7E231B7ED36D0015E6BB /* TextShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextShare.m; sourceTree = "<group>"; };
 		92F158C81B782E46005C84C8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		92F158C91B782E46005C84C8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		92F158CB1B783219005C84C8 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				9289843A1B729EBF00D6FB6F /* ProjectShare.m */,
 				9289843C1B729EF800D6FB6F /* UserClassified.h */,
 				9289843D1B729EF800D6FB6F /* UserClassified.m */,
+				92ED7E221B7ED36D0015E6BB /* TextShare.h */,
+				92ED7E231B7ED36D0015E6BB /* TextShare.m */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				8430F4451B6A943800CB2EE0 /* EZAudioPlot.m in Sources */,
 				8430F41B1B6A941F00CB2EE0 /* RecordViewController.m in Sources */,
 				92ED7E1E1B7D223E0015E6BB /* Notification.m in Sources */,
+				92ED7E241B7ED36D0015E6BB /* TextShare.m in Sources */,
 				9889F0FF1B72FB9E00685E18 /* TimelineViewController.m in Sources */,
 				8430F43E1B6A943800CB2EE0 /* EZAudioDevice.m in Sources */,
 				98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */,
