@@ -30,7 +30,7 @@
 
 +(Project*) getProject:(NSString*) projectId;
 
-+(Invite*) invite: (User*) to from:(User*) from Project: (Project*) project;
++(Invite*) invite: (User*) to from:(User*) from Model: (NSString*) model ModelId: (NSString*) modelId;
 
 +(BOOL) responseToInvite: (NSString*) inviteId accept: (BOOL) accept;
 

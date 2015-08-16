@@ -16,13 +16,18 @@
 #import "Model.h"
 #import "User.h"
 #import "Project.h"
+#import "Album.h"
 
 @interface Invite : Model
 
 @property (nonatomic, strong) User *from;
-@property (nonatomic, strong) Project *project;
-@property (nonatomic) BOOL request;
 @property (nonatomic, strong) User *to;
+@property (nonatomic, strong) NSString *model;
+@property (nonatomic, strong) NSString *modelId;
+@property (nonatomic, strong) Project *project;
+@property (nonatomic, strong) Album *album;
+@property (nonatomic) BOOL request;
+
 
 -(id) initWithDict:(NSDictionary *)json;
 -(NSDictionary*)convertToDict;
