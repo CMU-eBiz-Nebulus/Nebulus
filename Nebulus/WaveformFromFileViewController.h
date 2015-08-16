@@ -61,4 +61,5 @@
 
 @property (nonatomic, strong) NSMutableArray *directoryContent;
 
+@property (nonatomic,strong) UIView* timeLine;
 @end

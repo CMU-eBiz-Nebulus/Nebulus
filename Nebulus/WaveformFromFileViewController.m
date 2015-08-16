@@ -19,6 +19,21 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    }
+}
+
+
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return NO;
+}
 //------------------------------------------------------------------------------
 #pragma mark - Customize the Audio Plot
 //------------------------------------------------------------------------------
@@ -37,59 +52,8 @@
 //    [self loadAudioPlot:self.audioPlot4 number:4];
     
     
-     //Setup
-    _composition = [AVMutableComposition composition];
     
-    _audioMixValues = [[NSMutableDictionary alloc] initWithCapacity:0];
-    _audioMixTrackIDs = [[NSMutableDictionary alloc] initWithCapacity:0];
-    
-    // Insert the audio tracks into our composition
-    //NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
-    //NSString* audioFileType = @"wav";
-    [self listFileAtPath];
-    for (NSString* trackName in _directoryContent)
-    {
-//        AVURLAsset* audioAsset = [[AVURLAsset alloc]initWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:trackName ofType:audioFileType]]
-//                                                        options:nil];
-
-        AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                                                                         [self applicationDocumentsDirectory],
-                                                                                         trackName]]  options:nil];
-        AVMutableCompositionTrack* audioTrack = [_composition addMutableTrackWithMediaType:AVMediaTypeAudio
-                                                                          preferredTrackID:kCMPersistentTrackID_Invalid];
-        
-        NSError* error;
-        [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, audioAsset.duration)
-                            ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio]objectAtIndex:0]
-                             atTime:kCMTimeZero
-                              error:&error];
-        
-        if (error)
-        {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-        
-        // Store the track IDs as track name -> track ID
-        [_audioMixTrackIDs setValue:[NSNumber numberWithInteger:audioTrack.trackID]
-                             forKey:trackName];
-        
-        // Set the volume to 1.0 (max) for the track
-        [self setVolume:1.0f forTrack:trackName];
-    }
-    
-    // Create a player for our composition of audio tracks. We observe the status so
-    // we know when the player is ready to play
-    AVPlayerItem* playerItem = [[AVPlayerItem alloc] initWithAsset:[_composition copy]];
-    [playerItem addObserver:self
-                 forKeyPath:@"status"
-                    options:0
-                    context:NULL];
-    
- [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
-    
-    _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
-
-    self.moveMeView = [[APLMoveMeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200)];
+    self.moveMeView = [[APLMoveMeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 150)];
     [self.moveMeView setupNextDisplayString];
     [self.view addSubview:self.moveMeView];
     
@@ -112,6 +76,26 @@
                    action:@selector(export:)
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:exportButton];
+    
+    int numberOfLine = 6;
+    int heightofImage = 60;
+    
+    for(int i=0;i<numberOfLine*heightofImage;i+=heightofImage) {
+        UIView *horizontalLine=[[UIView alloc]initWithFrame:CGRectMake(0, i, self.view.frame.size.width, 1)];
+       horizontalLine.backgroundColor = [UIColor grayColor];
+        [self.view addSubview:horizontalLine];
+    }
+    int numberOfLine1 = 12;
+    int heightofImage1 = 30;
+    for(int i=0;i<numberOfLine1*heightofImage1;i+=heightofImage1) {
+        UIView *verticalLine=[[UIView alloc]initWithFrame:CGRectMake(i, 0, 1, 300)];
+        verticalLine.backgroundColor = [UIColor grayColor];
+        [self.view addSubview:verticalLine];
+    }
+    self.timeLine=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 320)];
+    self.timeLine.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:self.timeLine];
+
 }
 
 -(void)itemDidFinishPlaying:(NSNotification *) notification {
@@ -120,7 +104,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
+    [super viewWillDisappear:animated];
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
     if ([self isMovingFromParentViewController]) {
         //specific stuff for being popped off stack
         if (_player != nil && [_player currentItem] != nil)
@@ -257,7 +244,71 @@
     
 }
 - (IBAction)playButtonClicked:(id)sender {
-   if (AVPlayerItemStatusReadyToPlay == _player.currentItem.status) [_player play];
+    
+    NSArray *l = [self.moveMeView getLocation];
+    
+    //[self applyAudioMix];
+    if (_player != nil && [_player currentItem] != nil)
+        [[_player currentItem] removeObserver:self forKeyPath:@"status"];
+    //Setup
+    _composition = [AVMutableComposition composition];
+    
+    _audioMixValues = [[NSMutableDictionary alloc] initWithCapacity:0];
+    _audioMixTrackIDs = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    // Insert the audio tracks into our composition
+    //NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
+    //NSString* audioFileType = @"wav";
+    [self listFileAtPath];
+    for (int i=0; i<[_directoryContent count]; i++)
+        
+    {
+        NSString* trackName = [_directoryContent objectAtIndex:i];
+        //        AVURLAsset* audioAsset = [[AVURLAsset alloc]initWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:trackName ofType:audioFileType]]
+        //                                                        options:nil];
+        
+        AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                                                         [self applicationDocumentsDirectory],
+                                                                                         trackName]]  options:nil];
+        AVMutableCompositionTrack* audioTrack = [_composition addMutableTrackWithMediaType:AVMediaTypeAudio
+                                                                          preferredTrackID:kCMPersistentTrackID_Invalid];
+        
+        NSError* error;
+        [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, audioAsset.duration)
+                            ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio]objectAtIndex:0]
+                             atTime:CMTimeMakeWithSeconds([(NSNumber*)[l objectAtIndex:i] floatValue]/5, 600)
+                              error:&error];
+        
+        if (error)
+        {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        
+        // Store the track IDs as track name -> track ID
+        [_audioMixTrackIDs setValue:[NSNumber numberWithInteger:audioTrack.trackID]
+                             forKey:trackName];
+        
+        // Set the volume to 1.0 (max) for the track
+        [self setVolume:1.0f forTrack:trackName];
+    }
+    
+    // Create a player for our composition of audio tracks. We observe the status so
+    // we know when the player is ready to play
+    AVPlayerItem* playerItem = [[AVPlayerItem alloc] initWithAsset:[_composition copy]];
+    [playerItem addObserver:self
+                 forKeyPath:@"status"
+                    options:0
+                    context:NULL];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
+    
+    _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
+    [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 100) queue:nil
+                                     usingBlock:^(CMTime time){
+                                         NSLog(@"%lld %d ",_player.currentTime.value,_player.currentTime.timescale);
+                                         self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*5, 0, 1, 500);
+                                         [self.timeLine setNeedsDisplay];
+                                     }];
 }
 - (IBAction)export:(id)sender {
     AVAssetExportSession* _assetExport = [[AVAssetExportSession alloc] initWithAsset:_composition
@@ -291,7 +342,7 @@
     {
         if (AVPlayerItemStatusReadyToPlay == _player.currentItem.status)
         {
-//            [_player play];
+            [_player play];
         }
     }
 }
@@ -322,7 +373,6 @@
     
     [_audioMixTrackIDs enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL*stop) {
         AVAssetTrack* track = [self trackWithId:(CMPersistentTrackID)[(NSNumber*)obj integerValue]];
-        
         AVMutableAudioMixInputParameters* params = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:track];
         
         [params setVolume:[[_audioMixValues valueForKey:key] floatValue]

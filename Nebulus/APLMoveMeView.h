@@ -84,7 +84,7 @@
 
 
 - (void)setupNextDisplayString;
-
+- (NSArray*) getLocation;
 
 @property (nonatomic, strong) NSMutableArray *directoryContent;
 @property (nonatomic, strong) NSMutableArray *views;
