@@ -44,6 +44,21 @@
     return _editors;
 }
 
+-(NSArray *)tags{
+    if(!_tags) _tags = @[];
+    return _tags;
+}
+
+-(NSString *)albumDescription{
+    if(!_albumDescription) _albumDescription = @"";
+    return _albumDescription;
+}
+
+-(NSString *)name{
+    if(!_name)_name = @"";
+    return _name;
+}
+
 #pragma mark - JSON methods
 
 -(id) initWithDict:(NSDictionary *)json {
