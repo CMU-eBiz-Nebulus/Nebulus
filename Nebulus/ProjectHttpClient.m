@@ -188,7 +188,7 @@
     return project;
 }
 
-+(BOOL) invite: (User*) to from:(User*) from Project: (Project*) project {
++(Invite*) invite: (User*) to from:(User*) from Project: (Project*) project {
     Invite *invite = [[Invite alloc] init];
     invite.project = project;
     invite.from =from;
@@ -218,8 +218,9 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
+    Invite *returnInvite = [[Invite alloc]initWithDict:json];
     
-    return YES;
+    return returnInvite;
 }
 
 @end

@@ -30,7 +30,7 @@
 
 +(Project*) getProject:(NSString*) projectId;
 
-+(BOOL) invite: (User*) to from:(User*) from Project: (Project*) project;
++(Invite*) invite: (User*) to from:(User*) from Project: (Project*) project;
 
 
 //Add the user to the editor of given project
