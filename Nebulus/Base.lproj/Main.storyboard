@@ -398,7 +398,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WCE-hZ-G6f">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search users, project, albums, etc." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WCE-hZ-G6f">
                                 <rect key="frame" x="36" y="84" width="528" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2297,11 +2297,11 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1oK-Qf-whG"/>
-        <segue reference="Osm-Oy-nlm"/>
-        <segue reference="hWk-RA-vL1"/>
         <segue reference="jTN-oo-tTb"/>
+        <segue reference="OPr-Qg-P5T"/>
+        <segue reference="1oK-Qf-whG"/>
+        <segue reference="hWk-RA-vL1"/>
         <segue reference="a7l-Ip-Am4"/>
-        <segue reference="lps-BD-uhJ"/>
+        <segue reference="Osm-Oy-nlm"/>
     </inferredMetricsTieBreakers>
 </document>
