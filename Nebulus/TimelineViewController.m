@@ -32,6 +32,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     User *currUser = [UserHttpClient getCurrentUser];
     self.activity = [MusicHttpClient getAllFollowingActivities:currUser.objectID];
+    
+    NSLog(@"Fetched %ld activities", [self.activity count]);
 }
 
 #pragma mark - UITableViewDataSource

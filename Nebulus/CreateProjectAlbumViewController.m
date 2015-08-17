@@ -18,7 +18,7 @@
 #import "ProjectHttpClient.h"
 
 
-@interface CreateProjectAlbumViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface CreateProjectAlbumViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *name;
@@ -44,6 +44,10 @@
     [self.picker setDelegate:self];
     self.picker.allowsEditing = YES;
     
+    self.name.delegate = self;
+    self.tags.delegate = self;
+    self.desc.delegate = self;
+    
     
     ((UIScrollView *)self.view).contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height * 1.5);
     
@@ -51,6 +55,24 @@
                                                                           target:self
                                                                           action:@selector(performDone)];
     self.navigationItem.rightBarButtonItem = Done;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    NSArray *subviews = [self.view subviews];
+    for (id subview in subviews) {
+        if ([subview isKindOfClass:[UITextField class]] ||
+            [subview isKindOfClass:[UITextView class]]) {
+            UITextField *textField = subview;
+            if ([subview isFirstResponder]) {
+                [textField resignFirstResponder];
+            }
+        }
+    }
 }
 
 -(void)performDone{
@@ -89,11 +111,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setTitle:self.mode == PROJECT ? @"New Project" : @"New Album" ];
-}
-
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
 }
 
 - (IBAction)add:(id)sender {
@@ -162,6 +179,23 @@
 }
 
 
+#pragma mark - Closing keyboard
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if(textField){
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
 
 
 @end
