@@ -40,45 +40,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nebulus/Activity.h"
-            timestampString = "460604678.964558"
+            timestampString = "461465017.654004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "title"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[Activity type]"
-                  moduleName = "Nebulus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/Activity.h"
-                  timestampString = "461374122.496239"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[Activity setType:]"
-                  moduleName = "Nebulus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/Activity.h"
-                  timestampString = "461374122.49645"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -174,6 +142,22 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nebulus/Activity.m"
+            timestampString = "461527617.179141"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-convertToDict"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -31,6 +31,8 @@
 @property (strong, nonatomic) NSString *recordingId;
 @property (strong, nonatomic) NSString *recordingDuration;
 @property (strong, nonatomic) NSString *text;
+
+//Type of Act, {announcement, albumShare, clipShare, projectClassified, projectShare, textShare, userClassified}
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSString *title;
 
@@ -63,6 +65,10 @@
 //data = {
 //    "fullfilled": <bool>
 //}
+
+@property (nonatomic) BOOL fullfuilled;
+@property (strong, nonatomic) NSArray *editors;
+
 
 
 @end
