@@ -277,8 +277,6 @@
 		928984321B729E6A00D6FB6F /* Activity */ = {
 			isa = PBXGroup;
 			children = (
-				9289842C1B728F1500D6FB6F /* Activity.h */,
-				9289842D1B728F1500D6FB6F /* Activity.m */,
 				9289842F1B729E6300D6FB6F /* AlbumShare.h */,
 				928984301B729E6300D6FB6F /* AlbumShare.m */,
 				928984331B729E9D00D6FB6F /* ClipShare.h */,
@@ -381,6 +379,8 @@
 		92A574AD1B62BDC70015032B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9289842C1B728F1500D6FB6F /* Activity.h */,
+				9289842D1B728F1500D6FB6F /* Activity.m */,
 				928984321B729E6A00D6FB6F /* Activity */,
 				92F158CE1B783CE9005C84C8 /* Like.h */,
 				92F158CF1B783CE9005C84C8 /* Like.m */,
