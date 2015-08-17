@@ -10,11 +10,6 @@
 #import "MusicHttpClient.h"
 #import "UserHttpClient.h"
 
-#import "AlbumShare.h"
-#import "ClipShare.h"
-#import "ProjectClassified.h"
-#import "ProjectShare.h"
-#import "UserClassified.h"
 
 @interface TimelineViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
@@ -63,18 +58,18 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"buttomCell"];
         }
     } else {
-        Activity *activity = self.activity[indexPath.section];
-        if([activity isKindOfClass:[AlbumShare class]]){
-            
-        } else if([activity isKindOfClass:[AlbumShare class]]){
-        
-        } else if([activity isKindOfClass:[ClipShare class]]){
-        
-        } else if([activity isKindOfClass:[ProjectClassified class]]){
-        
-        } else if([activity isKindOfClass:[UserClassified class]]){
-        
-        }
+        //Activity *activity = self.activity[indexPath.section];
+//        if([activity isKindOfClass:[AlbumShare class]]){
+//            
+//        } else if([activity isKindOfClass:[AlbumShare class]]){
+//        
+//        } else if([activity isKindOfClass:[ClipShare class]]){
+//        
+//        } else if([activity isKindOfClass:[ProjectClassified class]]){
+//        
+//        } else if([activity isKindOfClass:[UserClassified class]]){
+//        
+//        }
     }
 
     return cell;

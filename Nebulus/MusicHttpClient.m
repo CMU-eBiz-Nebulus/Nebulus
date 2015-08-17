@@ -33,31 +33,9 @@
     NSMutableArray *activites = [[NSMutableArray alloc]init];
     for (int i = 0; i < [rawActivities count]; i++) {
         NSDictionary *act = [rawActivities objectAtIndex:i];
-        NSString *type = [act objectForKey:@"type"];
-        if ([type isEqualToString:@"albumShare"]) {
-            AlbumShare *activity = [[AlbumShare alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else if ([type isEqualToString:@"clipShare"]) {
-            ClipShare *activity = [[ClipShare alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else if ([type isEqualToString:@"projectShare"]) {
-            ProjectShare *activity = [[ProjectShare alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else if ([type isEqualToString:@"projectClassified"]) {
-            ProjectClassified *activity = [[ProjectClassified alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else if ([type isEqualToString:@"userClassified"]) {
-            UserClassified *activity = [[UserClassified alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else {
-            NSLog(@"Wrong Type: %@", type);
-        }
-        
+        [activites addObject:[[Activity alloc]initWithDict:act]];
     }
-
     return activites;
-    
-
 }
 
 
@@ -73,21 +51,7 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSDictionary *postDict;
-    NSString *type = activity.type;
-    if ([type isEqualToString:@"albumShare"]) {
-        postDict = [(AlbumShare*) activity convertToDict];
-    } else if ([type isEqualToString:@"clipShare"]) {
-        postDict = [(ClipShare*) activity convertToDict];
-    } else if ([type isEqualToString:@"projectShare"]) {
-        postDict = [(ProjectShare*) activity convertToDict];
-    } else if ([type isEqualToString:@"projectClassified"]) {
-        postDict = [(ProjectClassified*) activity convertToDict];
-    } else if ([type isEqualToString:@"userClassified"]) {
-        postDict = [(UserClassified*) activity convertToDict];
-    } else {
-        NSLog(@"Wrong Type: %@", type);
-    }
-
+    postDict = [activity convertToDict];
     NSError *error;
     NSData *postdata = [NSJSONSerialization dataWithJSONObject:postDict options:0 error:&error];
     [request setHTTPBody:postdata];
@@ -102,21 +66,7 @@
                                                          options:kNilOptions
                                                            error:&error];
     if(json) {
-        Activity *resActivity;
-        NSString *type = [json objectForKey:@"type"];
-        if ([type isEqualToString:@"albumShare"]) {
-            resActivity = [[AlbumShare alloc] initWithDict:json];
-        } else if ([type isEqualToString:@"clipShare"]) {
-            resActivity = [[ClipShare alloc] initWithDict:json];
-        } else if ([type isEqualToString:@"projectShare"]) {
-            resActivity = [[ProjectShare alloc] initWithDict:json];
-        } else if ([type isEqualToString:@"projectClassified"]) {
-            resActivity = [[ProjectClassified alloc] initWithDict:json];
-        } else if ([type isEqualToString:@"userClassified"]) {
-            resActivity = [[UserClassified alloc] initWithDict:json];
-        } else {
-            NSLog(@"Wrong Type: %@", type);
-        }
+        Activity *resActivity = [[Activity alloc]initWithDict:json];
         return resActivity;
     } else {
         NSLog(@"%@", error);
@@ -144,26 +94,7 @@
     NSMutableArray *activites = [[NSMutableArray alloc]init];
     for (int i = 0; i < [rawActivities count]; i++) {
         NSDictionary *act = rawActivities[i];
-        NSString *type = [act objectForKey:@"type"];
-        if ([type isEqualToString:@"albumShare"]) {
-            AlbumShare *activity = [[AlbumShare alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else if ([type isEqualToString:@"clipShare"]) {
-            ClipShare *activity = [[ClipShare alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else if ([type isEqualToString:@"projectShare"]) {
-            ProjectShare *activity = [[ProjectShare alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else if ([type isEqualToString:@"projectClassified"]) {
-            ProjectClassified *activity = [[ProjectClassified alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else if ([type isEqualToString:@"userClassified"]) {
-            UserClassified *activity = [[UserClassified alloc] initWithDict:act];
-            [activites addObject:activity];
-        } else {
-            NSLog(@"Wrong Type: %@", type);
-        }
-        
+        [activites addObject:[[Activity alloc] initWithDict:act]];
     }
     return activites;
 }

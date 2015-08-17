@@ -216,13 +216,9 @@
                                                  returningResponse:&response
                                                              error:&error];
 
-    NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *) response;
-
-    NSLog(response.description);
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
-    NSLog([json description]);
     Invite *returnInvite = [[Invite alloc]initWithDict:json];
     
     return returnInvite;

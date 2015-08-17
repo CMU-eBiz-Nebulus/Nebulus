@@ -39,6 +39,17 @@
 }
 
 +(BOOL) uploadRecording:(NSData*) data Id: (NSString*) recordingId {
+    
+    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"yourfilename.dat"];
+//    
+//    // Save it into file system
+//    [data writeToFile:dataPath atomically:YES];
+//    NSLog(dataPath);
+    
+    
     NSLog(@"Lentgh : %ld",(unsigned long)data.length);
     NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/recordings/%@", recordingId];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
@@ -60,7 +71,7 @@
     //recording file
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"data\"; filename=\"%@\"\r\n", @"audio.m4a"]] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Type: audio/m4a\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Type: audio/mpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[NSData dataWithData:data]];
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -78,7 +89,6 @@
     //NSLog(response);
     
     
-    if (error) return NO;
     return YES;
     
 }

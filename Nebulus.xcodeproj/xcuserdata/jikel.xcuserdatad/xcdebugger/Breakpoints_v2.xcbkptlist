@@ -39,22 +39,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Nebulus/Activity.h"
-            timestampString = "461528527.809138"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "title"
-            landmarkType = "19">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Nebulus/ProjectClassified.h"
             timestampString = "460604678.964558"
             startingColumnNumber = "9223372036854775807"
@@ -63,38 +47,6 @@
             endingLineNumber = "18"
             landmarkName = "fullfilled"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ProjectClassified fullfilled]"
-                  moduleName = "Nebulus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/ProjectClassified.h"
-                  timestampString = "461531566.881593"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ProjectClassified setFullfilled:]"
-                  moduleName = "Nebulus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jikel/Desktop/Google/Nebulus/Nebulus/ProjectClassified.h"
-                  timestampString = "461531566.881851"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -104,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nebulus/RecordingHttpClient.m"
-            timestampString = "461531078.462432"
+            timestampString = "461536828.00829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "+deleteClip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -142,6 +94,22 @@
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "-convertToDict"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nebulus/MusicHttpClient.m"
+            timestampString = "461540181.284764"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "+creatActivity:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
