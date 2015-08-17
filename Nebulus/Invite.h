@@ -24,6 +24,7 @@
 @property (nonatomic, strong) User *to;
 @property (nonatomic, strong) NSString *model;
 @property (nonatomic, strong) NSString *modelId;
+@property (nonatomic, strong) NSString *projectName;
 @property (nonatomic, strong) Project *project;
 @property (nonatomic, strong) Album *album;
 @property (nonatomic) BOOL request;

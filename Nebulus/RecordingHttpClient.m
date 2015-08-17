@@ -39,7 +39,7 @@
 }
 
 +(BOOL) uploadRecording:(NSData*) data Id: (NSString*) recordingId {
-    NSLog(@"%ld",(unsigned long)data.length);
+    NSLog(@"Lentgh : %ld",(unsigned long)data.length);
     NSString *urlStr = [[NSString alloc] initWithFormat:@"http://test.nebulus.io:8080/api/recordings/%@", recordingId];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
@@ -54,6 +54,9 @@
     
     NSMutableData *body = [NSMutableData data];
     
+    
+    
+    NSLog(@"Request : %@", request.description);
     //recording file
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"data\"; filename=\"%@\"\r\n", @"audio.m4a"]] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -65,8 +68,16 @@
     
     NSURLResponse *response = [[NSURLResponse alloc]init];
     NSError *error = [[NSError alloc] init];
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:kNilOptions
+                                                           error:&error];
+    NSLog(json.description);
+
     //NSLog(response);
+    
+    
     if (error) return NO;
     return YES;
     

@@ -26,6 +26,7 @@
         self.to = [[User alloc] initWithDict:[json objectForKey:@"to"]];
         self.model = [json objectForKey:@"model"];
         self.modelId = [json objectForKey:@"modelId"];
+        self.projectName = [json objectForKey:@"projectName"];
     }
     return self;
     
@@ -37,7 +38,13 @@
     [dict setObject: request forKey:@"request"];
     [dict setObject:[self.to convertToDict] forKey:@"to"];
     [dict setObject: self.modelId forKey:@"modelId"];
+    if ([self.model isEqualToString:@"project"]) self.model = @"projects";
+    if ([self.model isEqualToString:@"album"]) self.model = @"albums";
+                                                               
     [dict setObject: self.model forKey:@"model"];
+    if (!self.projectName) self.projectName = self.model;
+    [dict setObject:self.projectName forKey:@"projectName"];
+    
     return dict;
 }
 

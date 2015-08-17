@@ -215,27 +215,14 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:&response
                                                              error:&error];
-//    if ([self.model isEqualToString:@"project"]) {
-//        self.project = [ProjectHttpClient getProject:self.modelId];
-//    } else if ([self.model isEqualToString:@"album"]) {
-//        self.album = [MusicHttpClient getAlbum:self.modelId];
-//    } else {
-//        NSLog(@"Wrong Type : %@", self.model);
-//    }
-    
-//    if (responseData) {
-//        NSLog(@"invite");
-//        NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-//    
-//        if (responseString) NSLog(responseData);
-//    }
+
     NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *) response;
-    int errorCode = httpResponse.statusCode;
-    NSString *fileMIMEType = [httpResponse debugDescription];
-    NSLog(fileMIMEType);
+
+    NSLog(response.description);
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
+    NSLog([json description]);
     Invite *returnInvite = [[Invite alloc]initWithDict:json];
     
     return returnInvite;
