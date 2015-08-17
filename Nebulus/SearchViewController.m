@@ -18,13 +18,25 @@
 @property (nonatomic, strong) NSArray *users;
 @property (nonatomic, strong) NSArray *albums;
 
-@property (weak, nonatomic) IBOutlet UITextField *searchBar;
+@property (atomic, strong) NSMutableArray *searchQueue;
+@property (nonatomic, strong) NSTimer *timer;
 
+@property (weak, nonatomic) IBOutlet UITextField *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation SearchViewController
+
+@synthesize searchQueue = _searchQueue;
+-(NSMutableArray *)searchQueue{
+    if(!_searchQueue)_searchQueue = [[NSMutableArray alloc] init];
+    return _searchQueue;
+}
+
+-(void)setSearchQueue:(NSMutableArray *)searchQueue{
+    _searchQueue = searchQueue;
+}
 
 -(NSArray *)users{
     if(!_users) _users = @[];
@@ -46,14 +58,49 @@
     //self.searchForInvitation = NO;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: 1.0
+                                                  target: self
+                                                selector: @selector(timerActivated)
+                                                userInfo: nil
+                                                 repeats: YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+-(void)timerActivated{
+    if([self.searchQueue count]){
+        NSString *str= [self.searchQueue lastObject];
+        [self.searchQueue removeAllObjects];
+        
+        if([str length] > 0){
+            self.users = [UserHttpClient searchUser:str];
+            self.albums = [MusicHttpClient searchAlbum:str];
+        }
+        [self.tableView reloadData];
+    }
+}
+
 
 - (IBAction)changed:(UITextField *)sender {
     
     if([sender.text length] > 0){
-        self.users = [UserHttpClient searchUser:sender.text];
-        self.albums = [MusicHttpClient searchAlbum:sender.text];
+        [self.searchQueue addObject:sender.text];
     }
-    [self.tableView reloadData];
+
+
+//    if([sender.text length] > 0){
+//        self.users = [UserHttpClient searchUser:sender.text];
+//        self.albums = [MusicHttpClient searchAlbum:sender.text];
+//    }
+//    [self.tableView reloadData];
 
 }
 

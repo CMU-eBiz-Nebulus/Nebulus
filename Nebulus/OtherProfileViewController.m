@@ -12,6 +12,7 @@
 #import "Project.h"
 #import "Album.h"
 #import "ProjectHttpClient.h"
+#import "MusicHttpClient.h"
 
 @interface OtherProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
@@ -41,10 +42,14 @@
             Project *project = (Project *)self.content;
             [ProjectHttpClient invite:self.other from:self.me Model:@"project" ModelId:project.objectID];
             //NSLog(intive);
-            [self.navigationController popViewControllerAnimated:YES];
+            
         }else if (self.mode == M_ALBUM){
-            //Album *album = (Album *)self.content;
+            Album *album = (Album *)self.content;
+            Invite *invite = [ProjectHttpClient invite:self.other from:self.me Model:@"album" ModelId:album.objectID];
+            NSLog(@"Invite: %@", invite.objectID);
+            
         }
+        [self.navigationController popViewControllerAnimated:YES];
     }
     
     [self updateUI];
