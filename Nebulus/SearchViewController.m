@@ -13,7 +13,8 @@
 #import "OtherProfileViewController.h"
 #import "AlbumProjectViewController.h"
 
-@interface SearchViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface SearchViewController () <UITableViewDelegate,UITableViewDataSource,
+UITextFieldDelegate>
 
 @property (nonatomic, strong) NSArray *users;
 @property (nonatomic, strong) NSArray *albums;
@@ -55,7 +56,27 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    // textfield return keyboard by clicking return button
+    self.searchBar.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
     //self.searchForInvitation = NO;
+}
+
+-(void)dismissKeyboard {
+    NSArray *subviews = [self.view subviews];
+    for (id subview in subviews) {
+        if ([subview isKindOfClass:[UITextField class]]) {
+            UITextField *textField = subview;
+            if ([subview isFirstResponder]) {
+                [textField resignFirstResponder];
+            }
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -83,7 +104,7 @@
         if([str length] > 0){
             
             BOOL isLegal = YES;
-            NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "];
+            NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
             for (int i = 0; i < [str length]; i++){
                 unichar c = [str characterAtIndex:i];
                 if (![charSet characterIsMember:c]) {
@@ -218,6 +239,14 @@
             vc.viewMode = YES;
         }
     }
+}
+
+#pragma mark - Closing keyboard
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if(textField){
+        [textField resignFirstResponder];
+    }
+    return YES;
 }
 
 @end

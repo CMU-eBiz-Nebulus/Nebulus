@@ -17,7 +17,8 @@
 #import "User.h"
 #import "ProjectHttpClient.h"
 
-@interface ModifyViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface ModifyViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextViewDelegate,
+UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *name;
@@ -84,12 +85,34 @@
     [self.picker setDelegate:self];
     self.picker.allowsEditing = YES;
     
+    self.name.delegate = self;
+    self.tags.delegate = self;
+    self.desc.delegate = self;
+    
     ((UIScrollView *)self.view).contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height * 1.5);
     
     UIBarButtonItem *Done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                           target:self
                                                                           action:@selector(performDone)];
     self.navigationItem.rightBarButtonItem = Done;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    NSArray *subviews = [self.view subviews];
+    for (id subview in subviews) {
+        if ([subview isKindOfClass:[UITextField class]] ||
+            [subview isKindOfClass:[UITextView class]]) {
+            UITextField *textField = subview;
+            if ([subview isFirstResponder]) {
+                [textField resignFirstResponder];
+            }
+        }
+    }
 }
 
 #pragma mark - Update Modification
@@ -202,6 +225,16 @@
 
 - (void)imagePickerControllerDidCancel: (UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end
