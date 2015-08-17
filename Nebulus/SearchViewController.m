@@ -81,8 +81,20 @@
         [self.searchQueue removeAllObjects];
         
         if([str length] > 0){
-            self.users = [UserHttpClient searchUser:str];
-            self.albums = [MusicHttpClient searchAlbum:str];
+            
+            BOOL isLegal = YES;
+            NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "];
+            for (int i = 0; i < [str length]; i++){
+                unichar c = [str characterAtIndex:i];
+                if (![charSet characterIsMember:c]) {
+                    isLegal =  NO;
+                }
+            }
+            
+            if (isLegal) {
+                self.users = [UserHttpClient searchUser:str];
+                self.albums = [MusicHttpClient searchAlbum:str];
+            }
         }
         [self.tableView reloadData];
     }
