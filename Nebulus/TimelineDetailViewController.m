@@ -8,14 +8,44 @@
 
 #import "TimelineDetailViewController.h"
 #import "UserHttpClient.h"
+#import "ActivityHttpClient.h"
 #import "OtherProfileViewController.h"
 
+@interface TimelineDetailViewController ()
+@property (nonatomic, strong) NSArray *comments;
+@end
+
 @implementation TimelineDetailViewController
+
+#pragma mark - view controller
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.comments = [ActivityHttpClient getCommentofActivity:self.activity.objectID];
+    NSLog(@"Fetched %ld comments", [self.comments count]);
+}
+
+#pragma mark - Property
+
+-(NSArray *)comments{
+    if(!_comments) _comments = @[];
+    return _comments;
+}
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if(section == 0) return 0.1;
+    else if(section == 1) return 20.0;
+    return 0.0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
