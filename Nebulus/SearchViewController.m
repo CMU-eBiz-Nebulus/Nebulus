@@ -124,8 +124,10 @@ UITextFieldDelegate>
             
             if (isLegal) {
                 self.users = [UserHttpClient searchUser:str];
-                self.albums = [MusicHttpClient searchAlbum:str];
-                self.projects = [self searchSelfProjectByWord:str];
+                if(!self.searchForInvitation){
+                    self.albums = [MusicHttpClient searchAlbum:str];
+                    self.projects = [self searchSelfProjectByWord:str];
+                }
             }
         }
         [self.tableView reloadData];

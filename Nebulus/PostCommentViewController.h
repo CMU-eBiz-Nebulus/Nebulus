@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Activity.h"
 
-@interface CommentViewController : UIViewController
+@interface PostCommentViewController : UIViewController
 @property (nonatomic, strong) Activity *activity;
 @property (nonatomic, strong) User* currUser;
+
+@property (nonatomic) BOOL commentMode;
 @end

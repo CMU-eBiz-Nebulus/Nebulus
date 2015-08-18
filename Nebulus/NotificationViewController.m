@@ -14,11 +14,11 @@
 #import "UserHttpClient.h"
 #import "OtherProfileViewController.h"
 
-@interface NotificationViewController()
+@interface NotificationViewController() <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray *notifications;
-
 @property (nonatomic) NSUInteger unread;
+@property (nonatomic, strong) Notification *invitationToRespond;
 
 @end
 
@@ -37,6 +37,7 @@
     self.unread = 0;
     for(Notification *notification in tmpNots.reverseObjectEnumerator){
         if([notification.model isEqualToString:@"invites"]){
+            
 
         }else if([notification.model isEqualToString:@"albums"]){
             Album *album = [MusicHttpClient getAlbum:notification.modelId];
@@ -69,6 +70,14 @@
         
     }
 
+    ////////////////////////////////////////////////////
+    Notification *n = [[Notification alloc] init];
+    n.model = @"invites";
+    n.message = @"Someone invited you to join xx";
+    [dstArray addObject:n];
+    
+    ////////////////////////////////////////////////////
+    
     self.notifications = dstArray.copy;
     if(self.unread){
         [[[[[self tabBarController] tabBar] items] objectAtIndex:1]
@@ -105,7 +114,7 @@
     
     if([notification.model isEqualToString:@"invites"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"invitesCell"];
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
+        [(UILabel *)[cell viewWithTag:101] setText:[NSString stringWithFormat:@"%@", msg]];
     }else if([notification.model isEqualToString:@"albums"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"albumprojectCell"];
         [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
@@ -139,29 +148,29 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Notification *notification = [self.notifications objectAtIndex:indexPath.row];
-    if([notification.model isEqualToString:@"invites"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"albums"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"projects"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"followers"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"activity"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"likes"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"comments"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"conversations"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"tasks"]){
-        return 35.0;
-    }else if([notification.model isEqualToString:@"userSettings"]){
-        return 35.0;
-    }
-    return 0.0;
+//    Notification *notification = [self.notifications objectAtIndex:indexPath.row];
+//    if([notification.model isEqualToString:@"invites"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"albums"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"projects"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"followers"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"activity"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"likes"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"comments"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"conversations"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"tasks"]){
+//        return 35.0;
+//    }else if([notification.model isEqualToString:@"userSettings"]){
+//        return 35.0;
+//    }
+    return 40.0;
 }
 
 -(NSString *)htmlStr2Str:(NSString *)htmlString{
@@ -212,6 +221,37 @@
         }
     }
 
+}
+
+#pragma mark - Invite response
+- (IBAction)respondToInvite:(UIButton *)sender {
+    
+    UIButton *button = sender;
+    CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+    Notification *notification = [self.notifications objectAtIndex:indexPath.row];
+    
+    if ([notification.model isEqualToString:@"invites"]) {
+        self.invitationToRespond = notification;
+        
+        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Invitation"
+                                                         message:notification.message
+                                                        delegate:self
+                                               cancelButtonTitle:@"Reject"
+                                               otherButtonTitles: nil];
+        [alert addButtonWithTitle:@"Accept"];
+        [alert show];
+    }
+
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        NSLog(@"You have clicked Reject");
+    }
+    else if(buttonIndex == 1){
+        NSLog(@"You have clicked Accept");
+    }
 }
 
 @end
