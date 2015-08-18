@@ -267,7 +267,7 @@
     fileNameLabel.text = [NSString stringWithFormat:@"%@", fileName];
     
     startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
-    endTimeLabel.text =[NSString stringWithFormat:@"%-.1f", audioDurationSeconds];
+    endTimeLabel.text =[NSString stringWithFormat:@"-%.1f", audioDurationSeconds];
 
     
     return cell;
