@@ -22,7 +22,8 @@
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
-        if ([json objectForKey:@"clip"]) {
+        
+        if ([json objectForKey:@"clip"] != [NSNull null]) {
             self.clip =  [[Clip alloc] initWithDict: [json objectForKey:@"clip"]];
         }
         self.sender = [[User alloc] initWithDict: [json objectForKey:@"sender"]];
