@@ -39,4 +39,29 @@
 
 }
 
++(NSArray*) getCommentofActivity:(NSString*) activityId {
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/comments/?modelId=%@", activityId ];
+    NSURL *aUrl = [NSURL URLWithString:getUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    NSError *error;
+    NSURLResponse *response = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSArray *rawComments = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *comments = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [rawComments count]; i++) {
+        NSDictionary* json = rawComments[i];
+        Comment *cmt = [[Comment alloc]initWithDict:json];
+        [comments addObject:cmt];
+    }
+    return rawComments;
+}
+
 @end

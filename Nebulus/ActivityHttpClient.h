@@ -15,4 +15,6 @@
 
 +(Comment*) createComment:(Comment*) cmt;
 
++(NSArray*) getCommentofActivity:(NSString*) activityId;
+
 @end
