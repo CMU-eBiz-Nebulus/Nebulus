@@ -10,6 +10,7 @@
 #import "Activity.h"
 #import "Comment.h"
 #import "User.h"
+#import "Invite.h"
 
 @interface ActivityHttpClient : NSObject
 
@@ -17,4 +18,5 @@
 
 +(NSArray*) getCommentofActivity:(NSString*) activityId;
 
++(Invite*) getInvite:(NSString*) inviteId;
 @end
