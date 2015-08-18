@@ -52,6 +52,7 @@
         Comment *comment = [[Comment alloc] init];
         comment.text = self.textView.text;
         comment.creator = self.currUser;
+        comment.modelId = self.activity.objectID;
         comment = [ActivityHttpClient createComment:comment];
     }else{
         //TODO: create activity w/ text and w/o a clip
