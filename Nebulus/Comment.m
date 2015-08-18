@@ -22,16 +22,18 @@
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
-        
         if ([json objectForKey:@"clip"] != [NSNull null]) {
             self.clip =  [[Clip alloc] initWithDict: [json objectForKey:@"clip"]];
         }
-        self.sender = [[User alloc] initWithDict: [json objectForKey:@"sender"]];
+        NSLog(@"123");
+        self.creator = [[User alloc] initWithDict: [json objectForKey:@"sender"]];
+         NSLog(@"321");
         self.model = [json objectForKey:@"model"];
         self.modelId = [json objectForKey:@"modelId"];
         self.pictureUpdateTime = [json objectForKey:@"pictureUpdateTime"];
         self.text = [json objectForKey:@"text"];
     }
+    NSLog(@"%@\n%@\n%@\n%@", self.creator.username, self.model, self.modelId, self.text);
     return self;
     
 }
@@ -42,7 +44,7 @@
     } else {
         [dict setObject:[NSNull null] forKey:@"clip"];
     }
-    [dict setObject:[self.sender convertToDict] forKey:@"sender"];
+    [dict setObject:[self.creator convertToDict] forKey:@"sender"];
     [dict setObject:self.model forKey:@"model"];
     [dict setObject:self.modelId forKey:@"modelId"];
     [dict setObject:self.text forKey:@"text"];
