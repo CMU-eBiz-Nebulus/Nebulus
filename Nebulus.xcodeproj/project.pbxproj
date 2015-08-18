@@ -387,7 +387,6 @@
 			children = (
 				92ED7E311B83C2860015E6BB /* AudioConverter.m */,
 				92A574B41B62D20F0015032B /* UserHttpClient.h */,
-				92ED7E361B83CDE70015E6BB /* ActivityHttpClient.m */,
 				92A574B51B62D20F0015032B /* UserHttpClient.m */,
 				929DA6391B6A91AA00F2663C /* MusicHttpClient.h */,
 				929DA63A1B6A91AA00F2663C /* MusicHttpClient.m */,
@@ -396,6 +395,7 @@
 				92ED7E151B7A834C0015E6BB /* RecordingHttpClient.h */,
 				92ED7E161B7A834C0015E6BB /* RecordingHttpClient.m */,
 				92ED7E251B8299AF0015E6BB /* ActivityHttpClient.h */,
+				92ED7E361B83CDE70015E6BB /* ActivityHttpClient.m */,
 			);
 			name = HttpClient;
 			sourceTree = "<group>";
