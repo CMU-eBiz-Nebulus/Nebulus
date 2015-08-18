@@ -26,8 +26,8 @@
         self.model = [json objectForKey:@"model"];
         self.modelId = [json objectForKey:@"modelId"];
         NSNumber *read = [json objectForKey:@"read"];
-        NSLog(read);
-        self.read = read;
+        NSLog(@"%@", read);
+        self.read = (read != 0);
         User *recipient = [[User alloc]initWithDict:[json objectForKey:@"recipient"]];
         self.recipient = recipient;
         self.type = [json objectForKey:@"type"];
