@@ -68,7 +68,7 @@
 
 -(void)login{
     User *user = [UserHttpClient login:self.usernameField.text password:self.passwordField.text];
-    if (user != nil) {
+    if (user != nil && user.objectID != nil) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:user.username forKey:@"username"];
         [defaults setObject:self.passwordField.text forKey:@"password"];
@@ -80,6 +80,12 @@
         [self presentViewController:tabBarController animated:NO completion:nil];
         NSLog(@"Logged in");
     } else {//Wrong username/password combination
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login failed"
+                                                        message:@"Please check your input again!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
         NSLog(@"Wrong password/username");
     }
 }
