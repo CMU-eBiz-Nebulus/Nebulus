@@ -67,11 +67,23 @@
         if(!notification.read) self.unread++;
         [dstArray addObject:notification];
         
-        NSLog(notification.read ? @"Notification Read\n" : @"Unread\n");
+        //NSLog(notification.read ? @"Notification Read\n" : @"Unread\n");
         
     }
     
     self.notifications = dstArray.copy;
+
+    [self.tableView reloadData];
+    [self updateUI];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    [self fetch_notifications];
+}
+
+-(void)updateUI{
     if(self.unread){
         [[[[[self tabBarController] tabBar] items] objectAtIndex:1]
          setBadgeValue: [NSString stringWithFormat:@"%tu", self.unread]];
@@ -79,15 +91,6 @@
         [[[[[self tabBarController] tabBar] items] objectAtIndex:1]
          setBadgeValue:nil];
     }
-    
-    
-    [self.tableView reloadData];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-
-    [self fetch_notifications];
 }
 
 
@@ -108,6 +111,7 @@
     if([notification.model isEqualToString:@"invites"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"invitesCell"];
         [(UILabel *)[cell viewWithTag:101] setText:[NSString stringWithFormat:@"%@", msg]];
+        [(UIButton *)[cell viewWithTag:102] setHidden:notification.read ? YES : NO];
     }else if([notification.model isEqualToString:@"albums"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"albumprojectCell"];
         [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
@@ -135,6 +139,10 @@
     }else{
         cell = [tableView dequeueReusableCellWithIdentifier:@"info"];
         [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
+    }
+    
+    if(notification && notification.objectID){
+        [cell setBackgroundColor: notification.read ? [UIColor whiteColor] :[UIColor lightGrayColor]];
     }
     
     return cell;
@@ -196,7 +204,7 @@
             vc.viewMode = NO;
             
             // READ notification
-            //if(!notification.read) [UserHttpClient readNotification:notification];
+            if(!notification.read) [UserHttpClient readNotification:notification];
         }
     } else if ([segue.identifier isEqualToString:@"followNotification"]) {
         if ([segue.destinationViewController isKindOfClass:[OtherProfileViewController class]]) {
@@ -210,7 +218,7 @@
             vc.invitation_mode = NO;
             
             // READ notification
-            //if(!notification.read) [UserHttpClient readNotification:notification];
+            if(!notification.read) [UserHttpClient readNotification:notification];
         }
     } else if ([segue.identifier isEqualToString:@"inviteToAlbumProject"]){
         AlbumProjectViewController *vc = (AlbumProjectViewController *)segue.destinationViewController;
@@ -246,7 +254,7 @@
         self.invitationToRespond = notification;
         
         UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Invitation"
-                                                         message:notification.message
+                                                         message:[self htmlStr2Str:notification.message]
                                                         delegate:self
                                                cancelButtonTitle:@"Reject"
                                                otherButtonTitles: nil];
@@ -257,11 +265,25 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0){
-        NSLog(@"You have clicked Reject");
-    }
-    else if(buttonIndex == 1){
-        NSLog(@"You have clicked Accept");
+    if(self.invitationToRespond && !self.invitationToRespond.read){
+        if (buttonIndex == 0){
+            [ProjectHttpClient responseToInvite:self.invitationToRespond.modelId accept:NO];
+            [UserHttpClient readNotification:self.invitationToRespond];
+            
+            self.unread--;
+            [self.tableView reloadData];
+            [self updateUI];
+            NSLog(@"You have clicked Reject");
+        }
+        else if(buttonIndex == 1){
+            [ProjectHttpClient responseToInvite:self.invitationToRespond.modelId accept:YES];
+            [UserHttpClient readNotification:self.invitationToRespond];
+            
+            self.unread--;
+            [self.tableView reloadData];
+            [self updateUI];
+            NSLog(@"You have clicked Accept");
+        }
     }
 }
 
