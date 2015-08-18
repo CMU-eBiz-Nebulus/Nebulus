@@ -9,7 +9,7 @@
 #import "CommentClipPickerViewController.h"
 #import "RecordingHttpClient.h"
 #import "UserHttpClient.h"
-#import "CommentViewController.h"
+#import "PostCommentViewController.h"
 
 @interface CommentClipPickerViewController()
 @property (nonatomic, strong) NSArray *clips;
@@ -34,7 +34,7 @@
 }
 
 -(void)doneAction{
-    CommentViewController *parentVC = (CommentViewController *)self.navigationController.parentViewController;
+    PostCommentViewController *parentVC = (PostCommentViewController *)self.navigationController.parentViewController;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

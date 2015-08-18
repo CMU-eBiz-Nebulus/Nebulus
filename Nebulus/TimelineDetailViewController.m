@@ -11,7 +11,7 @@
 #import "ActivityHttpClient.h"
 #import "OtherProfileViewController.h"
 #import "Comment.h"
-#import "CommentViewController.h"
+#import "PostCommentViewController.h"
 
 @interface TimelineDetailViewController ()
 @property (nonatomic, strong) NSArray *comments;
@@ -130,10 +130,11 @@
             vc.invitation_mode = NO;
         }
     }else if ([segue.identifier isEqualToString:@"comment"]) {
-        if ([segue.destinationViewController isKindOfClass:[CommentViewController class]]) {
-            CommentViewController *vc = (CommentViewController *)segue.destinationViewController;
+        if ([segue.destinationViewController isKindOfClass:[PostCommentViewController class]]) {
+            PostCommentViewController *vc = (PostCommentViewController *)segue.destinationViewController;
             vc.currUser = self.currUser;
             vc.activity = self.activity;
+            vc.commentMode = YES;
         }
     }
 }

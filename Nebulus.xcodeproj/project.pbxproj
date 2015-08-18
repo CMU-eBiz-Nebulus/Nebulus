@@ -70,7 +70,7 @@
 		98DFE11F1B759A7000C1DBDE /* AlbumProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */; };
 		98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */; };
 		98FC57541B82C0D300152FA2 /* TimelineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */; };
-		98FC57591B82D95C00152FA2 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FC57581B82D95C00152FA2 /* CommentViewController.m */; };
+		98FC57591B82D95C00152FA2 /* PostCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FC57581B82D95C00152FA2 /* PostCommentViewController.m */; };
 		98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFE597F31B6322B900ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -210,8 +210,8 @@
 		98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
 		98FC57521B82C0D300152FA2 /* TimelineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineDetailViewController.h; sourceTree = "<group>"; };
 		98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineDetailViewController.m; sourceTree = "<group>"; };
-		98FC57571B82D95C00152FA2 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
-		98FC57581B82D95C00152FA2 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		98FC57571B82D95C00152FA2 /* PostCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCommentViewController.h; sourceTree = "<group>"; };
+		98FC57581B82D95C00152FA2 /* PostCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCommentViewController.m; sourceTree = "<group>"; };
 		98FF60C91B69B52F00DE90B4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProjectAlbumViewController.m; sourceTree = "<group>"; };
@@ -318,16 +318,11 @@
 				8474125E1B7D6EB7009EA92E /* WaveformFromFileViewController.m */,
 				8430F4191B6A941F00CB2EE0 /* RecordViewController.h */,
 				8430F41A1B6A941F00CB2EE0 /* RecordViewController.m */,
-				929B70E21B5D48AC00264D32 /* LoginViewController.h */,
-				929B70E31B5D48AC00264D32 /* LoginViewController.m */,
-				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
-				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
+				98DD5C341B83CA2A00B9CEA5 /* Login */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
-				98FC57561B82C0F500152FA2 /* timeline */,
-				9899C26E1B7D7D49006ED563 /* NotificationViewController.h */,
-				9899C26F1B7D7D49006ED563 /* NotificationViewController.m */,
-				98FF60C91B69B52F00DE90B4 /* SearchViewController.h */,
-				98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */,
+				98FC57561B82C0F500152FA2 /* Timeline */,
+				98DD5C321B83CA0C00B9CEA5 /* Notification */,
+				98DD5C331B83CA1C00B9CEA5 /* Search */,
 				929B70C91B5D3FC000264D32 /* Images.xcassets */,
 				929B70CB1B5D3FC000264D32 /* LaunchScreen.xib */,
 				929B70B91B5D3FC000264D32 /* Supporting Files */,
@@ -338,6 +333,8 @@
 		929B70B91B5D3FC000264D32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
+				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
 				929B70BA1B5D3FC000264D32 /* Info.plist */,
 				929B70BB1B5D3FC000264D32 /* main.m */,
 			);
@@ -423,6 +420,33 @@
 			name = "AudioConverter Kit";
 			sourceTree = "<group>";
 		};
+		98DD5C321B83CA0C00B9CEA5 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				9899C26E1B7D7D49006ED563 /* NotificationViewController.h */,
+				9899C26F1B7D7D49006ED563 /* NotificationViewController.m */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		98DD5C331B83CA1C00B9CEA5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				98FF60C91B69B52F00DE90B4 /* SearchViewController.h */,
+				98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		98DD5C341B83CA2A00B9CEA5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				929B70E21B5D48AC00264D32 /* LoginViewController.h */,
+				929B70E31B5D48AC00264D32 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		98DFE1201B759A9A00C1DBDE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,19 +470,19 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
-		98FC57561B82C0F500152FA2 /* timeline */ = {
+		98FC57561B82C0F500152FA2 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
 				98DD5C2F1B83C27100B9CEA5 /* CommentClipPickerViewController.h */,
 				98DD5C301B83C27100B9CEA5 /* CommentClipPickerViewController.m */,
-				98FC57571B82D95C00152FA2 /* CommentViewController.h */,
-				98FC57581B82D95C00152FA2 /* CommentViewController.m */,
+				98FC57571B82D95C00152FA2 /* PostCommentViewController.h */,
+				98FC57581B82D95C00152FA2 /* PostCommentViewController.m */,
 				98FC57521B82C0D300152FA2 /* TimelineDetailViewController.h */,
 				98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */,
 				9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */,
 				9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */,
 			);
-			name = timeline;
+			name = Timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -586,7 +610,7 @@
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
 				92A574FA1B655CD70015032B /* User.m in Sources */,
 				9289842E1B728F1500D6FB6F /* Activity.m in Sources */,
-				98FC57591B82D95C00152FA2 /* CommentViewController.m in Sources */,
+				98FC57591B82D95C00152FA2 /* PostCommentViewController.m in Sources */,
 				AFE597F31B6322B900ED0520 /* (null) in Sources */,
 				92A574B61B62D20F0015032B /* UserHttpClient.m in Sources */,
 				8430F44C1B6A943800CB2EE0 /* TPCircularBuffer.c in Sources */,

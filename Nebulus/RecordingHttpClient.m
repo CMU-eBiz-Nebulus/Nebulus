@@ -40,13 +40,7 @@
 
 +(BOOL) uploadRecording:(NSData*) data Id: (NSString*) recordingId {
     
-    
-    AudioConverter *audioConverter = [[AudioConverter alloc] init];
-    //audioConverter.delegate = self;
-    audioConverter.conversionStartPoint = 0.0;
-    audioConverter.conversionLength = 40.0;
-    NSString *outputName = @"outputFilename.m4a";
-    [audioConverter convertAudioWithFilePath:data outputName:outputName ofType:AUDIO_OUTPUT_TYPE_AAC];
+
     
     
     NSLog(@"Lentgh : %ld",(unsigned long)data.length);

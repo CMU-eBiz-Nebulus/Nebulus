@@ -6,49 +6,57 @@
 //  Copyright (c) 2015 CMU-eBiz. All rights reserved.
 //
 
-#import "CommentViewController.h"
+#import "PostCommentViewController.h"
 #import "ActivityHttpClient.h"
 
-@interface CommentViewController () <UITextViewDelegate>
-@property (weak, nonatomic) IBOutlet UITextView *commentText;
+@interface PostCommentViewController () <UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *addClip;
 @property (weak, nonatomic) IBOutlet UILabel *clipName;
 @property (weak, nonatomic) IBOutlet UIButton *deleteClip;
 @end
 
-@implementation CommentViewController
+@implementation PostCommentViewController
 
 #pragma mark - View Controller
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    [[self.commentText layer] setBorderColor:[[UIColor grayColor] CGColor]];
-    [[self.commentText layer] setBorderWidth:0.5];
-    [[self.commentText layer] setCornerRadius:5];
+    [[self.textView layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[self.textView layer] setBorderWidth:0.5];
+    [[self.textView layer] setCornerRadius:5];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
-    self.commentText.delegate = self;
+    self.textView.delegate = self;
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                     target:self
                                     action:@selector(doneAction)];
     self.navigationItem.rightBarButtonItem = doneButton;
-    self.title = @"Comment";
+    
+    self.title = self.commentMode ? @"Comment" : @"New Post";
+    
     [self.deleteClip setHidden:YES];
     [self.clipName setHidden:YES];
 }
 
 #pragma mark - Add comment done
 -(void)doneAction{
-    Comment *comment = [[Comment alloc] init];
-    comment.text = self.commentText.text;
-    comment.creator = self.currUser;
-    comment = [ActivityHttpClient createComment:comment];
+    
+    if(self.commentMode){
+        Comment *comment = [[Comment alloc] init];
+        comment.text = self.textView.text;
+        comment.creator = self.currUser;
+        comment = [ActivityHttpClient createComment:comment];
+    }else{
+        //TODO: create activity w/ text and w/o a clip
+    }
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -57,9 +65,9 @@
     NSArray *subviews = [self.view subviews];
     for (id subview in subviews) {
         if ([subview isKindOfClass:[UITextView class]]) {
-            UITextField *textField = subview;
+            UITextView *tv = subview;
             if ([subview isFirstResponder]) {
-                [textField resignFirstResponder];
+                [tv resignFirstResponder];
             }
         }
     }

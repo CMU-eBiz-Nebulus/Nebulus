@@ -11,7 +11,7 @@
 #import "UserHttpClient.h"
 #import "OtherProfileViewController.h"
 #import "TimelineDetailViewController.h"
-#import "CommentViewController.h"
+#import "PostCommentViewController.h"
 
 @interface TimelineViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
@@ -155,13 +155,22 @@
             vc.activity = activity;
         }
     }else if ([segue.identifier isEqualToString:@"comment"]) {
-        if ([segue.destinationViewController isKindOfClass:[CommentViewController class]]) {
-            CommentViewController *vc = (CommentViewController *)segue.destinationViewController;
+        if ([segue.destinationViewController isKindOfClass:[PostCommentViewController class]]) {
+            PostCommentViewController *vc = (PostCommentViewController *)segue.destinationViewController;
             UITableViewCell *cell = (UITableViewCell *)sender;
             NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
             Activity *activity = [self.activity objectAtIndex:indexPath.section];
             vc.currUser = self.currUser;
             vc.activity = activity;
+            vc.commentMode = YES;
+        }
+    }else if ([segue.identifier isEqualToString:@"textPost"]) {
+        if ([segue.destinationViewController isKindOfClass:[PostCommentViewController class]]) {
+            PostCommentViewController *vc = (PostCommentViewController *)segue.destinationViewController;
+
+            vc.currUser = self.currUser;
+            vc.activity = nil;
+            vc.commentMode = NO;
         }
     }
 }
