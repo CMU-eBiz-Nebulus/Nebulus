@@ -40,13 +40,16 @@
         //TODO: invite this guy
         if(self.mode == M_PROJECT){
             Project *project = (Project *)self.content;
-            [ProjectHttpClient invite:self.other from:self.me Model:@"project" ModelId:project.objectID];
-            //NSLog(intive);
+            Invite *invite = [ProjectHttpClient invite:self.other from:self.me Model:@"project" ModelId:project.objectID];
             
+            if(invite)
+                NSLog(@"Invite: %@", invite.objectID);
         }else if (self.mode == M_ALBUM){
             Album *album = (Album *)self.content;
             Invite *invite = [ProjectHttpClient invite:self.other from:self.me Model:@"album" ModelId:album.objectID];
-            NSLog(@"Invite: %@", invite.objectID);
+            
+            if(invite)
+                NSLog(@"Invite: %@", invite.objectID);
             
         }
         [self.navigationController popViewControllerAnimated:YES];

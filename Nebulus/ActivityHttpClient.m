@@ -61,7 +61,7 @@
         Comment *cmt = [[Comment alloc]initWithDict:json];
         [comments addObject:cmt];
     }
-    return rawComments;
+    return comments;
 }
 
 @end

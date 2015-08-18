@@ -11,6 +11,7 @@
 #import "ActivityHttpClient.h"
 #import "OtherProfileViewController.h"
 #import "Comment.h"
+#import "CommentViewController.h"
 
 @interface TimelineDetailViewController ()
 @property (nonatomic, strong) NSArray *comments;
@@ -86,10 +87,9 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
         
         Comment *comment = [self.comments objectAtIndex:indexPath.row];
-//        [(UIImageView *)[cell viewWithTag:101] setImage: [UserHttpClient getUserImage:comment.sender.objectID]];
-//        [(UILabel *)[cell viewWithTag:102] setText:comment.sender.username];
-//        
-//        [(UITextView *)[cell viewWithTag:103] setText:comment.text];
+        [(UIImageView *)[cell viewWithTag:101] setImage: [UserHttpClient getUserImage:comment.creator.objectID]];
+        [(UILabel *)[cell viewWithTag:102] setText:comment.creator.username];
+        [(UITextView *)[cell viewWithTag:103] setText:comment.text];
         [(UIButton *)[cell viewWithTag:104] setHidden:NO];   // LIKE button
         [(UIButton *)[cell viewWithTag:105] setHidden:YES];  // PLAY button
     }
@@ -128,6 +128,12 @@
             vc.me = self.currUser;
             vc.other = self.activity.creator;
             vc.invitation_mode = NO;
+        }
+    }else if ([segue.identifier isEqualToString:@"comment"]) {
+        if ([segue.destinationViewController isKindOfClass:[CommentViewController class]]) {
+            CommentViewController *vc = (CommentViewController *)segue.destinationViewController;
+            vc.currUser = self.currUser;
+            vc.activity = self.activity;
         }
     }
 }

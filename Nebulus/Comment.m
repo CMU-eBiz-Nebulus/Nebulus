@@ -19,21 +19,41 @@
 
 @implementation Comment
 
+-(NSNumber *)pictureUpdateTime{
+    if(!_pictureUpdateTime)_pictureUpdateTime=@0;
+    return _pictureUpdateTime;
+}
+
+-(NSString *)text{
+    if(!_text)_text=@"";
+    return _text;
+}
+
+-(NSString *)model{
+    if(!_model)_model =  @"activities";
+    return _model;
+}
+
+-(NSString *)modelId{
+    if(!_modelId) _modelId = @"";
+    return _modelId;
+}
+
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
         if ([json objectForKey:@"clip"] != [NSNull null]) {
             self.clip =  [[Clip alloc] initWithDict: [json objectForKey:@"clip"]];
         }
-        NSLog(@"123");
+        //NSLog(@"123");
         self.creator = [[User alloc] initWithDict: [json objectForKey:@"sender"]];
-         NSLog(@"321");
+        // NSLog(@"321");
         self.model = [json objectForKey:@"model"];
         self.modelId = [json objectForKey:@"modelId"];
         self.pictureUpdateTime = [json objectForKey:@"pictureUpdateTime"];
         self.text = [json objectForKey:@"text"];
     }
-    NSLog(@"%@\n%@\n%@\n%@", self.creator.username, self.model, self.modelId, self.text);
+    //NSLog(@"%@\n%@\n%@\n%@", self.creator.username, self.model, self.modelId, self.text);
     return self;
     
 }

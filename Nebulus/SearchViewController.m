@@ -69,6 +69,7 @@ UITextFieldDelegate>
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
+    [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
     //self.searchForInvitation = NO;
@@ -85,6 +86,8 @@ UITextFieldDelegate>
         }
     }
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

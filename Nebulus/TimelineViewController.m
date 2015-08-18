@@ -145,11 +145,11 @@
     }else if ([segue.identifier isEqualToString:@"comment"]) {
         if ([segue.destinationViewController isKindOfClass:[CommentViewController class]]) {
             CommentViewController *vc = (CommentViewController *)segue.destinationViewController;
-//            UITableViewCell *cell = (UITableViewCell *)sender;
-//            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-//            Activity *activity = [self.activity objectAtIndex:indexPath.section];
-//            vc.currUser = self.currUser;
-//            vc.activity = activity;
+            UITableViewCell *cell = (UITableViewCell *)sender;
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            Activity *activity = [self.activity objectAtIndex:indexPath.section];
+            vc.currUser = self.currUser;
+            vc.activity = activity;
         }
     }
 }
