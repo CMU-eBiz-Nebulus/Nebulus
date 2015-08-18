@@ -88,7 +88,7 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
-    if ([json count] > 0) {
+    if (json) {
         return YES;
     } else {
         NSLog(@"%@", error.localizedDescription);
@@ -388,6 +388,7 @@
     for (int i = 0; i < [raw count]; i++) {
         NSDictionary* json = raw[i];
         Notification *u = [[Notification alloc] initWithDict:json];
+        NSLog(@"Model: %@", u.model);
         [notifications addObject:u];
     }
     return notifications;

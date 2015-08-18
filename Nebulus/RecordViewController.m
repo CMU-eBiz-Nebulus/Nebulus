@@ -479,7 +479,8 @@
     NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                                          [self applicationDocumentsDirectory],
                                                                          fileName]]];
-
+    
+    NSLog([self applicationDocumentsDirectory]);
     clip = [RecordingHttpClient createClip:clip recording:data];
     
     

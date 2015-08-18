@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Clip.h"
-#import "AudioConverter.h"
 
 @interface RecordingHttpClient : NSObject
 
