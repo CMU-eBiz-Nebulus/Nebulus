@@ -29,7 +29,7 @@
 #pragma mark - View Controller
 -(void)viewWillAppear:(BOOL)animated{
     self.currUser = [UserHttpClient getCurrentUser];
-    self.activity = [MusicHttpClient getAllFollowingActivities:self.currUser.objectID];
+    self.activity = !self.selfMode ? [MusicHttpClient getAllFollowingActivities:self.currUser.objectID] : @[];//[MusicHttpClient getUserActivity:self.currUser.objectID];
     
     NSLog(@"Fetched %ld activities", [self.activity count]);
 }

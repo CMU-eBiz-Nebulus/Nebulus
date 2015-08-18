@@ -30,7 +30,7 @@
 }
 
 -(NSString *)model{
-    if(!_model)_model =  @"activities";
+    if(!_model)_model =  @"activity";
     return _model;
 }
 
@@ -53,7 +53,7 @@
         self.pictureUpdateTime = [json objectForKey:@"pictureUpdateTime"];
         self.text = [json objectForKey:@"text"];
     }
-    //NSLog(@"%@\n%@\n%@\n%@", self.creator.username, self.model, self.modelId, self.text);
+    NSLog(@"%@\n%@\n%@\n%@", self.creator.username, self.model, self.modelId, self.text);
     return self;
     
 }

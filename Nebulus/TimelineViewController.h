@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TimelineViewController : UITableViewController
-
+@property (nonatomic) BOOL selfMode;
 @end

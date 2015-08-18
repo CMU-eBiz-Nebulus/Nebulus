@@ -12,6 +12,7 @@
 #import "MusicHttpClient.h"
 #import "FollowViewController.h"
 #import "ModifyViewController.h"
+#import "TimelineViewController.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -103,6 +104,12 @@
             vc.mode = M_PROFILE;
             vc.backVC = self;
             vc.image = self.headPhoto.image;
+        }
+    } else if ([segue.identifier isEqualToString:@"showPersonalTimeline"]){
+        if ([segue.destinationViewController isKindOfClass:[ModifyViewController class]]) {
+            TimelineViewController *vc = (TimelineViewController *)segue.destinationViewController;
+            
+            vc.selfMode = YES;
         }
     }
 }
