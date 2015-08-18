@@ -41,13 +41,12 @@
 +(BOOL) uploadRecording:(NSData*) data Id: (NSString*) recordingId {
     
     
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"yourfilename.dat"];
-//    
-//    // Save it into file system
-//    [data writeToFile:dataPath atomically:YES];
-//    NSLog(dataPath);
+    AudioConverter *audioConverter = [[AudioConverter alloc] init];
+    //audioConverter.delegate = self;
+    audioConverter.conversionStartPoint = 0.0;
+    audioConverter.conversionLength = 40.0;
+    NSString *outputName = @"outputFilename.m4a";
+    [audioConverter convertAudioWithFilePath:data outputName:outputName ofType:AUDIO_OUTPUT_TYPE_AAC];
     
     
     NSLog(@"Lentgh : %ld",(unsigned long)data.length);
