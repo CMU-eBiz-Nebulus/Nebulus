@@ -67,6 +67,8 @@
     return cell;
 }
 
+#pragma mark - Height
+
 #define HEIGHT_TOP_CELL     80.0
 #define HEIGHT_BOTTOM_CELL  35.0
 #define HEIGHT_TEXT_CELL    35.0
@@ -81,6 +83,16 @@
     }
     return 0.0;
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 1.0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1.0;
+}
+
+#pragma mark - Button action
 
 - (IBAction)like:(UIButton *)sender {
     UIButton *likeButton = sender;

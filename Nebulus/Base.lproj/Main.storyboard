@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -232,18 +234,40 @@
                                     <segue destination="XZ8-e2-OiE" kind="show" identifier="followNotification" id="B0u-vQ-RWG"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="invitesCell" textLabel="scJ-eR-t0a" style="IBUITableViewCellStyleDefault" id="Ooo-Az-OJ3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="invitesCell" id="Ooo-Az-OJ3">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ooo-Az-OJ3" id="mjf-0e-B1A">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Invites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="scJ-eR-t0a">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M01-ZF-d4T">
+                                            <rect key="frame" x="8" y="11" width="50" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfc-ha-P84">
+                                            <rect key="frame" x="543" y="7" width="44" height="30"/>
+                                            <state key="normal" title="Action">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="respondToInvite:" destination="zjR-Cr-5Pb" eventType="touchUpInside" id="juL-3h-Fmj"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Bfc-ha-P84" secondAttribute="trailing" constant="5" id="2Pi-LA-EY0"/>
+                                        <constraint firstItem="Bfc-ha-P84" firstAttribute="baseline" secondItem="M01-ZF-d4T" secondAttribute="baseline" id="5uy-nE-bTK"/>
+                                        <constraint firstItem="M01-ZF-d4T" firstAttribute="centerY" secondItem="mjf-0e-B1A" secondAttribute="centerY" id="6zH-F4-oxU"/>
+                                        <constraint firstItem="M01-ZF-d4T" firstAttribute="leading" secondItem="mjf-0e-B1A" secondAttribute="leadingMargin" id="7tS-xG-qqb"/>
+                                        <constraint firstItem="M01-ZF-d4T" firstAttribute="top" secondItem="mjf-0e-B1A" secondAttribute="topMargin" constant="3" id="dlW-AU-EQj"/>
+                                        <constraint firstAttribute="centerY" secondItem="Bfc-ha-P84" secondAttribute="centerY" id="qlL-9W-lPR"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="5uy-nE-bTK"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="expiredCell" textLabel="4Ny-Sy-wz1" style="IBUITableViewCellStyleDefault" id="ZAF-zV-y7Q">
@@ -1528,7 +1552,55 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQk-A9-Shm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1589" y="5284"/>
+            <point key="canvasLocation" x="-1169" y="5336"/>
+        </scene>
+        <!--Comment Clip Picker View Controller-->
+        <scene sceneID="wVt-w9-fPI">
+            <objects>
+                <tableViewController id="LsI-ZZ-Fbv" customClass="CommentClipPickerViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lbf-Ax-EFu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="clipCell" id="H4P-ha-Akd">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H4P-ha-Akd" id="4wq-FB-472">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd2-l9-Vjv">
+                                            <rect key="frame" x="557" y="7" width="30" height="30"/>
+                                            <state key="normal" title="▶️">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clip name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-OC-edO">
+                                            <rect key="frame" x="1" y="11" width="78" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SU7-OC-edO" firstAttribute="centerY" secondItem="4wq-FB-472" secondAttribute="centerY" id="1lw-Nj-paJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="yd2-l9-Vjv" secondAttribute="trailing" constant="5" id="E98-wI-Sy7"/>
+                                        <constraint firstItem="yd2-l9-Vjv" firstAttribute="top" secondItem="4wq-FB-472" secondAttribute="topMargin" constant="-1" id="HTd-VT-Gzf"/>
+                                        <constraint firstItem="SU7-OC-edO" firstAttribute="baseline" secondItem="yd2-l9-Vjv" secondAttribute="baseline" id="OUv-o8-B5x"/>
+                                        <constraint firstItem="SU7-OC-edO" firstAttribute="baseline" secondItem="yd2-l9-Vjv" secondAttribute="firstBaseline" id="R47-Az-LQY"/>
+                                        <constraint firstItem="SU7-OC-edO" firstAttribute="leading" secondItem="4wq-FB-472" secondAttribute="leadingMargin" constant="-7" id="pqQ-Ke-I0I"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LsI-ZZ-Fbv" id="hrH-nV-Ws2"/>
+                            <outlet property="delegate" destination="LsI-ZZ-Fbv" id="PSZ-H1-VUh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i5v-Yr-QTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1512" y="5940"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="z6p-lz-DaB">
@@ -1553,6 +1625,9 @@ Some text here ...</string>
                                 <state key="normal" title="Attach a clip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="LsI-ZZ-Fbv" kind="show" identifier="selectClip" id="Xn6-xu-EjX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Clip name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvV-O7-oUp">
                                 <rect key="frame" x="16" y="320" width="78" height="21"/>
@@ -1596,7 +1671,7 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkc-XC-qIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2297" y="5503"/>
+            <point key="canvasLocation" x="-2324" y="5771"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lCZ-Id-8gY">
@@ -2393,12 +2468,12 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Osm-Oy-nlm"/>
-        <segue reference="OPr-Qg-P5T"/>
-        <segue reference="1oK-Qf-whG"/>
+        <segue reference="B0u-vQ-RWG"/>
+        <segue reference="B5n-hF-vRd"/>
         <segue reference="hWk-RA-vL1"/>
-        <segue reference="jTN-oo-tTb"/>
         <segue reference="a7l-Ip-Am4"/>
+        <segue reference="jTN-oo-tTb"/>
+        <segue reference="Osm-Oy-nlm"/>
         <segue reference="Onh-F8-P6T"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -66,6 +66,7 @@
 		9899C2701B7D7D49006ED563 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9899C26F1B7D7D49006ED563 /* NotificationViewController.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
+		98DD5C311B83C27100B9CEA5 /* CommentClipPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD5C301B83C27100B9CEA5 /* CommentClipPickerViewController.m */; };
 		98DFE11F1B759A7000C1DBDE /* AlbumProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */; };
 		98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */; };
 		98FC57541B82C0D300152FA2 /* TimelineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */; };
@@ -201,6 +202,8 @@
 		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		98C947321B62D5B8000E0CB8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		98DD5C2F1B83C27100B9CEA5 /* CommentClipPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentClipPickerViewController.h; sourceTree = "<group>"; };
+		98DD5C301B83C27100B9CEA5 /* CommentClipPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentClipPickerViewController.m; sourceTree = "<group>"; };
 		98DFE11D1B759A7000C1DBDE /* AlbumProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumProjectViewController.h; sourceTree = "<group>"; };
 		98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumProjectViewController.m; sourceTree = "<group>"; };
 		98DFE1211B75B2F600C1DBDE /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
@@ -446,6 +449,8 @@
 		98FC57561B82C0F500152FA2 /* timeline */ = {
 			isa = PBXGroup;
 			children = (
+				98DD5C2F1B83C27100B9CEA5 /* CommentClipPickerViewController.h */,
+				98DD5C301B83C27100B9CEA5 /* CommentClipPickerViewController.m */,
 				98FC57571B82D95C00152FA2 /* CommentViewController.h */,
 				98FC57581B82D95C00152FA2 /* CommentViewController.m */,
 				98FC57521B82C0D300152FA2 /* TimelineDetailViewController.h */,
@@ -604,6 +609,7 @@
 				8430F4421B6A943800CB2EE0 /* EZAudioFloatConverter.m in Sources */,
 				98FC57541B82C0D300152FA2 /* TimelineDetailViewController.m in Sources */,
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
+				98DD5C311B83C27100B9CEA5 /* CommentClipPickerViewController.m in Sources */,
 				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
 				928984411B7463A400D6FB6F /* Doc.m in Sources */,
 				84B56A401B7EE4C0009D5E63 /* PlayFileViewController.m in Sources */,

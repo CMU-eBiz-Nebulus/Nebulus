@@ -78,7 +78,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
         [self presentViewController:tabBarController animated:NO completion:nil];
-        NSLog(@"Logged in");
+        NSLog(@"Logged in with id = %@", user.objectID);
     } else {//Wrong username/password combination
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login failed"
                                                         message:@"Please check your input again!"
