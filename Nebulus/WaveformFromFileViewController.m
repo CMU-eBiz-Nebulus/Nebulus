@@ -41,15 +41,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     //
     // Customizing the audio plot's look
     //
     // Background color
-//    [self loadAudioPlot:self.audioPlot1 number:1];
-//    [self loadAudioPlot:self.audioPlot2 number:2];
-//    [self loadAudioPlot:self.audioPlot3 number:3];
-//    [self loadAudioPlot:self.audioPlot4 number:4];
+    //    [self loadAudioPlot:self.audioPlot1 number:1];
+    //    [self loadAudioPlot:self.audioPlot2 number:2];
+    //    [self loadAudioPlot:self.audioPlot3 number:3];
+    //    [self loadAudioPlot:self.audioPlot4 number:4];
     
     
     
@@ -58,23 +58,23 @@
     [self.view addSubview:self.moveMeView];
     
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    playButton.frame = CGRectMake(0, self.view.frame.size.height - 200, 100, 100);
+    playButton.frame = CGRectMake(0, self.view.frame.size.height - 150, 100, 100);
     [playButton setTitle:@"Play"
-                  forState:UIControlStateNormal];
+                forState:UIControlStateNormal];
     
     [playButton addTarget:self
-                     action:@selector(playButtonClicked:)
-           forControlEvents:UIControlEventTouchUpInside];
+                   action:@selector(playButtonClicked:)
+         forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playButton];
     
     UIButton *exportButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    exportButton.frame = CGRectMake(200, self.view.frame.size.height - 200, 100, 100);
+    exportButton.frame = CGRectMake(200, self.view.frame.size.height - 150, 100, 100);
     [exportButton setTitle:@"Merge"
-                forState:UIControlStateNormal];
+                  forState:UIControlStateNormal];
     
     [exportButton addTarget:self
-                   action:@selector(export:)
-         forControlEvents:UIControlEventTouchUpInside];
+                     action:@selector(export:)
+           forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:exportButton];
     
     int numberOfLine = 6;
@@ -82,7 +82,7 @@
     
     for(int i=0;i<numberOfLine*heightofImage;i+=heightofImage) {
         UIView *horizontalLine=[[UIView alloc]initWithFrame:CGRectMake(0, i, self.view.frame.size.width, 1)];
-       horizontalLine.backgroundColor = [UIColor grayColor];
+        horizontalLine.backgroundColor = [UIColor grayColor];
         [self.view addSubview:horizontalLine];
     }
     int numberOfLine1 = 12;
@@ -97,53 +97,81 @@
     [self.view addSubview:self.timeLine];
     
     [self listFileAtPath];
+    _slider4 = [[UISlider alloc] initWithFrame:CGRectMake(100, 410, 200, 20)];
+    _slider4.tag = 3;
+    _slider4.minimumValue = 0;
+    _slider4.maximumValue = 1;
+    _slider4.value = 1;
+    
+    [_slider4 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
+    
+    _slider3 = [[UISlider alloc] initWithFrame:CGRectMake(100, 380, 200, 20)];
+    _slider3.tag = 2;
+    _slider3.minimumValue = 0;
+    _slider3.maximumValue = 1;
+    _slider3.value = 1;
+    
+    [_slider3 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
+    
+    _slider2 = [[UISlider alloc] initWithFrame:CGRectMake(100, 350, 200, 20)];
+    _slider2.tag = 1;
+    _slider2.minimumValue = 0;
+    _slider2.maximumValue = 1;
+    _slider2.value = 1;
+    
+    [_slider2 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
+    
+    _slider1 = [[UISlider alloc] initWithFrame:CGRectMake(100, 320, 200, 20)];
+    _slider1.tag = 0;
+    _slider1.minimumValue = 0;
+    _slider1.maximumValue = 1;
+    _slider1.value = 1;
+    
+    [_slider1 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
+    
     switch ([_directoryContent count]){
         case 4:{
-            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 300, 300, 10)];
-            slider.tag = 3;
-            slider.minimumValue = 0;
-            slider.maximumValue = 1;
-            slider.value = 1;
+            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 410, 200, 20)];
+            trackLabel.font = [UIFont boldSystemFontOfSize:10.0];
+            //fileNameLabel.backgroundColor = [UIColor clearColor];
+            trackLabel.text =[NSString stringWithFormat:@"Track%d Volume", 4] ;
+            [self.view addSubview:trackLabel];
             
-            [slider addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
-            [self.view addSubview:slider];
-
+            
+            [self.view addSubview:_slider4];
+            
         }
         case 3:{
-            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 310, 300, 10)];
-            slider.tag = 2;
-            slider.minimumValue = 0;
-            slider.maximumValue = 1;
-            slider.value = 1;
+            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 380, 200, 20)];
+            trackLabel.font = [UIFont boldSystemFontOfSize:10.0];
+            //fileNameLabel.backgroundColor = [UIColor clearColor];
+            trackLabel.text =[NSString stringWithFormat:@"Track%d Volume", 3] ;
+            [self.view addSubview:trackLabel];
             
-            [slider addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
-            [self.view addSubview:slider];
+            [self.view addSubview:_slider3];
             
         }
         case 2:{
-            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 320, 300, 10)];
-            slider.tag = 1;
-            slider.minimumValue = 0;
-            slider.maximumValue = 1;
-            slider.value = 1;
-            
-            [slider addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
-            [self.view addSubview:slider];
+            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 350, 200, 20)];
+            trackLabel.font = [UIFont boldSystemFontOfSize:10.0];
+            //fileNameLabel.backgroundColor = [UIColor clearColor];
+            trackLabel.text =[NSString stringWithFormat:@"Track%d Volume", 2] ;
+            [self.view addSubview:trackLabel];
+            [self.view addSubview:_slider2];
             
         }
         case 1:{
-            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 330, 300, 10)];
-            slider.tag = 0;
-            slider.minimumValue = 0;
-            slider.maximumValue = 1;
-            slider.value = 1;
+            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 320, 200, 20)];
+            trackLabel.font = [UIFont boldSystemFontOfSize:10.0];
+            //fileNameLabel.backgroundColor = [UIColor clearColor];
+            trackLabel.text =[NSString stringWithFormat:@"Track%d Volume", 1] ;
+            [self.view addSubview:trackLabel];
             
-            [slider addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
-            [self.view addSubview:slider];
+            [self.view addSubview:_slider1];
             
         }
     }
-    }
+}
 
 -(void)itemDidFinishPlaying:(NSNotification *) notification {
     [_player seekToTime:kCMTimeZero];
@@ -164,7 +192,7 @@
 
 
 -(void)loadAudioPlot:(EZAudioPlot*)audioPlot number:(NSInteger)number{
-//    audioPlot = [[EZAudioPlot alloc] initWithFrame:CGRectMake(30, 90*number, self.view.frame.size.width-30, 60)];
+    //    audioPlot = [[EZAudioPlot alloc] initWithFrame:CGRectMake(30, 90*number, self.view.frame.size.width-30, 60)];
     audioPlot = [[EZAudioPlot alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-30, 60)];
     UIView *coverView = [[UIView alloc]initWithFrame:CGRectMake(30, 90*number, self.view.frame.size.width-30, 60)];
     
@@ -211,7 +239,7 @@
         case 4:[self openFileWithFilePathURL:[NSURL fileURLWithPath:kAudioFile4] audioPlot:audioPlot number:4];
             audioPlot.backgroundColor = [UIColor colorWithRed: 0.675 green: 0.643 blue: 0.169 alpha: 1];
             break;
-
+            
     }
     [self.view addSubview:slider];
     [coverView addSubview:audioPlot];
@@ -220,14 +248,14 @@
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(handleSingleTap:)];
     [coverView addGestureRecognizer:singleFingerTap];
-
     
-
+    
+    
     [self.view addSubview:coverView];
     
-//    [self.view addSubview:audioPlot];
-
-
+    //    [self.view addSubview:audioPlot];
+    
+    
 }
 
 //------------------------------------------------------------------------------
@@ -251,7 +279,7 @@
                  [audioPlot updateBuffer:waveformData[0]
                           withBufferSize:length];
              }];
-
+            
             break;}
         case 2:{
             self.audioFile2         = [EZAudioFile audioFileWithURL:filePathURL];
@@ -261,9 +289,9 @@
                  [audioPlot updateBuffer:waveformData[0]
                           withBufferSize:length];
              }];
-
+            
             break;}
-
+            
         case 3:{
             self.audioFile3         = [EZAudioFile audioFileWithURL:filePathURL];
             [self.audioFile3 getWaveformDataWithCompletionBlock:^(float **waveformData,
@@ -274,7 +302,7 @@
              }];
             
             break;}
-
+            
         case 4:{
             self.audioFile4         = [EZAudioFile audioFileWithURL:filePathURL];
             [self.audioFile4 getWaveformDataWithCompletionBlock:^(float **waveformData,
@@ -285,12 +313,13 @@
              }];
             
             break;}
-}
+    }
     
-
+    
     
 }
 - (IBAction)playButtonClicked:(id)sender {
+    
     
     NSArray *l = [self.moveMeView getLocation];
     
@@ -346,18 +375,40 @@
                  forKeyPath:@"status"
                     options:0
                     context:NULL];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
     
     _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
     [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 100) queue:nil
                                      usingBlock:^(CMTime time){
-                                         NSLog(@"%lld %d ",_player.currentTime.value,_player.currentTime.timescale);
+                                         //                                         NSLog(@"%lld %d ",_player.currentTime.value,_player.currentTime.timescale);
                                          self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*5, 0, 1, 300);
                                          [self.timeLine setNeedsDisplay];
                                      }];
-
-    [self applyAudioMix];
+    
+    switch ([_directoryContent count]){
+        case 4:{
+            [self mix:_slider4];
+            
+        }
+        case 3:{
+            [self mix:_slider3];
+            
+        }
+        case 2:{
+            
+            [self mix:_slider2];
+            
+        }
+        case 1:{
+            [self mix:_slider1];
+            
+        }
+    }
+    
+    
+    
+    
 }
 - (IBAction)export:(id)sender {
     AVAssetExportSession* _assetExport = [[AVAssetExportSession alloc] initWithAsset:_composition
@@ -380,7 +431,7 @@
     [_assetExport exportAsynchronouslyWithCompletionHandler:
      ^(void ) {
          NSLog(@"export finished");
-        }
+     }
      
      ];
 }

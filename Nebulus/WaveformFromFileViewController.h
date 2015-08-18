@@ -43,6 +43,10 @@
 @property (nonatomic, strong) IBOutlet APLMoveMeView *moveMeView;
 
 
+@property (nonatomic,strong) IBOutlet UISlider *slider1;
+@property (nonatomic,strong) IBOutlet UISlider *slider2;
+@property (nonatomic,strong) IBOutlet UISlider *slider3;
+@property (nonatomic,strong) IBOutlet UISlider *slider4;
 /**
  A BOOL indicating whether or not we've reached the end of the file
  */
