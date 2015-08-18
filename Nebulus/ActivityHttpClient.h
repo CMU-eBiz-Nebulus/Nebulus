@@ -16,6 +16,8 @@
 
 @interface ActivityHttpClient : NSObject
 
++(Activity*) createActivity:(Activity*) activity;
+
 +(Comment*) createComment:(Comment*) cmt;
 
 +(NSArray*) getCommentofActivity:(NSString*) activityId;
