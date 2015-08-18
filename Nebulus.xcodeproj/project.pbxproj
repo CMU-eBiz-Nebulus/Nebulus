@@ -65,6 +65,7 @@
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
 		98DFE11F1B759A7000C1DBDE /* AlbumProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */; };
 		98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */; };
+		98FC57541B82C0D300152FA2 /* TimelineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */; };
 		98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFE597F31B6322B900ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -195,6 +196,8 @@
 		98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumProjectViewController.m; sourceTree = "<group>"; };
 		98DFE1211B75B2F600C1DBDE /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
 		98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
+		98FC57521B82C0D300152FA2 /* TimelineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineDetailViewController.h; sourceTree = "<group>"; };
+		98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineDetailViewController.m; sourceTree = "<group>"; };
 		98FF60C91B69B52F00DE90B4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProjectAlbumViewController.m; sourceTree = "<group>"; };
@@ -303,8 +306,7 @@
 				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
 				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
-				9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */,
-				9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */,
+				98FC57561B82C0F500152FA2 /* timeline */,
 				9899C26E1B7D7D49006ED563 /* NotificationViewController.h */,
 				9899C26F1B7D7D49006ED563 /* NotificationViewController.m */,
 				98FF60C91B69B52F00DE90B4 /* SearchViewController.h */,
@@ -413,6 +415,17 @@
 				AFE597FD1B6333E300ED0520 /* CreateProjectAlbumViewController.h */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		98FC57561B82C0F500152FA2 /* timeline */ = {
+			isa = PBXGroup;
+			children = (
+				98FC57521B82C0D300152FA2 /* TimelineDetailViewController.h */,
+				98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */,
+				9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */,
+				9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */,
+			);
+			name = timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,6 +572,7 @@
 				8430F4461B6A943800CB2EE0 /* EZAudioPlotGL.m in Sources */,
 				8430F4471B6A943800CB2EE0 /* EZAudioUtilities.m in Sources */,
 				8430F4421B6A943800CB2EE0 /* EZAudioFloatConverter.m in Sources */,
+				98FC57541B82C0D300152FA2 /* TimelineDetailViewController.m in Sources */,
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
 				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
 				928984411B7463A400D6FB6F /* Doc.m in Sources */,
