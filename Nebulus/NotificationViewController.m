@@ -13,6 +13,7 @@
 #import "MusicHttpClient.h"
 #import "UserHttpClient.h"
 #import "OtherProfileViewController.h"
+#import "ActivityHttpClient.h"
 
 @interface NotificationViewController() <UIAlertViewDelegate>
 
@@ -35,7 +36,7 @@
     NSMutableArray *dstArray = [[NSMutableArray alloc] init];
     
     self.unread = 0;
-    for(Notification *notification in tmpNots.reverseObjectEnumerator){
+    for(Notification *notification in tmpNots){
         if([notification.model isEqualToString:@"invites"]){
             
 
@@ -217,15 +218,15 @@
         UITableViewCell *cell = (UITableViewCell *)sender;
         
         Notification *notification = [self.notifications objectAtIndex:[self.tableView indexPathForCell:cell].row];
-        //TODO: get invite from notification
-        Invite *invite = nil; //notification.
+
+        Invite *invite = [ActivityHttpClient getInvite:notification.modelId];
         
         if(invite.album != nil){
             vc.mode = ALBUM_DETAIL;
-            vc.content = [MusicHttpClient getAlbum:notification.modelId];
+            vc.content = [MusicHttpClient getAlbum:invite.album.objectID];
         }else if(invite.project != nil){
             vc.mode = PROJECT_DETAIL;
-            vc.content = [ProjectHttpClient getProject:notification.modelId];
+            vc.content = [ProjectHttpClient getProject:invite.project.objectID];
         }
         
         vc.viewMode = YES;
