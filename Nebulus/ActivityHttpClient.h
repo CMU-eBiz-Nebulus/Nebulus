@@ -11,6 +11,8 @@
 #import "Comment.h"
 #import "User.h"
 #import "Invite.h"
+#import "MusicHttpClient.h"
+#import "ProjectHttpClient.h"
 
 @interface ActivityHttpClient : NSObject
 
