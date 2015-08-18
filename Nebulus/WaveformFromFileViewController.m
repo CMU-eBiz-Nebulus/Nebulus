@@ -186,7 +186,13 @@
     if ([self isMovingFromParentViewController]) {
         //specific stuff for being popped off stack
         if (_player != nil && [_player currentItem] != nil)
-            [[_player currentItem] removeObserver:self forKeyPath:@"status"];
+            @try{
+                [[_player currentItem] removeObserver:self forKeyPath:@"status"];
+                
+            }@catch(id anException){
+                //do nothing, obviously it wasn't attached because an exception was thrown
+            }
+        
     }
 }
 
@@ -410,31 +416,133 @@
     
     
 }
-- (IBAction)export:(id)sender {
-    AVAssetExportSession* _assetExport = [[AVAssetExportSession alloc] initWithAsset:_composition
-                                                                          presetName:AVAssetExportPresetAppleM4A];
-    
-    NSString* videoName = @"export.m4a";
-    
-    NSString *exportPath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:videoName];
-    NSURL    *exportUrl = [NSURL fileURLWithPath:exportPath];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:exportPath])
-    {
-        [[NSFileManager defaultManager] removeItemAtPath:exportPath error:nil];
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        NSLog(@"Cancel Tapped.");
     }
-    
-    _assetExport.outputFileType = AVFileTypeAppleM4A;
-    _assetExport.outputURL = exportUrl;
-    _assetExport.shouldOptimizeForNetworkUse = YES;
-    
-    [_assetExport exportAsynchronouslyWithCompletionHandler:
-     ^(void ) {
-         NSLog(@"export finished");
-     }
-     
-     ];
+    else if (buttonIndex == 1) {
+        NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
+        
+        NSArray *l = [self.moveMeView getLocation];
+        
+        //[self applyAudioMix];
+        if (_player != nil && [_player currentItem] != nil)
+            [[_player currentItem] removeObserver:self forKeyPath:@"status"];
+        //Setup
+        _composition = [AVMutableComposition composition];
+        
+        _audioMixValues = [[NSMutableDictionary alloc] initWithCapacity:0];
+        _audioMixTrackIDs = [[NSMutableDictionary alloc] initWithCapacity:0];
+        
+        // Insert the audio tracks into our composition
+        //NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
+        //NSString* audioFileType = @"wav";
+        [self listFileAtPath];
+        for (int i=0; i<[_directoryContent count]; i++)
+            
+        {
+            NSString* trackName = [_directoryContent objectAtIndex:i];
+            //        AVURLAsset* audioAsset = [[AVURLAsset alloc]initWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:trackName ofType:audioFileType]]
+            //                                                        options:nil];
+            
+            AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                                                             [self applicationDocumentsDirectory],
+                                                                                             trackName]]  options:nil];
+            AVMutableCompositionTrack* audioTrack = [_composition addMutableTrackWithMediaType:AVMediaTypeAudio
+                                                                              preferredTrackID:kCMPersistentTrackID_Invalid];
+            
+            NSError* error;
+            [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, audioAsset.duration)
+                                ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio]objectAtIndex:0]
+                                 atTime:CMTimeMakeWithSeconds([(NSNumber*)[l objectAtIndex:i] floatValue]/5, 600)
+                                  error:&error];
+            
+            if (error)
+            {
+                NSLog(@"%@", [error localizedDescription]);
+            }
+            
+            // Store the track IDs as track name -> track ID
+            [_audioMixTrackIDs setValue:[NSNumber numberWithInteger:audioTrack.trackID]
+                                 forKey:trackName];
+            
+            // Set the volume to 1.0 (max) for the track
+            [self setVolume:1.0f forTrack:trackName];
+        }
+        
+        // Create a player for our composition of audio tracks. We observe the status so
+        // we know when the player is ready to play
+        AVPlayerItem* playerItem = [[AVPlayerItem alloc] initWithAsset:[_composition copy]];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
+        
+        _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
+        [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 100) queue:nil
+                                         usingBlock:^(CMTime time){
+                                             //                                         NSLog(@"%lld %d ",_player.currentTime.value,_player.currentTime.timescale);
+                                             self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*5, 0, 1, 300);
+                                             [self.timeLine setNeedsDisplay];
+                                         }];
+        
+        switch ([_directoryContent count]){
+            case 4:{
+                [self mix:_slider4];
+                
+            }
+            case 3:{
+                [self mix:_slider3];
+                
+            }
+            case 2:{
+                
+                [self mix:_slider2];
+                
+            }
+            case 1:{
+                [self mix:_slider1];
+                
+            }
+        }
+        
+        
+        
+        AVAssetExportSession* _assetExport = [[AVAssetExportSession alloc] initWithAsset:_composition
+                                                                              presetName:AVAssetExportPresetAppleM4A];
+        
+        NSString* videoName = [NSString stringWithFormat:@"%@.m4a", [[alertView textFieldAtIndex:0] text]] ;
+        
+        NSString *exportPath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:videoName];
+        NSURL    *exportUrl = [NSURL fileURLWithPath:exportPath];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:exportPath])
+        {
+            [[NSFileManager defaultManager] removeItemAtPath:exportPath error:nil];
+        }
+        
+        _assetExport.outputFileType = AVFileTypeAppleM4A;
+        _assetExport.outputURL = exportUrl;
+        _assetExport.shouldOptimizeForNetworkUse = YES;
+        
+        [_assetExport exportAsynchronouslyWithCompletionHandler:
+         ^(void ) {
+             NSLog(@"export finished");
+         }
+         
+         ];
+        
+        [self.navigationController popViewControllerAnimated:YES];    }
 }
+
+
+- (IBAction)export:(id)sender {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Merge" message:@"Please enter the name of the music" delegate:self cancelButtonTitle:@"Cancel"
+                                           otherButtonTitles:@"OK",nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField * alertTextField = [alert textFieldAtIndex:0];
+    alertTextField.keyboardType = UIKeyboardTypeAlphabet;
+    alertTextField.placeholder = @"Enter the name of the music";
+    [alert show];
+    }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
