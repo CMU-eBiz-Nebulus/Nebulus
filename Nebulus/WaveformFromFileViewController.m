@@ -69,7 +69,7 @@
     
     UIButton *exportButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     exportButton.frame = CGRectMake(200, self.view.frame.size.height - 200, 100, 100);
-    [exportButton setTitle:@"Export"
+    [exportButton setTitle:@"Merge"
                 forState:UIControlStateNormal];
     
     [exportButton addTarget:self
@@ -95,8 +95,55 @@
     self.timeLine=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 320)];
     self.timeLine.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.timeLine];
+    
+    [self listFileAtPath];
+    switch ([_directoryContent count]){
+        case 4:{
+            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 300, 300, 10)];
+            slider.tag = 3;
+            slider.minimumValue = 0;
+            slider.maximumValue = 1;
+            slider.value = 1;
+            
+            [slider addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
+            [self.view addSubview:slider];
 
-}
+        }
+        case 3:{
+            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 310, 300, 10)];
+            slider.tag = 2;
+            slider.minimumValue = 0;
+            slider.maximumValue = 1;
+            slider.value = 1;
+            
+            [slider addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
+            [self.view addSubview:slider];
+            
+        }
+        case 2:{
+            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 320, 300, 10)];
+            slider.tag = 1;
+            slider.minimumValue = 0;
+            slider.maximumValue = 1;
+            slider.value = 1;
+            
+            [slider addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
+            [self.view addSubview:slider];
+            
+        }
+        case 1:{
+            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 330, 300, 10)];
+            slider.tag = 0;
+            slider.minimumValue = 0;
+            slider.maximumValue = 1;
+            slider.value = 1;
+            
+            [slider addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
+            [self.view addSubview:slider];
+            
+        }
+    }
+    }
 
 -(void)itemDidFinishPlaying:(NSNotification *) notification {
     [_player seekToTime:kCMTimeZero];
@@ -309,6 +356,8 @@
                                          self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*5, 0, 1, 300);
                                          [self.timeLine setNeedsDisplay];
                                      }];
+
+    [self applyAudioMix];
 }
 - (IBAction)export:(id)sender {
     AVAssetExportSession* _assetExport = [[AVAssetExportSession alloc] initWithAsset:_composition
@@ -352,7 +401,7 @@
     UISlider* slider = (UISlider*)sender;
     
     [self setVolume:slider.value
-           forTrack:[NSString stringWithFormat:@"track%d", slider.tag]];
+           forTrack:[_directoryContent objectAtIndex:slider.tag]];
     [self applyAudioMix];
 }
 
