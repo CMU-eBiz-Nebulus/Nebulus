@@ -11,6 +11,7 @@
 #import "UserHttpClient.h"
 #import "OtherProfileViewController.h"
 #import "TimelineDetailViewController.h"
+#import "CommentViewController.h"
 
 @interface TimelineViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
@@ -88,22 +89,22 @@
     NSLog(@"Clicked at %ld %ld", indexPath.section, indexPath.row);
 }
 
-- (IBAction)comment:(UIButton *)sender {
-    UIButton *commentButton = sender;
-    CGRect buttonFrame = [commentButton convertRect:commentButton.bounds toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
-    NSLog(@"Clicked at %ld %ld", indexPath.section, indexPath.row);
-    
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Comment"
-                                                     message:@"Enter comment here"
-                                                    delegate:self
-                                           cancelButtonTitle:@"Cancel"
-                                           otherButtonTitles: nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert addButtonWithTitle:@"Comment"];
-    [alert show];
-    
-}
+//- (IBAction)comment:(UIButton *)sender {
+//    UIButton *commentButton = sender;
+//    CGRect buttonFrame = [commentButton convertRect:commentButton.bounds toView:self.tableView];
+//    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+//    NSLog(@"Clicked at %ld %ld", indexPath.section, indexPath.row);
+//    
+//    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Comment"
+//                                                     message:@"Enter comment here"
+//                                                    delegate:self
+//                                           cancelButtonTitle:@"Cancel"
+//                                           otherButtonTitles: nil];
+//    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    [alert addButtonWithTitle:@"Comment"];
+//    [alert show];
+//    
+//}
 
 - (IBAction)viewDetail:(UIButton *)sender {
     UIButton *button = sender;
@@ -140,6 +141,15 @@
             Activity *activity = [self.activity objectAtIndex:indexPath.section];
             vc.currUser = self.currUser;
             vc.activity = activity;
+        }
+    }else if ([segue.identifier isEqualToString:@"comment"]) {
+        if ([segue.destinationViewController isKindOfClass:[CommentViewController class]]) {
+            CommentViewController *vc = (CommentViewController *)segue.destinationViewController;
+//            UITableViewCell *cell = (UITableViewCell *)sender;
+//            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+//            Activity *activity = [self.activity objectAtIndex:indexPath.section];
+//            vc.currUser = self.currUser;
+//            vc.activity = activity;
         }
     }
 }

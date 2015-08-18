@@ -144,7 +144,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="comment:" destination="6ec-0m-sDm" eventType="touchUpInside" id="tMS-Q3-gMA"/>
+                                                <segue destination="Twk-i2-PHi" kind="show" identifier="comment" id="PrR-jJ-7Kp"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1530,6 +1530,67 @@ Some text here ...</string>
             </objects>
             <point key="canvasLocation" x="-1589" y="5284"/>
         </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="z6p-lz-DaB">
+            <objects>
+                <viewController id="Twk-i2-PHi" customClass="CommentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wLz-mi-yzF"/>
+                        <viewControllerLayoutGuide type="bottom" id="209-VM-FcU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yH3-Z7-zpU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-uf-ywj">
+                                <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8si-07-DmF">
+                                <rect key="frame" x="16" y="272" width="86" height="30"/>
+                                <state key="normal" title="Attach a clip">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clip name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvV-O7-oUp">
+                                <rect key="frame" x="16" y="320" width="78" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="vFs-hr-g1X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcO-rN-zfW">
+                                <rect key="frame" x="132" y="315" width="44" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0dg-uf-ywj" firstAttribute="leading" secondItem="yH3-Z7-zpU" secondAttribute="leading" id="7Fg-MY-mFt"/>
+                            <constraint firstItem="GcO-rN-zfW" firstAttribute="leading" secondItem="VvV-O7-oUp" secondAttribute="trailing" constant="38" id="CEQ-IJ-qmm"/>
+                            <constraint firstItem="8si-07-DmF" firstAttribute="leading" secondItem="VvV-O7-oUp" secondAttribute="leading" id="ITs-Re-eDj"/>
+                            <constraint firstItem="VvV-O7-oUp" firstAttribute="top" secondItem="8si-07-DmF" secondAttribute="bottom" constant="18" id="JYu-k4-6VH"/>
+                            <constraint firstItem="209-VM-FcU" firstAttribute="top" secondItem="GcO-rN-zfW" secondAttribute="bottom" constant="206" id="WHE-gF-FaV"/>
+                            <constraint firstItem="209-VM-FcU" firstAttribute="top" secondItem="VvV-O7-oUp" secondAttribute="bottom" constant="210" id="ZdO-Wh-SCV"/>
+                            <constraint firstAttribute="trailing" secondItem="0dg-uf-ywj" secondAttribute="trailing" id="bb9-7k-Rpc"/>
+                            <constraint firstItem="0dg-uf-ywj" firstAttribute="top" secondItem="wLz-mi-yzF" secondAttribute="bottom" id="fGh-2p-6QT"/>
+                            <constraint firstItem="VvV-O7-oUp" firstAttribute="leading" secondItem="yH3-Z7-zpU" secondAttribute="leadingMargin" id="iKe-R5-dyp"/>
+                            <constraint firstItem="VvV-O7-oUp" firstAttribute="centerY" secondItem="GcO-rN-zfW" secondAttribute="centerY" id="qW4-6U-NCG"/>
+                            <constraint firstItem="8si-07-DmF" firstAttribute="top" secondItem="0dg-uf-ywj" secondAttribute="bottom" constant="8" symbolic="YES" id="zi5-A2-fl5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bkc-XC-qIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2297" y="5503"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="lCZ-Id-8gY">
             <objects>
@@ -1783,6 +1844,9 @@ Some text here ...</string>
                                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <segue destination="Twk-i2-PHi" kind="show" identifier="comment" id="Onh-F8-P6T"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -1861,7 +1925,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBM-eZ-gVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1698" y="4525"/>
+            <point key="canvasLocation" x="-1743" y="4525"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="PA7-qW-bgH">
@@ -2322,11 +2386,12 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lps-BD-uhJ"/>
-        <segue reference="jTN-oo-tTb"/>
         <segue reference="hWk-RA-vL1"/>
-        <segue reference="a7l-Ip-Am4"/>
         <segue reference="Osm-Oy-nlm"/>
+        <segue reference="a7l-Ip-Am4"/>
+        <segue reference="jTN-oo-tTb"/>
+        <segue reference="lps-BD-uhJ"/>
         <segue reference="3kD-yN-Xpq"/>
+        <segue reference="Onh-F8-P6T"/>
     </inferredMetricsTieBreakers>
 </document>

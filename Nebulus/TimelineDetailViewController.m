@@ -10,6 +10,7 @@
 #import "UserHttpClient.h"
 #import "ActivityHttpClient.h"
 #import "OtherProfileViewController.h"
+#import "Comment.h"
 
 @interface TimelineDetailViewController ()
 @property (nonatomic, strong) NSArray *comments;
@@ -86,9 +87,9 @@
         
         Comment *comment = [self.comments objectAtIndex:indexPath.row];
 //        [(UIImageView *)[cell viewWithTag:101] setImage: [UserHttpClient getUserImage:comment.sender.objectID]];
-        [(UILabel *)[cell viewWithTag:102] setText:comment.sender.username];
+//        [(UILabel *)[cell viewWithTag:102] setText:comment.sender.username];
 //        
- //       [(UITextView *)[cell viewWithTag:103] setText:comment.text];
+//        [(UITextView *)[cell viewWithTag:103] setText:comment.text];
         [(UIButton *)[cell viewWithTag:104] setHidden:NO];   // LIKE button
         [(UIButton *)[cell viewWithTag:105] setHidden:YES];  // PLAY button
     }
