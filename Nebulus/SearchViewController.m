@@ -10,13 +10,16 @@
 #import "User.h"
 #import "UserHttpClient.h"
 #import "MusicHttpClient.h"
+#import "ProjectHttpClient.h"
 #import "OtherProfileViewController.h"
 #import "AlbumProjectViewController.h"
 
-@interface SearchViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface SearchViewController () <UITableViewDelegate,UITableViewDataSource,
+UITextFieldDelegate>
 
 @property (nonatomic, strong) NSArray *users;
 @property (nonatomic, strong) NSArray *albums;
+@property (nonatomic, strong) NSArray *projects;
 
 @property (atomic, strong) NSMutableArray *searchQueue;
 @property (nonatomic, strong) NSTimer *timer;
@@ -48,6 +51,11 @@
     return _albums;
 }
 
+-(NSArray *)projects{
+    if(!_projects)_projects = @[];
+    return _projects;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -55,7 +63,27 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    // textfield return keyboard by clicking return button
+    self.searchBar.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
     //self.searchForInvitation = NO;
+}
+
+-(void)dismissKeyboard {
+    NSArray *subviews = [self.view subviews];
+    for (id subview in subviews) {
+        if ([subview isKindOfClass:[UITextField class]]) {
+            UITextField *textField = subview;
+            if ([subview isFirstResponder]) {
+                [textField resignFirstResponder];
+            }
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -83,7 +111,7 @@
         if([str length] > 0){
             
             BOOL isLegal = YES;
-            NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "];
+            NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
             for (int i = 0; i < [str length]; i++){
                 unichar c = [str characterAtIndex:i];
                 if (![charSet characterIsMember:c]) {
@@ -94,6 +122,7 @@
             if (isLegal) {
                 self.users = [UserHttpClient searchUser:str];
                 self.albums = [MusicHttpClient searchAlbum:str];
+                self.projects = [self searchSelfProjectByWord:str];
             }
         }
         [self.tableView reloadData];
@@ -105,6 +134,9 @@
     
     if([sender.text length] > 0){
         [self.searchQueue addObject:sender.text];
+    } else {
+        [self.searchQueue removeAllObjects];
+        [self.tableView reloadData];
     }
 
 
@@ -119,7 +151,7 @@
 
 #pragma mark - Table View Data Source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.searchForInvitation ? 1 : 2;
+    return self.searchForInvitation ? 1 : 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -127,6 +159,7 @@
     
     if(section == 0)        return [self.users count] == 0 ? 1 : [self.users count];
     else if (section == 1)  return [self.albums count] == 0 ? 1 : [self.albums count];
+    else if (section == 2)  return [self.projects count] == 0 ? 1 : [self.projects count];
     return 0;
 }
 
@@ -165,6 +198,22 @@
         [(UILabel *)[cell viewWithTag:102] setText:album.name];
         
         return cell;
+    } else if(indexPath.section == 2){
+        
+        if([self.searchBar.text length] && [self.projects count] == 0){
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell"];
+            [cell.textLabel setText:@"No projects found"];
+            return cell;
+        }
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MusicCell"];
+        Project *project = [self.projects objectAtIndex:indexPath.row];
+        
+        [(UIImageView *)[cell viewWithTag:101] setImage: [ProjectHttpClient getProjectImage:project.objectID]];
+        [(UIImageView *)[cell viewWithTag:101] setContentMode:UIViewContentModeScaleToFill];
+        [(UILabel *)[cell viewWithTag:102] setText:project.projectName];
+        
+        return cell;
     }
     
     return nil;
@@ -175,6 +224,7 @@
     if([self.searchBar.text length]){
         if      (section == 0) return @"Users";
         else if (section == 1) return @"Albums";
+        else if (section == 2) return @"Projects";
     }
     
     return @"";
@@ -184,7 +234,8 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if ( (indexPath.section == 0 && [self.users count] == 0)
-        || (indexPath.section == 1 && [self.albums count] == 0)){
+        || (indexPath.section == 1 && [self.albums count] == 0)
+        || (indexPath.section == 2 && [self.projects count] == 0)){
         return 35.0;
     } else return 70.0;
 }
@@ -211,13 +262,46 @@
             AlbumProjectViewController *vc = (AlbumProjectViewController *)segue.destinationViewController;
             UITableViewCell *cell = (UITableViewCell *)sender;
             
-            Album *album = [self.albums objectAtIndex:[self.tableView indexPathForCell:cell].row];
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
             
-            vc.mode = ALBUM_DETAIL;
-            vc.content = album;
-            vc.viewMode = YES;
+            if(indexPath.section == 1){
+                Album *album = [self.albums objectAtIndex:[self.tableView indexPathForCell:cell].row];
+                
+                vc.mode = ALBUM_DETAIL;
+                vc.content = album;
+                vc.viewMode = YES;
+            }else if(indexPath.section == 2){
+                Project *project = [self.projects objectAtIndex:[self.tableView indexPathForCell:cell].row];
+                
+                vc.mode = PROJECT_DETAIL;
+                vc.content = project;
+                vc.viewMode = YES;
+            }
         }
     }
+}
+
+#pragma mark - Closing keyboard
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if(textField){
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
+
+#pragma mark - Search Projects
+-(NSArray *) searchSelfProjectByWord:(NSString *)word{
+    NSArray *allProjects = [ProjectHttpClient getProjectsByUser:[UserHttpClient getCurrentUser].objectID];
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    
+    for (Project *project in allProjects){
+        if([project.projectName containsString:word]){
+            [results addObject:project];
+        }
+    }
+    
+    return results.copy;
 }
 
 @end

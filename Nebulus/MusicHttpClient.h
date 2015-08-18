@@ -9,11 +9,7 @@
 #import "Model.h"
 #import "User.h"
 #import "Activity.h"
-#import "AlbumShare.h"
-#import "ClipShare.h"
-#import "ProjectShare.h"
-#import "ProjectClassified.h"
-#import "UserClassified.h"
+#import "Album.h"
 #import <UIKit/UIKit.h>
 #import "UserHttpClient.h"
 

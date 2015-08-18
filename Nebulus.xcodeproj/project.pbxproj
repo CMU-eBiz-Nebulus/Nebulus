@@ -34,11 +34,6 @@
 		9283EE1F1B686AC8004A553B /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE1E1B686AC8004A553B /* Clip.m */; };
 		9283EE221B686ADD004A553B /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE211B686ADD004A553B /* Project.m */; };
 		9289842E1B728F1500D6FB6F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289842D1B728F1500D6FB6F /* Activity.m */; };
-		928984311B729E6300D6FB6F /* AlbumShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984301B729E6300D6FB6F /* AlbumShare.m */; };
-		928984351B729E9D00D6FB6F /* ClipShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984341B729E9D00D6FB6F /* ClipShare.m */; };
-		928984381B729EAF00D6FB6F /* ProjectClassified.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984371B729EAF00D6FB6F /* ProjectClassified.m */; };
-		9289843B1B729EBF00D6FB6F /* ProjectShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289843A1B729EBF00D6FB6F /* ProjectShare.m */; };
-		9289843E1B729EF800D6FB6F /* UserClassified.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289843D1B729EF800D6FB6F /* UserClassified.m */; };
 		928984411B7463A400D6FB6F /* Doc.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984401B7463A400D6FB6F /* Doc.m */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
 		929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BE1B5D3FC000264D32 /* AppDelegate.m */; };
@@ -56,7 +51,10 @@
 		92ED7E1A1B7C37EE0015E6BB /* ProjectHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E191B7C37EE0015E6BB /* ProjectHttpClient.m */; };
 		92ED7E1E1B7D223E0015E6BB /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E1D1B7D223E0015E6BB /* Notification.m */; };
 		92ED7E211B7E63150015E6BB /* Invite.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E201B7E63150015E6BB /* Invite.m */; };
-		92ED7E241B7ED36D0015E6BB /* TextShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E231B7ED36D0015E6BB /* TextShare.m */; };
+		92ED7E271B8299AF0015E6BB /* ActivityHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E261B8299AF0015E6BB /* ActivityHttpClient.m */; };
+		92ED7E2D1B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 92ED7E281B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf */; };
+		92ED7E2E1B82CB9D0015E6BB /* AudioConverter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ED7E2B1B82CB9D0015E6BB /* AudioConverter.a */; };
+		92ED7E2F1B82CB9D0015E6BB /* MP3Converter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ED7E2C1B82CB9D0015E6BB /* MP3Converter.a */; };
 		92F158CA1B782E46005C84C8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158C91B782E46005C84C8 /* Comment.m */; };
 		92F158CD1B783219005C84C8 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CC1B783219005C84C8 /* Task.m */; };
 		92F158D01B783CE9005C84C8 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CF1B783CE9005C84C8 /* Like.m */; };
@@ -70,6 +68,7 @@
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
 		98DFE11F1B759A7000C1DBDE /* AlbumProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */; };
 		98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */; };
+		98FC57541B82C0D300152FA2 /* TimelineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */; };
 		98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */; };
 		AFE597BC1B62E22100ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AFE597F31B6322B900ED0520 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -139,16 +138,6 @@
 		9283EE211B686ADD004A553B /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		9289842C1B728F1500D6FB6F /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		9289842D1B728F1500D6FB6F /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
-		9289842F1B729E6300D6FB6F /* AlbumShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumShare.h; sourceTree = "<group>"; };
-		928984301B729E6300D6FB6F /* AlbumShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumShare.m; sourceTree = "<group>"; };
-		928984331B729E9D00D6FB6F /* ClipShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipShare.h; sourceTree = "<group>"; };
-		928984341B729E9D00D6FB6F /* ClipShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipShare.m; sourceTree = "<group>"; };
-		928984361B729EAF00D6FB6F /* ProjectClassified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectClassified.h; sourceTree = "<group>"; };
-		928984371B729EAF00D6FB6F /* ProjectClassified.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectClassified.m; sourceTree = "<group>"; };
-		928984391B729EBF00D6FB6F /* ProjectShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectShare.h; sourceTree = "<group>"; };
-		9289843A1B729EBF00D6FB6F /* ProjectShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectShare.m; sourceTree = "<group>"; };
-		9289843C1B729EF800D6FB6F /* UserClassified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserClassified.h; sourceTree = "<group>"; };
-		9289843D1B729EF800D6FB6F /* UserClassified.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserClassified.m; sourceTree = "<group>"; };
 		9289843F1B7463A400D6FB6F /* Doc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doc.h; sourceTree = "<group>"; };
 		928984401B7463A400D6FB6F /* Doc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doc.m; sourceTree = "<group>"; };
 		929B70B61B5D3FC000264D32 /* Nebulus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,8 +171,13 @@
 		92ED7E1D1B7D223E0015E6BB /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		92ED7E1F1B7E63150015E6BB /* Invite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invite.h; sourceTree = "<group>"; };
 		92ED7E201B7E63150015E6BB /* Invite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invite.m; sourceTree = "<group>"; };
-		92ED7E221B7ED36D0015E6BB /* TextShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextShare.h; sourceTree = "<group>"; };
-		92ED7E231B7ED36D0015E6BB /* TextShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextShare.m; sourceTree = "<group>"; };
+		92ED7E251B8299AF0015E6BB /* ActivityHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityHttpClient.h; sourceTree = "<group>"; };
+		92ED7E261B8299AF0015E6BB /* ActivityHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityHttpClient.m; sourceTree = "<group>"; };
+		92ED7E281B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AudioConverterKitforiOS.pdf; sourceTree = "<group>"; };
+		92ED7E291B82CB9D0015E6BB /* MP3Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP3Converter.h; sourceTree = "<group>"; };
+		92ED7E2A1B82CB9D0015E6BB /* AudioConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioConverter.h; sourceTree = "<group>"; };
+		92ED7E2B1B82CB9D0015E6BB /* AudioConverter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AudioConverter.a; sourceTree = "<group>"; };
+		92ED7E2C1B82CB9D0015E6BB /* MP3Converter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = MP3Converter.a; sourceTree = "<group>"; };
 		92F158C81B782E46005C84C8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		92F158C91B782E46005C84C8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		92F158CB1B783219005C84C8 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -210,6 +204,8 @@
 		98DFE11E1B759A7000C1DBDE /* AlbumProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumProjectViewController.m; sourceTree = "<group>"; };
 		98DFE1211B75B2F600C1DBDE /* ModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyViewController.h; sourceTree = "<group>"; };
 		98DFE1221B75B2F600C1DBDE /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
+		98FC57521B82C0D300152FA2 /* TimelineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineDetailViewController.h; sourceTree = "<group>"; };
+		98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineDetailViewController.m; sourceTree = "<group>"; };
 		98FF60C91B69B52F00DE90B4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		98FF60CA1B69B52F00DE90B4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		AFE597FB1B6333DA00ED0520 /* CreateProjectAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProjectAlbumViewController.m; sourceTree = "<group>"; };
@@ -222,6 +218,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				848660821B615916000D849B /* AVFoundation.framework in Frameworks */,
+				92ED7E2E1B82CB9D0015E6BB /* AudioConverter.a in Frameworks */,
+				92ED7E2F1B82CB9D0015E6BB /* MP3Converter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,27 +272,6 @@
 			name = EZAudio;
 			sourceTree = "<group>";
 		};
-		928984321B729E6A00D6FB6F /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				9289842C1B728F1500D6FB6F /* Activity.h */,
-				9289842D1B728F1500D6FB6F /* Activity.m */,
-				9289842F1B729E6300D6FB6F /* AlbumShare.h */,
-				928984301B729E6300D6FB6F /* AlbumShare.m */,
-				928984331B729E9D00D6FB6F /* ClipShare.h */,
-				928984341B729E9D00D6FB6F /* ClipShare.m */,
-				928984361B729EAF00D6FB6F /* ProjectClassified.h */,
-				928984371B729EAF00D6FB6F /* ProjectClassified.m */,
-				928984391B729EBF00D6FB6F /* ProjectShare.h */,
-				9289843A1B729EBF00D6FB6F /* ProjectShare.m */,
-				9289843C1B729EF800D6FB6F /* UserClassified.h */,
-				9289843D1B729EF800D6FB6F /* UserClassified.m */,
-				92ED7E221B7ED36D0015E6BB /* TextShare.h */,
-				92ED7E231B7ED36D0015E6BB /* TextShare.m */,
-			);
-			name = Activity;
-			sourceTree = "<group>";
-		};
 		929B70AD1B5D3FC000264D32 = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +294,7 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				92ED7E301B82CBC10015E6BB /* AudioConverter Kit */,
 				84B56A3E1B7EE4C0009D5E63 /* PlayFileViewController.h */,
 				84B56A3F1B7EE4C0009D5E63 /* PlayFileViewController.m */,
 				92A574AD1B62BDC70015032B /* Model */,
@@ -339,8 +317,7 @@
 				929B70BD1B5D3FC000264D32 /* AppDelegate.h */,
 				929B70BE1B5D3FC000264D32 /* AppDelegate.m */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
-				9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */,
-				9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */,
+				98FC57561B82C0F500152FA2 /* timeline */,
 				9899C26E1B7D7D49006ED563 /* NotificationViewController.h */,
 				9899C26F1B7D7D49006ED563 /* NotificationViewController.m */,
 				98FF60C91B69B52F00DE90B4 /* SearchViewController.h */,
@@ -381,7 +358,8 @@
 		92A574AD1B62BDC70015032B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				928984321B729E6A00D6FB6F /* Activity */,
+				9289842C1B728F1500D6FB6F /* Activity.h */,
+				9289842D1B728F1500D6FB6F /* Activity.m */,
 				92F158CE1B783CE9005C84C8 /* Like.h */,
 				92F158CF1B783CE9005C84C8 /* Like.m */,
 				92A574F51B655CAB0015032B /* Model.h */,
@@ -421,8 +399,22 @@
 				92ED7E191B7C37EE0015E6BB /* ProjectHttpClient.m */,
 				92ED7E151B7A834C0015E6BB /* RecordingHttpClient.h */,
 				92ED7E161B7A834C0015E6BB /* RecordingHttpClient.m */,
+				92ED7E251B8299AF0015E6BB /* ActivityHttpClient.h */,
+				92ED7E261B8299AF0015E6BB /* ActivityHttpClient.m */,
 			);
 			name = HttpClient;
+			sourceTree = "<group>";
+		};
+		92ED7E301B82CBC10015E6BB /* AudioConverter Kit */ = {
+			isa = PBXGroup;
+			children = (
+				92ED7E281B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf */,
+				92ED7E291B82CB9D0015E6BB /* MP3Converter.h */,
+				92ED7E2A1B82CB9D0015E6BB /* AudioConverter.h */,
+				92ED7E2B1B82CB9D0015E6BB /* AudioConverter.a */,
+				92ED7E2C1B82CB9D0015E6BB /* MP3Converter.a */,
+			);
+			name = "AudioConverter Kit";
 			sourceTree = "<group>";
 		};
 		98DFE1201B759A9A00C1DBDE /* Profile */ = {
@@ -446,6 +438,17 @@
 				AFE597FD1B6333E300ED0520 /* CreateProjectAlbumViewController.h */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		98FC57561B82C0F500152FA2 /* timeline */ = {
+			isa = PBXGroup;
+			children = (
+				98FC57521B82C0D300152FA2 /* TimelineDetailViewController.h */,
+				98FC57531B82C0D300152FA2 /* TimelineDetailViewController.m */,
+				9889F0FD1B72FB9E00685E18 /* TimelineViewController.h */,
+				9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */,
+			);
+			name = timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,6 +532,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92ED7E2D1B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf in Resources */,
 				847412601B7D6EB7009EA92E /* simple-drum-beat.wav in Resources */,
 				929B70C81B5D3FC000264D32 /* Main.storyboard in Resources */,
 				929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */,
@@ -552,7 +556,6 @@
 			files = (
 				8430F44B1B6A943800CB2EE0 /* EZRecorder.m in Sources */,
 				8430F4401B6A943800CB2EE0 /* EZAudioFFT.m in Sources */,
-				9289843B1B729EBF00D6FB6F /* ProjectShare.m in Sources */,
 				8430F4411B6A943800CB2EE0 /* EZAudioFile.m in Sources */,
 				8474126A1B7D768F009EA92E /* RecordSettingViewController.m in Sources */,
 				9899C2701B7D7D49006ED563 /* NotificationViewController.m in Sources */,
@@ -564,9 +567,7 @@
 				92F158D01B783CE9005C84C8 /* Like.m in Sources */,
 				929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */,
 				8430F43F1B6A943800CB2EE0 /* EZAudioDisplayLink.m in Sources */,
-				9289843E1B729EF800D6FB6F /* UserClassified.m in Sources */,
 				981F9B931B670EFB00031869 /* FollowViewController.m in Sources */,
-				928984351B729E9D00D6FB6F /* ClipShare.m in Sources */,
 				9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */,
 				8430F44A1B6A943800CB2EE0 /* EZPlot.m in Sources */,
 				98DFE11F1B759A7000C1DBDE /* AlbumProjectViewController.m in Sources */,
@@ -575,7 +576,6 @@
 				98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */,
 				92A574FA1B655CD70015032B /* User.m in Sources */,
 				9289842E1B728F1500D6FB6F /* Activity.m in Sources */,
-				928984381B729EAF00D6FB6F /* ProjectClassified.m in Sources */,
 				AFE597F31B6322B900ED0520 /* (null) in Sources */,
 				92A574B61B62D20F0015032B /* UserHttpClient.m in Sources */,
 				8430F44C1B6A943800CB2EE0 /* TPCircularBuffer.c in Sources */,
@@ -583,8 +583,8 @@
 				9283EE1F1B686AC8004A553B /* Clip.m in Sources */,
 				8430F4451B6A943800CB2EE0 /* EZAudioPlot.m in Sources */,
 				8430F41B1B6A941F00CB2EE0 /* RecordViewController.m in Sources */,
+				92ED7E271B8299AF0015E6BB /* ActivityHttpClient.m in Sources */,
 				92ED7E1E1B7D223E0015E6BB /* Notification.m in Sources */,
-				92ED7E241B7ED36D0015E6BB /* TextShare.m in Sources */,
 				9889F0FF1B72FB9E00685E18 /* TimelineViewController.m in Sources */,
 				8430F43E1B6A943800CB2EE0 /* EZAudioDevice.m in Sources */,
 				98FF60CB1B69B52F00DE90B4 /* SearchViewController.m in Sources */,
@@ -596,13 +596,13 @@
 				8430F4461B6A943800CB2EE0 /* EZAudioPlotGL.m in Sources */,
 				8430F4471B6A943800CB2EE0 /* EZAudioUtilities.m in Sources */,
 				8430F4421B6A943800CB2EE0 /* EZAudioFloatConverter.m in Sources */,
+				98FC57541B82C0D300152FA2 /* TimelineDetailViewController.m in Sources */,
 				92A574FD1B6857AA0015032B /* Album.m in Sources */,
 				929DA63B1B6A91AA00F2663C /* MusicHttpClient.m in Sources */,
 				928984411B7463A400D6FB6F /* Doc.m in Sources */,
 				84B56A401B7EE4C0009D5E63 /* PlayFileViewController.m in Sources */,
 				92ED7E1A1B7C37EE0015E6BB /* ProjectHttpClient.m in Sources */,
 				98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */,
-				928984311B729E6300D6FB6F /* AlbumShare.m in Sources */,
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
@@ -742,6 +742,10 @@
 				INFOPLIST_FILE = Nebulus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Nebulus",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -756,6 +760,10 @@
 				INFOPLIST_FILE = Nebulus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Nebulus",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

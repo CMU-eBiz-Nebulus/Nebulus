@@ -60,6 +60,9 @@
                                         <constraint firstItem="eLH-mt-fgF" firstAttribute="centerY" secondItem="2Yq-ax-9OR" secondAttribute="centerY" id="zSa-c6-9CE"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XZ8-e2-OiE" kind="show" identifier="viewUser" id="WB0-4Q-qcK"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" rowHeight="90" id="RIe-FK-S7A">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -74,14 +77,30 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8g-Qr-dJl">
+                                            <rect key="frame" x="15" y="0.0" width="585" height="90"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="viewDetail:" destination="6ec-0m-sDm" eventType="touchUpInside" id="1J6-ax-bge"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="y2K-bA-bt1" secondAttribute="trailing" id="2F8-TJ-jw1"/>
+                                        <constraint firstItem="d8g-Qr-dJl" firstAttribute="leading" secondItem="y2K-bA-bt1" secondAttribute="leading" id="KTO-qG-ea5"/>
+                                        <constraint firstItem="d8g-Qr-dJl" firstAttribute="top" secondItem="y2K-bA-bt1" secondAttribute="top" id="gYY-OU-3hg"/>
                                         <constraint firstItem="y2K-bA-bt1" firstAttribute="leading" secondItem="HQA-gh-wDd" secondAttribute="leading" constant="15" id="ht2-9Z-n9L"/>
+                                        <constraint firstItem="d8g-Qr-dJl" firstAttribute="height" secondItem="y2K-bA-bt1" secondAttribute="height" id="iKA-vv-buP"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="y2K-bA-bt1" secondAttribute="bottom" constant="-8.5" id="mVP-1J-3E0"/>
                                         <constraint firstItem="y2K-bA-bt1" firstAttribute="top" secondItem="HQA-gh-wDd" secondAttribute="top" id="xHN-p1-Hsz"/>
+                                        <constraint firstItem="d8g-Qr-dJl" firstAttribute="width" secondItem="y2K-bA-bt1" secondAttribute="width" id="zih-M6-Wj1"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ffX-0M-2mX" kind="show" identifier="viewTimelineDetail" id="wEF-ws-23O"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="audioPlayCell" rowHeight="45" id="Qon-FV-3oe">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -124,6 +143,9 @@
                                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="comment:" destination="6ec-0m-sDm" eventType="touchUpInside" id="tMS-Q3-gMA"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -135,33 +157,6 @@
                                         <constraint firstItem="m33-fq-WIw" firstAttribute="baseline" secondItem="wbx-S8-chy" secondAttribute="baseline" id="U4B-qJ-d9x"/>
                                         <constraint firstAttribute="centerY" secondItem="m33-fq-WIw" secondAttribute="centerY" id="Y4X-cb-FHf"/>
                                         <constraint firstAttribute="centerY" secondItem="wbx-S8-chy" secondAttribute="centerY" id="qyn-Rc-J0Q"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="picCell" rowHeight="117" id="eDv-Qv-lYm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eDv-Qv-lYm" id="3FC-N2-qAA">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="Uzd-PL-RTw">
-                                            <rect key="frame" x="172" y="9" width="256" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="8mM-96-MnY"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="9Hv-lD-UHg"/>
-                                                <constraint firstAttribute="height" constant="100" id="dQx-x2-gYL"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="9Hv-lD-UHg"/>
-                                                    <exclude reference="dQx-x2-gYL"/>
-                                                </mask>
-                                            </variation>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="Uzd-PL-RTw" secondAttribute="centerY" id="V2m-Rg-oPB"/>
-                                        <constraint firstAttribute="centerX" secondItem="Uzd-PL-RTw" secondAttribute="centerX" id="gUH-jB-18h"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1533,7 +1528,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQk-A9-Shm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="6240"/>
+            <point key="canvasLocation" x="-1589" y="5284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lCZ-Id-8gY">
@@ -1672,7 +1667,7 @@ Some text here ...</string>
         <!--Timeline-->
         <scene sceneID="HjT-Yy-lg9">
             <objects>
-                <tableViewController id="ffX-0M-2mX" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="timelinedetailviewcontroller" id="ffX-0M-2mX" customClass="TimelineDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="B3o-5J-jzX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1724,6 +1719,9 @@ Some text here ...</string>
                                         <constraint firstItem="Oaf-0c-VKH" firstAttribute="centerY" secondItem="3S6-5x-O9e" secondAttribute="centerY" id="p9L-7z-tSW"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XZ8-e2-OiE" kind="show" identifier="viewUser" id="3kD-yN-Xpq"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" rowHeight="90" id="Cr1-o1-w2f">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -1799,30 +1797,57 @@ Some text here ...</string>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="picCell" rowHeight="117" id="GxW-5s-9gA">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="89" id="hD4-F5-Zky">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GxW-5s-9gA" id="l1D-1a-hAG">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hD4-F5-Zky" id="iMK-UZ-AZB">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="S3I-fU-9h0">
-                                            <rect key="frame" x="172" y="9" width="256" height="100"/>
+                                        <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ac3-e2-R1P">
+                                            <rect key="frame" x="18" y="19" width="50" height="50"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="FDy-h7-hR0"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="U2y-nH-qBo"/>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="o7N-RD-PhJ"/>
+                                                <constraint firstAttribute="width" constant="50" id="4GC-Fv-1qS"/>
+                                                <constraint firstAttribute="height" constant="50" id="VJF-Ve-kOj"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="FDy-h7-hR0"/>
-                                                    <exclude reference="U2y-nH-qBo"/>
-                                                </mask>
-                                            </variation>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-wa-Itp">
+                                            <rect key="frame" x="88" y="13" width="38" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="103" contentMode="scaleToFill" text="some comment" translatesAutoresizingMaskIntoConstraints="NO" id="Vvz-2E-iTh">
+                                            <rect key="frame" x="88" y="35" width="494" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-nX-FSd">
+                                            <rect key="frame" x="557" y="8" width="30" height="30"/>
+                                            <state key="normal" title="👍🏻">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-vV-7fT">
+                                            <rect key="frame" x="522" y="8" width="30" height="30"/>
+                                            <state key="normal" title="▶️">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="S3I-fU-9h0" secondAttribute="centerY" id="btt-ms-QAM"/>
-                                        <constraint firstAttribute="centerX" secondItem="S3I-fU-9h0" secondAttribute="centerX" id="fDN-KH-Ctu"/>
+                                        <constraint firstAttribute="centerY" secondItem="Ac3-e2-R1P" secondAttribute="centerY" id="12G-LG-xAq"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eBI-nX-FSd" secondAttribute="trailing" constant="5" id="5jZ-qU-Jwf"/>
+                                        <constraint firstItem="gpg-wa-Itp" firstAttribute="leading" secondItem="Ac3-e2-R1P" secondAttribute="trailing" constant="20" id="7V7-a8-Fqs"/>
+                                        <constraint firstItem="eBI-nX-FSd" firstAttribute="leading" secondItem="d3Y-vV-7fT" secondAttribute="trailing" constant="5" id="BTh-ic-n2X"/>
+                                        <constraint firstItem="eBI-nX-FSd" firstAttribute="top" secondItem="d3Y-vV-7fT" secondAttribute="top" id="DRV-t4-3As"/>
+                                        <constraint firstItem="Ac3-e2-R1P" firstAttribute="leading" secondItem="iMK-UZ-AZB" secondAttribute="leadingMargin" constant="10" id="LqT-Mb-Nw7"/>
+                                        <constraint firstItem="gpg-wa-Itp" firstAttribute="leading" secondItem="Vvz-2E-iTh" secondAttribute="leading" id="ZRI-xA-PNR"/>
+                                        <constraint firstItem="eBI-nX-FSd" firstAttribute="top" secondItem="iMK-UZ-AZB" secondAttribute="topMargin" id="a2l-i9-ril"/>
+                                        <constraint firstItem="gpg-wa-Itp" firstAttribute="top" secondItem="iMK-UZ-AZB" secondAttribute="topMargin" constant="5" id="cPm-Go-AGY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Vvz-2E-iTh" secondAttribute="bottom" constant="5" id="jHi-4y-zNT"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Vvz-2E-iTh" secondAttribute="trailing" constant="10" id="kK5-J0-oKy"/>
+                                        <constraint firstItem="Vvz-2E-iTh" firstAttribute="top" secondItem="gpg-wa-Itp" secondAttribute="bottom" constant="5" id="mGl-SJ-iR6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1836,7 +1861,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBM-eZ-gVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1716" y="4501"/>
+            <point key="canvasLocation" x="-1698" y="4525"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="PA7-qW-bgH">
@@ -2297,11 +2322,11 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="lps-BD-uhJ"/>
         <segue reference="jTN-oo-tTb"/>
-        <segue reference="OPr-Qg-P5T"/>
-        <segue reference="1oK-Qf-whG"/>
         <segue reference="hWk-RA-vL1"/>
         <segue reference="a7l-Ip-Am4"/>
         <segue reference="Osm-Oy-nlm"/>
+        <segue reference="3kD-yN-Xpq"/>
     </inferredMetricsTieBreakers>
 </document>

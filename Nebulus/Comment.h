@@ -24,7 +24,7 @@
 @property(nonatomic, strong) Clip * clip;
 @property(nonatomic, strong) NSString *model;
 @property(nonatomic, strong) NSString *modelId;
-@property(nonatomic, strong) User *sender;
+@property(nonatomic, strong) User *creator;
 @property(nonatomic, strong) NSString *text;
 @property(nonatomic, strong) NSNumber *pictureUpdateTime;
 
