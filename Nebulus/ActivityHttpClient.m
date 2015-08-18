@@ -83,6 +83,13 @@
     
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     Invite *invite = [[Invite alloc]initWithDict:raw];
+    if ([invite.model isEqualToString:@"albums"]) {
+    
+        invite.album = [MusicHttpClient getAlbum:invite.modelId];
+    } else if ([invite.model isEqualToString:@"projects"]) {
+         invite.project = [ProjectHttpClient getProject:invite.modelId];
+    }
+    
     return invite;
 
 }
