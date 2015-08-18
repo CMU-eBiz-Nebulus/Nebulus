@@ -405,6 +405,7 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    notification.read = YES;
     NSDictionary *dict = [notification convertToDict];
     
     NSError *error;
