@@ -69,14 +69,6 @@
         NSLog(notification.read ? @"Notification Read\n" : @"Unread\n");
         
     }
-
-    ////////////////////////////////////////////////////
-    Notification *n = [[Notification alloc] init];
-    n.model = @"invites";
-    n.message = @"Someone invited you to join xx";
-    [dstArray addObject:n];
-    
-    ////////////////////////////////////////////////////
     
     self.notifications = dstArray.copy;
     if(self.unread){
@@ -219,6 +211,24 @@
             // READ notification
             //if(!notification.read) [UserHttpClient readNotification:notification];
         }
+    } else if ([segue.identifier isEqualToString:@"inviteToAlbumProject"]){
+        AlbumProjectViewController *vc = (AlbumProjectViewController *)segue.destinationViewController;
+        
+        UITableViewCell *cell = (UITableViewCell *)sender;
+        
+        Notification *notification = [self.notifications objectAtIndex:[self.tableView indexPathForCell:cell].row];
+        //TODO: get invite from notification
+        Invite *invite = nil; //notification.
+        
+        if(invite.album != nil){
+            vc.mode = ALBUM_DETAIL;
+            vc.content = [MusicHttpClient getAlbum:notification.modelId];
+        }else if(invite.project != nil){
+            vc.mode = PROJECT_DETAIL;
+            vc.content = [ProjectHttpClient getProject:notification.modelId];
+        }
+        
+        vc.viewMode = YES;
     }
 
 }
