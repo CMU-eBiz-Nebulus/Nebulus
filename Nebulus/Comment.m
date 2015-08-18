@@ -37,7 +37,11 @@
 }
 -(NSDictionary*) convertToDict {
     NSMutableDictionary *dict = [super convertToDict].mutableCopy;
-    [dict setObject:[self.clip convertToDict] forKey:@"clip"];
+    if (self.clip) {
+        [dict setObject:[self.clip convertToDict] forKey:@"clip"];
+    } else {
+        [dict setObject:[NSNull null] forKey:@"clip"];
+    }
     [dict setObject:[self.sender convertToDict] forKey:@"sender"];
     [dict setObject:self.model forKey:@"model"];
     [dict setObject:self.modelId forKey:@"modelId"];
