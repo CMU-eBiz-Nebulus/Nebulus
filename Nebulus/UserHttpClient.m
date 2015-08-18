@@ -388,7 +388,7 @@
     for (int i = 0; i < [raw count]; i++) {
         NSDictionary* json = raw[i];
         Notification *u = [[Notification alloc] initWithDict:json];
-        NSLog(@"Model: %@", u.model);
+        //NSLog(@"Model: %@", u.model);
         [notifications addObject:u];
     }
     return notifications;

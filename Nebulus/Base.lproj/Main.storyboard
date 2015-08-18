@@ -252,8 +252,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfc-ha-P84">
-                                            <rect key="frame" x="543" y="7" width="44" height="30"/>
-                                            <state key="normal" title="Action">
+                                            <rect key="frame" x="562" y="7" width="30" height="30"/>
+                                            <state key="normal" title="✉️">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -262,7 +262,7 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Bfc-ha-P84" secondAttribute="trailing" constant="5" id="2Pi-LA-EY0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Bfc-ha-P84" secondAttribute="trailing" id="2Pi-LA-EY0"/>
                                         <constraint firstItem="Bfc-ha-P84" firstAttribute="baseline" secondItem="M01-ZF-d4T" secondAttribute="baseline" id="5uy-nE-bTK"/>
                                         <constraint firstItem="M01-ZF-d4T" firstAttribute="centerY" secondItem="mjf-0e-B1A" secondAttribute="centerY" id="6zH-F4-oxU"/>
                                         <constraint firstItem="M01-ZF-d4T" firstAttribute="leading" secondItem="mjf-0e-B1A" secondAttribute="leadingMargin" id="7tS-xG-qqb"/>
@@ -275,6 +275,9 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="rF1-8H-BuT" kind="show" identifier="inviteToAlbumProject" id="o5R-Aw-qYR"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="expiredCell" textLabel="4Ny-Sy-wz1" style="IBUITableViewCellStyleDefault" id="ZAF-zV-y7Q">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1211,7 +1214,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3w-s5-Y9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3188" y="4787"/>
+            <point key="canvasLocation" x="2484" y="2063"/>
         </scene>
         <!--Collaborators View Controller-->
         <scene sceneID="0lV-Y0-S8x">
@@ -1606,7 +1609,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5v-Yr-QTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1512" y="5940"/>
+            <point key="canvasLocation" x="-2824" y="6224"/>
         </scene>
         <!--Post Comment View Controller-->
         <scene sceneID="z6p-lz-DaB">
@@ -2474,12 +2477,12 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jTN-oo-tTb"/>
-        <segue reference="B5n-hF-vRd"/>
-        <segue reference="hWk-RA-vL1"/>
-        <segue reference="Osm-Oy-nlm"/>
         <segue reference="a7l-Ip-Am4"/>
-        <segue reference="WB0-4Q-qcK"/>
+        <segue reference="jTN-oo-tTb"/>
+        <segue reference="hWk-RA-vL1"/>
         <segue reference="O8g-nl-Q4c"/>
+        <segue reference="B0u-vQ-RWG"/>
+        <segue reference="o5R-Aw-qYR"/>
+        <segue reference="izh-mw-nZz"/>
     </inferredMetricsTieBreakers>
 </document>
