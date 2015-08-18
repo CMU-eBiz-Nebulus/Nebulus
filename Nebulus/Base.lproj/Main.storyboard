@@ -1797,65 +1797,38 @@ Some text here ...</string>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="picCell" rowHeight="117" id="GxW-5s-9gA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GxW-5s-9gA" id="l1D-1a-hAG">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="S3I-fU-9h0">
-                                            <rect key="frame" x="172" y="9" width="256" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="FDy-h7-hR0"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="U2y-nH-qBo"/>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="o7N-RD-PhJ"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="FDy-h7-hR0"/>
-                                                    <exclude reference="U2y-nH-qBo"/>
-                                                </mask>
-                                            </variation>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="S3I-fU-9h0" secondAttribute="centerY" id="btt-ms-QAM"/>
-                                        <constraint firstAttribute="centerX" secondItem="S3I-fU-9h0" secondAttribute="centerX" id="fDN-KH-Ctu"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="hD4-F5-Zky">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="89" id="hD4-F5-Zky">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hD4-F5-Zky" id="iMK-UZ-AZB">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ac3-e2-R1P">
+                                        <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ac3-e2-R1P">
                                             <rect key="frame" x="18" y="19" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="4GC-Fv-1qS"/>
                                                 <constraint firstAttribute="height" constant="50" id="VJF-Ve-kOj"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-wa-Itp">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-wa-Itp">
                                             <rect key="frame" x="88" y="13" width="38" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="some comment" translatesAutoresizingMaskIntoConstraints="NO" id="Vvz-2E-iTh">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="103" contentMode="scaleToFill" text="some comment" translatesAutoresizingMaskIntoConstraints="NO" id="Vvz-2E-iTh">
                                             <rect key="frame" x="88" y="35" width="494" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-nX-FSd">
+                                        <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-nX-FSd">
                                             <rect key="frame" x="557" y="8" width="30" height="30"/>
                                             <state key="normal" title="👍🏻">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-vV-7fT">
+                                        <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-vV-7fT">
                                             <rect key="frame" x="522" y="8" width="30" height="30"/>
                                             <state key="normal" title="▶️">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2349,11 +2322,11 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OPr-Qg-P5T"/>
-        <segue reference="Osm-Oy-nlm"/>
+        <segue reference="lps-BD-uhJ"/>
         <segue reference="jTN-oo-tTb"/>
         <segue reference="hWk-RA-vL1"/>
         <segue reference="a7l-Ip-Am4"/>
+        <segue reference="Osm-Oy-nlm"/>
         <segue reference="3kD-yN-Xpq"/>
     </inferredMetricsTieBreakers>
 </document>
