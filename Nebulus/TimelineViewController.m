@@ -34,44 +34,33 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [self.activity count] + 2;
+    return [self.activity count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    //Activity *activity = self.activity[section];
     return 3;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = nil;
     
-    if(indexPath.section == 0 || indexPath.section == 1){
-        if(indexPath.row == 0){
-            cell = [tableView dequeueReusableCellWithIdentifier:@"topCell"];
-            [(UILabel *)[cell viewWithTag:102] setText:@"Bon Jovi"];
-            [(UILabel *)[cell viewWithTag:103] setText:@"1 min ago"];
-            [(UILabel *)[cell viewWithTag:104] setText:@"Shared a song"];
-        } else if(indexPath.row == 1){
-            cell = [tableView dequeueReusableCellWithIdentifier:@"textCell"];
-            UITextView *textView = (UITextView *)[cell viewWithTag:101];
-            [textView setText:@"Rock the world"];
-        } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"buttomCell"];
-        }
+    Activity *activity = self.activity[indexPath.section];
+    
+    if(indexPath.row == 0){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"topCell"];
+        [(UIImageView *)[cell viewWithTag:101] setImage: [UserHttpClient getUserImage:activity.creator.objectID]];
+        [(UILabel *)[cell viewWithTag:102] setText:activity.creator.username];
+        [(UILabel *)[cell viewWithTag:103] setText:[activity.tags componentsJoinedByString:@", "]];
+        [(UILabel *)[cell viewWithTag:104] setText:activity.title];
+    } else if(indexPath.row == 1){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"textCell"];
+        UITextView *textView = (UITextView *)[cell viewWithTag:101];
+        [textView setText:activity.text];
     } else {
-        //Activity *activity = self.activity[indexPath.section];
-//        if([activity isKindOfClass:[AlbumShare class]]){
-//            
-//        } else if([activity isKindOfClass:[AlbumShare class]]){
-//        
-//        } else if([activity isKindOfClass:[ClipShare class]]){
-//        
-//        } else if([activity isKindOfClass:[ProjectClassified class]]){
-//        
-//        } else if([activity isKindOfClass:[UserClassified class]]){
-//        
-//        }
+        cell = [tableView dequeueReusableCellWithIdentifier:@"buttomCell"];
     }
-
+    
     return cell;
 }
 
