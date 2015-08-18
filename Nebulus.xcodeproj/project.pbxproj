@@ -52,6 +52,9 @@
 		92ED7E1E1B7D223E0015E6BB /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E1D1B7D223E0015E6BB /* Notification.m */; };
 		92ED7E211B7E63150015E6BB /* Invite.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E201B7E63150015E6BB /* Invite.m */; };
 		92ED7E271B8299AF0015E6BB /* ActivityHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED7E261B8299AF0015E6BB /* ActivityHttpClient.m */; };
+		92ED7E2D1B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 92ED7E281B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf */; };
+		92ED7E2E1B82CB9D0015E6BB /* AudioConverter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ED7E2B1B82CB9D0015E6BB /* AudioConverter.a */; };
+		92ED7E2F1B82CB9D0015E6BB /* MP3Converter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ED7E2C1B82CB9D0015E6BB /* MP3Converter.a */; };
 		92F158CA1B782E46005C84C8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158C91B782E46005C84C8 /* Comment.m */; };
 		92F158CD1B783219005C84C8 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CC1B783219005C84C8 /* Task.m */; };
 		92F158D01B783CE9005C84C8 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F158CF1B783CE9005C84C8 /* Like.m */; };
@@ -169,6 +172,11 @@
 		92ED7E201B7E63150015E6BB /* Invite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invite.m; sourceTree = "<group>"; };
 		92ED7E251B8299AF0015E6BB /* ActivityHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityHttpClient.h; sourceTree = "<group>"; };
 		92ED7E261B8299AF0015E6BB /* ActivityHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityHttpClient.m; sourceTree = "<group>"; };
+		92ED7E281B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AudioConverterKitforiOS.pdf; sourceTree = "<group>"; };
+		92ED7E291B82CB9D0015E6BB /* MP3Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP3Converter.h; sourceTree = "<group>"; };
+		92ED7E2A1B82CB9D0015E6BB /* AudioConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioConverter.h; sourceTree = "<group>"; };
+		92ED7E2B1B82CB9D0015E6BB /* AudioConverter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AudioConverter.a; sourceTree = "<group>"; };
+		92ED7E2C1B82CB9D0015E6BB /* MP3Converter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = MP3Converter.a; sourceTree = "<group>"; };
 		92F158C81B782E46005C84C8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		92F158C91B782E46005C84C8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		92F158CB1B783219005C84C8 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -207,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				848660821B615916000D849B /* AVFoundation.framework in Frameworks */,
+				92ED7E2E1B82CB9D0015E6BB /* AudioConverter.a in Frameworks */,
+				92ED7E2F1B82CB9D0015E6BB /* MP3Converter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +291,7 @@
 		929B70B81B5D3FC000264D32 /* Nebulus */ = {
 			isa = PBXGroup;
 			children = (
+				92ED7E301B82CBC10015E6BB /* AudioConverter Kit */,
 				84B56A3E1B7EE4C0009D5E63 /* PlayFileViewController.h */,
 				84B56A3F1B7EE4C0009D5E63 /* PlayFileViewController.m */,
 				92A574AD1B62BDC70015032B /* Model */,
@@ -392,6 +403,18 @@
 			name = HttpClient;
 			sourceTree = "<group>";
 		};
+		92ED7E301B82CBC10015E6BB /* AudioConverter Kit */ = {
+			isa = PBXGroup;
+			children = (
+				92ED7E281B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf */,
+				92ED7E291B82CB9D0015E6BB /* MP3Converter.h */,
+				92ED7E2A1B82CB9D0015E6BB /* AudioConverter.h */,
+				92ED7E2B1B82CB9D0015E6BB /* AudioConverter.a */,
+				92ED7E2C1B82CB9D0015E6BB /* MP3Converter.a */,
+			);
+			name = "AudioConverter Kit";
+			sourceTree = "<group>";
+		};
 		98DFE1201B759A9A00C1DBDE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +519,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92ED7E2D1B82CB9D0015E6BB /* AudioConverterKitforiOS.pdf in Resources */,
 				847412601B7D6EB7009EA92E /* simple-drum-beat.wav in Resources */,
 				929B70C81B5D3FC000264D32 /* Main.storyboard in Resources */,
 				929B70CD1B5D3FC000264D32 /* LaunchScreen.xib in Resources */,
@@ -704,6 +728,10 @@
 				INFOPLIST_FILE = Nebulus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Nebulus",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -718,6 +746,10 @@
 				INFOPLIST_FILE = Nebulus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Nebulus",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

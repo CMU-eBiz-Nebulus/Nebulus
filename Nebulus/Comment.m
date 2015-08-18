@@ -22,7 +22,9 @@
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
-        self.clip =  [[Clip alloc] initWithDict: [json objectForKey:@"clip"]];
+        if ([json objectForKey:@"clip"]) {
+            self.clip =  [[Clip alloc] initWithDict: [json objectForKey:@"clip"]];
+        }
         self.sender = [[User alloc] initWithDict: [json objectForKey:@"sender"]];
         self.model = [json objectForKey:@"model"];
         self.modelId = [json objectForKey:@"modelId"];
