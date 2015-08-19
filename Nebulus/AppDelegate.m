@@ -31,6 +31,19 @@
         [UserHttpClient login:username password:[defaults objectForKey:@"password"]];
     
     };
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor whiteColor];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],
+                                                          NSForegroundColorAttributeName,
+                                                          shadow, NSShadowAttributeName,
+                                                          [UIFont fontWithName:@"HelveticaNeue" size:18.0], NSFontAttributeName, nil]];
+    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+
     return YES;
 }
 
