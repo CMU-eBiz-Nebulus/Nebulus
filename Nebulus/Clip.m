@@ -16,6 +16,11 @@
 
 @implementation Clip
 
+-(NSNumber *)duration{
+    if(!_duration) _duration = [[NSNumber alloc]initWithInt:0];
+    return _duration;
+}
+
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {

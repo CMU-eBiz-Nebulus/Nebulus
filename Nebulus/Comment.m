@@ -35,9 +35,10 @@
 }
 
 -(NSString *)modelId{
-    if(!_modelId) _modelId = @"";
+    if(!_modelId) _modelId = [NSNull null];
     return _modelId;
 }
+
 
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
