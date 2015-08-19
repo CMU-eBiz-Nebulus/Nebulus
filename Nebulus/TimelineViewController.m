@@ -27,9 +27,19 @@
 }
 
 #pragma mark - View Controller
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    if(self.selfMode)
+        self.navigationItem.rightBarButtonItem = nil;
+        
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     self.currUser = [UserHttpClient getCurrentUser];
-    self.activity = !self.selfMode ? [MusicHttpClient getAllFollowingActivities:self.currUser.objectID] : @[];//[MusicHttpClient getUserActivity:self.currUser.objectID];
+    self.activity = self.selfMode ? [MusicHttpClient getUserActivity:self.currUser.objectID]
+    : [MusicHttpClient getAllFollowingActivities:self.currUser.objectID];
     
     NSLog(@"Fetched %ld activities", [self.activity count]);
 }

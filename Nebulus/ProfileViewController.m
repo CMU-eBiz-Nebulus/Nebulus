@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *postsButton;
 @property (weak, nonatomic) IBOutlet UIButton *followedButton;
 @property (weak, nonatomic) IBOutlet UIButton *followingButton;
+
+@property (strong, nonatomic) User *currUser;
 @end
 
 @implementation ProfileViewController
@@ -37,6 +39,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     User *user = [UserHttpClient getCurrentUser];
+    self.currUser = user;
     NSArray *follower_list = [UserHttpClient getFollowers:user];
     NSArray *following_list = [UserHttpClient getFollowing:user];
     NSArray *post_list = [MusicHttpClient getUserActivity:user.objectID];
@@ -70,18 +73,21 @@
             ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
             pdvc.mode = CLIPS;
             pdvc.title = segue.identifier;
+            pdvc.user = self.currUser;
         }
     } else if ([segue.identifier isEqualToString:@"Projects"]) {
         if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
             ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
             pdvc.mode = PROJECTS;
             pdvc.title = segue.identifier;
+            pdvc.user = self.currUser;
         }
     } else if ([segue.identifier isEqualToString:@"Albums"]) {
         if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
             ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
             pdvc.mode = ALBUMS;
             pdvc.title = segue.identifier;
+            pdvc.user = self.currUser;
         }
     } else if ([segue.identifier isEqualToString:@"followedSegue"]) {
         if ([segue.destinationViewController isKindOfClass:[FollowViewController class]]) {
@@ -100,13 +106,13 @@
         if ([segue.destinationViewController isKindOfClass:[ModifyViewController class]]) {
             ModifyViewController *vc = (ModifyViewController *)segue.destinationViewController;
             
-            vc.content = [UserHttpClient getCurrentUser];
+            vc.content = self.currUser;
             vc.mode = M_PROFILE;
             vc.backVC = self;
             vc.image = self.headPhoto.image;
         }
     } else if ([segue.identifier isEqualToString:@"showPersonalTimeline"]){
-        if ([segue.destinationViewController isKindOfClass:[ModifyViewController class]]) {
+        if ([segue.destinationViewController isKindOfClass:[TimelineViewController class]]) {
             TimelineViewController *vc = (TimelineViewController *)segue.destinationViewController;
             
             vc.selfMode = YES;

@@ -104,16 +104,16 @@
 #pragma mark - CLIPS
 
 -(void)fetch_clips{
-    self.contents =  [RecordingHttpClient getClips:[UserHttpClient getCurrentUser].objectID];
+    self.contents =  [RecordingHttpClient getClips:self.user.objectID];
     [self setTitle:[NSString stringWithFormat:@"%ld clips", [self.contents count]]];
 }
 
 -(void)fetch_albums{
-    self.contents = [MusicHttpClient getAlbumsByUser:[UserHttpClient getCurrentUser].objectID];
+    self.contents = [MusicHttpClient getAlbumsByUser:self.user.objectID];
 }
 
 -(void)fetch_projects{
-    self.contents = [ProjectHttpClient getProjectsByUser:[UserHttpClient getCurrentUser].objectID];
+    self.contents = [ProjectHttpClient getProjectsByUser:self.user.objectID];
 }
 
 -(UITableViewCell *)create_clip_cell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -190,6 +190,11 @@
             } else if (self.mode == ALBUMS){
                 vc.mode = ALBUM_DETAIL;
                 vc.content = content;
+            }
+            if([self.user.objectID isEqualToString:[UserHttpClient getCurrentUser].objectID]){
+                vc.viewMode = NO;
+            }else{
+                vc.viewMode = YES;
             }
         }
     }

@@ -181,7 +181,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sN-v9-gyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2488" y="4525"/>
+            <point key="canvasLocation" x="-1164" y="4087"/>
         </scene>
         <!--Notification-->
         <scene sceneID="B59-8F-PNh">
@@ -650,7 +650,7 @@ Some text here ...</string>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="sxZ-CJ-g0X" kind="show" identifier="showPersonalTimeline" id="hWk-RA-vL1"/>
+                                                        <segue destination="6ec-0m-sDm" kind="show" identifier="showPersonalTimeline" id="xaL-Yu-iCu"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4E-aA-aMG">
@@ -1052,7 +1052,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWb-1U-N27" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3129" y="2869"/>
+            <point key="canvasLocation" x="-735" y="6855"/>
         </scene>
         <!--Album Project View Controller-->
         <scene sceneID="fhs-Ba-mj2">
@@ -1214,7 +1214,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3w-s5-Y9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2484" y="2063"/>
+            <point key="canvasLocation" x="338" y="6903"/>
         </scene>
         <!--Collaborators View Controller-->
         <scene sceneID="0lV-Y0-S8x">
@@ -1486,6 +1486,9 @@ Some text here ...</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AeX-ll-UOo" kind="show" identifier="showOtherAlbum" id="8PY-66-gKv"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="SZC-Dl-glL" style="IBUITableViewCellStyleDefault" id="0xW-jb-ICR">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1501,6 +1504,9 @@ Some text here ...</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AeX-ll-UOo" kind="show" identifier="showOtherProject" id="3BP-P1-Dew"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="0tU-b7-UbB" style="IBUITableViewCellStyleDefault" id="vbU-oq-OIa">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1561,7 +1567,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQk-A9-Shm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1169" y="5336"/>
+            <point key="canvasLocation" x="-1519" y="6868"/>
         </scene>
         <!--Comment Clip Picker View Controller-->
         <scene sceneID="wVt-w9-fPI">
@@ -2478,11 +2484,11 @@ Some text here ...</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="a7l-Ip-Am4"/>
-        <segue reference="jTN-oo-tTb"/>
-        <segue reference="hWk-RA-vL1"/>
+        <segue reference="xaL-Yu-iCu"/>
         <segue reference="O8g-nl-Q4c"/>
-        <segue reference="B0u-vQ-RWG"/>
-        <segue reference="o5R-Aw-qYR"/>
+        <segue reference="WB0-4Q-qcK"/>
+        <segue reference="8PY-66-gKv"/>
+        <segue reference="lps-BD-uhJ"/>
         <segue reference="izh-mw-nZz"/>
     </inferredMetricsTieBreakers>
 </document>

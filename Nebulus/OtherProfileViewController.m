@@ -13,6 +13,7 @@
 #import "Album.h"
 #import "ProjectHttpClient.h"
 #import "MusicHttpClient.h"
+#import "ProfileDetailViewController.h"
 
 @interface OtherProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
@@ -69,6 +70,7 @@
     
     NSArray *follower_list = [UserHttpClient getFollowers:self.other];
     NSArray *following_list = [UserHttpClient getFollowing:self.other];
+    NSArray *post_list = [MusicHttpClient getUserActivity:self.other.objectID];
     
     NSString *descripton = [[NSString stringWithFormat:@"Tags: %@",
                              [self.other.tags componentsJoinedByString:@", "]]
@@ -82,6 +84,9 @@
     
     [self.headPhoto setImage: [UserHttpClient getUserImage:self.other.objectID]];
     //[self.headPhoto sizeToFit];
+    
+    [self.postBtn setTitle:[NSString stringWithFormat:@"Posts: %lu", (unsigned long)[post_list count]]
+                      forState:UIControlStateNormal];
     
 
     
@@ -121,6 +126,26 @@
         }
     }
     
+}
+
+#pragma mark - Segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"showOtherAlbum"]) {
+        if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
+            ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
+            pdvc.mode = ALBUMS;
+            pdvc.title = @"Albums";
+            pdvc.user = self.other;
+        }
+    }else if ([segue.identifier isEqualToString:@"showOtherProject"]) {
+        if ([segue.destinationViewController isKindOfClass:[ProfileDetailViewController class]]) {
+            ProfileDetailViewController *pdvc = (ProfileDetailViewController *)segue.destinationViewController;
+            pdvc.mode = PROJECTS;
+            pdvc.title = @"Projects";
+            pdvc.user = self.other;
+        }
+    }
 }
 
 @end
