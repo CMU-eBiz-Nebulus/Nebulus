@@ -13,7 +13,7 @@
 
 +(Activity*) createActivity:(Activity*) activity {
     
-    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/activitys"];
+    NSURL *aUrl = [NSURL URLWithString:@"http://test.nebulus.io:8080/api/activity"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
