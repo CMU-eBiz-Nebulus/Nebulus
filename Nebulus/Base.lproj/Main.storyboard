@@ -752,21 +752,6 @@ Some text here ...</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="D1z-jq-aB0" style="IBUITableViewCellStyleDefault" id="oLo-ld-ixG">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oLo-ld-ixG" id="DkX-rF-B2C">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D1z-jq-aB0">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="eJU-n7-p7U" style="IBUITableViewCellStyleDefault" id="q6U-QI-gXw">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1523,21 +1508,6 @@ Some text here ...</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="pej-5H-8PO" style="IBUITableViewCellStyleDefault" id="Fel-tI-kp0">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fel-tI-kp0" id="6cL-Xw-8cO">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pej-5H-8PO">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1629,14 +1599,14 @@ Some text here ...</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-uf-ywj">
-                                <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-uf-ywj">
+                                <rect key="frame" x="0.0" y="99" width="600" height="135"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8si-07-DmF">
-                                <rect key="frame" x="16" y="272" width="86" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8si-07-DmF">
+                                <rect key="frame" x="16" y="277" width="86" height="30"/>
                                 <state key="normal" title="Attach a clip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1644,8 +1614,8 @@ Some text here ...</string>
                                     <segue destination="LsI-ZZ-Fbv" kind="show" identifier="selectClip" id="Xn6-xu-EjX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Clip name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvV-O7-oUp">
-                                <rect key="frame" x="16" y="320" width="78" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clip name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvV-O7-oUp">
+                                <rect key="frame" x="16" y="325" width="78" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="78" id="vFs-hr-g1X"/>
                                 </constraints>
@@ -1653,26 +1623,42 @@ Some text here ...</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcO-rN-zfW">
-                                <rect key="frame" x="132" y="315" width="44" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcO-rN-zfW">
+                                <rect key="frame" x="132" y="320" width="44" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mwO-Ge-ScU">
+                                <rect key="frame" x="3" y="64" width="594" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tags (use , to seperate them)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcI-IP-2N0">
+                                <rect key="frame" x="3" y="239" width="594" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mwO-Ge-ScU" firstAttribute="leading" secondItem="yH3-Z7-zpU" secondAttribute="leadingMargin" constant="-13" id="6ik-wf-drF"/>
                             <constraint firstItem="0dg-uf-ywj" firstAttribute="leading" secondItem="yH3-Z7-zpU" secondAttribute="leading" id="7Fg-MY-mFt"/>
+                            <constraint firstItem="mwO-Ge-ScU" firstAttribute="top" secondItem="wLz-mi-yzF" secondAttribute="bottom" id="Bsv-eB-02B"/>
                             <constraint firstItem="GcO-rN-zfW" firstAttribute="leading" secondItem="VvV-O7-oUp" secondAttribute="trailing" constant="38" id="CEQ-IJ-qmm"/>
+                            <constraint firstItem="8si-07-DmF" firstAttribute="top" secondItem="PcI-IP-2N0" secondAttribute="bottom" constant="8" id="EEK-02-k2E"/>
                             <constraint firstItem="8si-07-DmF" firstAttribute="leading" secondItem="VvV-O7-oUp" secondAttribute="leading" id="ITs-Re-eDj"/>
                             <constraint firstItem="VvV-O7-oUp" firstAttribute="top" secondItem="8si-07-DmF" secondAttribute="bottom" constant="18" id="JYu-k4-6VH"/>
+                            <constraint firstItem="mwO-Ge-ScU" firstAttribute="width" secondItem="PcI-IP-2N0" secondAttribute="width" id="LbK-4h-gZt"/>
                             <constraint firstItem="209-VM-FcU" firstAttribute="top" secondItem="GcO-rN-zfW" secondAttribute="bottom" constant="206" id="WHE-gF-FaV"/>
                             <constraint firstItem="209-VM-FcU" firstAttribute="top" secondItem="VvV-O7-oUp" secondAttribute="bottom" constant="210" id="ZdO-Wh-SCV"/>
                             <constraint firstAttribute="trailing" secondItem="0dg-uf-ywj" secondAttribute="trailing" id="bb9-7k-Rpc"/>
-                            <constraint firstItem="0dg-uf-ywj" firstAttribute="top" secondItem="wLz-mi-yzF" secondAttribute="bottom" id="fGh-2p-6QT"/>
+                            <constraint firstItem="mwO-Ge-ScU" firstAttribute="leading" secondItem="PcI-IP-2N0" secondAttribute="leading" id="crh-GW-FPi"/>
                             <constraint firstItem="VvV-O7-oUp" firstAttribute="leading" secondItem="yH3-Z7-zpU" secondAttribute="leadingMargin" id="iKe-R5-dyp"/>
                             <constraint firstItem="VvV-O7-oUp" firstAttribute="centerY" secondItem="GcO-rN-zfW" secondAttribute="centerY" id="qW4-6U-NCG"/>
-                            <constraint firstItem="8si-07-DmF" firstAttribute="top" secondItem="0dg-uf-ywj" secondAttribute="bottom" constant="8" symbolic="YES" id="zi5-A2-fl5"/>
+                            <constraint firstItem="PcI-IP-2N0" firstAttribute="top" secondItem="0dg-uf-ywj" secondAttribute="bottom" constant="5" id="rUe-WA-fIq"/>
+                            <constraint firstItem="mwO-Ge-ScU" firstAttribute="centerX" secondItem="0dg-uf-ywj" secondAttribute="centerX" id="tR4-mZ-m5n"/>
+                            <constraint firstItem="0dg-uf-ywj" firstAttribute="top" secondItem="mwO-Ge-ScU" secondAttribute="bottom" constant="5" id="tXt-yn-YgX"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -1681,7 +1667,9 @@ Some text here ...</string>
                         <outlet property="addClip" destination="8si-07-DmF" id="uPM-Ru-J6Z"/>
                         <outlet property="clipName" destination="VvV-O7-oUp" id="EXW-pb-avY"/>
                         <outlet property="deleteClip" destination="GcO-rN-zfW" id="HhZ-0W-cYM"/>
+                        <outlet property="tagsField" destination="PcI-IP-2N0" id="TfJ-9G-Mmx"/>
                         <outlet property="textView" destination="0dg-uf-ywj" id="IDj-bj-gaS"/>
+                        <outlet property="titleField" destination="mwO-Ge-ScU" id="753-zc-vAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkc-XC-qIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1756,7 +1744,7 @@ Some text here ...</string>
                                     <constraint firstAttribute="width" constant="150" id="e3Z-tH-Q0G"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eu-Aj-j6Y">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2eu-Aj-j6Y">
                                 <rect key="frame" x="31" y="404" width="538" height="133"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -2483,12 +2471,12 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="a7l-Ip-Am4"/>
-        <segue reference="xaL-Yu-iCu"/>
         <segue reference="O8g-nl-Q4c"/>
+        <segue reference="xaL-Yu-iCu"/>
+        <segue reference="Osm-Oy-nlm"/>
+        <segue reference="a7l-Ip-Am4"/>
         <segue reference="WB0-4Q-qcK"/>
         <segue reference="8PY-66-gKv"/>
         <segue reference="lps-BD-uhJ"/>
-        <segue reference="izh-mw-nZz"/>
     </inferredMetricsTieBreakers>
 </document>

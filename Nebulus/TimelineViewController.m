@@ -32,14 +32,14 @@
     
     if(self.selfMode)
         self.navigationItem.rightBarButtonItem = nil;
-        
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     self.currUser = [UserHttpClient getCurrentUser];
     self.activity = self.selfMode ? [MusicHttpClient getUserActivity:self.currUser.objectID]
     : [MusicHttpClient getAllFollowingActivities:self.currUser.objectID];
+    
+    [self.tableView reloadData];
     
     NSLog(@"Fetched %ld activities", [self.activity count]);
 }
