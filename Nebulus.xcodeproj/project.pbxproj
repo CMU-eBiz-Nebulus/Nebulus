@@ -35,6 +35,7 @@
 		9283EE221B686ADD004A553B /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283EE211B686ADD004A553B /* Project.m */; };
 		9289842E1B728F1500D6FB6F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9289842D1B728F1500D6FB6F /* Activity.m */; };
 		928984411B7463A400D6FB6F /* Doc.m in Sources */ = {isa = PBXBuildFile; fileRef = 928984401B7463A400D6FB6F /* Doc.m */; };
+		9295811D1B84FE5D00D86331 /* ModelHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9295811C1B84FE5D00D86331 /* ModelHttpClient.m */; };
 		929B70BC1B5D3FC000264D32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BB1B5D3FC000264D32 /* main.m */; };
 		929B70BF1B5D3FC000264D32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 929B70BE1B5D3FC000264D32 /* AppDelegate.m */; };
 		929B70C81B5D3FC000264D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B70C61B5D3FC000264D32 /* Main.storyboard */; };
@@ -140,6 +141,8 @@
 		9289842D1B728F1500D6FB6F /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		9289843F1B7463A400D6FB6F /* Doc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doc.h; sourceTree = "<group>"; };
 		928984401B7463A400D6FB6F /* Doc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doc.m; sourceTree = "<group>"; };
+		9295811B1B84FE5D00D86331 /* ModelHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelHttpClient.h; sourceTree = "<group>"; };
+		9295811C1B84FE5D00D86331 /* ModelHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelHttpClient.m; sourceTree = "<group>"; };
 		929B70B61B5D3FC000264D32 /* Nebulus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		929B70BA1B5D3FC000264D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929B70BB1B5D3FC000264D32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -404,6 +407,8 @@
 				92ED7E161B7A834C0015E6BB /* RecordingHttpClient.m */,
 				92ED7E251B8299AF0015E6BB /* ActivityHttpClient.h */,
 				92ED7E361B83CDE70015E6BB /* ActivityHttpClient.m */,
+				9295811B1B84FE5D00D86331 /* ModelHttpClient.h */,
+				9295811C1B84FE5D00D86331 /* ModelHttpClient.m */,
 			);
 			name = HttpClient;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9295811D1B84FE5D00D86331 /* ModelHttpClient.m in Sources */,
 				92ED7E371B83CDE70015E6BB /* ActivityHttpClient.m in Sources */,
 				8430F44B1B6A943800CB2EE0 /* EZRecorder.m in Sources */,
 				8430F4401B6A943800CB2EE0 /* EZAudioFFT.m in Sources */,

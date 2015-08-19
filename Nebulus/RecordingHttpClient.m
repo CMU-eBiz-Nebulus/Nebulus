@@ -113,6 +113,12 @@
     return clips;
 }
 
++(Clip*) getClip:(NSString*) clipId {
+    NSDictionary * raw = [ModelHttpClient getModel:@"clips" ModelId:clipId];
+    Clip *clip  = [[Clip alloc]initWithDict:raw];
+    return clip;
+}
+
 +(NSData*) getRecording:(NSString*) recordingId {
     
     NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/recordings/%@/audio", recordingId];
@@ -133,6 +139,9 @@
     return responseData;
 
 }
+
+
+
 
 +(BOOL) deleteClip:(Clip*) clip {
     

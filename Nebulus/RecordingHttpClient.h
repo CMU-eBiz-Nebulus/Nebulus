@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Clip.h"
+#import "ModelHttpClient.h"
 
 @interface RecordingHttpClient : NSObject
 
@@ -21,6 +22,9 @@
 
 //Get the recording data by the given recording id
 +(NSData*) getRecording:(NSString*) recordingId;
+
+//Get the object of the clip by clip Id. If you want to get the recording, use rthe getRecording function by the recording Id in the clip model
++(Clip*) getClip:(NSString*) clipId;
 
 +(BOOL) deleteClip:(Clip*) clip;
 
