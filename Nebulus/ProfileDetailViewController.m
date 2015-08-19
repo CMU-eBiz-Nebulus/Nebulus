@@ -198,7 +198,7 @@
             }
         }
     }
-    if ([segue.identifier isEqualToString:@"playerView"]){
+    else if ([segue.identifier isEqualToString:@"playerView"]){
         if ([segue.destinationViewController isKindOfClass:[PlayFileViewController class]]) {
             PlayFileViewController *vc = (PlayFileViewController *)segue.destinationViewController;
             
@@ -216,8 +216,7 @@
     }
 }
 
-- (NSString *)applicationDocumentsDirectory
-{
+- (NSString *)applicationDocumentsDirectory{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     return basePath;
