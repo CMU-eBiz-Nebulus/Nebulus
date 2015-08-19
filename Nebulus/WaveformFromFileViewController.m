@@ -54,6 +54,7 @@
     
     
     self.moveMeView = [[APLMoveMeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 150)];
+    self.moveMeView.directoryContent = self.directoryContent;
     [self.moveMeView setupNextDisplayString];
     [self.view addSubview:self.moveMeView];
     
@@ -96,7 +97,7 @@
     self.timeLine.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.timeLine];
     
-    [self listFileAtPath];
+    //[self listFileAtPath];
     _slider4 = [[UISlider alloc] initWithFrame:CGRectMake(100, 410, 200, 20)];
     _slider4.tag = 3;
     _slider4.minimumValue = 0;
@@ -341,7 +342,7 @@
     // Insert the audio tracks into our composition
     //NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
     //NSString* audioFileType = @"wav";
-    [self listFileAtPath];
+    //[self listFileAtPath];
     for (int i=0; i<[_directoryContent count]; i++)
         
     {
@@ -437,7 +438,7 @@
         // Insert the audio tracks into our composition
         //NSArray* tracks = [NSArray arrayWithObjects:@"track1", @"track2", @"track3", @"track4", nil];
         //NSString* audioFileType = @"wav";
-        [self listFileAtPath];
+        //[self listFileAtPath];
         for (int i=0; i<[_directoryContent count]; i++)
             
         {

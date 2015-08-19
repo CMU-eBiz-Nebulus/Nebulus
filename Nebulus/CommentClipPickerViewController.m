@@ -34,7 +34,16 @@
 }
 
 -(void)doneAction{
-    PostCommentViewController *parentVC = (PostCommentViewController *)self.navigationController.parentViewController;
+
+    Clip *clip = [[Clip alloc] init];
+    clip.name = @"test clip";
+    clip.objectID = nil;
+    
+    self.backVC.clip = clip;
+    self.backVC.deleteClip.hidden = NO;
+    self.backVC.clipName.hidden = NO;
+    self.backVC.clipName.text = self.backVC.clip.name;
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

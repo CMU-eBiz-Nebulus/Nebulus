@@ -323,7 +323,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPn-yj-ZQ6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPn-yj-ZQ6">
                                 <rect key="frame" x="161" y="194" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -340,13 +340,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMA-Xo-bmv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMA-Xo-bmv">
                                 <rect key="frame" x="161" y="128" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="please type your email / phone number " minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ozu-Ty-SOY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="please type your email / phone number " minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ozu-Ty-SOY">
                                 <rect key="frame" x="161" y="154" width="277" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -593,7 +593,7 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-d7-1dF">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-d7-1dF">
                                                     <rect key="frame" x="160" y="59" width="412" height="75"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Rock, Bass, etc.
@@ -854,24 +854,24 @@ Some text here ...</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1r-Iq-tfV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1r-Iq-tfV">
                                 <rect key="frame" x="31" y="255" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPS-dJ-jVr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPS-dJ-jVr">
                                 <rect key="frame" x="31" y="321" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mea-qj-hRG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mea-qj-hRG">
                                 <rect key="frame" x="31" y="215" width="538" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8h-d8-aKD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8h-d8-aKD">
                                 <rect key="frame" x="31" y="281" width="538" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -883,7 +883,7 @@ Some text here ...</string>
                                     <constraint firstAttribute="height" constant="150" id="kHg-Rh-MFH"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgM-0F-iXt">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgM-0F-iXt">
                                 <rect key="frame" x="31" y="347" width="538" height="239"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1369,7 +1369,7 @@ Some text here ...</string>
                                                         </fragment>
                                                     </attributedString>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Kv-G5f">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Kv-G5f">
                                                     <rect key="frame" x="160" y="59" width="412" height="75"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Rock, Bass, etc.
@@ -1628,6 +1628,9 @@ Some text here ...</string>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteClip:" destination="Twk-i2-PHi" eventType="touchUpInside" id="NrD-V4-9YS"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mwO-Ge-ScU">
                                 <rect key="frame" x="3" y="64" width="594" height="30"/>
@@ -2126,36 +2129,49 @@ Some text here ...</string>
                     <toolbarItems>
                         <barButtonItem title="Item" id="MRU-wI-pjI"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="HVk-QV-2bD">
-                        <barButtonItem key="leftBarButtonItem" title="Setting" id="5BO-dG-ESv">
-                            <connections>
-                                <segue destination="F0K-3K-DYF" kind="popoverPresentation" identifier="setting" popoverAnchorBarButtonItem="5BO-dG-ESv" id="4b6-Zt-rTp">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Mixer" id="PvT-MT-3y1">
-                            <connections>
-                                <segue destination="P4h-Yp-cL6" kind="show" id="Iua-FO-UgA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="HVk-QV-2bD"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cancelButton" destination="LEO-Qf-GBJ" id="RFn-aC-SWm"/>
                         <outlet property="currentTimeLabel" destination="Tgx-TV-AOL" id="J7P-oT-8w3"/>
+                        <outlet property="editButton" destination="PvT-MT-3y1" id="XJZ-Wb-CH8"/>
                         <outlet property="microphoneStateLabel" destination="msW-KS-a8c" id="VAq-Xm-Gx0"/>
                         <outlet property="microphoneSwitch" destination="rAP-GV-yCt" id="qR9-wD-yNO"/>
+                        <outlet property="mixButton" destination="cWA-rW-0zC" id="fRR-0a-I3c"/>
                         <outlet property="playButton" destination="Tm5-fI-ZLM" id="QOO-bD-QTb"/>
                         <outlet property="playingAudioPlot" destination="aOF-hZ-Hq0" id="6Yc-ja-nQi"/>
                         <outlet property="playingStateLabel" destination="jH3-JQ-LNN" id="a5Y-2R-PHo"/>
                         <outlet property="recordSwitch" destination="upB-v1-0Cf" id="kjk-0B-0G1"/>
                         <outlet property="recordingAudioPlot" destination="sqz-Xn-uWP" id="VWk-GS-aKR"/>
                         <outlet property="recordingStateLabel" destination="s1Q-Qm-KEf" id="FTl-cT-Xe2"/>
+                        <outlet property="settingButton" destination="5BO-dG-ESv" id="pMx-cH-mKp"/>
                         <outlet property="view" destination="doq-mH-sw4" id="r8J-m6-SZG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDY-yq-wog" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="faZ-bg-mEs" userLabel="Exit" sceneMemberID="exit"/>
+                <barButtonItem title="Setting" id="5BO-dG-ESv">
+                    <connections>
+                        <segue destination="F0K-3K-DYF" kind="popoverPresentation" identifier="setting" popoverAnchorBarButtonItem="5BO-dG-ESv" id="4b6-Zt-rTp">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Select Tracks to Mix" id="PvT-MT-3y1">
+                    <connections>
+                        <action selector="editAction:" destination="Brl-ej-heJ" id="1Hw-QQ-zzy"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Cancel" id="LEO-Qf-GBJ">
+                    <connections>
+                        <action selector="cancelAction:" destination="Brl-ej-heJ" id="Q7o-5c-F46"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Mix All" id="cWA-rW-0zC">
+                    <connections>
+                        <segue destination="P4h-Yp-cL6" kind="show" identifier="mix" id="HoW-yW-uDX"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="2896" y="757"/>
         </scene>

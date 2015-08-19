@@ -360,7 +360,7 @@
 //}
 
 - (void)setupNextDisplayString{
-    [self listFileAtPath];
+    //[self listFileAtPath];
     if ([_directoryContent count]>0)
         [self setupNextDisplayStringAudioPlot:self.audioPlot1 number:1];
     if ([_directoryContent count]>1)
