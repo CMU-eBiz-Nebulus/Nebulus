@@ -15,6 +15,26 @@
 
 @implementation Activity
 
+-(NSString *)pictureUpdateTime{
+    if(!_pictureUpdateTime) _pictureUpdateTime = @"";
+    return _pictureUpdateTime;
+}
+
+-(NSArray *)tags{
+    if(!_tags) _tags = @[];
+    return _tags;
+}
+
+-(NSString *)recordingDuration{
+    if (!_recordingDuration) _recordingDuration = @"";
+    return _recordingDuration;
+}
+
+-(NSString *)recordingId{
+    if(!_recordingId) _recordingId = @"";
+    return _recordingId;
+}
+
 -(id) initWithDict:(NSDictionary *)json {
     self = [super initWithDict: json];
     if(self) {
