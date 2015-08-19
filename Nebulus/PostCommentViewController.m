@@ -9,7 +9,9 @@
 #import "PostCommentViewController.h"
 #import "ActivityHttpClient.h"
 
-@interface PostCommentViewController () <UITextViewDelegate>
+@interface PostCommentViewController () <UITextViewDelegate, UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextField *tagsField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *addClip;
 @property (weak, nonatomic) IBOutlet UILabel *clipName;
@@ -39,7 +41,15 @@
                                     action:@selector(doneAction)];
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    self.title = self.commentMode ? @"Comment" : @"New Post";
+    if(self.commentMode){
+        self.title = @"Comment";
+        self.titleField.enabled = NO;
+        self.titleField.text = @"Type in comment below";
+        self.tagsField.hidden = YES;
+    }else{
+        self.title = @"New Post";
+        self.titleField.delegate = self;
+    }
     
     [self.deleteClip setHidden:YES];
     [self.clipName setHidden:YES];
@@ -55,20 +65,19 @@
         comment.modelId = self.activity.objectID;
         comment = [ActivityHttpClient createComment:comment];
     }else{
-        //TODO: create activity w/ text and w/o a clip
         Activity *post = [[Activity alloc] init];
         
         post.creator = self.currUser;
         post.text = self.textView.text;
         post.type = @"textShare";
+        post.title = self.titleField.text;
+        post.tags = @[self.tagsField.text];
         
 //        if(0){
 //            post.recordingId = @"";
 //            post.recordingDuration = @"";
 //            post.type = @"clipShare";
 //        }
-        
-        post.title = @"";
         
         post = [ActivityHttpClient createActivity:post];
     }
@@ -82,6 +91,11 @@
     for (id subview in subviews) {
         if ([subview isKindOfClass:[UITextView class]]) {
             UITextView *tv = subview;
+            if ([subview isFirstResponder]) {
+                [tv resignFirstResponder];
+            }
+        }else if ([subview isKindOfClass:[UITextField class]]) {
+            UITextField *tv = subview;
             if ([subview isFirstResponder]) {
                 [tv resignFirstResponder];
             }

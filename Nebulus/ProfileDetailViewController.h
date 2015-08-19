@@ -14,6 +14,9 @@ typedef NS_ENUM(NSInteger, ProfileDetailMode) {
     CLIPS
 };
 
+@class User;
+
 @interface ProfileDetailViewController : UITableViewController
+@property (nonatomic, strong) User *user;
 @property (nonatomic) ProfileDetailMode mode;
 @end

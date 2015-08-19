@@ -16,6 +16,7 @@
 #import "Album.h"
 #import "User.h"
 #import "UserHttpClient.h"
+#import "ActivityHttpClient.h"
 
 @interface AlbumProjectViewController ()
 @property (nonatomic, strong) Album *album;
@@ -28,6 +29,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *editCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *deleteCell;
+
+@property (nonatomic, strong) User* currUser;
 
 @end
 
@@ -44,6 +47,7 @@
     // Check whether current user has the right to share ALBUM / PROJECT
     BOOL displayShare = NO;
     User *user = [UserHttpClient getCurrentUser];
+    self.currUser = user;
     if (self.mode == PROJECT_DETAIL){
         Project *project = (Project *)self.content;
         displayShare = [project isUser:user.objectID];
@@ -62,7 +66,28 @@
     
 }
 
--(void)shareAction{}
+-(void)shareAction{
+
+//    Activity *post = [[Activity alloc] init];
+//    
+//    post.creator = self.currUser;
+//    if (self.mode == PROJECT_DETAIL){
+//        Project *project = (Project *)self.content;
+//        post.tags = project.tags;
+//        post.title = @"Shared a project";
+//        post.type = @"projectShare";
+//        post.text = [NSString stringWithFormat:@"%@ shared %@", self.currUser.username, project.projectName];
+//    }else if(self.mode == ALBUM_DETAIL){
+//        Album *album = (Album *)self.content;
+//        post.tags = album.tags;
+//        post.title = @"Shared a album";
+//        post.type = @"albumShare";
+//        post.text = [NSString stringWithFormat:@"%@ shared %@", self.currUser.username, album.name];
+//    }
+//    
+//    post = [ActivityHttpClient createActivity:post];
+    
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
