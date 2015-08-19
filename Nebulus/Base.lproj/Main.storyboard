@@ -593,8 +593,8 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-d7-1dF">
-                                                    <rect key="frame" x="160" y="58" width="412" height="75.5"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-d7-1dF">
+                                                    <rect key="frame" x="160" y="58" width="412" height="76"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Rock, Bass, etc.
 Some text here ...</string>
@@ -602,7 +602,7 @@ Some text here ...</string>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6X-77-xk4">
-                                                    <rect key="frame" x="170" y="28" width="81.5" height="20.5"/>
+                                                    <rect key="frame" x="170" y="28" width="82" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1311,11 +1311,13 @@ Some text here ...</string>
             </objects>
             <point key="canvasLocation" x="4852" y="601"/>
         </scene>
-        <!--MyStudio-->
+        <!--Navigation Controller-->
         <scene sceneID="b5r-XF-P8o">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xfc-7R-eZk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MyStudio" id="GuN-aM-hK6"/>
+                    <tabBarItem key="tabBarItem" title="" image="newProfile" id="GuN-aM-hK6">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dlT-19-Ufe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1330,11 +1332,13 @@ Some text here ...</string>
             </objects>
             <point key="canvasLocation" x="-123" y="3287"/>
         </scene>
-        <!--Timeline-->
+        <!--Navigation Controller-->
         <scene sceneID="itH-Tn-HPi">
             <objects>
                 <navigationController storyboardIdentifier="timelineView" automaticallyAdjustsScrollViewInsets="NO" id="sxZ-CJ-g0X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timeline" id="DHT-Lz-DFI"/>
+                    <tabBarItem key="tabBarItem" title="" image="newTimeline" id="DHT-Lz-DFI">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lf6-23-qXI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1382,8 +1386,8 @@ Some text here ...</string>
                                                         </fragment>
                                                     </attributedString>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Kv-G5f">
-                                                    <rect key="frame" x="160" y="58" width="412" height="75.5"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Kv-G5f">
+                                                    <rect key="frame" x="160" y="58" width="412" height="76"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Rock, Bass, etc.
 Some text here ...</string>
@@ -1391,7 +1395,7 @@ Some text here ...</string>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEe-lm-T9r">
-                                                    <rect key="frame" x="170" y="28" width="81.5" height="20.5"/>
+                                                    <rect key="frame" x="170" y="28" width="82" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1709,7 +1713,9 @@ Some text here ...</string>
         <scene sceneID="lCZ-Id-8gY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hyv-9B-sIv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Sbr-Zo-Vr6"/>
+                    <tabBarItem key="tabBarItem" image="newSearch" id="Sbr-Zo-Vr6">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FWh-u3-Xoj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2219,11 +2225,13 @@ Some text here ...</string>
             </objects>
             <point key="canvasLocation" x="3678" y="766"/>
         </scene>
-        <!--Record-->
+        <!--Navigation Controller-->
         <scene sceneID="WPI-1h-XpN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BIn-8t-NfJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Record" image="first" id="be8-oj-0fG"/>
+                    <tabBarItem key="tabBarItem" title="" image="newRecord" id="be8-oj-0fG">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WDc-NH-N3y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2331,11 +2339,13 @@ Some text here ...</string>
             </objects>
             <point key="canvasLocation" x="3632" y="116"/>
         </scene>
-        <!--Notification-->
+        <!--Navigation Controller-->
         <scene sceneID="8MG-u9-CzH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O5z-Oc-vlZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notification" id="H44-vq-PnF"/>
+                    <tabBarItem key="tabBarItem" title="" image="newNotification" id="H44-vq-PnF">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j4J-De-eS1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2507,18 +2517,22 @@ Some text here ...</string>
     </scenes>
     <resources>
         <image name="defaultUser" width="299" height="301"/>
-        <image name="first" width="30" height="30"/>
+        <image name="newNotification" width="32" height="32"/>
+        <image name="newProfile" width="32" height="32"/>
+        <image name="newRecord" width="32" height="32"/>
+        <image name="newSearch" width="32" height="32"/>
+        <image name="newTimeline" width="32" height="32"/>
         <image name="pic1" width="256" height="256"/>
         <image name="pic2" width="256" height="256"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="qqN-SW-aKg"/>
         <segue reference="O8g-nl-Q4c"/>
-        <segue reference="xaL-Yu-iCu"/>
+        <segue reference="OPr-Qg-P5T"/>
+        <segue reference="1oK-Qf-whG"/>
+        <segue reference="8PY-66-gKv"/>
         <segue reference="a7l-Ip-Am4"/>
         <segue reference="Osm-Oy-nlm"/>
-        <segue reference="WB0-4Q-qcK"/>
-        <segue reference="8PY-66-gKv"/>
-        <segue reference="lps-BD-uhJ"/>
     </inferredMetricsTieBreakers>
 </document>
