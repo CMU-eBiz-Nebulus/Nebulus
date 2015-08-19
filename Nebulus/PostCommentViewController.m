@@ -56,6 +56,21 @@
         comment = [ActivityHttpClient createComment:comment];
     }else{
         //TODO: create activity w/ text and w/o a clip
+        Activity *post = [[Activity alloc] init];
+        
+        post.creator = self.currUser;
+        post.text = self.textView.text;
+        post.type = @"textShare";
+        
+//        if(0){
+//            post.recordingId = @"";
+//            post.recordingDuration = @"";
+//            post.type = @"clipShare";
+//        }
+        
+        post.title = @"";
+        
+        post = [ActivityHttpClient createActivity:post];
     }
 
     [self.navigationController popViewControllerAnimated:YES];
