@@ -18,11 +18,13 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    UIBarButtonItem *Invite = [[UIBarButtonItem alloc]
-                            initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                            target:self
-                            action:@selector(performInvite)];
-    self.navigationItem.rightBarButtonItem = Invite;
+    if(!self.viewMode){
+        UIBarButtonItem *Invite = [[UIBarButtonItem alloc]
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                   target:self
+                                   action:@selector(performInvite)];
+        self.navigationItem.rightBarButtonItem = Invite;
+    }
 }
 
 -(void)performInvite{

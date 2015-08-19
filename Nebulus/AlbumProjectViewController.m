@@ -153,6 +153,7 @@
                 vc.mode = ALBUM_DETAIL;
             }
             vc.content = self.content;
+            vc.viewMode = self.viewMode;
         }
     }
 }

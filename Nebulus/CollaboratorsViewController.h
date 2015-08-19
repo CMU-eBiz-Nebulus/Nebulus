@@ -14,4 +14,6 @@
 @interface CollaboratorsViewController : UITableViewController
 @property (nonatomic) ContentMode mode;
 @property (nonatomic, strong) id content;
+
+@property (nonatomic) BOOL viewMode;
 @end
