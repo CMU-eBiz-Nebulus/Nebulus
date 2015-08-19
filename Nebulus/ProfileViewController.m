@@ -39,7 +39,7 @@
     User *user = [UserHttpClient getCurrentUser];
     NSArray *follower_list = [UserHttpClient getFollowers:user];
     NSArray *following_list = [UserHttpClient getFollowing:user];
-    NSArray *post_list = @[];//[MusicHttpClient getUserActivity:user.objectID];
+    NSArray *post_list = [MusicHttpClient getUserActivity:user.objectID];
     
     NSLog(@"Username = %@", user.username);
     

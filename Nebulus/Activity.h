@@ -27,9 +27,9 @@
 //Common Property
 @property (strong, nonatomic) User *creator;
 @property (strong, nonatomic) NSArray *tags;
-@property (strong, nonatomic) NSString *pictureUpdateTime;
+@property (strong, nonatomic) NSNumber *pictureUpdateTime;
 @property (strong, nonatomic) NSString *recordingId;
-@property (strong, nonatomic) NSString *recordingDuration;
+@property (strong, nonatomic) NSNumber *recordingDuration;
 @property (strong, nonatomic) NSString *text;
 
 //Type of Act, {announcement, albumShare, clipShare, projectClassified, projectShare, textShare, userClassified}

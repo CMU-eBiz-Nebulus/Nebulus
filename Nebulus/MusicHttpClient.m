@@ -13,7 +13,7 @@
 +(NSArray*) getUserActivity:(NSString*) userId {
 
     
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/activity/user=%@", userId ];
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/activity/?creator=%@", userId ];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy

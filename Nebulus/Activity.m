@@ -15,8 +15,8 @@
 
 @implementation Activity
 
--(NSString *)pictureUpdateTime{
-    if(!_pictureUpdateTime) _pictureUpdateTime = @"";
+-(NSNumber *)pictureUpdateTime{
+    if(!_pictureUpdateTime) _pictureUpdateTime = [[NSNumber alloc]initWithInt:0];
     return _pictureUpdateTime;
 }
 
@@ -25,13 +25,13 @@
     return _tags;
 }
 
--(NSString *)recordingDuration{
-    if (!_recordingDuration) _recordingDuration = @"";
+-(NSNumber *)recordingDuration{
+    if (!_recordingDuration) _recordingDuration = [[NSNumber alloc]initWithInt:0];;
     return _recordingDuration;
 }
 
 -(NSString *)recordingId{
-    if(!_recordingId) _recordingId = @"";
+    if(!_recordingId) _recordingId = [NSNull null];
     return _recordingId;
 }
 
