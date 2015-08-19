@@ -113,9 +113,15 @@
     return clips;
 }
 
++(Clip*) getClip:(NSString*) clipId {
+    NSDictionary * raw = [ModelHttpClient getModel:@"clips" ModelId:clipId];
+    Clip *clip  = [[Clip alloc]initWithDict:raw];
+    return clip;
+}
+
 +(NSData*) getRecording:(NSString*) recordingId {
     
-    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/recordings/%@/waveform", recordingId];
+    NSString * getUrlString = [[NSString alloc] initWithFormat: @"http://test.nebulus.io:8080/api/recordings/%@/audio", recordingId];
     NSURL *aUrl = [NSURL URLWithString:getUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -133,6 +139,9 @@
     return responseData;
 
 }
+
+
+
 
 +(BOOL) deleteClip:(Clip*) clip {
     

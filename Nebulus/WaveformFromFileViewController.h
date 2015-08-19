@@ -64,6 +64,6 @@
 @property (nonatomic,strong) NSMutableDictionary* audioMixTrackIDs; // track name -> track ID
 
 @property (nonatomic, strong) NSMutableArray *directoryContent;
-
+@property (nonatomic, strong) NSArray *selectedIndex;
 @property (nonatomic,strong) UIView* timeLine;
 @end
