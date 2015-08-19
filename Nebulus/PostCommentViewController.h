@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Activity.h"
 
+@class Clip;
+
 @interface PostCommentViewController : UIViewController
 @property (nonatomic, strong) Activity *activity;
-@property (nonatomic, strong) User* currUser;
+@property (nonatomic, strong) User *currUser;
 
-@property (nonatomic) BOOL commentMode;
+@property (nonatomic) BOOL commentMode;         // post or comment
+
+@property (nonatomic, strong) Clip *clip;       // Used to pass clip object
+@property (weak, nonatomic) IBOutlet UILabel *clipName;
+@property (weak, nonatomic) IBOutlet UIButton *deleteClip;
 @end

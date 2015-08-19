@@ -8,14 +8,14 @@
 
 #import "PostCommentViewController.h"
 #import "ActivityHttpClient.h"
+#import "CommentClipPickerViewController.h"
 
 @interface PostCommentViewController () <UITextViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *tagsField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *addClip;
-@property (weak, nonatomic) IBOutlet UILabel *clipName;
-@property (weak, nonatomic) IBOutlet UIButton *deleteClip;
+
 @end
 
 @implementation PostCommentViewController
@@ -53,6 +53,7 @@
     
     [self.deleteClip setHidden:YES];
     [self.clipName setHidden:YES];
+    self.clip = nil;
 }
 
 #pragma mark - Add comment done
@@ -63,6 +64,11 @@
         comment.text = self.textView.text;
         comment.creator = self.currUser;
         comment.modelId = self.activity.objectID;
+        
+        if(self.clip && self.clip.objectID){
+            comment.clip = self.clip;
+        }
+
         comment = [ActivityHttpClient createComment:comment];
     }else{
         Activity *post = [[Activity alloc] init];
@@ -73,16 +79,22 @@
         post.title = self.titleField.text;
         post.tags = @[self.tagsField.text];
         
-//        if(0){
-//            post.recordingId = @"";
-//            post.recordingDuration = @"";
-//            post.type = @"clipShare";
-//        }
+        if(self.clip && self.clip.objectID){
+            post.recordingId = self.clip.recordingId;
+            post.recordingDuration = self.clip.duration;
+            post.type = @"clipShare";
+        }
         
         post = [ActivityHttpClient createActivity:post];
     }
 
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)deleteClip:(UIButton *)sender {
+    [self.deleteClip setHidden:YES];
+    [self.clipName setHidden:YES];
+    self.clip = nil;
 }
 
 #pragma mark - close keyboard
@@ -111,6 +123,19 @@
     }
     
     return YES;
+}
+
+#pragma mark - Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.identifier isEqualToString:@"selectClip"]) {
+        if ([segue.destinationViewController isKindOfClass:[CommentClipPickerViewController class]]) {
+            CommentClipPickerViewController *vc = (CommentClipPickerViewController *)segue.destinationViewController;
+            
+            vc.backVC = self;
+        }
+    }
+    
 }
 
 @end

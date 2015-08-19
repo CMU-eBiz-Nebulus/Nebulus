@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CommentClipPickerViewController : UITableViewController
+@class PostCommentViewController;
 
+@interface CommentClipPickerViewController : UITableViewController
+@property (nonatomic, strong) PostCommentViewController *backVC;
 @end
