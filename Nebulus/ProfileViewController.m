@@ -14,7 +14,7 @@
 #import "ModifyViewController.h"
 #import "TimelineViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *tags;
 @property (weak, nonatomic) IBOutlet UIImageView *headPhoto;
@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *followingButton;
 
 @property (strong, nonatomic) User *currUser;
+@property (strong, nonatomic) UIViewController *fullscreenVC;
 @end
 
 @implementation ProfileViewController
@@ -35,7 +36,9 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self.userNameLabel setText:[defaults objectForKey:@"username"]];
+    
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     User *user = [UserHttpClient getCurrentUser];
@@ -118,6 +121,36 @@
             vc.selfMode = YES;
         }
     }
+}
+
+- (IBAction)fullscreenImage:(UIButton *)sender {
+    if(self.headPhoto.image){
+        self.fullscreenVC = [[UIViewController alloc] init];
+        
+        self.fullscreenVC.view.backgroundColor = [UIColor blackColor];
+        self.fullscreenVC.view.userInteractionEnabled = YES;
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.fullscreenVC.view.frame];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+
+        [imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [imageView.layer setBorderWidth: 0.5];
+        [imageView.layer setCornerRadius:5];
+        
+        imageView.image = self.headPhoto.image;
+        
+        [self.fullscreenVC.view addSubview:imageView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(closeVC)];
+        [self.fullscreenVC.view addGestureRecognizer:tap];
+        [self presentViewController:self.fullscreenVC animated:YES completion:nil];
+    }
+}
+
+-(void)closeVC{
+    [self.fullscreenVC dismissViewControllerAnimated:YES completion:^(){}];
 }
 
 @end

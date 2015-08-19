@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *postBtn;
 @property (weak, nonatomic) IBOutlet UIButton *followingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *followerBtn;
+
+@property (strong, nonatomic) UIViewController *fullscreenVC;
 @end
 
 @implementation OtherProfileViewController
@@ -146,6 +148,36 @@
             pdvc.user = self.other;
         }
     }
+}
+
+- (IBAction)fullscreenImage:(UIButton *)sender {
+    if(self.headPhoto.image){
+        self.fullscreenVC = [[UIViewController alloc] init];
+        
+        self.fullscreenVC.view.backgroundColor = [UIColor blackColor];
+        self.fullscreenVC.view.userInteractionEnabled = YES;
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.fullscreenVC.view.frame];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        
+        [imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [imageView.layer setBorderWidth: 0.5];
+        [imageView.layer setCornerRadius:5];
+        
+        imageView.image = self.headPhoto.image;
+        
+        [self.fullscreenVC.view addSubview:imageView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(closeVC)];
+        [self.fullscreenVC.view addGestureRecognizer:tap];
+        [self presentViewController:self.fullscreenVC animated:YES completion:nil];
+    }
+}
+
+-(void)closeVC{
+    [self.fullscreenVC dismissViewControllerAnimated:YES completion:^(){}];
 }
 
 @end

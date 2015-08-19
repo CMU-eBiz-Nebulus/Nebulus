@@ -572,13 +572,13 @@
                         <sections>
                             <tableViewSection id="m1T-uH-Ejm">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="152" id="Ydo-WF-88i">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="152" id="Ydo-WF-88i">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ydo-WF-88i" id="Y72-Oo-hAx">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ebL-1s-Ll5">
+                                                <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ebL-1s-Ll5">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                     <accessibility key="accessibilityConfiguration" label=""/>
                                                     <constraints>
@@ -594,7 +594,7 @@
                                                     </attributedString>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-d7-1dF">
-                                                    <rect key="frame" x="160" y="59" width="412" height="75"/>
+                                                    <rect key="frame" x="160" y="58" width="412" height="75.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Rock, Bass, etc.
 Some text here ...</string>
@@ -602,22 +602,35 @@ Some text here ...</string>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6X-77-xk4">
-                                                    <rect key="frame" x="170" y="28" width="82" height="21"/>
+                                                    <rect key="frame" x="170" y="28" width="81.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGc-nN-BAA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="fullscreenImage:" destination="lc2-9v-eKk" eventType="touchUpInside" id="2sU-eH-gVR"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ebL-1s-Ll5" firstAttribute="top" secondItem="Y72-Oo-hAx" secondAttribute="top" id="12F-8j-TNE"/>
                                                 <constraint firstItem="8s6-d7-1dF" firstAttribute="top" secondItem="z6X-77-xk4" secondAttribute="bottom" constant="10" id="AG8-kH-fgE"/>
                                                 <constraint firstItem="ebL-1s-Ll5" firstAttribute="centerY" secondItem="Y72-Oo-hAx" secondAttribute="centerY" id="Dzh-gO-AZE"/>
+                                                <constraint firstItem="hGc-nN-BAA" firstAttribute="top" secondItem="ebL-1s-Ll5" secondAttribute="top" id="FbF-c3-IgQ"/>
                                                 <constraint firstItem="z6X-77-xk4" firstAttribute="top" secondItem="Y72-Oo-hAx" secondAttribute="topMargin" constant="20" id="PPB-De-zQy"/>
                                                 <constraint firstItem="8s6-d7-1dF" firstAttribute="leading" secondItem="ebL-1s-Ll5" secondAttribute="trailing" constant="15" id="X6f-jx-tie"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8s6-d7-1dF" secondAttribute="trailing" constant="20" id="Z7K-xt-ZaO"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="8s6-d7-1dF" secondAttribute="bottom" constant="10" id="bxj-oJ-T7X"/>
+                                                <constraint firstItem="hGc-nN-BAA" firstAttribute="leading" secondItem="ebL-1s-Ll5" secondAttribute="leading" id="jaA-fT-JKy"/>
+                                                <constraint firstItem="hGc-nN-BAA" firstAttribute="width" secondItem="ebL-1s-Ll5" secondAttribute="width" id="mQE-ef-b4T"/>
                                                 <constraint firstItem="ebL-1s-Ll5" firstAttribute="leading" secondItem="Y72-Oo-hAx" secondAttribute="leading" id="orb-7p-bS9"/>
                                                 <constraint firstItem="8s6-d7-1dF" firstAttribute="leading" secondItem="ebL-1s-Ll5" secondAttribute="trailing" constant="10" id="qGk-8e-qeI"/>
+                                                <constraint firstItem="hGc-nN-BAA" firstAttribute="height" secondItem="ebL-1s-Ll5" secondAttribute="height" id="wRc-O9-8mS"/>
                                                 <constraint firstItem="z6X-77-xk4" firstAttribute="leading" secondItem="ebL-1s-Ll5" secondAttribute="trailing" constant="20" id="y1K-fe-2At"/>
                                             </constraints>
                                             <variation key="default">
@@ -797,7 +810,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qw-Yu-prZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-48" y="4052"/>
+            <point key="canvasLocation" x="-123" y="4132"/>
         </scene>
         <!--Follow View Controller-->
         <scene sceneID="iNI-vJ-9qg">
@@ -1370,7 +1383,7 @@ Some text here ...</string>
                                                     </attributedString>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Kv-G5f">
-                                                    <rect key="frame" x="160" y="59" width="412" height="75"/>
+                                                    <rect key="frame" x="160" y="58" width="412" height="75.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Rock, Bass, etc.
 Some text here ...</string>
@@ -1378,11 +1391,20 @@ Some text here ...</string>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEe-lm-T9r">
-                                                    <rect key="frame" x="170" y="28" width="82" height="21"/>
+                                                    <rect key="frame" x="170" y="28" width="81.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnj-4o-juq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="fullscreenImage:" destination="XZ8-e2-OiE" eventType="touchUpInside" id="u7y-9f-Jhk"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="iEe-lm-T9r" firstAttribute="leading" secondItem="eOf-s0-pUp" secondAttribute="trailing" constant="20" id="HoB-T7-Smt"/>
@@ -1390,8 +1412,12 @@ Some text here ...</string>
                                                 <constraint firstItem="eOf-s0-pUp" firstAttribute="leading" secondItem="7DK-Uo-cjv" secondAttribute="leading" id="PTU-ed-JVZ"/>
                                                 <constraint firstItem="eOf-s0-pUp" firstAttribute="centerY" secondItem="7DK-Uo-cjv" secondAttribute="centerY" id="Ua1-MK-kCY"/>
                                                 <constraint firstItem="xxv-Kv-G5f" firstAttribute="top" secondItem="iEe-lm-T9r" secondAttribute="bottom" constant="10" id="Xzf-W6-meh"/>
+                                                <constraint firstItem="eOf-s0-pUp" firstAttribute="top" secondItem="Xnj-4o-juq" secondAttribute="top" id="aMP-nY-haa"/>
                                                 <constraint firstItem="xxv-Kv-G5f" firstAttribute="leading" secondItem="eOf-s0-pUp" secondAttribute="trailing" constant="10" id="d4v-pn-yiB"/>
+                                                <constraint firstItem="eOf-s0-pUp" firstAttribute="width" secondItem="Xnj-4o-juq" secondAttribute="width" id="dIB-my-pda"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="xxv-Kv-G5f" secondAttribute="trailing" constant="20" id="hSm-JR-oSV"/>
+                                                <constraint firstItem="eOf-s0-pUp" firstAttribute="height" secondItem="Xnj-4o-juq" secondAttribute="height" id="oDu-LM-bIh"/>
+                                                <constraint firstItem="eOf-s0-pUp" firstAttribute="leading" secondItem="Xnj-4o-juq" secondAttribute="leading" id="rd2-uM-wMH"/>
                                                 <constraint firstItem="iEe-lm-T9r" firstAttribute="top" secondItem="7DK-Uo-cjv" secondAttribute="topMargin" constant="20" id="u2x-1g-PYL"/>
                                                 <constraint firstItem="eOf-s0-pUp" firstAttribute="top" secondItem="7DK-Uo-cjv" secondAttribute="top" id="uTy-Sm-Ccr"/>
                                                 <constraint firstItem="xxv-Kv-G5f" firstAttribute="leading" secondItem="eOf-s0-pUp" secondAttribute="trailing" constant="15" id="ze2-Nh-nhJ"/>
@@ -2476,8 +2502,8 @@ Some text here ...</string>
     <inferredMetricsTieBreakers>
         <segue reference="O8g-nl-Q4c"/>
         <segue reference="xaL-Yu-iCu"/>
-        <segue reference="Osm-Oy-nlm"/>
         <segue reference="a7l-Ip-Am4"/>
+        <segue reference="Osm-Oy-nlm"/>
         <segue reference="WB0-4Q-qcK"/>
         <segue reference="8PY-66-gKv"/>
         <segue reference="lps-BD-uhJ"/>
