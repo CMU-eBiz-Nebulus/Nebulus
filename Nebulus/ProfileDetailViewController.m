@@ -123,7 +123,7 @@
         
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithoutPhoto"];
         [cell.textLabel setText:clip.name];
-        cell.detailTextLabel.text = clip.duration.stringValue;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Duration: %@", clip.duration.stringValue];
     }
     return cell;
 }

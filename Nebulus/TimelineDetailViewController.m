@@ -24,6 +24,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.comments = [ActivityHttpClient getCommentofActivity:self.activity.objectID];
+    [self.tableView reloadData];
     NSLog(@"Fetched %ld comments", [self.comments count]);
 }
 
@@ -147,6 +148,18 @@
             vc.activity = self.activity;
             vc.commentMode = YES;
         }
+    }else if ([segue.identifier isEqualToString:@"viewCommenter"]) {
+        if ([segue.destinationViewController isKindOfClass:[OtherProfileViewController class]]) {
+            OtherProfileViewController *vc = (OtherProfileViewController *)segue.destinationViewController;
+            
+            UIButton *button = sender;
+            CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
+            NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+            Comment *comment = self.comments[indexPath.row];
+            vc.me = self.currUser;
+            vc.other = comment.creator;
+            vc.invitation_mode = NO;
+        }
     }
 }
 
@@ -159,7 +172,6 @@
     UIButton *button = sender;
     CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
-    
     if(indexPath.section == 1){
         NSLog(@"Should open clip %ld in comment", indexPath.row);
     }

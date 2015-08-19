@@ -1559,7 +1559,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQk-A9-Shm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1519" y="6868"/>
+            <point key="canvasLocation" x="-999" y="5164"/>
         </scene>
         <!--Comment Clip Picker View Controller-->
         <scene sceneID="wVt-w9-fPI">
@@ -1973,10 +1973,10 @@ Some text here ...</string>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="89" id="hD4-F5-Zky">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="89" id="hD4-F5-Zky">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="hD4-F5-Zky" id="iMK-UZ-AZB">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hD4-F5-Zky" id="iMK-UZ-AZB">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ac3-e2-R1P">
@@ -2010,7 +2010,7 @@ Some text here ...</string>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="openCommentClip:" destination="ffX-0M-2mX" eventType="touchUpInside" id="Pj2-iY-wgo"/>
+                                                <action selector="openCommentClip:" destination="ffX-0M-2mX" eventType="touchUpInside" id="geK-SW-t8t"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -2029,6 +2029,9 @@ Some text here ...</string>
                                         <constraint firstItem="Vvz-2E-iTh" firstAttribute="top" secondItem="gpg-wa-Itp" secondAttribute="bottom" constant="5" id="mGl-SJ-iR6"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XZ8-e2-OiE" kind="show" identifier="viewCommenter" id="guu-66-5cQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -2522,12 +2525,12 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OPr-Qg-P5T"/>
+        <segue reference="xaL-Yu-iCu"/>
         <segue reference="Osm-Oy-nlm"/>
         <segue reference="a7l-Ip-Am4"/>
-        <segue reference="xaL-Yu-iCu"/>
-        <segue reference="3kD-yN-Xpq"/>
         <segue reference="Onh-F8-P6T"/>
+        <segue reference="guu-66-5cQ"/>
         <segue reference="8PY-66-gKv"/>
+        <segue reference="OPr-Qg-P5T"/>
     </inferredMetricsTieBreakers>
 </document>
