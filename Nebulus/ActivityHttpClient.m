@@ -35,7 +35,6 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
-    NSLog(json.description);
     Activity *returnAct = [[Activity alloc]initWithDict:json];
     return returnAct;
     
@@ -65,7 +64,6 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:kNilOptions
                                                            error:&error];
-    NSLog(json.description);
     Comment *returnpcmt = [[Comment alloc]initWithDict:json];
     return returnpcmt;
 
