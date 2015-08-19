@@ -14,9 +14,12 @@
 #import "RecordingHttpClient.h"
 #import "RecordSettingViewController.h"
 #import "EZAudioUtilities.h"
+#import "WaveformFromFileViewController.h"
 
 @implementation RecordViewController
 @synthesize quality;
+
+
 
 //------------------------------------------------------------------------------
 #pragma mark - Dealloc
@@ -106,6 +109,7 @@
     self.secondTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.secondTableView.delegate = self;
     self.secondTableView.dataSource = self;
+    self.secondTableView.allowsMultipleSelectionDuringEditing = YES;
     
     
     
@@ -118,6 +122,10 @@
     [self.secondTableView reloadData];
     
     [self.view addSubview:self.secondTableView];
+    
+    // make our view consistent
+    [self updateButtonsToMatchTableState];
+
 }
 -(void) viewDidAppear:(BOOL)animated
 { [super viewDidAppear:animated];
@@ -243,10 +251,10 @@
         UIProgressView *pv = [[UIProgressView alloc] init];
         pv.frame = CGRectMake(80, 50, 200, 15);
         pv.tag =100+indexPath.row;
-       [cell addSubview:pv];
+       [cell.contentView addSubview:pv];
     
-    
-        cell.clipsToBounds = YES;
+    cell.clipsToBounds = YES;
+        cell.contentView.clipsToBounds = YES;
 
         
     //}
@@ -284,6 +292,76 @@
     
 }
 
+
+- (IBAction)editAction:(id)sender
+{
+    [self.secondTableView setEditing:YES animated:YES];
+    [self updateButtonsToMatchTableState];
+
+}
+
+- (IBAction)cancelAction:(id)sender
+{
+    [self.secondTableView setEditing:NO animated:YES];
+    [self updateButtonsToMatchTableState];
+}
+
+- (IBAction)mixAction:(id)sender
+{
+}
+
+#pragma mark - Updating button state
+
+- (void)updateButtonsToMatchTableState
+{
+    if (self.secondTableView.editing)
+    {
+        // Show the option to cancel the edit.
+        self.navigationItem.leftBarButtonItem = self.cancelButton;
+        
+        [self updateDeleteButtonTitle];
+        
+        // Show the delete button.
+        self.navigationItem.rightBarButtonItem = self.mixButton;
+    }
+    else
+    {
+        // Not in editing mode.
+        self.navigationItem.leftBarButtonItem = self.settingButton;
+        
+        // Show the edit button, but disable the edit button if there's nothing to edit.
+        if (_directoryContent.count > 0)
+        {
+            self.editButton.enabled = YES;
+        }
+        else
+        {
+            self.editButton.enabled = NO;
+        }
+        self.navigationItem.rightBarButtonItem = self.editButton;
+    }
+}
+
+- (void)updateDeleteButtonTitle
+{
+    // Update the delete button's title, based on how many items are selected
+    NSArray *selectedRows = [self.secondTableView indexPathsForSelectedRows];
+    
+    BOOL allItemsAreSelected = selectedRows.count == _directoryContent.count;
+    BOOL noItemsAreSelected = selectedRows.count == 0;
+    
+    if (allItemsAreSelected || noItemsAreSelected)
+    {
+        self.mixButton.title = NSLocalizedString(@"Mix All", @"");
+    }
+    else
+    {
+        NSString *titleFormatString =
+        NSLocalizedString(@"Mix (%d)", @"Title for delete button with placeholder for number");
+        self.mixButton.title = [NSString stringWithFormat:titleFormatString, selectedRows.count];
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Compares the index path for the current cell to the index path stored in the expanded
@@ -295,6 +373,11 @@
     return 44.0; // Normal height
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Update the delete button's title based on how many items are selected.
+    [self updateDeleteButtonTitle];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView beginUpdates]; // tell the table you're about to start making changes
@@ -319,6 +402,9 @@
 //    [((UILabel*)[self.secondTableView viewWithTag:(300+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"-%.1f",[audioFile duration]]];
     
     [tableView endUpdates]; // tell the table you're done making your changes
+    
+    // Update the delete button's title based on how many items are selected.
+    [self updateButtonsToMatchTableState];
 }
 
 - (void)removeImage:(NSString *)fileName
@@ -694,6 +780,38 @@ withNumberOfChannels:(UInt32)numberOfChannels
         // Pass any objects to the view controller here, like...
         [vc setQualityValue:quality];
     }
+    
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"mix"])
+    {
+        // Get reference to the destination view controller
+        WaveformFromFileViewController *vc = [segue destinationViewController];
+        
+
+        NSArray *selectedRows = [self.secondTableView indexPathsForSelectedRows];
+        BOOL deleteSpecificRows = selectedRows.count > 0;
+        if (deleteSpecificRows)
+        {
+            NSMutableArray *selected = [[NSMutableArray alloc] init];
+            for (NSIndexPath *selectionIndex in selectedRows) {
+                [selected addObject:[_directoryContent objectAtIndex:selectionIndex.row]];
+            }
+            vc.directoryContent = selected;
+        }
+        else
+        {
+            vc.directoryContent = self.directoryContent;
+        }
+
+                // Exit editing mode after the deletion.
+        [self.secondTableView setEditing:NO animated:NO];
+        [self updateButtonsToMatchTableState];
+        if (self.expandedIndexPath!=nil){
+            [self.secondTableView deselectRowAtIndexPath:self.expandedIndexPath animated:NO];
+            self.expandedIndexPath = nil;
+            
+        }
+    }
 }
 - (IBAction)back:(UIStoryboardSegue *)segue {
     if ([segue.sourceViewController isKindOfClass:[RecordSettingViewController class]]) {
@@ -703,7 +821,11 @@ withNumberOfChannels:(UInt32)numberOfChannels
         NSLog(@"quality:%ld", quality);
     
     }
+    
+    
 }
+
+
 @end
 
 

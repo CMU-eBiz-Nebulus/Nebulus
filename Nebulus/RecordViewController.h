@@ -24,6 +24,14 @@ EZRecorderDelegate,
 UITableViewDataSource, UITableViewDelegate>
 
 
+/*
+ These outlets to the buttons use a `strong` reference instead of `weak` because we want
+ to keep the buttons around even if they're not inside a view.
+ */
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *editButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *cancelButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *mixButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *settingButton;
 
 
 @property (strong, nonatomic) UITableView *secondTableView;
