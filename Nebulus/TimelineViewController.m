@@ -66,6 +66,12 @@
         [(UILabel *)[cell viewWithTag:102] setText:activity.creator.username];
         [(UILabel *)[cell viewWithTag:103] setText:[activity.tags componentsJoinedByString:@", "]];
         [(UILabel *)[cell viewWithTag:104] setText:activity.title];
+        
+        if(![activity.type isEqualToString:@"clipShare"]){
+            [(UIButton *)[cell viewWithTag:200] setHidden:YES];
+        }else{
+            [(UIButton *)[cell viewWithTag:200] setHidden:NO];
+        }
     } else if(indexPath.row == 1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"textCell"];
         UITextView *textView = (UITextView *)[cell viewWithTag:101];
@@ -185,5 +191,13 @@
     }
 }
 
+#pragma mark - open clip player
+- (IBAction)openClip:(UIButton *)sender {
+    UIButton *button = sender;
+    CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+    
+    NSLog(@"Should open clip %ld", indexPath.section);
+}
 
 @end

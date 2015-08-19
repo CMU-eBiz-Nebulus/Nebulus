@@ -76,6 +76,12 @@
             [(UILabel *)[cell viewWithTag:102] setText:self.activity.creator.username];
             [(UILabel *)[cell viewWithTag:103] setText:[self.activity.tags componentsJoinedByString:@", "]];
             [(UILabel *)[cell viewWithTag:104] setText:self.activity.title];
+            
+            if(![self.activity.type isEqualToString:@"clipShare"]){
+                [(UIButton *)[cell viewWithTag:200] setHidden:YES];
+            }else{
+                [(UIButton *)[cell viewWithTag:200] setHidden:NO];
+            }
         } else if(indexPath.row == 1){
             cell = [tableView dequeueReusableCellWithIdentifier:@"textCell"];
             UITextView *textView = (UITextView *)[cell viewWithTag:101];
@@ -91,7 +97,12 @@
         [(UILabel *)[cell viewWithTag:102] setText:comment.creator.username];
         [(UITextView *)[cell viewWithTag:103] setText:comment.text];
         [(UIButton *)[cell viewWithTag:104] setHidden:NO];   // LIKE button
-        [(UIButton *)[cell viewWithTag:105] setHidden:YES];  // PLAY button
+        
+        if(comment.clip && comment.clip.objectID){
+            [(UIButton *)[cell viewWithTag:105] setHidden:NO];  // PLAY button
+        }else{
+            [(UIButton *)[cell viewWithTag:105] setHidden:YES];
+        }
     }
     
     return cell;
@@ -139,5 +150,19 @@
     }
 }
 
+#pragma mark - open clip player
+- (IBAction)openActivityClip:(UIButton *)sender {
+    NSLog(@"Activity clip is clicked");
+}
+
+- (IBAction)openCommentClip:(UIButton *)sender {
+    UIButton *button = sender;
+    CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+    
+    if(indexPath.section == 1){
+        NSLog(@"Should open clip %ld in comment", indexPath.row);
+    }
+}
 
 @end
