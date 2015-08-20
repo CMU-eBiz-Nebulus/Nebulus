@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Timeline View Controller-->
+        <!--Nebulus-->
         <scene sceneID="7ap-Xf-uWe">
             <objects>
                 <tableViewController id="6ec-0m-sDm" customClass="TimelineViewController" sceneMemberID="viewController">
@@ -160,7 +160,7 @@
                             <outlet property="delegate" destination="6ec-0m-sDm" id="dKw-c4-Tt3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FQH-uN-h42">
+                    <navigationItem key="navigationItem" title="Nebulus" id="FQH-uN-h42">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4gk-l0-HSh">
                             <connections>
                                 <segue destination="Twk-i2-PHi" kind="show" identifier="textPost" id="O8g-nl-Q4c"/>
@@ -2623,12 +2623,12 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WB0-4Q-qcK"/>
         <segue reference="xaL-Yu-iCu"/>
         <segue reference="o5R-Aw-qYR"/>
+        <segue reference="qQS-Uj-4QZ"/>
         <segue reference="Osm-Oy-nlm"/>
         <segue reference="a7l-Ip-Am4"/>
-        <segue reference="qQS-Uj-4QZ"/>
         <segue reference="PrR-jJ-7Kp"/>
+        <segue reference="WB0-4Q-qcK"/>
     </inferredMetricsTieBreakers>
 </document>
