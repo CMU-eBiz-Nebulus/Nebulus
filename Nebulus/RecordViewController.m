@@ -290,11 +290,13 @@
 
     }
     else {
-        int start = [fileName rangeOfString:@"-"].location;
-        NSRange range = NSMakeRange(start+1, 19);
-        fileNameLabel.text = [NSString stringWithFormat:@"%@", [fileName substringToIndex:start]];
-        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
-
+        //Where the bug is!!!!
+//        int start = [fileName rangeOfString:@"-"].location;
+//        NSRange range = NSMakeRange(start+1, 10);
+//        fileNameLabel.text = [NSString stringWithFormat:@"%@", [fileName substringToIndex:start]];
+//        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
+        fileNameLabel.text = fileName;
+        dateLabel.text = fileName;
     }
         startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
     endTimeLabel.text =[NSString stringWithFormat:@"-%.1f", audioDurationSeconds];
