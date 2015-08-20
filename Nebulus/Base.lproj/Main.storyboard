@@ -700,8 +700,8 @@ Some text here ...</string>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRk-Xy-ecw">
                                                     <rect key="frame" x="209" y="18" width="181" height="18"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Followed: 35">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <state key="normal" title="Followed: 9999">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -710,8 +710,8 @@ Some text here ...</string>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLB-4Z-HNx">
                                                     <rect key="frame" x="18" y="18" width="181" height="18"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Posts: 20">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <state key="normal" title="Posts: 9999">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -720,8 +720,8 @@ Some text here ...</string>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4E-aA-aMG">
                                                     <rect key="frame" x="401" y="18" width="181" height="18"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Following: 43">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <state key="normal" title="Following: 9999">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -886,7 +886,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qw-Yu-prZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-123" y="4132"/>
+            <point key="canvasLocation" x="-351" y="5150"/>
         </scene>
         <!--Follow View Controller-->
         <scene sceneID="iNI-vJ-9qg">
@@ -1555,21 +1555,21 @@ Some text here ...</string>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utC-eQ-XsZ">
                                                     <rect key="frame" x="209" y="18" width="181" height="18"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <state key="normal" title="Followed: 35">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Y-og-XrK">
                                                     <rect key="frame" x="18" y="18" width="181" height="18"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <state key="normal" title="Posts: 20">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoT-2C-G7X">
                                                     <rect key="frame" x="401" y="18" width="181" height="18"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <state key="normal" title="Following: 43">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -2183,7 +2183,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBM-eZ-gVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1779" y="5157"/>
+            <point key="canvasLocation" x="-1895" y="4121"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="PA7-qW-bgH">
@@ -2501,7 +2501,7 @@ Some text here ...</string>
         <!--Play File View Controller-->
         <scene sceneID="bg9-1v-si7">
             <objects>
-                <viewController id="M5r-Ne-PLk" customClass="PlayFileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playViewController" id="M5r-Ne-PLk" customClass="PlayFileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tPl-XU-huM"/>
                         <viewControllerLayoutGuide type="bottom" id="TeE-mQ-IE1"/>
@@ -2650,7 +2650,7 @@ Some text here ...</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bml-Er-ABt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4011" y="2869"/>
+            <point key="canvasLocation" x="-2671" y="4132"/>
         </scene>
     </scenes>
     <resources>
@@ -2672,12 +2672,12 @@ Some text here ...</string>
         <image name="setting" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OPr-Qg-P5T"/>
-        <segue reference="1oK-Qf-whG"/>
-        <segue reference="8PY-66-gKv"/>
-        <segue reference="xaL-Yu-iCu"/>
-        <segue reference="a7l-Ip-Am4"/>
         <segue reference="Osm-Oy-nlm"/>
+        <segue reference="OPr-Qg-P5T"/>
+        <segue reference="a7l-Ip-Am4"/>
+        <segue reference="xaL-Yu-iCu"/>
+        <segue reference="qQS-Uj-4QZ"/>
         <segue reference="Onh-F8-P6T"/>
+        <segue reference="guu-66-5cQ"/>
     </inferredMetricsTieBreakers>
 </document>

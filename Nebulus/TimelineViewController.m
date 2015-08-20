@@ -12,6 +12,8 @@
 #import "OtherProfileViewController.h"
 #import "TimelineDetailViewController.h"
 #import "PostCommentViewController.h"
+#import "PlayFileViewController.h"
+#import "RecordingHttpClient.h"
 
 @interface TimelineViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
@@ -215,8 +217,23 @@
     UIButton *button = sender;
     CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+//    Activity *activity = [self.activity objectAtIndex:indexPath.section];
+//    NSData *recording = [RecordingHttpClient getRecording:activity.recordingId];
+//    
+//    Clip *clip = [RecordingHttpClient getClip:activity.recordingId];
+//    
+//    PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
+//    vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                         [self applicationDocumentsDirectory],
+//                                         clip.name]];
+//    [self.navigationController pushViewController:vc animated:YES];
     
     NSLog(@"Should open clip %ld", indexPath.section);
 }
 
+- (NSString *)applicationDocumentsDirectory{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
 @end
