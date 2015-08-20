@@ -220,9 +220,11 @@
 
     
         detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        detailInfoButton.frame = CGRectMake(5, 40.0, 50, 25.0);
-        [detailInfoButton setTitle:@"Play"
-                          forState:UIControlStateNormal];
+//        detailInfoButton.frame = CGRectMake(5, 40.0, 50, 25.0);
+    detailInfoButton.frame = CGRectMake(18.0, 42.0, 25.0, 25.0);
+//        [detailInfoButton setTitle:@"Play"
+//                          forState:UIControlStateNormal];
+    [detailInfoButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         detailInfoButton.tag = indexPath.row;
         [detailInfoButton addTarget:self
                              action:@selector(playFile:)
@@ -231,9 +233,11 @@
         
         
         uploadButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        uploadButton.frame = CGRectMake(250.0, 5.0, 90, 25.0);
-        [uploadButton setTitle:@"Upload"
-                      forState:UIControlStateNormal];
+    uploadButton.frame = CGRectMake(320.0, 5.0, 30.0, 30.0);
+    [uploadButton setImage:[UIImage imageNamed:@"upload"] forState:UIControlStateNormal];
+//        uploadButton.frame = CGRectMake(250.0, 5.0, 90, 25.0);
+//        [uploadButton setTitle:@"Upload"
+//                      forState:UIControlStateNormal];
         uploadButton.tag = indexPath.row;
         [uploadButton addTarget:self
                          action:@selector(upload:)

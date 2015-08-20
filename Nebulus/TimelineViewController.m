@@ -68,6 +68,11 @@
         UIImage *image = [UserHttpClient getUserImage:activity.creator.objectID];
         if(image) [(UIImageView *)[cell viewWithTag:101] setImage: image];
         [(UILabel *)[cell viewWithTag:102] setText:activity.creator.username];
+        
+        UILabel *userName = (UILabel *) [cell viewWithTag:102];
+        [userName setTextColor:[UIColor colorWithRed:11.0/255.0 green:23.0/255.0 blue:70.0/255.0 alpha:1.0]];
+        [userName setFont:[UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize]];
+        
         [(UILabel *)[cell viewWithTag:103] setText:[activity.tags componentsJoinedByString:@", "]];
         [(UILabel *)[cell viewWithTag:104] setText:activity.title];
         
