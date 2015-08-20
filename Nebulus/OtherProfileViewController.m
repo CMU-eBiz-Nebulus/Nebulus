@@ -40,7 +40,6 @@
         }
         
     } else {
-        //TODO: invite this guy
         if(self.mode == M_PROJECT){
             Project *project = (Project *)self.content;
             Invite *invite = [ProjectHttpClient invite:self.other from:self.me Model:@"project" ModelId:project.objectID];
@@ -89,13 +88,11 @@
     [self.followerBtn setTitle:[NSString stringWithFormat:@"Followers: %lu", (unsigned long)[follower_list count]]
                       forState:UIControlStateNormal];
     
-    [self.headPhoto setImage: [UserHttpClient getUserImage:self.other.objectID]];
-    //[self.headPhoto sizeToFit];
+    UIImage *image = [UserHttpClient getUserImage:self.other.objectID];
+    if(image)[self.headPhoto setImage: image];
     
     [self.postBtn setTitle:[NSString stringWithFormat:@"Posts: %lu", (unsigned long)[post_list count]]
                       forState:UIControlStateNormal];
-    
-
     
     if([self.me.objectID isEqualToString:self.other.objectID]){
         [self.actionButton setEnabled:NO];

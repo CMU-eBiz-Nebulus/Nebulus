@@ -79,7 +79,9 @@
     if(indexPath.section == 0){
         if(indexPath.row == 0){
             cell = [tableView dequeueReusableCellWithIdentifier:@"topCell"];
-            [(UIImageView *)[cell viewWithTag:101] setImage: [UserHttpClient getUserImage:self.activity.creator.objectID]];
+            UIImage *image = [UserHttpClient getUserImage:self.activity.creator.objectID];
+            if(image)[(UIImageView *)[cell viewWithTag:101] setImage: image];
+            
             [(UILabel *)[cell viewWithTag:102] setText:self.activity.creator.username];
             [(UILabel *)[cell viewWithTag:103] setText:[self.activity.tags componentsJoinedByString:@", "]];
             [(UILabel *)[cell viewWithTag:104] setText:self.activity.title];
@@ -100,7 +102,8 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
         
         Comment *comment = [self.comments objectAtIndex:indexPath.row];
-        [(UIImageView *)[cell viewWithTag:101] setImage: [UserHttpClient getUserImage:comment.creator.objectID]];
+        UIImage *image = [UserHttpClient getUserImage:comment.creator.objectID];
+        if(image)[(UIImageView *)[cell viewWithTag:101] setImage: image];
         [(UILabel *)[cell viewWithTag:102] setText:comment.creator.username];
         [(UITextView *)[cell viewWithTag:103] setText:comment.text];
         [(UIButton *)[cell viewWithTag:104] setHidden:NO];   // LIKE button

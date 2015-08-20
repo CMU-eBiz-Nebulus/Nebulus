@@ -36,7 +36,11 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"person"];
     User *user = [self.follow_list objectAtIndex:indexPath.row];
-    [cell.textLabel setText: user.username];
+    
+    UIImage *image = [UserHttpClient getUserImage:user.objectID];
+    if(image)[((UIImageView *)[cell viewWithTag:101]) setImage:image];
+    [((UILabel *)[cell viewWithTag:102]) setText:user.username];
+    
     return cell;
 }
 

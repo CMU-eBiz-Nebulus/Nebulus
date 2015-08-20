@@ -64,8 +64,8 @@
     
     [self.postsButton setTitle:[NSString stringWithFormat:@"Posts: %lu", (unsigned long)[post_list count]]
                       forState:UIControlStateNormal];
-    
-    [self.headPhoto setImage: [UserHttpClient getUserImage:user.objectID]];
+    UIImage *image = [UserHttpClient getUserImage:user.objectID];
+    if(image)[self.headPhoto setImage: image];
     //[self.headPhoto sizeToFit];
 }
 

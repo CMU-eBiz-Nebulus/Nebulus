@@ -172,7 +172,7 @@ UITextFieldDelegate>
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    if(indexPath.section == 0){
+    if(indexPath.section == 0){ // result for searching users
 
         if([self.searchBar.text length] && [self.users count] == 0){
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell"];
@@ -183,12 +183,15 @@ UITextFieldDelegate>
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCell"];
         User *user = [self.users objectAtIndex:indexPath.row];
         
-        [(UIImageView *)[cell viewWithTag:101] setImage: [UserHttpClient getUserImage:user.objectID]];
-        [(UIImageView *)[cell viewWithTag:101] setContentMode:UIViewContentModeScaleToFill];
+        UIImage *image = [UserHttpClient getUserImage:user.objectID];
+        if(image){
+            [(UIImageView *)[cell viewWithTag:101] setImage: image];
+            [(UIImageView *)[cell viewWithTag:101] setContentMode:UIViewContentModeScaleToFill];
+        }
         [(UILabel *)[cell viewWithTag:102] setText:user.username];
         
         return cell;
-    } else if(indexPath.section == 1){
+    } else if(indexPath.section == 1){  // result for searching album
         
         if([self.searchBar.text length] && [self.albums count] == 0){
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell"];
@@ -199,12 +202,15 @@ UITextFieldDelegate>
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MusicCell"];
         Album *album = [self.albums objectAtIndex:indexPath.row];
         
-        [(UIImageView *)[cell viewWithTag:101] setImage: [MusicHttpClient getAlbumImage:album.objectID]];
-        [(UIImageView *)[cell viewWithTag:101] setContentMode:UIViewContentModeScaleToFill];
+        UIImage *image = [MusicHttpClient getAlbumImage:album.objectID];
+        if(image){
+            [(UIImageView *)[cell viewWithTag:101] setImage: image];
+            [(UIImageView *)[cell viewWithTag:101] setContentMode:UIViewContentModeScaleToFill];
+        }
         [(UILabel *)[cell viewWithTag:102] setText:album.name];
         
         return cell;
-    } else if(indexPath.section == 2){
+    } else if(indexPath.section == 2){  // result for searching project
         
         if([self.searchBar.text length] && [self.projects count] == 0){
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell"];
@@ -215,8 +221,11 @@ UITextFieldDelegate>
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MusicCell"];
         Project *project = [self.projects objectAtIndex:indexPath.row];
         
-        [(UIImageView *)[cell viewWithTag:101] setImage: [ProjectHttpClient getProjectImage:project.objectID]];
-        [(UIImageView *)[cell viewWithTag:101] setContentMode:UIViewContentModeScaleToFill];
+        UIImage *image = [ProjectHttpClient getProjectImage:project.objectID];
+        if (image) {
+            [(UIImageView *)[cell viewWithTag:101] setImage: image];
+            [(UIImageView *)[cell viewWithTag:101] setContentMode:UIViewContentModeScaleToFill];
+        }
         [(UILabel *)[cell viewWithTag:102] setText:project.projectName];
         
         return cell;

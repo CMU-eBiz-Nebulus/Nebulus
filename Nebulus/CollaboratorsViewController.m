@@ -9,6 +9,7 @@
 #import "CollaboratorsViewController.h"
 #import "User.h"
 #import "SearchViewController.h"
+#import "UserHttpClient.h"
 
 @interface CollaboratorsViewController ()
 @end
@@ -66,21 +67,28 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"editorCell"];
     
     NSString *name = @"";
+    UIImage *image = nil;
     if(indexPath.section == 0){
         if(self.mode == ALBUM_DETAIL){
             name = ((Album *)self.content).creator.username;
+            image = [UserHttpClient getUserImage:((Album *)self.content).creator.objectID];
         } else {  //  PROJECT_DETAIL
             name = ((Project *)self.content).creator.username;
+            image = [UserHttpClient getUserImage:((Project *)self.content).creator.objectID];
         }
     } else {
         if(self.mode == ALBUM_DETAIL){
             name = ((User *)[((Album *)self.content).editors objectAtIndex:indexPath.row]).username;
+            image = [UserHttpClient getUserImage:((User *)[((Album *)self.content).editors objectAtIndex:indexPath.row]).objectID];
         } else {  //  PROJECT_DETAIL
             name = ((User *)[((Project *)self.content).editors objectAtIndex:indexPath.row]).username;
+            image = [UserHttpClient getUserImage:((User *)[((Project *)self.content).editors objectAtIndex:indexPath.row]).objectID];
         }
     }
 
-    [cell.textLabel setText: name];
+    if(image)[((UIImageView *)[cell viewWithTag:101]) setImage:image];
+    [((UILabel *)[cell viewWithTag:102]) setText:name];
+
     return cell;
 }
 

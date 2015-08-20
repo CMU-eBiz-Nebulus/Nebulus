@@ -64,7 +64,9 @@
     
     if(indexPath.row == 0){
         cell = [tableView dequeueReusableCellWithIdentifier:@"topCell"];
-        [(UIImageView *)[cell viewWithTag:101] setImage: [UserHttpClient getUserImage:activity.creator.objectID]];
+        
+        UIImage *image = [UserHttpClient getUserImage:activity.creator.objectID];
+        if(image) [(UIImageView *)[cell viewWithTag:101] setImage: image];
         [(UILabel *)[cell viewWithTag:102] setText:activity.creator.username];
         [(UILabel *)[cell viewWithTag:103] setText:[activity.tags componentsJoinedByString:@", "]];
         [(UILabel *)[cell viewWithTag:104] setText:activity.title];
