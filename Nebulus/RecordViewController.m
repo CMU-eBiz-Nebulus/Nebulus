@@ -481,6 +481,10 @@
 
 - (void)playFile:(id)sender
 {
+    if ([self.player isPlaying]){
+        [self.player pause];
+        return;
+    }
     //
     // Update microphone state
     //
