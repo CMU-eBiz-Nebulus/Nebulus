@@ -196,7 +196,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     
-    UILabel *fileNameLabel, *startTimeLabel, *endTimeLabel;
+    UILabel *fileNameLabel, *dateLabel, *startTimeLabel, *endTimeLabel;
     UIButton *detailInfoButton, *uploadButton;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     //if (cell == nil){
@@ -211,7 +211,14 @@
         fileNameLabel.font = [UIFont boldSystemFontOfSize:17.0];
         fileNameLabel.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:fileNameLabel];
-        
+
+    
+        dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 20.0, 250, 25.0)];
+    dateLabel.font = [UIFont boldSystemFontOfSize:12.0];
+    dateLabel.textColor = [UIColor grayColor];
+    [cell.contentView addSubview:dateLabel];
+
+    
         detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         detailInfoButton.frame = CGRectMake(5, 40.0, 50, 25.0);
         [detailInfoButton setTitle:@"Play"
@@ -270,12 +277,14 @@
     AVURLAsset* audioAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
     CMTime audioDuration = audioAsset.duration;
     float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
-    
+    NSRange range = NSMakeRange(5, 19);
     //populate data from your country object to table view cell
-    fileNameLabel.text = [NSString stringWithFormat:@"%@", fileName];
-    
+    fileNameLabel.text = [NSString stringWithFormat:@"New Recording %ld", (long)indexPath.row+1];
+    dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
     startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
     endTimeLabel.text =[NSString stringWithFormat:@"-%.1f", audioDurationSeconds];
+    
+    
 
     
     return cell;
@@ -768,9 +777,10 @@ withNumberOfChannels:(UInt32)numberOfChannels
         NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
     }
     return;
-}
+   }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [_player pause];
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"setting"])
     {

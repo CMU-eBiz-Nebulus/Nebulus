@@ -185,6 +185,7 @@
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     }
     if ([self isMovingFromParentViewController]) {
+        [_player pause];
         //specific stuff for being popped off stack
         if (_player != nil && [_player currentItem] != nil)
             @try{
