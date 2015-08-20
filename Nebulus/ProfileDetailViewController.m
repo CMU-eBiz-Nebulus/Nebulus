@@ -174,9 +174,10 @@
         if (editingStyle ==UITableViewCellEditingStyleDelete) {
             Clip *clip = [self.contents objectAtIndex: indexPath.row];
             [RecordingHttpClient deleteClip:clip];
+            
+            //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [self fetch_clips];
             [tableView reloadData];
-            //[tableView deleteRowsAtIndexPaths:[NSArrayarrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
     }
 }
