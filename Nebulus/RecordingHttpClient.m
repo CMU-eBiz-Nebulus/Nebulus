@@ -78,6 +78,7 @@
                                                          options:kNilOptions
                                                            error:&error];
     NSLog(json.description);
+    NSLog(@"record did upload in http://test.nebulus.io:8080/api/recordings/%@/audio", recordingId);
 
     //NSLog(response);
     
