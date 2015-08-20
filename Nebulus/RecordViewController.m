@@ -233,7 +233,7 @@
         
         
         uploadButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    uploadButton.frame = CGRectMake(320.0, 5.0, 30.0, 30.0);
+    uploadButton.frame = CGRectMake(self.view.frame.size.width-50, 5.0, 30.0, 30.0);
     [uploadButton setImage:[UIImage imageNamed:@"upload"] forState:UIControlStateNormal];
 //        uploadButton.frame = CGRectMake(250.0, 5.0, 90, 25.0);
 //        [uploadButton setTitle:@"Upload"
