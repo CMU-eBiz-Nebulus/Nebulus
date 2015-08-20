@@ -53,6 +53,13 @@
     // Do any additional setup after loading the view.
     
     self.loginMode = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    [tap setCancelsTouchesInView:NO];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,5 +116,19 @@
 
 - (IBAction)switchMode:(UIButton *)sender {
     self.loginMode = ![self isLoginMode];
+}
+
+
+-(void)dismissKeyboard {
+    NSArray *subviews = [self.view subviews];
+    for (id subview in subviews) {
+        if ([subview isKindOfClass:[UITextField class]] ||
+            [subview isKindOfClass:[UITextView class]]) {
+            UITextField *textField = subview;
+            if ([subview isFirstResponder]) {
+                [textField resignFirstResponder];
+            }
+        }
+    }
 }
 @end
