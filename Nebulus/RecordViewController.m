@@ -281,11 +281,22 @@
     AVURLAsset* audioAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
     CMTime audioDuration = audioAsset.duration;
     float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
+    
+    if ([[fileName substringToIndex:4] isEqualToString:@"File"]){
     NSRange range = NSMakeRange(5, 19);
     //populate data from your country object to table view cell
     fileNameLabel.text = [NSString stringWithFormat:@"New Recording %ld", (long)indexPath.row+1];
-    dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
-    startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
+        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
+
+    }
+    else {
+        int start = [fileName rangeOfString:@"-"].location;
+        NSRange range = NSMakeRange(start+1, 19);
+        fileNameLabel.text = [NSString stringWithFormat:@"%@", [fileName substringToIndex:start]];
+        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
+
+    }
+        startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
     endTimeLabel.text =[NSString stringWithFormat:@"-%.1f", audioDurationSeconds];
     
     
