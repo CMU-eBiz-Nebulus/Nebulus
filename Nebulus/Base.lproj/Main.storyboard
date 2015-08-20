@@ -2143,8 +2143,8 @@ Some text here ...</string>
                                                 <constraint firstAttribute="height" constant="50" id="VJF-Ve-kOj"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-wa-Itp">
-                                            <rect key="frame" x="88" y="13" width="38.5" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-wa-Itp">
+                                            <rect key="frame" x="88" y="13" width="38" height="17"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2693,8 +2693,12 @@ Some text here ...</string>
         <segue reference="OPr-Qg-P5T"/>
         <segue reference="xaL-Yu-iCu"/>
         <segue reference="Osm-Oy-nlm"/>
+        <segue reference="xaL-Yu-iCu"/>
         <segue reference="a7l-Ip-Am4"/>
         <segue reference="PrR-jJ-7Kp"/>
         <segue reference="WB0-4Q-qcK"/>
+        <segue reference="Onh-F8-P6T"/>
+        <segue reference="o5R-Aw-qYR"/>
+        <segue reference="B0u-vQ-RWG"/>
     </inferredMetricsTieBreakers>
 </document>

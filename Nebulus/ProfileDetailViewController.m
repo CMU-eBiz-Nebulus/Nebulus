@@ -210,6 +210,7 @@
             NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
             Clip *clip = (Clip*)[self.contents objectAtIndex:indexPath.row];
             NSData *recording = [RecordingHttpClient getRecording:clip.recordingId];
+            
             [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                           [self applicationDocumentsDirectory],
                                                           clip.name]]  atomically:YES];

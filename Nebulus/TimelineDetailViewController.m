@@ -9,8 +9,10 @@
 #import "TimelineDetailViewController.h"
 #import "UserHttpClient.h"
 #import "ActivityHttpClient.h"
+#import "RecordingHttpClient.h"
 #import "OtherProfileViewController.h"
 #import "Comment.h"
+#import "PlayFileViewController.h"
 #import "PostCommentViewController.h"
 
 @interface TimelineDetailViewController ()
@@ -174,16 +176,49 @@
 
 #pragma mark - open clip player
 - (IBAction)openActivityClip:(UIButton *)sender {
-    NSLog(@"Activity clip is clicked");
+    NSData *recording = [RecordingHttpClient getRecording:self.activity.recordingId];
+    Clip *clip = [RecordingHttpClient getClip:self.activity.recordingId];
+    
+    [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                  [self applicationDocumentsDirectory],
+                                                  clip.name]]  atomically:YES];
+    
+    PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
+    vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                         [self applicationDocumentsDirectory],
+                                         clip.name]];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)openCommentClip:(UIButton *)sender {
     UIButton *button = sender;
     CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
-    if(indexPath.section == 1){
-        NSLog(@"Should open clip %ld in comment", indexPath.row);
+
+    if(indexPath.section == 1 && indexPath.row < self.comments.count){
+        Comment *comment = self.comments[indexPath.row];
+        Clip *clip = comment.clip;
+        
+        NSData *recording = [RecordingHttpClient getRecording:clip.recordingId];
+        
+        [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                      [self applicationDocumentsDirectory],
+                                                      clip.name]]  atomically:YES];
+        
+        PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
+        vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                             [self applicationDocumentsDirectory],
+                                             clip.name]];
+        
+        [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (NSString *)applicationDocumentsDirectory{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
 }
 
 @end

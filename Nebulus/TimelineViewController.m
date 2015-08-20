@@ -222,12 +222,16 @@
     
     Clip *clip = [RecordingHttpClient getClip:activity.recordingId];
     
+    [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                  [self applicationDocumentsDirectory],
+                                                  clip.name]]  atomically:YES];
+    
     PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
     vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                          [self applicationDocumentsDirectory],
                                          clip.name]];
-    [self.navigationController pushViewController:vc animated:YES];
     
+    [self.navigationController pushViewController:vc animated:YES];
     //NSLog(@"Should open clip %ld", indexPath.section);
 }
 
