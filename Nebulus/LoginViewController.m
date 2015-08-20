@@ -10,7 +10,7 @@
 #import "User.h"
 #import "UserHttpClient.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -60,6 +60,12 @@
     [tap setCancelsTouchesInView:NO];
     
     [self.view addGestureRecognizer:tap];
+    
+    ((UIScrollView *)self.view).contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height * 1.25);
+    
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+    self.emailField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,12 +124,17 @@
     self.loginMode = ![self isLoginMode];
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if(textField){
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
 
 -(void)dismissKeyboard {
     NSArray *subviews = [self.view subviews];
     for (id subview in subviews) {
-        if ([subview isKindOfClass:[UITextField class]] ||
-            [subview isKindOfClass:[UITextView class]]) {
+        if ([subview isKindOfClass:[UITextField class]]) {
             UITextField *textField = subview;
             if ([subview isFirstResponder]) {
                 [textField resignFirstResponder];

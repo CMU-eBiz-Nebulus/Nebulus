@@ -34,6 +34,8 @@
     [self.view addGestureRecognizer:tap];
     
     self.textView.delegate = self;
+    self.titleField.delegate = self;
+    self.tagsField.delegate = self;
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:UIBarButtonSystemItemDone
@@ -113,6 +115,13 @@
             }
         }
     }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if(textField){
+        [textField resignFirstResponder];
+    }
+    return YES;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {

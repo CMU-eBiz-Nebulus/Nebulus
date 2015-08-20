@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -372,7 +372,7 @@
                         <viewControllerLayoutGuide type="top" id="R1f-Mo-o6R"/>
                         <viewControllerLayoutGuide type="bottom" id="zsE-pr-7VR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aft-4N-kwC">
+                    <view key="view" contentMode="scaleToFill" id="aft-4N-kwC" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2672,12 +2672,12 @@ Some text here ...</string>
         <image name="setting" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="o5R-Aw-qYR"/>
-        <segue reference="qQS-Uj-4QZ"/>
-        <segue reference="Osm-Oy-nlm"/>
+        <segue reference="OPr-Qg-P5T"/>
+        <segue reference="1oK-Qf-whG"/>
+        <segue reference="8PY-66-gKv"/>
         <segue reference="xaL-Yu-iCu"/>
         <segue reference="a7l-Ip-Am4"/>
-        <segue reference="PrR-jJ-7Kp"/>
-        <segue reference="WB0-4Q-qcK"/>
+        <segue reference="Osm-Oy-nlm"/>
+        <segue reference="Onh-F8-P6T"/>
     </inferredMetricsTieBreakers>
 </document>
