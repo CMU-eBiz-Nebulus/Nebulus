@@ -780,9 +780,18 @@ withNumberOfChannels:(UInt32)numberOfChannels
     int count;
     
     _directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:NULL];
+    
+    
+    NSString *dataFilePath = [[self applicationDocumentsDirectory]
+                               stringByAppendingPathComponent:@".DS_Store"];
+
+    
     for (count = 0; count < (int)[_directoryContent count]; count++)
     {
         NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
+        if ([[NSFileManager defaultManager] isDeletableFileAtPath:dataFilePath]) {
+            [[NSFileManager defaultManager] removeItemAtPath:dataFilePath error:nil];
+        }
     }
     return;
    }
