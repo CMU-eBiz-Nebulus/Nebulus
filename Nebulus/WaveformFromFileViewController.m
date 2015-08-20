@@ -181,10 +181,13 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [super viewWillDisappear:animated];
+    [_player pause];
+    
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     }
     if ([self isMovingFromParentViewController]) {
+        
         //specific stuff for being popped off stack
         if (_player != nil && [_player currentItem] != nil)
             @try{
