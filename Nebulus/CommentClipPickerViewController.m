@@ -34,6 +34,8 @@
     self.title = @"Attach clip";
     
     self.selectedClip = nil;
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 //-(void)doneAction{

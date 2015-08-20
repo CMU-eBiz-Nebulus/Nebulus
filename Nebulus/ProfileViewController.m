@@ -37,6 +37,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self.userNameLabel setText:[defaults objectForKey:@"username"]];
     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
 }
 
 

@@ -25,6 +25,8 @@
                                    action:@selector(performInvite)];
         self.navigationItem.rightBarButtonItem = Invite;
     }
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)performInvite{

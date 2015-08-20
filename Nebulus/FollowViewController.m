@@ -20,6 +20,8 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.follow_list = nil;
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

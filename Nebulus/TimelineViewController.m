@@ -32,6 +32,8 @@
     
     if(self.selfMode)
         self.navigationItem.rightBarButtonItem = nil;
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -101,11 +103,11 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 1.0;
+    return 3.0;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 1.0;
+    return 3.0;
 }
 
 #pragma mark - Button action

@@ -62,6 +62,11 @@
 }
 
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self updateUI];

@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *deleteCell;
 
 @property (nonatomic, strong) User* currUser;
+@property (strong, nonatomic) UIViewController *fullscreenVC;
 
 @end
 
@@ -63,6 +64,8 @@
                                         action:@selector(shareAction)];
         self.navigationItem.rightBarButtonItem = shareButton;
     }
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
 }
 
@@ -156,5 +159,46 @@
             vc.viewMode = self.viewMode;
         }
     }
+}
+
+#pragma mark - full screen photo
+- (IBAction)fullscreenImage:(UIButton *)sender {
+    if(self.imageView.image){
+        self.fullscreenVC = [[UIViewController alloc] init];
+        
+        self.fullscreenVC.view.backgroundColor = [UIColor blackColor];
+        self.fullscreenVC.view.userInteractionEnabled = YES;
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.fullscreenVC.view.frame];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        
+        [imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [imageView.layer setBorderWidth: 0.5];
+        [imageView.layer setCornerRadius:5];
+        
+        imageView.image = self.imageView.image;
+        
+        [self.fullscreenVC.view addSubview:imageView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(closeVC)];
+        [self.fullscreenVC.view addGestureRecognizer:tap];
+        [self presentViewController:self.fullscreenVC animated:YES completion:nil];
+    }
+}
+
+-(void)closeVC{
+    [self.fullscreenVC dismissViewControllerAnimated:YES completion:^(){}];
+}
+
+
+#pragma mark - table cell height
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 5.0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 5.0;
 }
 @end

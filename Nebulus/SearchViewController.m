@@ -73,6 +73,7 @@ UITextFieldDelegate>
     [self.view addGestureRecognizer:tap];
     
     //self.searchForInvitation = NO;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)dismissKeyboard {

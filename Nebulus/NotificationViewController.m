@@ -77,6 +77,11 @@
     [self updateUI];
 }
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
@@ -110,26 +115,76 @@
     
     if([notification.model isEqualToString:@"invites"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"invitesCell"];
-        [(UILabel *)[cell viewWithTag:101] setText:[NSString stringWithFormat:@"%@", msg]];
-        [(UIButton *)[cell viewWithTag:102] setHidden:notification.read ? YES : NO];
+        
+        Invite *invite = [ActivityHttpClient getInvite:notification.modelId];
+        UIImage *image = nil;
+        if(invite.album){
+            image = [MusicHttpClient getAlbumImage:invite.album.objectID];
+        }else if(invite.project){
+            image = [ProjectHttpClient getProjectImage:invite.project.objectID];
+        }
+        
+        if(image){
+            [(UIImageView *)[cell viewWithTag:101] setImage:image];
+            [((UIImageView *)[cell viewWithTag:101]).layer setCornerRadius:5];
+        }
+        
+        NSString *text = [NSString stringWithFormat:@"Invitation: %@", msg];
+        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+        
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
+                                range: NSMakeRange(0, 11)];
+        
+        [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
+        [(UIButton *)[cell viewWithTag:103] setHidden:notification.read ? YES : NO];
     }else if([notification.model isEqualToString:@"albums"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"albumprojectCell"];
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
+        
+        UIImage *image = [MusicHttpClient getAlbumImage:notification.modelId];
+        if(image){
+            [(UIImageView *)[cell viewWithTag:101] setImage:image];
+            [((UIImageView *)[cell viewWithTag:101]).layer setCornerRadius:5];
+        }
+        
+        NSString *text = [NSString stringWithFormat:@"Album: %@", msg];
+        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+        
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
+                                range: NSMakeRange(0, 6)];
+        
+        [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
     }else if([notification.model isEqualToString:@"projects"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"albumprojectCell"];
-        [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", notification.model, msg]];
+        
+        UIImage *image = [ProjectHttpClient getProjectImage:notification.modelId];
+        if(image){
+            [(UIImageView *)[cell viewWithTag:101] setImage:image];
+            [((UIImageView *)[cell viewWithTag:101]).layer setCornerRadius:5];
+        }
+        
+        NSString *text = [NSString stringWithFormat:@"Project: %@", msg];
+        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+        
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
+                                range: NSMakeRange(0, 8)];
+        
+        [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
     }else if([notification.model isEqualToString:@"followers"]){
         User* follower = [UserHttpClient getFollowerByModelId:notification.modelId];
         cell = [tableView dequeueReusableCellWithIdentifier:@"followersCell"];
         
+        UIImage *image = [UserHttpClient getUserImage:follower.objectID];
+        if(image){
+            [(UIImageView *)[cell viewWithTag:101] setImage:image];
+            [((UIImageView *)[cell viewWithTag:101]).layer setCornerRadius:5];
+        }
+        
         NSString *text = [NSString stringWithFormat:@"%@ %@", follower.username, msg];
         NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
 
-        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor purpleColor],
-                                        NSFontAttributeName:[UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize]}
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
                                 range: NSMakeRange(0, follower.username.length)];
-        
-        [cell.textLabel setAttributedText:attributedText];
+        [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
 //    }else if([notification.model isEqualToString:@"activity"]){
 //    }else if([notification.model isEqualToString:@"likes"]){
 //    }else if([notification.model isEqualToString:@"comments"]){
@@ -149,15 +204,15 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    Notification *notification = [self.notifications objectAtIndex:indexPath.row];
-//    if([notification.model isEqualToString:@"invites"]){
-//        return 35.0;
-//    }else if([notification.model isEqualToString:@"albums"]){
-//        return 35.0;
-//    }else if([notification.model isEqualToString:@"projects"]){
-//        return 35.0;
-//    }else if([notification.model isEqualToString:@"followers"]){
-//        return 35.0;
+    Notification *notification = [self.notifications objectAtIndex:indexPath.row];
+    if([notification.model isEqualToString:@"invites"]){
+        return 56.0;
+    }else if([notification.model isEqualToString:@"albums"]){
+        return 56.0;
+    }else if([notification.model isEqualToString:@"projects"]){
+        return 56.0;
+    }else if([notification.model isEqualToString:@"followers"]){
+        return 56.0;
 //    }else if([notification.model isEqualToString:@"activity"]){
 //        return 35.0;
 //    }else if([notification.model isEqualToString:@"likes"]){
@@ -170,8 +225,8 @@
 //        return 35.0;
 //    }else if([notification.model isEqualToString:@"userSettings"]){
 //        return 35.0;
-//    }
-    return 40.0;
+    }else
+        return 40.0;
 }
 
 -(NSString *)htmlStr2Str:(NSString *)htmlString{

@@ -59,6 +59,10 @@
     self.contents = nil;
 }
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //NSLog(@"Number of entries : %d", self.contents.count);
