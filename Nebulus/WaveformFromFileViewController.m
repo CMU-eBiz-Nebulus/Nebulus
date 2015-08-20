@@ -513,7 +513,12 @@
         AVAssetExportSession* _assetExport = [[AVAssetExportSession alloc] initWithAsset:_composition
                                                                               presetName:AVAssetExportPresetAppleM4A];
         
-        NSString* videoName = [NSString stringWithFormat:@"%@.m4a", [[alertView textFieldAtIndex:0] text]] ;
+        NSDate *time = [NSDate date];
+        NSDateFormatter* df = [NSDateFormatter new];
+        [df setDateFormat:@"dd-MM-yyyy-hh-mm-ss"];
+        NSString *timeString = [df stringFromDate:time];
+        
+        NSString* videoName = [NSString stringWithFormat:@"%@-%@.m4a", [[alertView textFieldAtIndex:0] text], timeString] ;
         
         NSString *exportPath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:videoName];
         NSURL    *exportUrl = [NSURL fileURLWithPath:exportPath];

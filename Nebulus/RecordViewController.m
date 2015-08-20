@@ -233,7 +233,7 @@
         
         
         uploadButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    uploadButton.frame = CGRectMake(320.0, 5.0, 30.0, 30.0);
+    uploadButton.frame = CGRectMake(self.view.frame.size.width-50, 5.0, 30.0, 30.0);
     [uploadButton setImage:[UIImage imageNamed:@"upload"] forState:UIControlStateNormal];
 //        uploadButton.frame = CGRectMake(250.0, 5.0, 90, 25.0);
 //        [uploadButton setTitle:@"Upload"
@@ -281,11 +281,24 @@
     AVURLAsset* audioAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
     CMTime audioDuration = audioAsset.duration;
     float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
+    
+    if ([[fileName substringToIndex:4] isEqualToString:@"File"]){
     NSRange range = NSMakeRange(5, 19);
     //populate data from your country object to table view cell
     fileNameLabel.text = [NSString stringWithFormat:@"New Recording %ld", (long)indexPath.row+1];
-    dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
-    startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
+        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
+
+    }
+    else {
+        //Where the bug is!!!!
+//        int start = [fileName rangeOfString:@"-"].location;
+//        NSRange range = NSMakeRange(start+1, 10);
+//        fileNameLabel.text = [NSString stringWithFormat:@"%@", [fileName substringToIndex:start]];
+//        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
+        fileNameLabel.text = fileName;
+        dateLabel.text = fileName;
+    }
+        startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
     endTimeLabel.text =[NSString stringWithFormat:@"-%.1f", audioDurationSeconds];
     
     
@@ -780,9 +793,18 @@ withNumberOfChannels:(UInt32)numberOfChannels
     int count;
     
     _directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:NULL];
+    
+    
+    NSString *dataFilePath = [[self applicationDocumentsDirectory]
+                               stringByAppendingPathComponent:@".DS_Store"];
+
+    
     for (count = 0; count < (int)[_directoryContent count]; count++)
     {
         NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
+        if ([[NSFileManager defaultManager] isDeletableFileAtPath:dataFilePath]) {
+            [[NSFileManager defaultManager] removeItemAtPath:dataFilePath error:nil];
+        }
     }
     return;
    }
