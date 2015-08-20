@@ -167,6 +167,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="iew-QF-EcW">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="Loading">
+                                <attributes>
+                                    <font key="NSFont" metaFont="smallSystem"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <connections>
+                            <action selector="doRefresh:" destination="6ec-0m-sDm" eventType="valueChanged" id="282-Rf-JMl"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <outlet property="timelineTableView" destination="wbR-68-V6d" id="o4W-uy-pHX"/>
                     </connections>
@@ -329,6 +343,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notification" id="upL-ge-T74"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="1yc-cY-YH0">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="Loading">
+                                <attributes>
+                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" metaFont="smallSystem"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <connections>
+                            <action selector="doRefresh:" destination="zjR-Cr-5Pb" eventType="valueChanged" id="oFK-fy-h7f"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcE-HK-BR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2593,12 +2623,12 @@ Some text here ...</string>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JGv-R4-yS7"/>
-        <segue reference="a7l-Ip-Am4"/>
+        <segue reference="WB0-4Q-qcK"/>
+        <segue reference="xaL-Yu-iCu"/>
         <segue reference="o5R-Aw-qYR"/>
         <segue reference="Osm-Oy-nlm"/>
-        <segue reference="xaL-Yu-iCu"/>
+        <segue reference="a7l-Ip-Am4"/>
         <segue reference="qQS-Uj-4QZ"/>
-        <segue reference="Onh-F8-P6T"/>
+        <segue reference="PrR-jJ-7Kp"/>
     </inferredMetricsTieBreakers>
 </document>

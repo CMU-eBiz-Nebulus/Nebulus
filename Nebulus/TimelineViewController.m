@@ -195,6 +195,16 @@
     }
 }
 
+- (IBAction)doRefresh:(UIRefreshControl *)sender {
+    self.activity = self.selfMode ? [MusicHttpClient getUserActivity:self.currUser.objectID]
+    : [MusicHttpClient getAllFollowingActivities:self.currUser.objectID];
+    
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+    
+    NSLog(@"Fetched %ld activities", [self.activity count]);
+}
+
 #pragma mark - open clip player
 - (IBAction)openClip:(UIButton *)sender {
     UIButton *button = sender;

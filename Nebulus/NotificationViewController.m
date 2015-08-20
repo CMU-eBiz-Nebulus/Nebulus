@@ -21,6 +21,8 @@
 @property (nonatomic) NSUInteger unread;
 @property (nonatomic, strong) Notification *invitationToRespond;
 
+@property (nonatomic, strong) UIActivityIndicatorView *indicator;
+
 @end
 
 @implementation NotificationViewController
@@ -30,7 +32,13 @@
     return _notifications;
 }
 
+- (IBAction)doRefresh:(UIRefreshControl *)sender {
+    [self fetch_notifications];
+    [self.refreshControl endRefreshing];
+}
+
 -(void)fetch_notifications{
+    
     NSMutableArray *tmpNots = [UserHttpClient getUserNotification:[UserHttpClient getCurrentUser].objectID].mutableCopy;
     
     NSMutableArray *dstArray = [[NSMutableArray alloc] init];
@@ -68,7 +76,6 @@
         [dstArray addObject:notification];
         
         //NSLog(notification.read ? @"Notification Read\n" : @"Unread\n");
-        
     }
     
     self.notifications = dstArray.copy;
@@ -80,12 +87,20 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-
-    [self fetch_notifications];
+    
+    self.indicator = [[UIActivityIndicatorView alloc]
+                      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    UIView *view = [[UIView alloc] initWithFrame:self.tableView.tableHeaderView.bounds];
+    [view addSubview:self.indicator];
+    self.tableView.tableHeaderView = view;
+    
+    [self.indicator startAnimating];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self fetch_notifications];
+        [self.indicator stopAnimating];
+    });
+    
 }
 
 -(void)updateUI{
@@ -259,7 +274,15 @@
             vc.viewMode = NO;
             
             // READ notification
-            if(!notification.read) [UserHttpClient readNotification:notification];
+            if(!notification.read) {
+                [UserHttpClient readNotification:notification];
+                
+                [self.indicator startAnimating];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self fetch_notifications];
+                    [self.indicator stopAnimating];
+                });
+            }
         }
     } else if ([segue.identifier isEqualToString:@"followNotification"]) {
         if ([segue.destinationViewController isKindOfClass:[OtherProfileViewController class]]) {
@@ -273,7 +296,15 @@
             vc.invitation_mode = NO;
             
             // READ notification
-            if(!notification.read) [UserHttpClient readNotification:notification];
+            if(!notification.read) {
+                [UserHttpClient readNotification:notification];
+                
+                [self.indicator startAnimating];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self fetch_notifications];
+                    [self.indicator stopAnimating];
+                });
+            }
         }
     } else if ([segue.identifier isEqualToString:@"inviteToAlbumProject"]){
         AlbumProjectViewController *vc = (AlbumProjectViewController *)segue.destinationViewController;
@@ -294,7 +325,6 @@
         
         vc.viewMode = YES;
     }
-
 }
 
 #pragma mark - Invite response
@@ -324,21 +354,17 @@
         if (buttonIndex == 0){
             [ProjectHttpClient responseToInvite:self.invitationToRespond.modelId accept:NO];
             [UserHttpClient readNotification:self.invitationToRespond];
-            
-            self.unread--;
-            [self.tableView reloadData];
-            [self updateUI];
-            NSLog(@"You have clicked Reject");
         }
         else if(buttonIndex == 1){
             [ProjectHttpClient responseToInvite:self.invitationToRespond.modelId accept:YES];
             [UserHttpClient readNotification:self.invitationToRespond];
-            
-            self.unread--;
-            [self.tableView reloadData];
-            [self updateUI];
-            NSLog(@"You have clicked Accept");
         }
+        
+        [self.indicator startAnimating];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self fetch_notifications];
+            [self.indicator stopAnimating];
+        });
     }
 }
 
