@@ -106,11 +106,15 @@ UITextFieldDelegate>
 -(void)dismissKeyboard {
     NSArray *subviews = [self.view subviews];
     for (id subview in subviews) {
-        if ([subview isKindOfClass:[UITextField class]] ||
-            [subview isKindOfClass:[UITextView class]]) {
+        if ([subview isKindOfClass:[UITextField class]]) {
             UITextField *textField = subview;
             if ([subview isFirstResponder]) {
                 [textField resignFirstResponder];
+            }
+        } else if([subview isKindOfClass:[UITextView class]]){
+            UITextView *textview = subview;
+            if ([subview isFirstResponder]) {
+                [textview resignFirstResponder];
             }
         }
     }
