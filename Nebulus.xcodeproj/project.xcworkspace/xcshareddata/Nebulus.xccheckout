@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B4A198B7-76F8-4D9A-B659-F514078231E3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Nebulus</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>466A6C6754D592C0D896357AC9229CC884D1DCD9</key>
 		<string>https://github.com/CMU-eBiz-Nebulus/Nebulus.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Nebulus.xcodeproj</string>
+	<string>Nebulus.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>466A6C6754D592C0D896357AC9229CC884D1DCD9</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>466A6C6754D592C0D896357AC9229CC884D1DCD9</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Nebulus6</string>
+			<string>Nebulus</string>
 		</dict>
 	</array>
 </dict>
