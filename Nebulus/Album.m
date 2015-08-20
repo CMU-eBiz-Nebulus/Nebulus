@@ -99,7 +99,7 @@
     NSMutableDictionary *users = [[NSMutableDictionary alloc]init];
     NSMutableArray *editors = [[NSMutableArray alloc] init];
     for (int i = 0; i < [self.editors count]; i++) {
-        [editors addObject:[editors[i] convertToDict]];
+        [editors addObject:[self.editors[i] convertToDict]];
     }
     [users setValue: [self.creator convertToDict] forKey:@"creator"];
     [users setValue: editors forKey:@"editors"];
