@@ -129,7 +129,7 @@
                                                        timeoutInterval:5.0];
     
     [request setHTTPMethod:@"GET"];
-    [request setValue:@"bytes=1-" forHTTPHeaderField:@"Range"];
+    [request setValue:@"bytes=0-" forHTTPHeaderField:@"Range"];
     
     
     NSError *error;
