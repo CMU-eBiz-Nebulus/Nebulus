@@ -209,7 +209,7 @@
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
     
-    NSLog(@"Fetched %ld activities", [self.activity count]);
+    //NSLog(@"Fetched %ld activities", [self.activity count]);
 }
 
 #pragma mark - open clip player
@@ -217,18 +217,18 @@
     UIButton *button = sender;
     CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
-//    Activity *activity = [self.activity objectAtIndex:indexPath.section];
-//    NSData *recording = [RecordingHttpClient getRecording:activity.recordingId];
-//    
-//    Clip *clip = [RecordingHttpClient getClip:activity.recordingId];
-//    
-//    PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
-//    vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-//                                         [self applicationDocumentsDirectory],
-//                                         clip.name]];
-//    [self.navigationController pushViewController:vc animated:YES];
+    Activity *activity = [self.activity objectAtIndex:indexPath.section];
+    NSData *recording = [RecordingHttpClient getRecording:activity.recordingId];
     
-    NSLog(@"Should open clip %ld", indexPath.section);
+    Clip *clip = [RecordingHttpClient getClip:activity.recordingId];
+    
+    PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
+    vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                         [self applicationDocumentsDirectory],
+                                         clip.name]];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    //NSLog(@"Should open clip %ld", indexPath.section);
 }
 
 - (NSString *)applicationDocumentsDirectory{

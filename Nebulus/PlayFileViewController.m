@@ -91,6 +91,15 @@
      Try opening the sample file
      */
     [self openFileWithFilePathURL:self.filePath];
+    
+    UIBarButtonItem *downloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
+                                                                                    target:self
+                                                                                    action:@selector(download)];
+    self.navigationItem.rightBarButtonItem = downloadButton;
+}
+
+-(void)download{
+    //TODO: download
 }
 
 //------------------------------------------------------------------------------

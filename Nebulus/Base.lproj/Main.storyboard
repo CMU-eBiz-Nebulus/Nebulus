@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -28,8 +28,8 @@
                                                 <constraint firstAttribute="width" constant="75" id="vYd-gJ-qS4"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlW-w0-zPH">
-                                            <rect key="frame" x="106" y="14" width="86" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlW-w0-zPH">
+                                            <rect key="frame" x="106" y="14" width="87.5" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -40,9 +40,9 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shared a song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjU-bI-i8z">
-                                            <rect key="frame" x="106" y="43" width="112" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjU-bI-i8z">
+                                            <rect key="frame" x="106" y="43" width="26" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -57,6 +57,7 @@
                                         </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TmU-Xh-vTV" secondAttribute="trailing" constant="5" id="4PA-Tx-aIq"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="sjU-bI-i8z" secondAttribute="bottom" constant="7.5" id="8kn-eO-pRk"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="EFi-u6-Gh6" secondAttribute="trailing" constant="5" id="9va-J7-nDG"/>
                                         <constraint firstItem="xlW-w0-zPH" firstAttribute="top" secondItem="EFi-u6-Gh6" secondAttribute="top" id="G7l-W6-iHa"/>
@@ -67,11 +68,17 @@
                                         <constraint firstItem="eLH-mt-fgF" firstAttribute="leading" secondItem="2Yq-ax-9OR" secondAttribute="leadingMargin" constant="-2" id="hgl-h9-Frf"/>
                                         <constraint firstItem="sjU-bI-i8z" firstAttribute="leading" secondItem="xlW-w0-zPH" secondAttribute="leading" id="je1-R0-Z7u"/>
                                         <constraint firstItem="eLH-mt-fgF" firstAttribute="top" secondItem="2Yq-ax-9OR" secondAttribute="topMargin" constant="-6" id="m2M-Q7-2qq"/>
+                                        <constraint firstItem="TmU-Xh-vTV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sjU-bI-i8z" secondAttribute="trailing" constant="5" id="tfN-1K-DeZ"/>
                                         <constraint firstItem="xlW-w0-zPH" firstAttribute="leading" secondItem="eLH-mt-fgF" secondAttribute="trailing" constant="25" id="xX7-FZ-eka"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="EFi-u6-Gh6" secondAttribute="bottom" constant="36.5" id="xgk-IQ-p4h"/>
                                         <constraint firstItem="sjU-bI-i8z" firstAttribute="centerY" secondItem="TmU-Xh-vTV" secondAttribute="centerY" id="z4z-wO-idh"/>
                                         <constraint firstItem="eLH-mt-fgF" firstAttribute="centerY" secondItem="2Yq-ax-9OR" secondAttribute="centerY" id="zSa-c6-9CE"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="gkc-di-Uxn"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="XZ8-e2-OiE" kind="show" identifier="viewUser" id="WB0-4Q-qcK"/>
@@ -2018,14 +2025,17 @@ Some text here ...</string>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shared a song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flh-el-VKW">
-                                            <rect key="frame" x="106" y="43" width="112" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flh-el-VKW">
+                                            <rect key="frame" x="106" y="43" width="26" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URb-f1-ksA">
-                                            <rect key="frame" x="557" y="39" width="30" height="30"/>
+                                            <rect key="frame" x="562" y="39" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="mB6-lg-11T"/>
+                                            </constraints>
                                             <state key="normal" title="▶️">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -2038,10 +2048,12 @@ Some text here ...</string>
                                         <constraint firstItem="Oaf-0c-VKH" firstAttribute="leading" secondItem="3S6-5x-O9e" secondAttribute="leadingMargin" constant="-2" id="9kc-qC-69m"/>
                                         <constraint firstItem="Flh-el-VKW" firstAttribute="leading" secondItem="FfB-JE-S1X" secondAttribute="leading" id="Bs9-MM-Iyo"/>
                                         <constraint firstItem="Flh-el-VKW" firstAttribute="top" secondItem="FfB-JE-S1X" secondAttribute="bottom" constant="8" symbolic="YES" id="DaL-tF-VN0"/>
+                                        <constraint firstItem="URb-f1-ksA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Flh-el-VKW" secondAttribute="trailing" constant="3" id="L2s-Xx-8Oe"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="NEG-Xc-xnt" secondAttribute="bottom" constant="36.5" id="NBh-lY-EZG"/>
                                         <constraint firstItem="FfB-JE-S1X" firstAttribute="top" secondItem="NEG-Xc-xnt" secondAttribute="top" id="VZe-68-2S2"/>
                                         <constraint firstItem="URb-f1-ksA" firstAttribute="trailing" secondItem="NEG-Xc-xnt" secondAttribute="trailing" id="bex-aw-QD0"/>
                                         <constraint firstItem="FfB-JE-S1X" firstAttribute="leading" secondItem="Oaf-0c-VKH" secondAttribute="trailing" constant="25" id="eDG-Ub-20n"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="URb-f1-ksA" secondAttribute="trailing" id="eQZ-XD-ZwO"/>
                                         <constraint firstItem="FfB-JE-S1X" firstAttribute="top" secondItem="3S6-5x-O9e" secondAttribute="topMargin" constant="6" id="fH9-RJ-rCE"/>
                                         <constraint firstItem="URb-f1-ksA" firstAttribute="centerY" secondItem="Flh-el-VKW" secondAttribute="centerY" id="hBg-0O-fhK"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="NEG-Xc-xnt" secondAttribute="trailing" constant="5" id="jdJ-cs-VnW"/>
@@ -2050,6 +2062,11 @@ Some text here ...</string>
                                         <constraint firstItem="Oaf-0c-VKH" firstAttribute="top" secondItem="3S6-5x-O9e" secondAttribute="topMargin" constant="-6" id="lnw-83-F25"/>
                                         <constraint firstItem="Oaf-0c-VKH" firstAttribute="centerY" secondItem="3S6-5x-O9e" secondAttribute="centerY" id="p9L-7z-tSW"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="bex-aw-QD0"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="XZ8-e2-OiE" kind="show" identifier="viewUser" id="3kD-yN-Xpq"/>
@@ -2127,7 +2144,7 @@ Some text here ...</string>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-wa-Itp">
-                                            <rect key="frame" x="88" y="13" width="38" height="17"/>
+                                            <rect key="frame" x="88" y="13" width="38.5" height="17"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2138,8 +2155,8 @@ Some text here ...</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <button opaque="NO" tag="104" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-nX-FSd">
-                                            <rect key="frame" x="566" y="10" width="21" height="22"/>
+                                        <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-nX-FSd">
+                                            <rect key="frame" x="566" y="8" width="21" height="22"/>
                                             <state key="normal" image="like">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -2183,7 +2200,7 @@ Some text here ...</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBM-eZ-gVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1895" y="4121"/>
+            <point key="canvasLocation" x="-1993" y="4121"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="PA7-qW-bgH">
@@ -2672,12 +2689,12 @@ Some text here ...</string>
         <image name="setting" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Osm-Oy-nlm"/>
-        <segue reference="OPr-Qg-P5T"/>
-        <segue reference="a7l-Ip-Am4"/>
-        <segue reference="xaL-Yu-iCu"/>
         <segue reference="qQS-Uj-4QZ"/>
-        <segue reference="Onh-F8-P6T"/>
-        <segue reference="guu-66-5cQ"/>
+        <segue reference="OPr-Qg-P5T"/>
+        <segue reference="xaL-Yu-iCu"/>
+        <segue reference="Osm-Oy-nlm"/>
+        <segue reference="a7l-Ip-Am4"/>
+        <segue reference="PrR-jJ-7Kp"/>
+        <segue reference="WB0-4Q-qcK"/>
     </inferredMetricsTieBreakers>
 </document>
