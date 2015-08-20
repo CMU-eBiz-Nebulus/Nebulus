@@ -18,7 +18,7 @@
 
 +(Project*) createProject:(Project*) project;
 
-+(BOOL) updateProject:(Project*) project;
++(Project*) updateProject:(Project*) project;
 
 +(NSArray*) getProjectsByUser:(NSString*) userId;
 
