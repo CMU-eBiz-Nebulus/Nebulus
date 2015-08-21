@@ -2218,14 +2218,14 @@ Some text here ...</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-nX-FSd">
-                                            <rect key="frame" x="566" y="11" width="21" height="22"/>
+                                        <button opaque="NO" tag="104" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-nX-FSd">
+                                            <rect key="frame" x="571" y="13" width="21" height="22"/>
                                             <state key="normal" image="like">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-vV-7fT">
-                                            <rect key="frame" x="533" y="7" width="30" height="30"/>
+                                        <button opaque="NO" tag="105" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-vV-7fT">
+                                            <rect key="frame" x="536" y="9" width="30" height="30"/>
                                             <state key="normal" title="▶️">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -2236,21 +2236,20 @@ Some text here ...</string>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="centerY" secondItem="Ac3-e2-R1P" secondAttribute="centerY" id="12G-LG-xAq"/>
-                                        <constraint firstAttribute="trailing" secondItem="d3Y-vV-7fT" secondAttribute="trailing" constant="37" id="423-6l-zq0"/>
+                                        <constraint firstItem="d3Y-vV-7fT" firstAttribute="centerY" secondItem="eBI-nX-FSd" secondAttribute="centerY" id="1hD-8I-ZNo"/>
+                                        <constraint firstItem="eBI-nX-FSd" firstAttribute="top" secondItem="gpg-wa-Itp" secondAttribute="top" id="4Wa-rm-aP3"/>
                                         <constraint firstItem="gpg-wa-Itp" firstAttribute="leading" secondItem="Ac3-e2-R1P" secondAttribute="trailing" constant="20" id="7V7-a8-Fqs"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="eBI-nX-FSd" secondAttribute="trailing" constant="-7" id="B6k-bJ-KCA"/>
-                                        <constraint firstItem="eBI-nX-FSd" firstAttribute="leading" secondItem="d3Y-vV-7fT" secondAttribute="trailing" constant="3" id="Glj-wa-k9V"/>
                                         <constraint firstItem="Ac3-e2-R1P" firstAttribute="leading" secondItem="iMK-UZ-AZB" secondAttribute="leadingMargin" constant="10" id="LqT-Mb-Nw7"/>
-                                        <constraint firstItem="Vvz-2E-iTh" firstAttribute="top" secondItem="eBI-nX-FSd" secondAttribute="bottom" constant="2" id="Ocp-b7-bHY"/>
+                                        <constraint firstItem="eBI-nX-FSd" firstAttribute="leading" secondItem="d3Y-vV-7fT" secondAttribute="trailing" constant="5" id="WHr-xH-gzc"/>
                                         <constraint firstItem="gpg-wa-Itp" firstAttribute="leading" secondItem="Vvz-2E-iTh" secondAttribute="leading" id="ZRI-xA-PNR"/>
                                         <constraint firstItem="gpg-wa-Itp" firstAttribute="top" secondItem="iMK-UZ-AZB" secondAttribute="topMargin" constant="5" id="cPm-Go-AGY"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Vvz-2E-iTh" secondAttribute="bottom" constant="5" id="jHi-4y-zNT"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Vvz-2E-iTh" secondAttribute="trailing" constant="10" id="kK5-J0-oKy"/>
                                         <constraint firstItem="Vvz-2E-iTh" firstAttribute="top" secondItem="gpg-wa-Itp" secondAttribute="bottom" constant="5" id="mGl-SJ-iR6"/>
                                         <constraint firstItem="eBI-nX-FSd" firstAttribute="leading" secondItem="d3Y-vV-7fT" secondAttribute="trailing" constant="10" id="n0E-Xy-3yZ"/>
-                                        <constraint firstItem="d3Y-vV-7fT" firstAttribute="centerY" secondItem="eBI-nX-FSd" secondAttribute="centerY" id="q8E-AU-chG"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="eBI-nX-FSd" secondAttribute="trailing" constant="5" id="qjD-ir-3X8"/>
                                         <constraint firstItem="eBI-nX-FSd" firstAttribute="centerY" secondItem="gpg-wa-Itp" secondAttribute="centerY" id="wg5-YO-odz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eBI-nX-FSd" secondAttribute="trailing" constant="5" id="xc7-cg-hqb"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -2763,12 +2762,12 @@ Some text here ...</string>
         <image name="setting" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="a7l-Ip-Am4"/>
         <segue reference="o5R-Aw-qYR"/>
         <segue reference="Osm-Oy-nlm"/>
-        <segue reference="qQS-Uj-4QZ"/>
-        <segue reference="a7l-Ip-Am4"/>
         <segue reference="xaL-Yu-iCu"/>
-        <segue reference="WB0-4Q-qcK"/>
-        <segue reference="PrR-jJ-7Kp"/>
+        <segue reference="qQS-Uj-4QZ"/>
+        <segue reference="Onh-F8-P6T"/>
+        <segue reference="guu-66-5cQ"/>
     </inferredMetricsTieBreakers>
 </document>
