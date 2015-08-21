@@ -99,20 +99,26 @@
      */
     [self openFileWithFilePathURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:self.fileName]]];
     
-    UIBarButtonItem *downloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
-                                                                                    target:self
-                                                                                    action:@selector(download)];
+    UIBarButtonItem *downloadButton = [[UIBarButtonItem alloc] initWithTitle:@"Download"
+                                                                     style:UIBarButtonItemStyleBordered
+                                                                    target:self
+                                                                    action:@selector(download)];
+    
     self.navigationItem.rightBarButtonItem = downloadButton;
 }
 
 -(void)download{
-    //TODO: download
-    
     NSData *recording = [RecordingHttpClient getRecording:self.recordingId];
     
     [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                       [self applicationDocumentsDirectory],
                                                       self.fileName]]  atomically:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download"
+                                                    message:@"Downloading finished."
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 //------------------------------------------------------------------------------
