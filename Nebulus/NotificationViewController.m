@@ -148,7 +148,7 @@
         NSString *text = [NSString stringWithFormat:@"Invitation: %@", msg];
         NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
         
-        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}
                                 range: NSMakeRange(0, 11)];
         
         if(notification.read){
@@ -171,7 +171,7 @@
         NSString *text = [NSString stringWithFormat:@"Album: %@", msg];
         NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
         
-        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}
                                 range: NSMakeRange(0, 6)];
         
         if(notification.read){
@@ -193,7 +193,7 @@
         NSString *text = [NSString stringWithFormat:@"Project: %@", msg];
         NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
         
-        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}
                                 range: NSMakeRange(0, 8)];
         
         if(notification.read){
@@ -216,7 +216,7 @@
         NSString *text = [NSString stringWithFormat:@"%@ %@", follower.username, msg];
         NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
 
-        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
+        [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}
                                 range: NSMakeRange(0, follower.username.length)];
         
         if(notification.read){
