@@ -127,6 +127,7 @@
     UITableViewCell *cell = nil;
     Notification *notification = [self.notifications objectAtIndex:indexPath.row];
     NSString *msg = [self htmlStr2Str:notification.message];
+    const CGFloat fontSize = 14;
     
     if([notification.model isEqualToString:@"invites"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"invitesCell"];
@@ -150,6 +151,12 @@
         [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
                                 range: NSMakeRange(0, 11)];
         
+        if(notification.read){
+            [attributedText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
+        }else{
+            [attributedText addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
+        }
+        
         [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
         [(UIButton *)[cell viewWithTag:103] setHidden:notification.read ? YES : NO];
     }else if([notification.model isEqualToString:@"albums"]){
@@ -167,6 +174,12 @@
         [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
                                 range: NSMakeRange(0, 6)];
         
+        if(notification.read){
+            [attributedText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
+        }else{
+            [attributedText addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
+        }
+        
         [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
     }else if([notification.model isEqualToString:@"projects"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"albumprojectCell"];
@@ -182,6 +195,12 @@
         
         [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
                                 range: NSMakeRange(0, 8)];
+        
+        if(notification.read){
+            [attributedText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
+        }else{
+            [attributedText addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
+        }
         
         [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
     }else if([notification.model isEqualToString:@"followers"]){
@@ -199,6 +218,13 @@
 
         [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}
                                 range: NSMakeRange(0, follower.username.length)];
+        
+        if(notification.read){
+            [attributedText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
+        }else{
+            [attributedText addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
+        }
+        
         [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
 //    }else if([notification.model isEqualToString:@"activity"]){
 //    }else if([notification.model isEqualToString:@"likes"]){
@@ -212,7 +238,7 @@
     }
     
     if(notification && notification.objectID){
-        [cell setBackgroundColor: notification.read ? [UIColor whiteColor] :[UIColor lightGrayColor]];
+        [cell setBackgroundColor: notification.read ? [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0] :[UIColor whiteColor]];
     }
     
     return cell;
