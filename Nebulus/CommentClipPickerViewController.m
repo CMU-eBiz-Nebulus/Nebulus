@@ -10,6 +10,7 @@
 #import "RecordingHttpClient.h"
 #import "UserHttpClient.h"
 #import "PostCommentViewController.h"
+#import "PlayFileViewController.h"
 
 @interface CommentClipPickerViewController()
 @property (nonatomic, strong) NSArray *clips;
@@ -98,11 +99,22 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
     if(indexPath.row < self.clips.count){
         Clip *clip = [self.clips objectAtIndex:indexPath.row];
-        //TODO: play clip view controller
-        NSLog(@"Clicked at %ld %ld", indexPath.section, indexPath.row);
+        
+        NSData *recording = [RecordingHttpClient getRecording:clip.recordingId];
+        PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
+        [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:clip.name]]  atomically:YES];
+        vc.fileName = clip.name;
+        
+        [self.navigationController pushViewController:vc animated:YES];
     }
-
 }
+
+- (NSString *)applicationDocumentsDirectory{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+
 
 
 @end
