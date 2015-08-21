@@ -96,9 +96,9 @@
 
 #pragma mark - Height
 
-#define HEIGHT_TOP_CELL     80.0
+#define HEIGHT_TOP_CELL     60.0
 #define HEIGHT_BOTTOM_CELL  35.0
-#define HEIGHT_TEXT_CELL    35.0
+#define HEIGHT_TEXT_CELL    40.0
 #define HEIGHT_PLAY_CELL    45.0
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row == 0){
@@ -125,7 +125,7 @@
     UIButton *likeButton = sender;
     CGRect buttonFrame = [likeButton convertRect:likeButton.bounds toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
-    NSLog(@"Clicked at %ld %ld", indexPath.section, indexPath.row);
+  //  NSLog(@"Clicked at %ld %ld", indexPath.section, indexPath.row);
 }
 
 //- (IBAction)comment:(UIButton *)sender {
@@ -219,18 +219,16 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
     Activity *activity = [self.activity objectAtIndex:indexPath.section];
     NSData *recording = [RecordingHttpClient getRecording:activity.recordingId];
-    
-    Clip *clip = [RecordingHttpClient getClip:activity.recordingId];
+    NSString *file_name = [NSString stringWithFormat:@"%@'s clip", activity.creator.username];
     
     [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                   [self applicationDocumentsDirectory],
-                                                  clip.name]]  atomically:YES];
+                                                  file_name]]  atomically:YES];
     
     PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
     vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                          [self applicationDocumentsDirectory],
-                                         clip.name]];
-    
+                                         file_name]];
     [self.navigationController pushViewController:vc animated:YES];
     //NSLog(@"Should open clip %ld", indexPath.section);
 }

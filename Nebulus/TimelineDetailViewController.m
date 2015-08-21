@@ -120,10 +120,9 @@
     return cell;
 }
 
-#define HEIGHT_TOP_CELL     80.0
+#define HEIGHT_TOP_CELL     60.0
 #define HEIGHT_BOTTOM_CELL  35.0
-#define HEIGHT_TEXT_CELL    35.0
-#define HEIGHT_PLAY_CELL    45.0
+#define HEIGHT_TEXT_CELL    40.0
 #define HEIGHT_COMMENT_CELL 60.0
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -177,16 +176,17 @@
 #pragma mark - open clip player
 - (IBAction)openActivityClip:(UIButton *)sender {
     NSData *recording = [RecordingHttpClient getRecording:self.activity.recordingId];
-    Clip *clip = [RecordingHttpClient getClip:self.activity.recordingId];
+    
+    NSString *file_name = [NSString stringWithFormat:@"%@'s clip", self.activity.creator.username];
     
     [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                   [self applicationDocumentsDirectory],
-                                                  clip.name]]  atomically:YES];
+                                                  file_name]]  atomically:YES];
     
     PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
     vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                          [self applicationDocumentsDirectory],
-                                         clip.name]];
+                                         file_name]];
     
     [self.navigationController pushViewController:vc animated:YES];
 }

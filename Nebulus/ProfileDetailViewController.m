@@ -62,6 +62,10 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    if(![self.user.objectID isEqualToString: [UserHttpClient getCurrentUser].objectID]){
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
