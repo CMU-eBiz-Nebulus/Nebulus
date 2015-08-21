@@ -104,6 +104,7 @@
         PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
         [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:clip.name]]  atomically:YES];
         vc.fileName = clip.name;
+        vc.recordingId = clip.recordingId;
         
         [self.navigationController pushViewController:vc animated:YES];
     }

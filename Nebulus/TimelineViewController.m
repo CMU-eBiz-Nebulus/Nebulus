@@ -232,6 +232,7 @@
     
     [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:file_name]]  atomically:YES];
     vc.fileName =file_name;
+    vc.recordingId = activity.recordingId;
 
     [self.navigationController pushViewController:vc animated:YES];
     //NSLog(@"Should open clip %ld", indexPath.section);
