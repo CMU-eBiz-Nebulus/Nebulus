@@ -2230,62 +2230,25 @@ Some text here ...</string>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7i-QC-tT3">
                                         <rect key="frame" x="0.0" y="251" width="600" height="50"/>
                                         <subviews>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rAP-GV-yCt">
-                                                <rect key="frame" x="18" y="57" width="51" height="31"/>
-                                                <color key="onTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="toggleMicrophone:" destination="Brl-ej-heJ" eventType="valueChanged" id="P1X-au-THk"/>
-                                                </connections>
-                                            </switch>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Microphone On" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msW-KS-a8c">
-                                                <rect key="frame" x="85" y="65" width="497" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="upB-v1-0Cf">
-                                                <rect key="frame" x="20" y="10" width="51" height="31"/>
-                                                <color key="onTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <connections>
-                                                    <action selector="toggleRecording:" destination="Brl-ej-heJ" eventType="valueChanged" id="d1g-O1-Xfn"/>
-                                                </connections>
-                                            </switch>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording On" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1Q-Qm-KEf">
-                                                <rect key="frame" x="80" y="20" width="133" height="16"/>
+                                                <rect key="frame" x="38" y="20" width="133" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Playing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jH3-JQ-LNN">
-                                                <rect key="frame" x="85" y="26" width="497" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tm5-fI-ZLM">
-                                                <rect key="frame" x="13" y="19" width="59" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="TAM-lA-CZv"/>
-                                                    <constraint firstAttribute="width" constant="59" id="W6N-5n-JRB"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Play">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HL3-fY-2Ms">
+                                                <rect key="frame" x="154" y="2" width="46" height="46"/>
+                                                <state key="normal" backgroundImage="record-1">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="playFile:" destination="Brl-ej-heJ" eventType="touchUpInside" id="sSz-ql-CSc"/>
+                                                    <action selector="toggleRecording:" destination="Brl-ej-heJ" eventType="touchUpInside" id="RCs-i5-zcu"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="jH3-JQ-LNN" secondAttribute="trailing" constant="18" id="0SR-L9-ogY"/>
-                                            <constraint firstItem="jH3-JQ-LNN" firstAttribute="leading" secondItem="Tm5-fI-ZLM" secondAttribute="trailing" constant="13" id="Dz8-6O-VFE"/>
-                                            <constraint firstItem="Tm5-fI-ZLM" firstAttribute="leading" secondItem="N7i-QC-tT3" secondAttribute="leading" constant="13" id="UwM-oP-aIK"/>
-                                            <constraint firstItem="Tm5-fI-ZLM" firstAttribute="top" secondItem="N7i-QC-tT3" secondAttribute="top" constant="19" id="V3F-YR-AL2"/>
                                             <constraint firstAttribute="height" constant="50" id="qC0-8e-GnJ"/>
-                                            <constraint firstItem="jH3-JQ-LNN" firstAttribute="top" secondItem="N7i-QC-tT3" secondAttribute="top" constant="26" id="qmo-iI-uZh"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-TV-AOL">
@@ -2332,13 +2295,8 @@ Some text here ...</string>
                         <outlet property="cancelButton" destination="LEO-Qf-GBJ" id="RFn-aC-SWm"/>
                         <outlet property="currentTimeLabel" destination="Tgx-TV-AOL" id="J7P-oT-8w3"/>
                         <outlet property="editButton" destination="PvT-MT-3y1" id="XJZ-Wb-CH8"/>
-                        <outlet property="microphoneStateLabel" destination="msW-KS-a8c" id="VAq-Xm-Gx0"/>
-                        <outlet property="microphoneSwitch" destination="rAP-GV-yCt" id="qR9-wD-yNO"/>
                         <outlet property="mixButton" destination="cWA-rW-0zC" id="fRR-0a-I3c"/>
-                        <outlet property="playButton" destination="Tm5-fI-ZLM" id="QOO-bD-QTb"/>
                         <outlet property="playingAudioPlot" destination="aOF-hZ-Hq0" id="6Yc-ja-nQi"/>
-                        <outlet property="playingStateLabel" destination="jH3-JQ-LNN" id="a5Y-2R-PHo"/>
-                        <outlet property="recordSwitch" destination="upB-v1-0Cf" id="kjk-0B-0G1"/>
                         <outlet property="recordingAudioPlot" destination="sqz-Xn-uWP" id="VWk-GS-aKR"/>
                         <outlet property="recordingStateLabel" destination="s1Q-Qm-KEf" id="FTl-cT-Xe2"/>
                         <outlet property="settingButton" destination="5BO-dG-ESv" id="pMx-cH-mKp"/>
@@ -2695,6 +2653,7 @@ Some text here ...</string>
         <image name="pic1" width="256" height="256"/>
         <image name="pic2" width="256" height="256"/>
         <image name="project" width="24" height="24"/>
+        <image name="record-1" width="128" height="128"/>
         <image name="second" width="30" height="30"/>
         <image name="setting" width="24" height="24"/>
     </resources>
