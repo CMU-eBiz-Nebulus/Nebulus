@@ -214,12 +214,9 @@
             Clip *clip = (Clip*)[self.contents objectAtIndex:indexPath.row];
             NSData *recording = [RecordingHttpClient getRecording:clip.recordingId];
             
-            [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                                          [self applicationDocumentsDirectory],
-                                                          clip.name]]  atomically:YES];
-            vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                                 [self applicationDocumentsDirectory],
-                                                 clip.name]];
+            [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:clip.name]]  atomically:YES];
+            vc.fileName =clip.name;
+            vc.recordingId = clip.recordingId;
         }
  
     }
