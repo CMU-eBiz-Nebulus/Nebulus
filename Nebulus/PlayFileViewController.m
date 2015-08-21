@@ -232,6 +232,7 @@
     if ([self.player isPlaying])
     {
         [self.player pause];
+        [((UIButton *)sender) setTitle:@"Play" forState:UIControlStateNormal];
     }
     else
     {
@@ -241,6 +242,7 @@
             self.audioPlot.shouldFill = NO;
         }
         [self.player play];
+        [((UIButton *)sender) setTitle:@"Pause" forState:UIControlStateNormal];
     }
 }
 

@@ -150,7 +150,7 @@
     //
     // Customizing the audio plot that'll show the current microphone input/recording
     //
-    self.recordingAudioPlot.backgroundColor = [UIColor colorWithRed: 0.984 green: 0.71 blue: 0.365 alpha: 1];
+    self.recordingAudioPlot.backgroundColor = [UIColor colorWithRed: 0.816 green: 0.349 blue: 0.255 alpha: 1];
     self.recordingAudioPlot.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     self.recordingAudioPlot.plotType        = EZPlotTypeRolling;
     self.recordingAudioPlot.shouldFill      = YES;

@@ -43,7 +43,7 @@
                                                           shadow, NSShadowAttributeName,
                                                           [UIFont fontWithName:@"HelveticaNeue" size:18.0], NSFontAttributeName, nil]];
     [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
-    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:189.0/255.0 green:252.0/255.0 blue:201.0/255.0 alpha:1]];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed: 0.816 green: 0.349 blue: 0.255 alpha:1]];
     
     return YES;
 }
