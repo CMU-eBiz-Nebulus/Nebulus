@@ -179,15 +179,18 @@
     
     NSString *file_name = [NSString stringWithFormat:@"%@'s clip", self.activity.creator.username];
     
-    [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                                  [self applicationDocumentsDirectory],
-                                                  file_name]]  atomically:YES];
+//    [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                                  [self applicationDocumentsDirectory],
+//                                                  file_name]]  atomically:YES];
     
     PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
-    vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                         [self applicationDocumentsDirectory],
-                                         file_name]];
-    
+//    vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                         [self applicationDocumentsDirectory],
+//                                         file_name]];
+
+    [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:file_name]]  atomically:YES];
+    vc.fileName =file_name;
+
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -202,15 +205,17 @@
         
         NSData *recording = [RecordingHttpClient getRecording:clip.recordingId];
         
-        [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                                      [self applicationDocumentsDirectory],
-                                                      clip.name]]  atomically:YES];
+//        [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                                      [self applicationDocumentsDirectory],
+//                                                      clip.name]]  atomically:YES];
         
         PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
-        vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                             [self applicationDocumentsDirectory],
-                                             clip.name]];
-        
+//        vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                             [self applicationDocumentsDirectory],
+//                                             clip.name]];
+        [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:clip.name]]  atomically:YES];
+        vc.fileName =clip.name;
+
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

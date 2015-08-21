@@ -7,6 +7,7 @@
 //
 
 #import "PlayFileViewController.h"
+#import "RecordingHttpClient.h"
 
 @implementation PlayFileViewController
 
@@ -90,7 +91,7 @@
     /*
      Try opening the sample file
      */
-    [self openFileWithFilePathURL:self.filePath];
+    [self openFileWithFilePathURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:self.fileName]]];
     
     UIBarButtonItem *downloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
                                                                                     target:self
@@ -100,6 +101,12 @@
 
 -(void)download{
     //TODO: download
+    
+    NSData *recording = [RecordingHttpClient getRecording:self.recordingId];
+    
+    [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                                      [self applicationDocumentsDirectory],
+                                                      self.fileName]]  atomically:YES];
 }
 
 //------------------------------------------------------------------------------
@@ -304,6 +311,19 @@
     self.audioPlot.shouldMirror = YES;
 }
 
+//------------------------------------------------------------------------------
+- (NSArray *)applicationDocuments
+{
+    return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+}
+
+//------------------------------------------------------------------------------
+- (NSString *)applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
 //------------------------------------------------------------------------------
 
 @end
