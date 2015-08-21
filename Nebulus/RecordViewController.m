@@ -616,10 +616,16 @@
                                                                          [self applicationDocumentsDirectory],
                                                                          fileName]]];
     
-    NSLog([self applicationDocumentsDirectory]);
+    //NSLog([self applicationDocumentsDirectory]);
     clip = [RecordingHttpClient createClip:clip recording:data];
     
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                    message:@"You have successfully uploaded the clip!"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 
 
