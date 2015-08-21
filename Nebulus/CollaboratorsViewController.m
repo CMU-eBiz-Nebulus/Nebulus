@@ -20,11 +20,12 @@
     [super viewDidLoad];
     
     if(!self.viewMode){
-        UIBarButtonItem *Invite = [[UIBarButtonItem alloc]
-                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                   target:self
-                                   action:@selector(performInvite)];
-        self.navigationItem.rightBarButtonItem = Invite;
+        UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc] initWithTitle:@"Invite"
+                                                                      style:UIBarButtonItemStyleBordered
+                                                                     target:self
+                                                                     action:@selector(performInvite)];
+        
+        self.navigationItem.rightBarButtonItem = inviteButton;
     }
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
