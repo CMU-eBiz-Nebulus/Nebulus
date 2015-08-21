@@ -30,6 +30,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewWillDisappear:(BOOL)animated 
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 //------------------------------------------------------------------------------
 #pragma mark - Status Bar Style
 //------------------------------------------------------------------------------
@@ -127,8 +133,8 @@
     [self updateButtonsToMatchTableState];
 
 }
--(void) viewDidAppear:(BOOL)animated
-{ [super viewDidAppear:animated];
+-(void) viewWillAppear:(BOOL)animated
+{ [super viewWillAppear:animated];
     
     //
     // Setup the AVAudioSession. EZMicrophone will not work properly on iOS
@@ -446,7 +452,16 @@
 //------------------------------------------------------------------------------
 
 - (void)setupNotifications
+
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(audioPlayerDidChangeOutputDevice:)
+                                                 name:EZAudioPlayerDidChangeOutputDeviceNotification
+                                               object:self.player];
+
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerDidChangePlayState:)
                                                  name:EZAudioPlayerDidChangePlayStateNotification
@@ -461,6 +476,11 @@
 #pragma mark - Notifications
 //------------------------------------------------------------------------------
 
+- (void)audioPlayerDidChangeOutputDevice:(NSNotification *)notification
+{
+    EZAudioPlayer *player = [notification object];
+    NSLog(@"Player changed output device: %@", [player device]);
+}
 - (void)playerDidChangePlayState:(NSNotification *)notification
 {
     EZAudioPlayer *player = [notification object];
@@ -577,7 +597,7 @@
 
 //------------------------------------------------------------------------------
 
-- (void)toggleRecording:(id)sender
+- (IBAction)toggleRecording:(id)sender
 {
     [self.secondTableView beginUpdates];
     if (self.expandedIndexPath!=nil){
@@ -588,7 +608,7 @@
     [self.secondTableView endUpdates];
     [self.microphone stopFetchingAudio];
     [self.player pause];
-    if ([sender isOn])
+    if (!self.isRecording)
     {
         
         //
@@ -603,6 +623,8 @@
         self.playButton.enabled = YES;
         [self listFileAtPath];
         [self.secondTableView reloadData];
+        self.isRecording = YES;
+        self.recordingStateLabel.text = @"Recording";
     }
     self.isRecording = (BOOL)[sender isOn];
     self.recordingStateLabel.text = self.isRecording ? @"Recording" : @"Not Recording";

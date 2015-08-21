@@ -26,7 +26,6 @@
 		8430F44C1B6A943800CB2EE0 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 8430F43B1B6A943800CB2EE0 /* TPCircularBuffer.c */; };
 		8474125F1B7D6EB7009EA92E /* APLMoveMeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847412591B7D6EB7009EA92E /* APLMoveMeView.m */; };
 		847412601B7D6EB7009EA92E /* simple-drum-beat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8474125A1B7D6EB7009EA92E /* simple-drum-beat.wav */; };
-		847412611B7D6EB7009EA92E /* ViewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474125C1B7D6EB7009EA92E /* ViewProjectViewController.m */; };
 		847412621B7D6EB7009EA92E /* WaveformFromFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474125E1B7D6EB7009EA92E /* WaveformFromFileViewController.m */; };
 		8474126A1B7D768F009EA92E /* RecordSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847412691B7D768F009EA92E /* RecordSettingViewController.m */; };
 		848660821B615916000D849B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848660811B615916000D849B /* AVFoundation.framework */; };
@@ -124,8 +123,6 @@
 		847412581B7D6EB7009EA92E /* APLMoveMeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLMoveMeView.h; sourceTree = "<group>"; };
 		847412591B7D6EB7009EA92E /* APLMoveMeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLMoveMeView.m; sourceTree = "<group>"; };
 		8474125A1B7D6EB7009EA92E /* simple-drum-beat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "simple-drum-beat.wav"; sourceTree = "<group>"; };
-		8474125B1B7D6EB7009EA92E /* ViewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewProjectViewController.h; sourceTree = "<group>"; };
-		8474125C1B7D6EB7009EA92E /* ViewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewProjectViewController.m; sourceTree = "<group>"; };
 		8474125D1B7D6EB7009EA92E /* WaveformFromFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveformFromFileViewController.h; sourceTree = "<group>"; };
 		8474125E1B7D6EB7009EA92E /* WaveformFromFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveformFromFileViewController.m; sourceTree = "<group>"; };
 		847412681B7D768F009EA92E /* RecordSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordSettingViewController.h; sourceTree = "<group>"; };
@@ -318,8 +315,6 @@
 				84B56A3F1B7EE4C0009D5E63 /* PlayFileViewController.m */,
 				8430F41C1B6A942C00CB2EE0 /* EZAudio */,
 				98DFE1201B759A9A00C1DBDE /* Profile */,
-				8474125B1B7D6EB7009EA92E /* ViewProjectViewController.h */,
-				8474125C1B7D6EB7009EA92E /* ViewProjectViewController.m */,
 				98DD5C341B83CA2A00B9CEA5 /* Login */,
 				929B70C61B5D3FC000264D32 /* Main.storyboard */,
 				98FC57561B82C0F500152FA2 /* Timeline */,
@@ -640,7 +635,6 @@
 				92F158CA1B782E46005C84C8 /* Comment.m in Sources */,
 				92F158D31B783D01005C84C8 /* Arrangement.m in Sources */,
 				8430F4481B6A943800CB2EE0 /* EZMicrophone.m in Sources */,
-				847412611B7D6EB7009EA92E /* ViewProjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
