@@ -154,28 +154,9 @@ UITableViewDataSource, UITableViewDelegate>
 
 @property NSInteger quality;
 @property (strong, nonatomic) NSIndexPath *expandedIndexPath;
+@property (strong, nonatomic) NSURL *tempUrl;
 @end
 
-
-//#import <UIKit/UIKit.h>
-//#import <AVFoundation/AVFoundation.h>
-//
-//@interface RecordViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
-//
-//@property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
-//@property (weak, nonatomic) IBOutlet UIButton *stopButton;
-//@property (weak, nonatomic) IBOutlet UIButton *playButton;
-//@property (weak, nonatomic) IBOutlet UILabel *sampleratelabel;
-//@property (weak, nonatomic) IBOutlet UILabel *bitratelabel;
-//@property (weak, nonatomic) IBOutlet UISegmentedControl *sampleratecontrol;
-//@property (weak, nonatomic) IBOutlet UISegmentedControl *bitratecontrol;
-//
-//- (IBAction)recordPauseTapped:(id)sender;
-//- (IBAction)stopTapped:(id)sender;
-//- (IBAction)playTapped:(id)sender;
-//
-//@end
-//
 
 
 

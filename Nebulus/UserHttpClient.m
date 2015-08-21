@@ -311,9 +311,11 @@
     
     NSArray *raw = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
     NSMutableArray *users = [[NSMutableArray alloc]init];
+    User *me = [self getCurrentUser];
     for (int i = 0; i < [raw count]; i++) {
         NSDictionary* json = raw[i];
         User *u = [[User alloc] initWithDict:json];
+        if ([u.objectID isEqual:me.objectID]) continue;
         [users addObject:u];
     }
     return users;

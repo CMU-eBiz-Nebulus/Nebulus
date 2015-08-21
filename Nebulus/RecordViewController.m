@@ -607,8 +607,19 @@
     self.isRecording = (BOOL)[sender isOn];
     self.recordingStateLabel.text = self.isRecording ? @"Recording" : @"Not Recording";
     
+    
+    //Where finish the recording and save the file
     if(!self.isRecording){
         if (self.recorder) [self.recorder closeAudioFile];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Save clip" message:@"Please enter the name of the music" delegate:self cancelButtonTitle:@"Cancel"
+                                               otherButtonTitles:@"OK",nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField *alertTextField = [alert textFieldAtIndex:0];
+        alertTextField.keyboardType = UIKeyboardTypeAlphabet;
+        alertTextField.placeholder = @"Enter the name of the clip";
+        [alert show];
+        [self.secondTableView reloadData];
+        
     }
 
 }
@@ -738,16 +749,17 @@ withNumberOfChannels:(UInt32)numberOfChannels
     [df setDateFormat:@"dd-MM-yyyy-hh-mm-ss"];
     NSString *timeString = [df stringFromDate:time];
     NSString *fileName = [NSString stringWithFormat:@"File-%@%@", timeString, extensionString];
-    
-    return [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                   [self applicationDocumentsDirectory],
-                                   fileName]];
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                            [self applicationDocumentsDirectory],
+                            fileName]];
+    self.tempUrl = url;
+    return url;
 }
 
 -(void)listFileAtPath
 {
     //-----> LIST ALL FILES <-----//
-    NSLog(@"LISTING ALL FILES FOUND");
+    //NSLog(@"LISTING ALL FILES FOUND");
     
     int count;
     
@@ -760,7 +772,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
     
     for (count = 0; count < (int)[_directoryContent count]; count++)
     {
-        NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
+        //NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
         if ([[NSFileManager defaultManager] isDeletableFileAtPath:dataFilePath]) {
             [[NSFileManager defaultManager] removeItemAtPath:dataFilePath error:nil];
         }
@@ -822,6 +834,28 @@ withNumberOfChannels:(UInt32)numberOfChannels
     }
     
     
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Button Index =%ld",buttonIndex);
+    if (buttonIndex == 0)
+    {
+        NSLog(@"You have clicked Cancel");
+        [[NSFileManager defaultManager] removeItemAtURL:self.tempUrl error:nil];
+        
+    }
+    else if(buttonIndex == 1)
+    {
+        NSLog(@"You have clicked Save");
+        UITextField *alertTextField = [alertView textFieldAtIndex:0];
+        NSString *newName = alertTextField.text;
+        NSURL *newPath = [[self.tempUrl URLByDeletingLastPathComponent] URLByAppendingPathComponent:newName];
+        
+        [[NSFileManager defaultManager] moveItemAtURL:self.tempUrl toURL:newPath error:nil];
+    }
+    [self listFileAtPath];
+    [self.secondTableView reloadData];
 }
 
 
