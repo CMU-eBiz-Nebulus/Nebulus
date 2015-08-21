@@ -25,7 +25,7 @@
     self = [super initWithDict: json];
     if(self) {
         self.creator = [[User alloc]initWithDict:[json objectForKey:@"creator"]];
-        self.duration = [json objectForKey:@"groupName"];
+        self.duration = [json objectForKey:@"duration"];
         self.name = [json objectForKey:@"name"];
         self.recordingId = [json objectForKey:@"recordingId"];
         self.tags = [json objectForKey:@"tags"];

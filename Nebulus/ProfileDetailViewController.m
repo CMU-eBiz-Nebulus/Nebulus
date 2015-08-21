@@ -128,10 +128,9 @@
     UITableViewCell *cell = nil;
     if (self.mode == CLIPS){
         Clip *clip = self.contents[indexPath.row];
-        
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithoutPhoto"];
         [cell.textLabel setText:clip.name];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Duration: %@", clip.duration.stringValue];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"Duration: %.2f s", clip.duration.floatValue]];
     }
     return cell;
 }
