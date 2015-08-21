@@ -173,10 +173,10 @@
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         
         
-        [imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [imageView.layer setBorderWidth: 0.5];
-        [imageView.layer setCornerRadius:5];
-        
+//        [imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+//        [imageView.layer setBorderWidth: 0.5];
+//        [imageView.layer setCornerRadius:5];
+//        
         imageView.image = self.imageView.image;
         
         [self.fullscreenVC.view addSubview:imageView];
