@@ -652,6 +652,11 @@
     }
     self.isRecording = (BOOL)[sender isOn];
     self.recordingStateLabel.text = self.isRecording ? @"Recording" : @"Not Recording";
+    
+    if(!self.isRecording){
+        if (self.recorder) [self.recorder closeAudioFile];
+    }
+
 }
 
 //------------------------------------------------------------------------------
