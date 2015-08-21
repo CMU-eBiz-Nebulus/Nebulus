@@ -30,7 +30,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)viewWillDisappear:(BOOL)animated 
+- (void)viewWillDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -131,7 +131,7 @@
     
     // make our view consistent
     [self updateButtonsToMatchTableState];
-
+    
 }
 -(void) viewWillAppear:(BOOL)animated
 { [super viewWillAppear:animated];
@@ -191,9 +191,9 @@
     
     [self listFileAtPath];
     [self.secondTableView reloadData];
-
     
-    }
+    
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_directoryContent count]; // or other number, that you want
@@ -206,109 +206,109 @@
     UIButton *detailInfoButton, *uploadButton;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     //if (cell == nil){
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:cellIdentifier];
-        
-        //create custom labels and button inside the cell view
-        CGRect myFrame = CGRectMake(10.0, 5.0, 250, 25.0);
-        fileNameLabel = [[UILabel alloc] initWithFrame:myFrame];
-        fileNameLabel.tag = COUNTRY_TAG;
-        fileNameLabel.font = [UIFont boldSystemFontOfSize:17.0];
-        fileNameLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:fileNameLabel];
-
+    cell = [[UITableViewCell alloc]
+            initWithStyle:UITableViewCellStyleDefault
+            reuseIdentifier:cellIdentifier];
     
-        dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 20.0, 250, 25.0)];
+    //create custom labels and button inside the cell view
+    CGRect myFrame = CGRectMake(10.0, 5.0, 250, 25.0);
+    fileNameLabel = [[UILabel alloc] initWithFrame:myFrame];
+    fileNameLabel.tag = COUNTRY_TAG;
+    fileNameLabel.font = [UIFont boldSystemFontOfSize:17.0];
+    fileNameLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:fileNameLabel];
+    
+    
+    dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 20.0, 250, 25.0)];
     dateLabel.font = [UIFont boldSystemFontOfSize:12.0];
     dateLabel.textColor = [UIColor grayColor];
     [cell.contentView addSubview:dateLabel];
-
     
-        detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        detailInfoButton.frame = CGRectMake(5, 40.0, 50, 25.0);
+    
+    detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //        detailInfoButton.frame = CGRectMake(5, 40.0, 50, 25.0);
     detailInfoButton.frame = CGRectMake(18.0, 42.0, 25.0, 25.0);
-//        [detailInfoButton setTitle:@"Play"
-//                          forState:UIControlStateNormal];
+    //        [detailInfoButton setTitle:@"Play"
+    //                          forState:UIControlStateNormal];
     [detailInfoButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
-        detailInfoButton.tag = indexPath.row;
-        [detailInfoButton addTarget:self
-                             action:@selector(playFile:)
-                   forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:detailInfoButton];
-        
-        
-        uploadButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    detailInfoButton.tag = indexPath.row;
+    [detailInfoButton addTarget:self
+                         action:@selector(playFile:)
+               forControlEvents:UIControlEventTouchUpInside];
+    [cell.contentView addSubview:detailInfoButton];
+    
+    
+    uploadButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     uploadButton.frame = CGRectMake(self.view.frame.size.width-50, 5.0, 30.0, 30.0);
     [uploadButton setImage:[UIImage imageNamed:@"upload"] forState:UIControlStateNormal];
-//        uploadButton.frame = CGRectMake(250.0, 5.0, 90, 25.0);
-//        [uploadButton setTitle:@"Upload"
-//                      forState:UIControlStateNormal];
-        uploadButton.tag = indexPath.row;
-        [uploadButton addTarget:self
-                         action:@selector(upload:)
-               forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:uploadButton];
-        
-        
-        startTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 44, 30, 15)];
-        startTimeLabel.tag = 200+indexPath.row;;
-        startTimeLabel.font = [UIFont systemFontOfSize:15.0];
-        startTimeLabel.textColor = [UIColor grayColor];
-        startTimeLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:startTimeLabel];
-        
-        endTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(290, 44, 30, 15)];
-        endTimeLabel.tag = 300+indexPath.row;;
-        endTimeLabel.font = [UIFont systemFontOfSize:15.0];
-        endTimeLabel.textColor = [UIColor grayColor];
-        endTimeLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:endTimeLabel];
-        
-        UIProgressView *pv = [[UIProgressView alloc] init];
-        pv.frame = CGRectMake(80, 50, 200, 15);
-        pv.tag =100+indexPath.row;
-       [cell.contentView addSubview:pv];
+    //        uploadButton.frame = CGRectMake(250.0, 5.0, 90, 25.0);
+    //        [uploadButton setTitle:@"Upload"
+    //                      forState:UIControlStateNormal];
+    uploadButton.tag = indexPath.row;
+    [uploadButton addTarget:self
+                     action:@selector(upload:)
+           forControlEvents:UIControlEventTouchUpInside];
+    [cell.contentView addSubview:uploadButton];
+    
+    
+    startTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 44, 30, 15)];
+    startTimeLabel.tag = 200+indexPath.row;;
+    startTimeLabel.font = [UIFont systemFontOfSize:15.0];
+    startTimeLabel.textColor = [UIColor grayColor];
+    startTimeLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:startTimeLabel];
+    
+    endTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(290, 44, 30, 15)];
+    endTimeLabel.tag = 300+indexPath.row;;
+    endTimeLabel.font = [UIFont systemFontOfSize:15.0];
+    endTimeLabel.textColor = [UIColor grayColor];
+    endTimeLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:endTimeLabel];
+    
+    UIProgressView *pv = [[UIProgressView alloc] init];
+    pv.frame = CGRectMake(80, 50, 200, 15);
+    pv.tag =100+indexPath.row;
+    [cell.contentView addSubview:pv];
     
     cell.clipsToBounds = YES;
-        cell.contentView.clipsToBounds = YES;
-
-        
+    cell.contentView.clipsToBounds = YES;
+    
+    
     //}
-//    else {
-//        fileNameLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
-//    }
+    //    else {
+    //        fileNameLabel = (UILabel *)[cell.contentView viewWithTag:COUNTRY_TAG];
+    //    }
     
     NSString *fileName =[_directoryContent objectAtIndex:indexPath.row];
     
     NSURL *assetURL =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [self applicationDocumentsDirectory], fileName]];
     
-
+    
     AVURLAsset* audioAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
     CMTime audioDuration = audioAsset.duration;
     float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
     
-    if ([[fileName substringToIndex:4] isEqualToString:@"File"]){
-    NSRange range = NSMakeRange(5, 19);
-    //populate data from your country object to table view cell
-    fileNameLabel.text = [NSString stringWithFormat:@"New Recording %ld", (long)indexPath.row+1];
-        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
-
+    if ([[fileName substringToIndex:1] isEqualToString:@"File"]){
+        NSRange range = NSMakeRange(5, 19);
+        //populate data from your country object to table view cell
+//        fileNameLabel.text = [NSString stringWithFormat:@"New Recording %ld", (long)indexPath.row+1];
+//        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
+        
     }
     else {
         //Where the bug is!!!!
-//        int start = [fileName rangeOfString:@"-"].location;
-//        NSRange range = NSMakeRange(start+1, 10);
-//        fileNameLabel.text = [NSString stringWithFormat:@"%@", [fileName substringToIndex:start]];
-//        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
+        //        int start = [fileName rangeOfString:@"-"].location;
+        //        NSRange range = NSMakeRange(start+1, 10);
+        //        fileNameLabel.text = [NSString stringWithFormat:@"%@", [fileName substringToIndex:start]];
+        //        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
         fileNameLabel.text = fileName;
         dateLabel.text = fileName;
     }
-        startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
+    startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
     endTimeLabel.text =[NSString stringWithFormat:@"-%.1f", audioDurationSeconds];
     
     
-
+    
     
     return cell;
 }
@@ -329,7 +329,7 @@
 {
     [self.secondTableView setEditing:YES animated:YES];
     [self updateButtonsToMatchTableState];
-
+    
 }
 
 - (IBAction)cancelAction:(id)sender
@@ -424,14 +424,14 @@
     } else {
         self.expandedIndexPath = indexPath;
     }
-//    NSString *fileName = [_directoryContent objectAtIndex: indexPath.row];
-//    
-//    EZAudioFile *audioFile = [EZAudioFile audioFileWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-//                                                                                   [self applicationDocumentsDirectory],
-//                                                                                   fileName]]];
-//    
-//    [((UILabel*)[self.secondTableView viewWithTag:(200+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"%.1f",0.0]];
-//    [((UILabel*)[self.secondTableView viewWithTag:(300+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"-%.1f",[audioFile duration]]];
+    //    NSString *fileName = [_directoryContent objectAtIndex: indexPath.row];
+    //
+    //    EZAudioFile *audioFile = [EZAudioFile audioFileWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+    //                                                                                   [self applicationDocumentsDirectory],
+    //                                                                                   fileName]]];
+    //
+    //    [((UILabel*)[self.secondTableView viewWithTag:(200+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"%.1f",0.0]];
+    //    [((UILabel*)[self.secondTableView viewWithTag:(300+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"-%.1f",[audioFile duration]]];
     
     [tableView endUpdates]; // tell the table you're done making your changes
     
@@ -447,7 +447,15 @@
     
     NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
     NSError *error;
-    [fileManager removeItemAtPath:filePath error:&error];
+    BOOL success = [fileManager removeItemAtPath:filePath error:&error];
+    //    if (success) {
+    //        UIAlertView *removeSuccessFulAlert=[[UIAlertView alloc]initWithTitle:@"Congratulation:" message:@"Successfully removed" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+    //        [removeSuccessFulAlert show];
+    //    }
+    //    else
+    //    {
+    //        NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+    //    }
 }
 //------------------------------------------------------------------------------
 
@@ -460,8 +468,8 @@
                                              selector:@selector(audioPlayerDidChangeOutputDevice:)
                                                  name:EZAudioPlayerDidChangeOutputDeviceNotification
                                                object:self.player];
-
-
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerDidChangePlayState:)
                                                  name:EZAudioPlayerDidChangePlayStateNotification
@@ -537,7 +545,7 @@
     EZAudioFile *audioFile = [EZAudioFile audioFileWithURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                                                    [self applicationDocumentsDirectory],
                                                                                    fileName]]];
-
+    
     [self.player playAudioFile:audioFile];
     
     
@@ -565,7 +573,45 @@
     CMTime audioDuration = audioAsset.duration;
     float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
     clip.duration =[NSNumber numberWithFloat: audioDurationSeconds];
-
+    
+    
+    //    NSMutableData *data = [[NSMutableData alloc] init];
+    //
+    //    const uint32_t sampleRate = 16000; // 16k sample/sec
+    //    const uint16_t bitDepth = 16; // 16 bit/sample/channel
+    //    const uint16_t channels = 2; // 2 channel/sample (stereo)
+    //
+    //    NSDictionary *opts = [NSDictionary dictionary];
+    //    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:assetURL options:opts];
+    //    AVAssetReader *reader = [[AVAssetReader alloc] initWithAsset:asset error:NULL];
+    //    NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
+    //                              [NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
+    //                              [NSNumber numberWithFloat:(float)sampleRate], AVSampleRateKey,
+    //                              [NSNumber numberWithInt:bitDepth], AVLinearPCMBitDepthKey,
+    //                              [NSNumber numberWithBool:NO], AVLinearPCMIsNonInterleaved,
+    //                              [NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
+    //                              [NSNumber numberWithBool:NO], AVLinearPCMIsBigEndianKey, nil];
+    //
+    //    AVAssetReaderTrackOutput *output = [[AVAssetReaderTrackOutput alloc] initWithTrack:[[asset tracks] objectAtIndex:0] outputSettings:settings];
+    //    //    [asset release];
+    //    [reader addOutput:output];
+    //    [reader startReading];
+    //
+    //    // read the samples from the asset and append them subsequently
+    //    while ([reader status] != AVAssetReaderStatusCompleted) {
+    //        CMSampleBufferRef buffer = [output copyNextSampleBuffer];
+    //        if (buffer == NULL) continue;
+    //
+    //        CMBlockBufferRef blockBuffer = CMSampleBufferGetDataBuffer(buffer);
+    //        size_t size = CMBlockBufferGetDataLength(blockBuffer);
+    //        uint8_t *outBytes = malloc(size);
+    //        CMBlockBufferCopyDataBytes(blockBuffer, 0, size, outBytes);
+    //        CMSampleBufferInvalidate(buffer);
+    //        CFRelease(buffer);
+    //        [data appendBytes:outBytes length:size];
+    //        free(outBytes);
+    //    }
+    
     NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                                          [self applicationDocumentsDirectory],
                                                                          fileName]]];
@@ -626,13 +672,10 @@
         self.isRecording = YES;
         self.recordingStateLabel.text = @"Recording";
     }
-    self.isRecording = (BOOL)[sender isOn];
-    self.recordingStateLabel.text = self.isRecording ? @"Recording" : @"Not Recording";
-    
-    
-    //Where finish the recording and save the file
-    if(!self.isRecording){
-        if (self.recorder) [self.recorder closeAudioFile];
+    else {
+        [self.recorder closeAudioFile];
+        self.isRecording = NO;
+        self.recordingStateLabel.text = @"Not Recording";
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Save clip" message:@"Please enter the name of the music" delegate:self cancelButtonTitle:@"Cancel"
                                                otherButtonTitles:@"OK",nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -642,8 +685,11 @@
         [alert show];
         [self.secondTableView reloadData];
         
+        
+        
+        
     }
-
+    
 }
 
 //------------------------------------------------------------------------------
@@ -738,7 +784,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
     dispatch_async(dispatch_get_main_queue(), ^{
         weakSelf.currentTimeLabel.text = [audioPlayer formattedCurrentTime];
         [((UIProgressView*)[weakSelf.secondTableView viewWithTag:(100+_expandedIndexPath.row)]) setProgress:([audioPlayer currentTime]/[audioPlayer duration])];
-         [((UILabel*)[weakSelf.secondTableView viewWithTag:(200+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"%.1f",[audioPlayer currentTime]]];
+        [((UILabel*)[weakSelf.secondTableView viewWithTag:(200+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"%.1f",[audioPlayer currentTime]]];
         [((UILabel*)[weakSelf.secondTableView viewWithTag:(300+_expandedIndexPath.row)]) setText:[NSString stringWithFormat:@"-%.1f",[audioPlayer duration]-[audioPlayer currentTime]]];
     });
 }
@@ -771,17 +817,17 @@ withNumberOfChannels:(UInt32)numberOfChannels
     [df setDateFormat:@"dd-MM-yyyy-hh-mm-ss"];
     NSString *timeString = [df stringFromDate:time];
     NSString *fileName = [NSString stringWithFormat:@"File-%@%@", timeString, extensionString];
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                            [self applicationDocumentsDirectory],
-                            fileName]];
-    self.tempUrl = url;
-    return url;
+    NSURL *tempUrl = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+                                             [self applicationDocumentsDirectory],
+                                             fileName]];
+    self.tempUrl = tempUrl;
+    return tempUrl;
 }
 
 -(void)listFileAtPath
 {
     //-----> LIST ALL FILES <-----//
-    //NSLog(@"LISTING ALL FILES FOUND");
+    NSLog(@"LISTING ALL FILES FOUND");
     
     int count;
     
@@ -789,18 +835,18 @@ withNumberOfChannels:(UInt32)numberOfChannels
     
     
     NSString *dataFilePath = [[self applicationDocumentsDirectory]
-                               stringByAppendingPathComponent:@".DS_Store"];
-
+                              stringByAppendingPathComponent:@".DS_Store"];
+    
     
     for (count = 0; count < (int)[_directoryContent count]; count++)
     {
-        //NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
+        NSLog(@"File %d: %@", (count + 1), [_directoryContent objectAtIndex:count]);
         if ([[NSFileManager defaultManager] isDeletableFileAtPath:dataFilePath]) {
             [[NSFileManager defaultManager] removeItemAtPath:dataFilePath error:nil];
         }
     }
     return;
-   }
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [_player pause];
@@ -820,7 +866,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
         // Get reference to the destination view controller
         WaveformFromFileViewController *vc = [segue destinationViewController];
         
-
+        
         NSArray *selectedRows = [self.secondTableView indexPathsForSelectedRows];
         BOOL deleteSpecificRows = selectedRows.count > 0;
         if (deleteSpecificRows)
@@ -835,8 +881,8 @@ withNumberOfChannels:(UInt32)numberOfChannels
         {
             vc.directoryContent = self.directoryContent;
         }
-
-                // Exit editing mode after the deletion.
+        
+        // Exit editing mode after the deletion.
         [self.secondTableView setEditing:NO animated:NO];
         [self updateButtonsToMatchTableState];
         if (self.expandedIndexPath!=nil){
@@ -852,33 +898,224 @@ withNumberOfChannels:(UInt32)numberOfChannels
         // if the user clicked Cancel, we don't want to change the color
         quality = sc.Quality.selectedSegmentIndex;
         NSLog(@"quality:%ld", quality);
-    
+        
     }
     
     
 }
+
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+
 {
+    
     NSLog(@"Button Index =%ld",buttonIndex);
+    
     if (buttonIndex == 0)
+        
     {
+        
         NSLog(@"You have clicked Cancel");
+        
         [[NSFileManager defaultManager] removeItemAtURL:self.tempUrl error:nil];
         
+        
+        
     }
+    
     else if(buttonIndex == 1)
+        
     {
+        
         NSLog(@"You have clicked Save");
+        
         UITextField *alertTextField = [alertView textFieldAtIndex:0];
+        
         NSString *newName = alertTextField.text;
+        
         NSURL *newPath = [[self.tempUrl URLByDeletingLastPathComponent] URLByAppendingPathComponent:newName];
         
+        
+        
         [[NSFileManager defaultManager] moveItemAtURL:self.tempUrl toURL:newPath error:nil];
+        
     }
+    
     [self listFileAtPath];
+    
     [self.secondTableView reloadData];
+    
 }
 
-
 @end
+
+
+
+
+//
+//  SecondViewController.m
+//  Nebulus
+//
+//  Created by Jike on 7/20/15.
+//  Copyright (c) 2015 CMU-eBiz. All rights reserved.
+//
+//
+//#import "RecordViewController.h"
+//
+//@interface RecordViewController () {
+//    AVAudioRecorder *recorder;
+//    AVAudioPlayer *player;
+//}
+//
+//@end
+
+//@implementation RecordViewController
+//@synthesize stopButton, playButton, recordPauseButton, sampleratelabel, bitratelabel, sampleratecontrol, bitratecontrol;
+//float samplerate, bitdepth;
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//    samplerate = 44100;
+//    bitdepth= 32;
+//    // Disable Stop/Play button when application launches
+//    [stopButton setEnabled:NO];
+//    [playButton setEnabled:NO];
+//
+//    // Set the audio file
+//    NSArray *pathComponents = [NSArray arrayWithObjects:
+//                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+//                               @"MyAudioMemo.m4a",
+//                               nil];
+//    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+//
+//    // Setup audio session
+//    AVAudioSession *session = [AVAudioSession sharedInstance];
+//    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+//
+//    // Define the recorder setting
+//    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
+//
+//    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+//    [recordSetting setValue:[NSNumber numberWithFloat:samplerate] forKey:AVSampleRateKey];
+//    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
+//    [recordSetting setObject:[NSNumber numberWithInt:bitdepth] forKey:AVEncoderBitDepthHintKey];
+//
+//    // Initiate and prepare the recorder
+//    recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:nil];
+//    recorder.delegate = self;
+//    recorder.meteringEnabled = YES;
+//    [recorder prepareToRecord];
+//}
+//
+//- (void)didReceiveMemoryWarning
+//{
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
+//
+//- (IBAction)recordPauseTapped:(id)sender {
+//    // Stop the audio player before recording
+//    if (player.playing) {
+//        [player stop];
+//    }
+//
+//    if (!recorder.recording) {
+//        AVAudioSession *session = [AVAudioSession sharedInstance];
+//        [session setActive:YES error:nil];
+//
+//        // Start recording
+//        [recorder record];
+//        [recordPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+//
+//    } else {
+//
+//        // Pause recording
+//        [recorder pause];
+//        [recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
+//    }
+//
+//    [stopButton setEnabled:YES];
+//    [playButton setEnabled:NO];
+//}
+//
+//- (IBAction)stopTapped:(id)sender {
+//    [recorder stop];
+//
+//    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+//    [audioSession setActive:NO error:nil];
+//}
+//
+//- (IBAction)playTapped:(id)sender {
+//    if (!recorder.recording){
+//        player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
+//        [player setDelegate:self];
+//        [player play];
+//        [playButton setEnabled:NO];
+//        [recordPauseButton setEnabled:NO];
+//    }
+//}
+//
+//#pragma mark - AVAudioRecorderDelegate
+//
+//- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
+//    [recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
+//    [stopButton setEnabled:NO];
+//    [playButton setEnabled:YES];
+//}
+//
+//- (IBAction)sampleratechange:(id)sender {
+//    switch (sampleratecontrol.selectedSegmentIndex)
+//    {
+//        case 0:
+//            sampleratelabel.text = @"Sample Rate: 22050";
+//            samplerate = 22050;
+//            break;
+//        case 1:
+//            sampleratelabel.text = @"Sample Rate: 32000";
+//            samplerate = 32000;
+//            break;
+//        case 2:
+//            sampleratelabel.text = @"Sample Rate: 44100";
+//            samplerate = 44100;
+//            break;
+//
+//        default:
+//            break;
+//    }
+//}
+//- (IBAction)bitratechange:(id)sender {
+//    switch (bitratecontrol.selectedSegmentIndex)
+//    {
+//        case 0:
+//            bitratelabel.text = @"Bit Depth: 8";
+//            bitdepth = 8;
+//            break;
+//        case 1:
+//            bitratelabel.text = @"Bit Depth: 16";
+//            bitdepth = 16;
+//            break;
+//        case 2:
+//            bitratelabel.text = @"Bit Depth: 32";
+//            bitdepth = 32;
+//            break;
+//        default:
+//            break;
+//    }
+//}
+//#pragma mark - AVAudioPlayerDelegate
+//
+//- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
+//                                                    message: @"Finish playing the recording!"
+//                                                   delegate: nil
+//                                          cancelButtonTitle:@"OK"
+//                                          otherButtonTitles:nil];
+//    [alert show];
+//    [playButton setEnabled:YES];
+//    [recordPauseButton setEnabled:YES];
+//}
+//- (IBAction)back:(UIStoryboardSegue *)segue {
+//    // Optional place to read data from closing controller
+//}
+//
+//@end
