@@ -39,7 +39,7 @@
     
 }
 
-+(BOOL) updateProject:(Project*) project {
++(Project*) updateProject:(Project*) project {
     NSString *urlStr = [[NSString alloc]initWithFormat:@"http://test.nebulus.io:8080/api/projects/%@", project.objectID];
     NSURL *aUrl = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
