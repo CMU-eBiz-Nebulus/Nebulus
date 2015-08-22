@@ -155,6 +155,7 @@ UITableViewDataSource, UITableViewDelegate>
 @property NSInteger quality;
 @property (strong, nonatomic) NSIndexPath *expandedIndexPath;
 @property (strong, nonatomic) NSURL *tempUrl;
+@property (strong, nonatomic) NSString *tempFilename;
 @end
 
 
