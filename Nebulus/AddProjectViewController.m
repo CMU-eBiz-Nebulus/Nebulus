@@ -12,7 +12,6 @@
 
 @interface AddProjectViewController ()
 @property (nonatomic, strong) NSArray *projects; // of Project
-@property (nonatomic, strong) NSMutableSet *projectSet;
 @end
 
 @implementation AddProjectViewController
@@ -34,8 +33,16 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.projects = [ProjectHttpClient getProjectsByUser:self.user.objectID];
-    //self.projectSet = [[NSMutableSet alloc] init];
+    NSMutableArray *remProjects = [[NSMutableArray alloc] init];
+    NSSet *set = [[NSSet alloc] initWithArray:self.album.projects];
+    
+    for(Project *project in [ProjectHttpClient getProjectsByUser:self.user.objectID]){
+        if(![set containsObject:project.objectID]){
+            [remProjects addObject:project];
+        }
+    }
+    
+    self.projects = remProjects.copy;
 }
 
 #pragma mark - table view source and delegate
@@ -74,10 +81,10 @@
 - (IBAction)done:(UIBarButtonItem *)sender {
     NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
     
-    NSMutableArray *projects = [[NSMutableArray alloc] init];
+    NSMutableArray *projects = [[NSMutableArray alloc] initWithArray:self.album.projects];
     for(id index in selectedRows){
         NSIndexPath *indexPath = index;
-        [projects addObject:self.projects[indexPath.row]];
+        [projects addObject:((Project *)self.projects[indexPath.row]).objectID];
     }
     self.album.projects = projects.copy;
     self.album = [MusicHttpClient updateAlbum:self.album];

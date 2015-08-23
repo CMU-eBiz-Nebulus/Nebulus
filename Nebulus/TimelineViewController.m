@@ -19,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
 @property (strong, nonatomic) NSArray *activity;
 @property (strong, nonatomic) User *currUser;
+
+@property (nonatomic, strong) UIActivityIndicatorView *indicator;
+
+@property (atomic) BOOL started;
 @end
 
 @implementation TimelineViewController
@@ -36,16 +40,37 @@
         self.navigationItem.rightBarButtonItem = nil;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    
+    self.indicator = [[UIActivityIndicatorView alloc]
+                      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    UIView *view = [[UIView alloc] initWithFrame:self.tableView.tableFooterView.bounds];
+    [view addSubview:self.indicator];
+    self.tableView.tableFooterView = view;
+    
+    [self.indicator startAnimating];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.currUser = [UserHttpClient getCurrentUser];
+        self.activity = self.selfMode ? [MusicHttpClient getUserActivity:self.currUser.objectID]
+        : [MusicHttpClient getAllFollowingActivities:self.currUser.objectID];
+        
+        NSLog(@"Fetched %ld activities", [self.activity count]);
+        [self.tableView reloadData];
+        [self.indicator stopAnimating];
+        self.started = YES;
+    });
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.currUser = [UserHttpClient getCurrentUser];
-    self.activity = self.selfMode ? [MusicHttpClient getUserActivity:self.currUser.objectID]
-    : [MusicHttpClient getAllFollowingActivities:self.currUser.objectID];
-    
-    [self.tableView reloadData];
-    
-    NSLog(@"Fetched %ld activities", [self.activity count]);
+//    if(self.started){
+//        self.activity = self.selfMode ? [MusicHttpClient getUserActivity:self.currUser.objectID]
+//        : [MusicHttpClient getAllFollowingActivities:self.currUser.objectID];
+//        
+//        NSLog(@"Fetched %ld activities", [self.activity count]);
+//        [self.tableView reloadData];
+//    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -220,15 +245,8 @@
     Activity *activity = [self.activity objectAtIndex:indexPath.section];
     NSData *recording = [RecordingHttpClient getRecording:activity.recordingId];
     NSString *file_name = [NSString stringWithFormat:@"%@'s clip", activity.creator.username];
-    
-//    [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-//                                                  [self applicationDocumentsDirectory],
-//                                                  file_name]]  atomically:YES];
-    
+
     PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
-//    vc.filePath =[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-//                                         [self applicationDocumentsDirectory],
-//                                         file_name]];
     
     [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:file_name]]  atomically:YES];
     vc.fileName =file_name;

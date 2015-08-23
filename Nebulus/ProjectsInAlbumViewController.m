@@ -8,6 +8,7 @@
 
 #import "ProjectsInAlbumViewController.h"
 #import "AddProjectViewController.h"
+#import "AlbumProjectViewController.h"
 #import "MusicHttpClient.h"
 #import "ProjectHttpClient.h"
 
@@ -32,7 +33,15 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.projects = [MusicHttpClient getAlbum:self.album.objectID].projects;
+    NSArray *projectIDs = [MusicHttpClient getAlbum:self.album.objectID].projects;
+    NSMutableArray *projects = [[NSMutableArray alloc] init];
+    
+    for(NSString *objectId in projectIDs){
+        [projects addObject:[ProjectHttpClient getProject:objectId]];
+    }
+    
+    self.projects = projects.copy;
+    [self.tableView reloadData];
 }
 
 #pragma mark - table view source and delegate
@@ -77,6 +86,16 @@
             
             vc.user = self.user;
             vc.album = self.album;
+        }
+    }else if ([segue.identifier isEqualToString:@"showProject"]) {
+        if ([segue.destinationViewController isKindOfClass:[AlbumProjectViewController class]]) {
+            AlbumProjectViewController *vc = (AlbumProjectViewController *)segue.destinationViewController;
+            
+            
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            vc.mode = PROJECT_DETAIL;
+            vc.content = [self.projects objectAtIndex:indexPath.row];
+            vc.viewMode = YES;
         }
     }
 }
