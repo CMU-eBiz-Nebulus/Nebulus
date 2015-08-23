@@ -12,6 +12,7 @@
 #import "MusicHttpClient.h"
 #import "ProjectHttpClient.h"
 #import "CollaboratorsViewController.h"
+#import "ProjectsInAlbumViewController.h"
 #import "Project.h"
 #import "Album.h"
 #import "User.h"
@@ -158,7 +159,30 @@
             vc.content = self.content;
             vc.viewMode = self.viewMode;
         }
+    } else if ([segue.identifier isEqualToString:@"viewProjects"]){
+        if ([segue.destinationViewController isKindOfClass:[ProjectsInAlbumViewController class]]) {
+            ProjectsInAlbumViewController *vc = (ProjectsInAlbumViewController *)segue.destinationViewController;
+            
+            vc.user = self.currUser;
+            
+            if(!self.viewMode && self.mode == ALBUM){
+                vc.album = self.content;
+            }else{
+                vc.album = nil;
+            }
+        }
     }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if([identifier isEqualToString:@"viewProjects"]){
+        if(!self.viewMode && self.mode == ALBUM){
+            return YES;
+        }else{
+            return NO;
+        }
+    }
+    return YES;
 }
 
 #pragma mark - full screen photo

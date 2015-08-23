@@ -62,6 +62,8 @@
 		9889F0FF1B72FB9E00685E18 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9889F0FE1B72FB9E00685E18 /* TimelineViewController.m */; };
 		9893D9AA1B695D210033ED33 /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9893D9A91B695D210033ED33 /* OtherProfileViewController.m */; };
 		9899C2701B7D7D49006ED563 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9899C26F1B7D7D49006ED563 /* NotificationViewController.m */; };
+		989A89D21B8A430E00715BCD /* AddProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A89D11B8A430E00715BCD /* AddProjectViewController.m */; };
+		989A89D51B8A44A000715BCD /* ProjectsInAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A89D41B8A44A000715BCD /* ProjectsInAlbumViewController.m */; };
 		98C9472D1B629842000E0CB8 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */; };
 		98C947331B62D5B8000E0CB8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C947321B62D5B8000E0CB8 /* ProfileViewController.m */; };
 		98DD5C311B83C27100B9CEA5 /* CommentClipPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD5C301B83C27100B9CEA5 /* CommentClipPickerViewController.m */; };
@@ -192,6 +194,10 @@
 		9893D9A91B695D210033ED33 /* OtherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherProfileViewController.m; sourceTree = "<group>"; };
 		9899C26E1B7D7D49006ED563 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		9899C26F1B7D7D49006ED563 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		989A89D01B8A430E00715BCD /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectViewController.h; sourceTree = "<group>"; };
+		989A89D11B8A430E00715BCD /* AddProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectViewController.m; sourceTree = "<group>"; };
+		989A89D31B8A44A000715BCD /* ProjectsInAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsInAlbumViewController.h; sourceTree = "<group>"; };
+		989A89D41B8A44A000715BCD /* ProjectsInAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsInAlbumViewController.m; sourceTree = "<group>"; };
 		98C9472B1B629842000E0CB8 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
 		98C9472C1B629842000E0CB8 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		98C947311B62D5B8000E0CB8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -438,6 +444,10 @@
 		98DFE1201B759A9A00C1DBDE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				989A89D31B8A44A000715BCD /* ProjectsInAlbumViewController.h */,
+				989A89D41B8A44A000715BCD /* ProjectsInAlbumViewController.m */,
+				989A89D01B8A430E00715BCD /* AddProjectViewController.h */,
+				989A89D11B8A430E00715BCD /* AddProjectViewController.m */,
 				983261F31B7978DF000FE97A /* CollaboratorsViewController.h */,
 				983261F41B7978DF000FE97A /* CollaboratorsViewController.m */,
 				98DFE1211B75B2F600C1DBDE /* ModifyViewController.h */,
@@ -630,7 +640,9 @@
 				98DFE1231B75B2F600C1DBDE /* ModifyViewController.m in Sources */,
 				92A574F71B655CAB0015032B /* Model.m in Sources */,
 				929B70BC1B5D3FC000264D32 /* main.m in Sources */,
+				989A89D51B8A44A000715BCD /* ProjectsInAlbumViewController.m in Sources */,
 				929B70E41B5D48AC00264D32 /* LoginViewController.m in Sources */,
+				989A89D21B8A430E00715BCD /* AddProjectViewController.m in Sources */,
 				92ED7E171B7A834C0015E6BB /* RecordingHttpClient.m in Sources */,
 				92F158CA1B782E46005C84C8 /* Comment.m in Sources */,
 				92F158D31B783D01005C84C8 /* Arrangement.m in Sources */,
