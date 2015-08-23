@@ -689,6 +689,10 @@
         alertTextField.keyboardType = UIKeyboardTypeAlphabet;
         alertTextField.text = self.tempFilename;
         [alert show];
+        UITextRange *textRange = [alertTextField textRangeFromPosition:alertTextField.beginningOfDocument
+                                                       toPosition:alertTextField.endOfDocument];
+        [alertTextField setSelectedTextRange:textRange];
+        
         [self.secondTableView reloadData];
         
     }
