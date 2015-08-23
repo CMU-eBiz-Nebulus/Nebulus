@@ -53,7 +53,7 @@
     UITableViewCell *cell = nil;
     if (indexPath.row < self.projects.count){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellWithPhoto"];
-        Project *project = self.projects[indexPath.row];
+        Project *project = [ProjectHttpClient getProject: self.projects[indexPath.row]];
         
         UIImageView *imageview = (UIImageView *)[cell viewWithTag:1];
         [imageview setContentMode:UIViewContentModeScaleToFill];

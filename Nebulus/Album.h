@@ -10,6 +10,7 @@
 
 #import "Model.h"
 #import "User.h"
+#import "Project.h"
 
 @interface Album : Model
 -(id) initWithDict:(NSDictionary *)json;

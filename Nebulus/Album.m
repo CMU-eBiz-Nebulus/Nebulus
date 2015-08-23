@@ -71,7 +71,17 @@
         self.tags = [meta objectForKey:@"tags"];
         
         self.pictureUpdateTime = [json objectForKey:@"pictureUpdateTime"];
+        
+        //Projects
+//        NSArray *rawprojects = [json objectForKey:@"projects"];
+//        NSMutableArray *projects = [[NSMutableArray alloc] init];
+//        for (int i = 0; i < [rawprojects count]; i++) {
+//            Project *p = [[Project alloc]initWithDict:rawprojects[i]];
+//            [projects addObject:p];
+//        }
         self.projects = [json objectForKey:@"projects"];
+        
+        //Users
         NSDictionary *users = [json objectForKey:@"users"];
         self.creator = [[User alloc] initWithDict:[users objectForKey:@"creator"]];
         NSArray *rawEditors = [users objectForKey:@"editors"];
@@ -95,7 +105,15 @@
     [dict setObject:meta forKey:@"meta"];
     [dict setObject:self.pictureUpdateTime forKey:@"pictureUpdateTime"];
     [dict setObject:self.tags forKey:@"tags"];
+    
+    //Projects
+//    NSMutableArray *projects = [[NSMutableArray alloc] init];
+//    for (int i = 0; i < [self.projects count]; i++) {
+//        [projects addObject:[self.projects[i] convertToDict]];
+//    }
     [dict setObject:self.projects forKey:@"projects"];
+    
+    //Users
     NSMutableDictionary *users = [[NSMutableDictionary alloc]init];
     NSMutableArray *editors = [[NSMutableArray alloc] init];
     for (int i = 0; i < [self.editors count]; i++) {
