@@ -935,7 +935,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
         
         UITextField *alertTextField = [alertView textFieldAtIndex:0];
         
-        NSString *newName = alertTextField.text;
+        NSString *newName = [[NSString alloc]initWithFormat :@"%@.m4a", alertTextField.text];
         
         NSURL *newPath = [[self.tempUrl URLByDeletingLastPathComponent] URLByAppendingPathComponent:newName];
         
