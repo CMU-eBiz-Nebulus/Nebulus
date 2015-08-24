@@ -941,7 +941,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
         UITextField *alertTextField = [alertView textFieldAtIndex:0];
         if ([alertTextField.text length] > 3) {
             NSUInteger l = [alertTextField.text length];
-            NSRange range = NSMakeRange(l - 3, l);
+            NSRange range = NSMakeRange(l - 3, 3);
             NSString *last = [alertTextField.text substringWithRange:range];
             if ([last isEqualToString:@"m4a"]) {
                 newName = alertTextField.text;
