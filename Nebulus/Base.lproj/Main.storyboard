@@ -63,6 +63,7 @@
                                                 <constraint firstAttribute="width" constant="30" id="Lw0-mJ-gi7"/>
                                                 <constraint firstAttribute="height" constant="30" id="pau-rj-LSx"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                             <state key="normal" title="▶️">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -2013,6 +2014,7 @@ Some text here ...</string>
                                                 <constraint firstAttribute="width" constant="30" id="mB6-lg-11T"/>
                                                 <constraint firstAttribute="width" constant="30" id="rOl-Fu-EKe"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                             <state key="normal" title="▶️">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -2857,9 +2859,9 @@ Some text here ...</string>
         <segue reference="VVs-Zt-gem"/>
         <segue reference="u94-xD-Rc0"/>
         <segue reference="izh-mw-nZz"/>
-        <segue reference="jXV-KF-di1"/>
-        <segue reference="WB0-4Q-qcK"/>
         <segue reference="8PY-66-gKv"/>
-        <segue reference="PrR-jJ-7Kp"/>
+        <segue reference="guu-66-5cQ"/>
+        <segue reference="jXV-KF-di1"/>
+        <segue reference="Onh-F8-P6T"/>
     </inferredMetricsTieBreakers>
 </document>
