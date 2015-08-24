@@ -244,7 +244,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
     Activity *activity = [self.activity objectAtIndex:indexPath.section];
     NSData *recording = [RecordingHttpClient getRecording:activity.recordingId];
-    NSString *file_name = [NSString stringWithFormat:@"%@'s clip", activity.creator.username];
+    NSString *file_name = [NSString stringWithFormat:@"%@'s clip.m4a", activity.creator.username];
 
     PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
     
