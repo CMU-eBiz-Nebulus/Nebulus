@@ -121,6 +121,7 @@
             TimelineViewController *vc = (TimelineViewController *)segue.destinationViewController;
             
             vc.selfMode = YES;
+            vc.currUser = self.currUser;
         }
     }
 }

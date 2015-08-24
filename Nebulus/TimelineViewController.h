@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @interface TimelineViewController : UITableViewController
 @property (nonatomic) BOOL selfMode;
+
+@property (strong, nonatomic) User *currUser;
 @end
