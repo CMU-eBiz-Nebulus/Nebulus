@@ -213,7 +213,7 @@
             [((UIImageView *)[cell viewWithTag:101]).layer setCornerRadius:5];
         }
         
-        NSString *text = [NSString stringWithFormat:@"%@ %@", follower.username, msg];
+        NSString *text = [NSString stringWithFormat:@"%@ %@", follower.username, @"is now following you!"/*msg*/];
         NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
 
         [attributedText setAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}
@@ -224,6 +224,8 @@
         }else{
             [attributedText addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, attributedText.length)];
         }
+        
+        //NSLog(@"%@", notification.message);
         
         [(UITextView *)[cell viewWithTag:102] setAttributedText:attributedText];
 //    }else if([notification.model isEqualToString:@"activity"]){

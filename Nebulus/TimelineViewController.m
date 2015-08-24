@@ -18,7 +18,6 @@
 @interface TimelineViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
 @property (strong, nonatomic) NSArray *activity;
-@property (strong, nonatomic) User *currUser;
 
 @property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
@@ -51,7 +50,9 @@
     
     [self.indicator startAnimating];
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.currUser = [UserHttpClient getCurrentUser];
+        if(!self.currUser) {
+            self.currUser = [UserHttpClient getCurrentUser];
+        }
         self.activity = self.selfMode ? [MusicHttpClient getUserActivity:self.currUser.objectID]
         : [MusicHttpClient getAllFollowingActivities:self.currUser.objectID];
         
@@ -244,7 +245,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
     Activity *activity = [self.activity objectAtIndex:indexPath.section];
     NSData *recording = [RecordingHttpClient getRecording:activity.recordingId];
-    NSString *file_name = [NSString stringWithFormat:@"%@'s clip", activity.creator.username];
+    NSString *file_name = [NSString stringWithFormat:@"%@'s clip.m4a", activity.creator.username];
 
     PlayFileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"playViewController"];
     

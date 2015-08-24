@@ -14,6 +14,7 @@
 #import "ProjectHttpClient.h"
 #import "MusicHttpClient.h"
 #import "ProfileDetailViewController.h"
+#import "TimelineViewController.h"
 
 @interface OtherProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
@@ -148,6 +149,13 @@
             pdvc.mode = PROJECTS;
             pdvc.title = @"Projects";
             pdvc.user = self.other;
+        }
+    }else if ([segue.identifier isEqualToString:@"viewTimeline"]) {
+        if ([segue.destinationViewController isKindOfClass:[TimelineViewController class]]) {
+            TimelineViewController *vc = (TimelineViewController *)segue.destinationViewController;
+            
+            vc.selfMode = YES;
+            vc.currUser = self.other;
         }
     }
 }

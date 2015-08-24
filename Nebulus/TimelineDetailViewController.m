@@ -177,7 +177,7 @@
 - (IBAction)openActivityClip:(UIButton *)sender {
     NSData *recording = [RecordingHttpClient getRecording:self.activity.recordingId];
     
-    NSString *file_name = [NSString stringWithFormat:@"%@'s clip", self.activity.creator.username];
+    NSString *file_name = [NSString stringWithFormat:@"%@'s clip.m4a", self.activity.creator.username];
     
 //    [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
 //                                                  [self applicationDocumentsDirectory],
@@ -214,7 +214,7 @@
 //                                             [self applicationDocumentsDirectory],
 //                                             clip.name]];
         [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:clip.name]]  atomically:YES];
-        vc.fileName =clip.name;
+        vc.fileName = clip.name;
         vc.recordingId = clip.recordingId;
 
         [self.navigationController pushViewController:vc animated:YES];
