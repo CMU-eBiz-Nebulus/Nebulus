@@ -1534,6 +1534,9 @@ Some text here ...</string>
                                                     <state key="normal" title="Posts: 20">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="6ec-0m-sDm" kind="show" identifier="viewTimeline" id="jXV-KF-di1"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoT-2C-G7X">
                                                     <rect key="frame" x="401" y="18" width="181" height="18"/>
@@ -1732,7 +1735,7 @@ Some text here ...</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-uf-ywj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-uf-ywj">
                                 <rect key="frame" x="0.0" y="99" width="600" height="135"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -1773,7 +1776,7 @@ Some text here ...</string>
                                     <action selector="deleteClip:" destination="Twk-i2-PHi" eventType="touchUpInside" id="NrD-V4-9YS"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mwO-Ge-ScU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mwO-Ge-ScU">
                                 <rect key="frame" x="3" y="64" width="594" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2851,12 +2854,12 @@ Some text here ...</string>
         <image name="setting" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xaL-Yu-iCu"/>
-        <segue reference="B0u-vQ-RWG"/>
-        <segue reference="NuJ-Dk-jo4"/>
         <segue reference="VVs-Zt-gem"/>
-        <segue reference="PrR-jJ-7Kp"/>
-        <segue reference="izh-mw-nZz"/>
         <segue reference="u94-xD-Rc0"/>
+        <segue reference="izh-mw-nZz"/>
+        <segue reference="jXV-KF-di1"/>
+        <segue reference="WB0-4Q-qcK"/>
+        <segue reference="8PY-66-gKv"/>
+        <segue reference="PrR-jJ-7Kp"/>
     </inferredMetricsTieBreakers>
 </document>
