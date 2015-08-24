@@ -219,10 +219,10 @@
     [cell.contentView addSubview:fileNameLabel];
     
     
-    dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 20.0, 250, 25.0)];
-    dateLabel.font = [UIFont boldSystemFontOfSize:12.0];
-    dateLabel.textColor = [UIColor grayColor];
-    [cell.contentView addSubview:dateLabel];
+//    dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 20.0, 250, 25.0)];
+//    dateLabel.font = [UIFont boldSystemFontOfSize:12.0];
+//    dateLabel.textColor = [UIColor grayColor];
+//    [cell.contentView addSubview:dateLabel];
     
     
     detailInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -302,7 +302,7 @@
         //        fileNameLabel.text = [NSString stringWithFormat:@"%@", [fileName substringToIndex:start]];
         //        dateLabel.text = [NSString stringWithFormat:@"%@", [fileName substringWithRange:range]];
         fileNameLabel.text = fileName;
-        dateLabel.text = fileName;
+//        dateLabel.text = fileName;
     }
     startTimeLabel.text = [NSString stringWithFormat:@"%.1f", 0.0];
     endTimeLabel.text =[NSString stringWithFormat:@"-%.1f", audioDurationSeconds];
@@ -823,7 +823,8 @@ withNumberOfChannels:(UInt32)numberOfChannels
     NSDateFormatter* df = [NSDateFormatter new];
     [df setDateFormat:@"dd-MM-yyyy-hh-mm-ss"];
     NSString *timeString = [df stringFromDate:time];
-    NSString *fileName = [NSString stringWithFormat:@"File-%@%@", timeString, extensionString];
+//    NSString *fileName = [NSString stringWithFormat:@"File-%@%@", timeString, extensionString];
+     NSString *fileName = [NSString stringWithFormat:@"New Recording %ld%@", [_directoryContent count]+1,extensionString];
     NSURL *tempUrl = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                              [self applicationDocumentsDirectory],
                                              fileName]];
