@@ -60,8 +60,8 @@
     
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     playButton.frame = CGRectMake(0, self.view.frame.size.height - 130, 100, 100);
-//    [playButton setTitle:@"Play"
-//                forState:UIControlStateNormal];
+    //    [playButton setTitle:@"Play"
+    //                forState:UIControlStateNormal];
     
     [playButton setImage:[UIImage imageNamed:@"record_play"] forState:UIControlStateNormal];
     [playButton setTintColor:[UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1]];
@@ -73,8 +73,8 @@
     
     UIButton *exportButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     exportButton.frame = CGRectMake(200, self.view.frame.size.height - 130, 100, 100);
-//    [exportButton setTitle:@"Merge"
-//                  forState:UIControlStateNormal];
+    //    [exportButton setTitle:@"Merge"
+    //                  forState:UIControlStateNormal];
     
     [exportButton setImage:[UIImage imageNamed:@"merge"] forState:UIControlStateNormal];
     [exportButton setTintColor:[UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1]];
@@ -96,7 +96,7 @@
     int heightofImage1 = 30;
     for(int i=0;i<numberOfLine1*heightofImage1;i+=heightofImage1) {
         UIView *verticalLine=[[UIView alloc]initWithFrame:CGRectMake(i, 0, 1, 300)];
-    //    verticalLine.backgroundColor = [UIColor grayColor];
+        //    verticalLine.backgroundColor = [UIColor grayColor];
         verticalLine.backgroundColor = [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1];
         [self.view addSubview:verticalLine];
         [self.view sendSubviewToBack:verticalLine];
@@ -110,7 +110,7 @@
     
     //[self listFileAtPath];
     _slider4 = [[UISlider alloc] initWithFrame:CGRectMake(100, 440, 200, 20)];
-     _slider4.tintColor = [UIColor colorWithRed:64.0/255.0 green:224.0/255.0 blue:208.0/255.0 alpha:1];
+    _slider4.tintColor = [UIColor colorWithRed:64.0/255.0 green:224.0/255.0 blue:208.0/255.0 alpha:1];
     _slider4.tag = 3;
     _slider4.minimumValue = 0;
     _slider4.maximumValue = 1;
@@ -137,7 +137,7 @@
     [_slider2 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
     
     _slider1 = [[UISlider alloc] initWithFrame:CGRectMake(100, 320, 200, 20)];
-     _slider1.tintColor = [UIColor colorWithRed:135.0/255.0 green:206.0/255.0 blue:235.0/255.0 alpha:1];
+    _slider1.tintColor = [UIColor colorWithRed:135.0/255.0 green:206.0/255.0 blue:235.0/255.0 alpha:1];
     _slider1.tag = 0;
     _slider1.minimumValue = 0;
     _slider1.maximumValue = 1;
