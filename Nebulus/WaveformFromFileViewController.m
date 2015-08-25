@@ -119,7 +119,7 @@
     [_slider4 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
     
     _slider3 = [[UISlider alloc] initWithFrame:CGRectMake(100, 400, 200, 20)];
-    _slider3.tintColor = [UIColor colorWithRed:221.0/255.0 green:160.0/255.0 blue:160.0/255.0 alpha:1];
+    _slider3.tintColor = [UIColor colorWithRed:221.0/255.0 green:160.0/255.0 blue:221.0/255.0 alpha:1];
     _slider3.tag = 2;
     _slider3.minimumValue = 0;
     _slider3.maximumValue = 1;
