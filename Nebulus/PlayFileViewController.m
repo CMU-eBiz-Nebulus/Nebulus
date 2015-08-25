@@ -108,17 +108,33 @@
 }
 
 -(void)download{
+//    NSData *recording = [RecordingHttpClient getRecording:self.recordingId];
+//    
+//    [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
+//                                                      [self applicationDocumentsDirectory],
+//                                                      self.fileName]]  atomically:YES];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download"
+//                                                    message:@"Downloading finished."
+//                                                   delegate:self
+//                                          cancelButtonTitle:@"OK"
+//                                          otherButtonTitles:nil];
+//    [alert show];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Download" message:@"Enter file name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [[alertView textFieldAtIndex:0] setText:self.fileName];
+    [alertView show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UITextField *filename = [alertView textFieldAtIndex:0];
+    NSLog(@"%@",filename.text);
     NSData *recording = [RecordingHttpClient getRecording:self.recordingId];
     
     [recording writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
-                                                      [self applicationDocumentsDirectory],
-                                                      self.fileName]]  atomically:YES];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download"
-                                                    message:@"Downloading finished."
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+                                                  [self applicationDocumentsDirectory],
+                                                  filename.text]]  atomically:YES];
 }
 
 //------------------------------------------------------------------------------
