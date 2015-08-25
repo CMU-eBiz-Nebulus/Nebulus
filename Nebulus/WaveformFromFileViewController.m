@@ -103,7 +103,7 @@
 
         
     }
-    self.timeLine=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 320)];
+    self.timeLine=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 300)];
     self.timeLine.backgroundColor = [UIColor blackColor];
     
     [self.view addSubview:self.timeLine];
