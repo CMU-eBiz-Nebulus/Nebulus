@@ -94,6 +94,12 @@
         location.x = MIN(MAX(self.audioPlot1.frame.size.width/2, location.x
                              ),self.superview.frame.size.width-self.audioPlot1.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
+        if ((location.y -90) / 60 < 5){
+            location.y = (int)floor((location.y -90) / 60) * 60 + 90;
+        }
+        else if ((location.y-90)/60>55){
+            location.y = (int)floor((location.y-90)/60)*60+150;
+        }
         self.audioPlot1.center = location;
         return;
     }
@@ -101,6 +107,13 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot2.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot2.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
+        if ((location.y -90) / 60 < 5){
+            location.y = (int)floor((location.y -90) / 60) * 60 + 90;
+        }
+        else if ((location.y-90)/60>55){
+            location.y = (int)floor((location.y-90)/60)*60+150;
+        }
+
         self.audioPlot2.center = location;
         return;
     }
@@ -108,6 +121,13 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot3.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot3.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
+        if ((location.y -90) / 60 < 5){
+            location.y = (int)floor((location.y -90) / 60) * 60 + 90;
+        }
+        else if ((location.y-90)/60>55){
+            location.y = (int)floor((location.y-90)/60)*60+150;
+        }
+
         self.audioPlot3.center = location;
         return;
     }
@@ -115,6 +135,13 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot4.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot4.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
+        if ((location.y -90) / 60 < 5){
+            location.y = (int)floor((location.y -90) / 60) * 60 + 90;
+        }
+        else if ((location.y-90)/60>55){
+            location.y = (int)floor((location.y-90)/60)*60+150;
+        }
+
         self.audioPlot4.center = location;
         return;
     }
