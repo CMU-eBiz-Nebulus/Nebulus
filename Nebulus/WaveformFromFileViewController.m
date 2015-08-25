@@ -59,9 +59,12 @@
     [self.view addSubview:self.moveMeView];
     
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    playButton.frame = CGRectMake(0, self.view.frame.size.height - 150, 100, 100);
-    [playButton setTitle:@"Play"
-                forState:UIControlStateNormal];
+    playButton.frame = CGRectMake(0, self.view.frame.size.height - 130, 100, 100);
+//    [playButton setTitle:@"Play"
+//                forState:UIControlStateNormal];
+    
+    [playButton setImage:[UIImage imageNamed:@"record_play"] forState:UIControlStateNormal];
+    [playButton setTintColor:[UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1]];
     
     [playButton addTarget:self
                    action:@selector(playButtonClicked:)
@@ -69,9 +72,12 @@
     [self.view addSubview:playButton];
     
     UIButton *exportButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    exportButton.frame = CGRectMake(200, self.view.frame.size.height - 150, 100, 100);
-    [exportButton setTitle:@"Merge"
-                  forState:UIControlStateNormal];
+    exportButton.frame = CGRectMake(200, self.view.frame.size.height - 130, 100, 100);
+//    [exportButton setTitle:@"Merge"
+//                  forState:UIControlStateNormal];
+    
+    [exportButton setImage:[UIImage imageNamed:@"merge"] forState:UIControlStateNormal];
+    [exportButton setTintColor:[UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1]];
     
     [exportButton addTarget:self
                      action:@selector(export:)
@@ -90,15 +96,21 @@
     int heightofImage1 = 30;
     for(int i=0;i<numberOfLine1*heightofImage1;i+=heightofImage1) {
         UIView *verticalLine=[[UIView alloc]initWithFrame:CGRectMake(i, 0, 1, 300)];
-        verticalLine.backgroundColor = [UIColor grayColor];
+    //    verticalLine.backgroundColor = [UIColor grayColor];
+        verticalLine.backgroundColor = [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1];
         [self.view addSubview:verticalLine];
+        [self.view sendSubviewToBack:verticalLine];
+
+        
     }
     self.timeLine=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 320)];
     self.timeLine.backgroundColor = [UIColor blackColor];
+    
     [self.view addSubview:self.timeLine];
     
     //[self listFileAtPath];
-    _slider4 = [[UISlider alloc] initWithFrame:CGRectMake(100, 410, 200, 20)];
+    _slider4 = [[UISlider alloc] initWithFrame:CGRectMake(100, 440, 200, 20)];
+     _slider4.tintColor = [UIColor colorWithRed:64.0/255.0 green:224.0/255.0 blue:208.0/255.0 alpha:1];
     _slider4.tag = 3;
     _slider4.minimumValue = 0;
     _slider4.maximumValue = 1;
@@ -106,7 +118,8 @@
     
     [_slider4 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
     
-    _slider3 = [[UISlider alloc] initWithFrame:CGRectMake(100, 380, 200, 20)];
+    _slider3 = [[UISlider alloc] initWithFrame:CGRectMake(100, 400, 200, 20)];
+    _slider3.tintColor = [UIColor colorWithRed:221.0/255.0 green:160.0/255.0 blue:160.0/255.0 alpha:1];
     _slider3.tag = 2;
     _slider3.minimumValue = 0;
     _slider3.maximumValue = 1;
@@ -114,7 +127,8 @@
     
     [_slider3 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
     
-    _slider2 = [[UISlider alloc] initWithFrame:CGRectMake(100, 350, 200, 20)];
+    _slider2 = [[UISlider alloc] initWithFrame:CGRectMake(100, 360, 200, 20)];
+    _slider2.tintColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1];
     _slider2.tag = 1;
     _slider2.minimumValue = 0;
     _slider2.maximumValue = 1;
@@ -123,6 +137,7 @@
     [_slider2 addTarget:self action:@selector(mix:) forControlEvents:UIControlEventValueChanged];
     
     _slider1 = [[UISlider alloc] initWithFrame:CGRectMake(100, 320, 200, 20)];
+     _slider1.tintColor = [UIColor colorWithRed:135.0/255.0 green:206.0/255.0 blue:235.0/255.0 alpha:1];
     _slider1.tag = 0;
     _slider1.minimumValue = 0;
     _slider1.maximumValue = 1;
@@ -132,7 +147,7 @@
     
     switch ([_directoryContent count]){
         case 4:{
-            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 410, 200, 20)];
+            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 440, 200, 20)];
             trackLabel.font = [UIFont boldSystemFontOfSize:10.0];
             //fileNameLabel.backgroundColor = [UIColor clearColor];
             trackLabel.text =[NSString stringWithFormat:@"Track%d Volume", 4] ;
@@ -143,7 +158,7 @@
             
         }
         case 3:{
-            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 380, 200, 20)];
+            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 400, 200, 20)];
             trackLabel.font = [UIFont boldSystemFontOfSize:10.0];
             //fileNameLabel.backgroundColor = [UIColor clearColor];
             trackLabel.text =[NSString stringWithFormat:@"Track%d Volume", 3] ;
@@ -153,7 +168,7 @@
             
         }
         case 2:{
-            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 350, 200, 20)];
+            UILabel *trackLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 360, 200, 20)];
             trackLabel.font = [UIFont boldSystemFontOfSize:10.0];
             //fileNameLabel.backgroundColor = [UIColor clearColor];
             trackLabel.text =[NSString stringWithFormat:@"Track%d Volume", 2] ;
