@@ -886,8 +886,11 @@ withNumberOfChannels:(UInt32)numberOfChannels
             }
             vc.directoryContent = selected;
         }
-        else
+        else if ([_directoryContent count]>4)
         {
+            vc.directoryContent = [self.directoryContent subarrayWithRange:NSMakeRange(0, 4)];
+        }
+        else {
             vc.directoryContent = self.directoryContent;
         }
         

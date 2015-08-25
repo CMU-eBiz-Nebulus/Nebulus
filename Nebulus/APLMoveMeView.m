@@ -91,21 +91,30 @@
    
     if ([touch view] == self.audioPlot1) {
         CGPoint location = [touch locationInView:self];
+        location.x = MIN(MAX(self.audioPlot1.frame.size.width/2, location.x
+                             ),self.superview.frame.size.width-self.audioPlot1.frame.size.width/2);
+        location.y = MIN(MAX(location.y, 90),270);
         self.audioPlot1.center = location;
         return;
     }
     if ([touch view] == self.audioPlot2) {
         CGPoint location = [touch locationInView:self];
+        location.x = MIN(MAX(self.audioPlot2.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot2.frame.size.width/2);
+        location.y = MIN(MAX(location.y, 90),270);
         self.audioPlot2.center = location;
         return;
     }
     if ([touch view] == self.audioPlot3) {
         CGPoint location = [touch locationInView:self];
+        location.x = MIN(MAX(self.audioPlot3.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot3.frame.size.width/2);
+        location.y = MIN(MAX(location.y, 90),270);
         self.audioPlot3.center = location;
         return;
     }
     if ([touch view] == self.audioPlot4) {
         CGPoint location = [touch locationInView:self];
+        location.x = MIN(MAX(self.audioPlot4.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot4.frame.size.width/2);
+        location.y = MIN(MAX(location.y, 90),270);
         self.audioPlot4.center = location;
         return;
     }
