@@ -94,6 +94,18 @@
         location.x = MIN(MAX(self.audioPlot1.frame.size.width/2, location.x
                              ),self.superview.frame.size.width-self.audioPlot1.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
+        if ((int)(location.y -90) % 60 < 5){
+            location.y = (int)floor((location.y -90) / 60) * 60 + 90;
+        }
+        else if ((int)(location.y-90)%60>55){
+            location.y = (int)floor((location.y-90)/60)*60+150;
+        }
+        if ((int)(location.x - self.audioPlot1.frame.size.width/2) % 30 <3){
+            location.x =(int)floor((location.x - self.audioPlot1.frame.size.width/2) / 30)*30+self.audioPlot1.frame.size.width/2;
+        }
+        else if ((int)(location.x - self.audioPlot1.frame.size.width/2) % 30 >27){
+            location.x =(int)floor((location.x - self.audioPlot1.frame.size.width/2) / 30)*30+30+self.audioPlot1.frame.size.width/2;
+        }
         self.audioPlot1.center = location;
         return;
     }
@@ -101,6 +113,18 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot2.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot2.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
+        if ((int)(location.y -90) % 60 < 5){
+            location.y = (int)floor((location.y -90) / 60) * 60 + 90;
+        }
+        else if ((int)(location.y-90)%60>55){
+            location.y = (int)floor((location.y-90)/60)*60+150;
+        }
+        if ((int)(location.x - self.audioPlot2.frame.size.width/2) % 30 <3){
+            location.x =(int)floor((location.x - self.audioPlot2.frame.size.width/2) / 30)*30+self.audioPlot2.frame.size.width/2;
+        }
+        else if ((int)(location.x - self.audioPlot2.frame.size.width/2) % 30 >27){
+            location.x =(int)floor((location.x - self.audioPlot2.frame.size.width/2) / 30)*30+30+self.audioPlot2.frame.size.width/2;
+        }
         self.audioPlot2.center = location;
         return;
     }
@@ -108,6 +132,19 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot3.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot3.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
+        if ((int)(location.y -90) % 60 < 5){
+            location.y = (int)floor((location.y -90) / 60) * 60 + 90;
+        }
+        else if ((int)(location.y-90)%60>55){
+            location.y = (int)floor((location.y-90)/60)*60+150;
+        }
+        if ((int)(location.x - self.audioPlot3.frame.size.width/2) % 30 <3){
+            location.x =(int)floor((location.x - self.audioPlot3.frame.size.width/2) / 30)*30+self.audioPlot3.frame.size.width/2;
+        }
+        else if ((int)(location.x - self.audioPlot3.frame.size.width/2) % 30 >27){
+            location.x =(int)floor((location.x - self.audioPlot3.frame.size.width/2) / 30)*30+30+self.audioPlot3.frame.size.width/2;
+        }
+
         self.audioPlot3.center = location;
         return;
     }
@@ -115,6 +152,19 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot4.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot4.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
+        if ((int)(location.y -90) % 60 < 5){
+            location.y = (int)floor((location.y -90) / 60) * 60 + 90;
+        }
+        else if ((int)(location.y-90)%60>55){
+            location.y = (int)floor((location.y-90)/60)*60+150;
+        }
+        if ((int)(location.x - self.audioPlot4.frame.size.width/2) % 30 <3){
+            location.x =(int)floor((location.x - self.audioPlot4.frame.size.width/2) / 30)*30+self.audioPlot4.frame.size.width/2;
+        }
+        else if ((int)(location.x - self.audioPlot4.frame.size.width/2) % 30 >27){
+            location.x =(int)floor((location.x - self.audioPlot4.frame.size.width/2) / 30)*30+30+self.audioPlot4.frame.size.width/2;
+        }
+
         self.audioPlot4.center = location;
         return;
     }
@@ -416,7 +466,7 @@
     // Customizing the audio plot's look
     //
     // Background color
-    placardView.backgroundColor = [UIColor colorWithRed: 0.169 green: 0.643 blue: 0.675 alpha: 1];
+ //   placardView.backgroundColor = [UIColor colorWithRed: 0.169 green: 0.643 blue: 0.675 alpha: 1];
     // Waveform color
     placardView.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     // Plot type
@@ -447,15 +497,19 @@
     switch(number){
         case 1:
             self.audioPlot1 = placardView;
+             self.audioPlot1.backgroundColor = [UIColor colorWithRed:135.0/255.0 green:206.0/255.0 blue:235.0/255.0 alpha:1];
             break;
         case 2:
             self.audioPlot2 = placardView;
+            self.audioPlot2.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1];
             break;
         case 3:
             self.audioPlot3 = placardView;
+            self.audioPlot3.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:160.0/255.0 blue:221.0/255.0 alpha:1];
             break;
         case 4:
             self.audioPlot4 = placardView;
+            self.audioPlot4.backgroundColor = [UIColor colorWithRed:64.0/255.0 green:224.0/255.0 blue:208.0/255.0 alpha:1];
             break;
         }
         NSUInteger nextIndex = self.nextDisplayStringIndex;
