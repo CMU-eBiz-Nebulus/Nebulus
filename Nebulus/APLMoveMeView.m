@@ -509,7 +509,7 @@
             break;
         case 4:
             self.audioPlot4 = placardView;
-            self.audioPlot3.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:160.0/255.0 blue:221.0/255.0 alpha:1];
+            self.audioPlot4.backgroundColor = [UIColor colorWithRed:64.0/255.0 green:224.0/255.0 blue:208.0/255.0 alpha:1];
             break;
         }
         NSUInteger nextIndex = self.nextDisplayStringIndex;
