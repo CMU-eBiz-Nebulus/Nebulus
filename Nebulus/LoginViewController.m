@@ -37,7 +37,7 @@
         [self.indicatorButton setTitle:INDICATOR_BUTTON_SIGN_IN forState:UIControlStateNormal];
         [self.loginButton setTitle:BUTTON_SIGN_IN forState:UIControlStateNormal];
         
-        self.usernameField.text = @"test";
+        self.usernameField.text = @"Jike";
         self.passwordField.text = @"123456";
     } else {
         self.emailLabel.hidden = NO;
