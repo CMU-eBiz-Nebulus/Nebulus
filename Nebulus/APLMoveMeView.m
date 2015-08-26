@@ -453,7 +453,7 @@
     CMTime audioDuration = audioAsset.duration;
     float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
 
-    placardView = [[EZAudioPlot alloc] initWithFrame:CGRectMake(0, 60*number, audioDurationSeconds*20, 60)];
+    placardView = [[EZAudioPlot alloc] initWithFrame:CGRectMake(0, 60*number, audioDurationSeconds*15, 60)];
     UILabel *fileNameLabel;
     CGRect myFrame = CGRectMake(0,-10,50,50);
     fileNameLabel = [[UILabel alloc] initWithFrame:myFrame];
