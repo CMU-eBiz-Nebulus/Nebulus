@@ -94,16 +94,16 @@
         location.x = MIN(MAX(self.audioPlot1.frame.size.width/2, location.x
                              ),self.superview.frame.size.width-self.audioPlot1.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
-        if ((int)(location.y -90) % 60 < 5){
+        if ((int)(location.y -90) % 60 < 10){
             location.y = (int)floor((location.y -90) / 60) * 60 + 90;
         }
-        else if ((int)(location.y-90)%60>55){
+        else if ((int)(location.y-90)%60>50){
             location.y = (int)floor((location.y-90)/60)*60+150;
         }
-        if ((int)(location.x - self.audioPlot1.frame.size.width/2) % 30 <3){
+        if ((int)(location.x - self.audioPlot1.frame.size.width/2) % 30 <10){
             location.x =(int)floor((location.x - self.audioPlot1.frame.size.width/2) / 30)*30+self.audioPlot1.frame.size.width/2;
         }
-        else if ((int)(location.x - self.audioPlot1.frame.size.width/2) % 30 >27){
+        else if ((int)(location.x - self.audioPlot1.frame.size.width/2) % 30 >20){
             location.x =(int)floor((location.x - self.audioPlot1.frame.size.width/2) / 30)*30+30+self.audioPlot1.frame.size.width/2;
         }
         self.audioPlot1.center = location;
@@ -113,16 +113,16 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot2.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot2.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
-        if ((int)(location.y -90) % 60 < 5){
+        if ((int)(location.y -90) % 60 < 10){
             location.y = (int)floor((location.y -90) / 60) * 60 + 90;
         }
-        else if ((int)(location.y-90)%60>55){
+        else if ((int)(location.y-90)%60>50){
             location.y = (int)floor((location.y-90)/60)*60+150;
         }
-        if ((int)(location.x - self.audioPlot2.frame.size.width/2) % 30 <3){
+        if ((int)(location.x - self.audioPlot2.frame.size.width/2) % 30 <10){
             location.x =(int)floor((location.x - self.audioPlot2.frame.size.width/2) / 30)*30+self.audioPlot2.frame.size.width/2;
         }
-        else if ((int)(location.x - self.audioPlot2.frame.size.width/2) % 30 >27){
+        else if ((int)(location.x - self.audioPlot2.frame.size.width/2) % 30 >20){
             location.x =(int)floor((location.x - self.audioPlot2.frame.size.width/2) / 30)*30+30+self.audioPlot2.frame.size.width/2;
         }
         self.audioPlot2.center = location;
@@ -132,16 +132,16 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot3.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot3.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
-        if ((int)(location.y -90) % 60 < 5){
+        if ((int)(location.y -90) % 60 < 10){
             location.y = (int)floor((location.y -90) / 60) * 60 + 90;
         }
-        else if ((int)(location.y-90)%60>55){
+        else if ((int)(location.y-90)%60>50){
             location.y = (int)floor((location.y-90)/60)*60+150;
         }
-        if ((int)(location.x - self.audioPlot3.frame.size.width/2) % 30 <3){
+        if ((int)(location.x - self.audioPlot3.frame.size.width/2) % 30 <10){
             location.x =(int)floor((location.x - self.audioPlot3.frame.size.width/2) / 30)*30+self.audioPlot3.frame.size.width/2;
         }
-        else if ((int)(location.x - self.audioPlot3.frame.size.width/2) % 30 >27){
+        else if ((int)(location.x - self.audioPlot3.frame.size.width/2) % 30 >20){
             location.x =(int)floor((location.x - self.audioPlot3.frame.size.width/2) / 30)*30+30+self.audioPlot3.frame.size.width/2;
         }
 
@@ -152,16 +152,16 @@
         CGPoint location = [touch locationInView:self];
         location.x = MIN(MAX(self.audioPlot4.frame.size.width/2, location.x),self.superview.frame.size.width-self.audioPlot4.frame.size.width/2);
         location.y = MIN(MAX(location.y, 90),270);
-        if ((int)(location.y -90) % 60 < 5){
+        if ((int)(location.y -90) % 60 < 10){
             location.y = (int)floor((location.y -90) / 60) * 60 + 90;
         }
-        else if ((int)(location.y-90)%60>55){
+        else if ((int)(location.y-90)%60>50){
             location.y = (int)floor((location.y-90)/60)*60+150;
         }
-        if ((int)(location.x - self.audioPlot4.frame.size.width/2) % 30 <3){
+        if ((int)(location.x - self.audioPlot4.frame.size.width/2) % 30 <10){
             location.x =(int)floor((location.x - self.audioPlot4.frame.size.width/2) / 30)*30+self.audioPlot4.frame.size.width/2;
         }
-        else if ((int)(location.x - self.audioPlot4.frame.size.width/2) % 30 >27){
+        else if ((int)(location.x - self.audioPlot4.frame.size.width/2) % 30 >20){
             location.x =(int)floor((location.x - self.audioPlot4.frame.size.width/2) / 30)*30+30+self.audioPlot4.frame.size.width/2;
         }
 
@@ -453,7 +453,7 @@
     CMTime audioDuration = audioAsset.duration;
     float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
 
-    placardView = [[EZAudioPlot alloc] initWithFrame:CGRectMake(0, 60*number, audioDurationSeconds*5, 60)];
+    placardView = [[EZAudioPlot alloc] initWithFrame:CGRectMake(0, 60*number, audioDurationSeconds*10, 60)];
     UILabel *fileNameLabel;
     CGRect myFrame = CGRectMake(0,-10,50,50);
     fileNameLabel = [[UILabel alloc] initWithFrame:myFrame];
@@ -535,7 +535,7 @@
     self.eof                = NO;
     self.filePathLabel.text = filePathURL.lastPathComponent;
     
-    // Plot the whole waveform
+    // Plot the whole waveformxr
     audioPlot.plotType     = EZPlotTypeBuffer;
     audioPlot.shouldFill   = YES;
     audioPlot.shouldMirror = YES;

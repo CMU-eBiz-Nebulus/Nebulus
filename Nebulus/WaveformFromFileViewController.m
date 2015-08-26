@@ -377,7 +377,7 @@
         NSError* error;
         [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, audioAsset.duration)
                             ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio]objectAtIndex:0]
-                             atTime:CMTimeMakeWithSeconds([(NSNumber*)[l objectAtIndex:i] floatValue]/5, 600)
+                             atTime:CMTimeMakeWithSeconds([(NSNumber*)[l objectAtIndex:i] floatValue]/10, 600)
                               error:&error];
         
         if (error)
@@ -407,7 +407,7 @@
     [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 100) queue:nil
                                      usingBlock:^(CMTime time){
                                          //                                         NSLog(@"%lld %d ",_player.currentTime.value,_player.currentTime.timescale);
-                                         self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*5, 0, 1, 300);
+                                         self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*10, 0, 1, 300);
                                          [self.timeLine setNeedsDisplay];
                                      }];
     
@@ -473,7 +473,7 @@
             NSError* error;
             [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, audioAsset.duration)
                                 ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio]objectAtIndex:0]
-                                 atTime:CMTimeMakeWithSeconds([(NSNumber*)[l objectAtIndex:i] floatValue]/5, 600)
+                                 atTime:CMTimeMakeWithSeconds([(NSNumber*)[l objectAtIndex:i] floatValue]/10, 600)
                                   error:&error];
             
             if (error)
@@ -499,7 +499,7 @@
         [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 100) queue:nil
                                          usingBlock:^(CMTime time){
                                              //                                         NSLog(@"%lld %d ",_player.currentTime.value,_player.currentTime.timescale);
-                                             self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*5, 0, 1, 300);
+                                             self.timeLine.frame=CGRectMake(_player.currentTime.value/_player.currentTime.timescale*10, 0, 1, 300);
                                              [self.timeLine setNeedsDisplay];
                                          }];
         

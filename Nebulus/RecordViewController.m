@@ -842,9 +842,18 @@ withNumberOfChannels:(UInt32)numberOfChannels
     
     int count;
     
-    _directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:NULL];
+    NSArray *d = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:NULL];
+    _directoryContent = [[NSMutableArray alloc] init];
     
-    
+    for (NSString *filename in d){
+        NSInteger start = [filename rangeOfString:@"."].location;
+        
+            NSString *t =[filename substringFromIndex:start+1];
+        if ([ t isEqualToString: @"m4a"]){
+            [_directoryContent addObject:filename];
+        }
+
+    }
     NSString *dataFilePath = [[self applicationDocumentsDirectory]
                               stringByAppendingPathComponent:@".DS_Store"];
     
