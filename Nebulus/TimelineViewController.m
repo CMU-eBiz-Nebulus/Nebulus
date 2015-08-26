@@ -126,9 +126,9 @@
             [(UIButton *)[cell viewWithTag:200] setHidden:NO];
         }
         
-        UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(20,60,280,1)];
-        separator.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1];
-        [cell addSubview:separator];
+//        UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(20,60,280,1)];
+//        separator.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1];
+//        [cell addSubview:separator];
         
     } else if(indexPath.row == 1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"textCell"];
@@ -136,9 +136,9 @@
         [textView setText:activity.text];
         
         textView.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
-        UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(20, 45, 280, 1)];
-        separator.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1];
-        [cell addSubview:separator];
+//        UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(20, 45, 280, 1)];
+//        separator.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1];
+//        [cell addSubview:separator];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"buttomCell"];
     }
