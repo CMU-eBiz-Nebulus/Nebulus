@@ -91,6 +91,7 @@
         UIView *horizontalLine=[[UIView alloc]initWithFrame:CGRectMake(0, i, self.view.frame.size.width, 1)];
         horizontalLine.backgroundColor = [UIColor grayColor];
         [self.view addSubview:horizontalLine];
+        [self.view sendSubviewToBack:horizontalLine];
     }
     int numberOfLine1 = 12;
     int heightofImage1 = 30;
@@ -190,7 +191,12 @@
 }
 
 -(void)itemDidFinishPlaying:(NSNotification *) notification {
-    [_player seekToTime:kCMTimeZero];
+    //[_player seekToTime:kCMTimeZero];
+    if (_player != nil && [_player currentItem] != nil)
+        [[_player currentItem] removeObserver:self forKeyPath:@"status"];
+    _player = nil;
+    self.timeLine.frame=CGRectMake(0, 0, 1, 300);
+    [self.timeLine setNeedsDisplay];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -349,8 +355,17 @@
     NSArray *l = [self.moveMeView getLocation];
     
     //[self applyAudioMix];
-    if (_player != nil && [_player currentItem] != nil)
-        [[_player currentItem] removeObserver:self forKeyPath:@"status"];
+    
+    if (_player !=nil){
+        if (_player != nil && [_player currentItem] != nil)
+            [[_player currentItem] removeObserver:self forKeyPath:@"status"];
+        _player = nil;
+        self.timeLine.frame=CGRectMake(0, 0, 1, 300);
+        [self.timeLine setNeedsDisplay];
+        
+    }
+    else {
+
     //Setup
     _composition = [AVMutableComposition composition];
     
@@ -429,6 +444,7 @@
             [self mix:_slider1];
             
         }
+    }
     }
     
     
