@@ -214,15 +214,20 @@
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    if ([segue.identifier isEqualToString:@"viewUser"]) {
-        if ([segue.destinationViewController isKindOfClass:[OtherProfileViewController class]]) {
-            OtherProfileViewController *vc = (OtherProfileViewController *)segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"viewPlayer"]) {
+        if ([segue.destinationViewController isKindOfClass:[PlayFileViewController class]]) {
+            PlayFileViewController *vc = (PlayFileViewController *)segue.destinationViewController;
             UITableViewCell *cell = (UITableViewCell *)sender;
             NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
             Activity *activity = [self.activity objectAtIndex:indexPath.section];
-            vc.me = self.currUser;
-            vc.other = activity.creator;
-            vc.invitation_mode = NO;
+
+            
+            NSData *recording = [RecordingHttpClient getRecording:activity.recordingId];
+            NSString *file_name = [NSString stringWithFormat:@"%@'s clip.m4a", activity.creator.username];
+            
+            [recording writeToURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:file_name]]  atomically:YES];
+            vc.fileName =file_name;
+            vc.recordingId = activity.recordingId;
         }
     }else if ([segue.identifier isEqualToString:@"viewTimelineDetail"]) {
         if ([segue.destinationViewController isKindOfClass:[TimelineDetailViewController class]]) {
@@ -252,6 +257,18 @@
             vc.commentMode = NO;
         }
     }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if([identifier isEqualToString:@"viewPlayer"]){
+        UIButton *button = sender;
+        CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+        Activity *activity = [self.activity objectAtIndex:indexPath.section];
+        if([activity.type isEqualToString:@"clipShare"]) return YES;
+        else return NO;
+    }
+    return YES;
 }
 
 - (IBAction)doRefresh:(UIRefreshControl *)sender {
