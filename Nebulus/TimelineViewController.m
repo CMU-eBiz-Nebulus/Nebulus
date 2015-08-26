@@ -87,6 +87,9 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = nil;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    tableView.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:240.0/255.0 blue:230.0/255.0 alpha:0.7];
     
     Activity *activity = self.activity[indexPath.section];
     
@@ -95,24 +98,47 @@
         
         UIImage *image = [UserHttpClient getUserImage:activity.creator.objectID];
         if(image) [(UIImageView *)[cell viewWithTag:101] setImage: image];
-        [(UILabel *)[cell viewWithTag:102] setText:activity.creator.username];
+        UIImageView *photo = (UIImageView *) [cell viewWithTag:101];
+        photo.layer.cornerRadius = photo.frame.size.width / 2;
+        photo.clipsToBounds = YES;
+        photo.layer.borderWidth = 2.0f;
+        photo.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1].CGColor;
         
+        [(UILabel *)[cell viewWithTag:102] setText:activity.creator.username];
         UILabel *userName = (UILabel *) [cell viewWithTag:102];
-        [userName setTextColor:[UIColor colorWithRed:11.0/255.0 green:23.0/255.0 blue:70.0/255.0 alpha:1.0]];
-        [userName setFont:[UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize]];
+        [userName setTextColor:[UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1]];
+        [userName setFont:[UIFont boldSystemFontOfSize:17]];
+        
+//        UILabel *userName = (UILabel *) [cell viewWithTag:102];
+//        [userName setTextColor:[UIColor colorWithRed:11.0/255.0 green:23.0/255.0 blue:70.0/255.0 alpha:1.0]];
+
         
         [(UILabel *)[cell viewWithTag:103] setText:[activity.tags componentsJoinedByString:@", "]];
+        
         [(UILabel *)[cell viewWithTag:104] setText:activity.title];
+        UILabel *title = (UILabel *) [cell viewWithTag:104];
+        title.font = [UIFont fontWithName:@"ArialHebrew" size:12];
+        [title setTextColor:[UIColor grayColor]];
         
         if(![activity.type isEqualToString:@"clipShare"]){
             [(UIButton *)[cell viewWithTag:200] setHidden:YES];
         }else{
             [(UIButton *)[cell viewWithTag:200] setHidden:NO];
         }
+        
+        UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(20,60,280,1)];
+        separator.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1];
+        [cell addSubview:separator];
+        
     } else if(indexPath.row == 1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"textCell"];
         UITextView *textView = (UITextView *)[cell viewWithTag:101];
         [textView setText:activity.text];
+        
+        textView.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+        UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(20, 45, 280, 1)];
+        separator.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:99.0/255.0 blue:71.0/255.0 alpha:1];
+        [cell addSubview:separator];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"buttomCell"];
     }

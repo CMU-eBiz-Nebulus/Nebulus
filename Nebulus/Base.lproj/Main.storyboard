@@ -57,14 +57,13 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" tag="200" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmU-Xh-vTV">
-                                            <rect key="frame" x="562" y="39" width="30" height="30"/>
+                                        <button opaque="NO" tag="200" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmU-Xh-vTV">
+                                            <rect key="frame" x="351" y="29" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="Lw0-mJ-gi7"/>
                                                 <constraint firstAttribute="height" constant="30" id="pau-rj-LSx"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                            <state key="normal" title="▶️">
+                                            <state key="normal" image="playClip">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -2851,17 +2850,18 @@ Some text here ...</string>
         <image name="newTimeline" width="32" height="32"/>
         <image name="pic1" width="256" height="256"/>
         <image name="pic2" width="256" height="256"/>
+        <image name="playClip" width="48" height="48"/>
         <image name="project" width="42" height="42"/>
         <image name="record-1" width="128" height="128"/>
         <image name="second" width="30" height="30"/>
         <image name="setting" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Osm-Oy-nlm"/>
         <segue reference="VVs-Zt-gem"/>
-        <segue reference="guu-66-5cQ"/>
+        <segue reference="Osm-Oy-nlm"/>
+        <segue reference="WB0-4Q-qcK"/>
         <segue reference="jXV-KF-di1"/>
-        <segue reference="Onh-F8-P6T"/>
+        <segue reference="PrR-jJ-7Kp"/>
         <segue reference="8PY-66-gKv"/>
         <segue reference="u94-xD-Rc0"/>
     </inferredMetricsTieBreakers>
