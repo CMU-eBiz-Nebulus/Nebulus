@@ -533,7 +533,7 @@
         [df setDateFormat:@"dd-MM-yyyy-hh-mm-ss"];
         NSString *timeString = [df stringFromDate:time];
         
-        NSString* videoName = [NSString stringWithFormat:@"%@-%@.m4a", [[alertView textFieldAtIndex:0] text], timeString] ;
+        NSString* videoName = [NSString stringWithFormat:@"%@.m4a", [[alertView textFieldAtIndex:0] text]] ;
         
         NSString *exportPath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:videoName];
         NSURL    *exportUrl = [NSURL fileURLWithPath:exportPath];
