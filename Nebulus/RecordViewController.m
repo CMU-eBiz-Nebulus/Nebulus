@@ -53,22 +53,7 @@
 {
     [super viewDidLoad];
     
-    //
-    // Setup the AVAudioSession. EZMicrophone will not work properly on iOS
-    // if you don't do this!
-    //
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    NSError *error;
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
-    if (error)
-    {
-        NSLog(@"Error setting up audio session category: %@", error.localizedDescription);
-    }
-    [session setActive:YES error:&error];
-    if (error)
-    {
-        NSLog(@"Error setting up audio session active: %@", error.localizedDescription);
-    }
+    
     
     //
     // Customizing the audio plot that'll show the current microphone input/recording
@@ -107,6 +92,22 @@
     [self setupNotifications];
     
     //
+    // Setup the AVAudioSession. EZMicrophone will not work properly on iOS
+    // if you don't do this!
+    //
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *error;
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    if (error)
+    {
+        NSLog(@"Error setting up audio session category: %@", error.localizedDescription);
+    }
+    [session setActive:YES error:&error];
+    if (error)
+    {
+        NSLog(@"Error setting up audio session active: %@", error.localizedDescription);
+    }
+    //
     // Log out where the file is being written to within the app's documents directory
     //
     NSLog(@"File written to application sandbox's documents directory: %@",[self testFilePathURL]);
@@ -136,22 +137,6 @@
 -(void) viewWillAppear:(BOOL)animated
 { [super viewWillAppear:animated];
     
-    //
-    // Setup the AVAudioSession. EZMicrophone will not work properly on iOS
-    // if you don't do this!
-    //
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    NSError *error;
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
-    if (error)
-    {
-        NSLog(@"Error setting up audio session category: %@", error.localizedDescription);
-    }
-    [session setActive:YES error:&error];
-    if (error)
-    {
-        NSLog(@"Error setting up audio session active: %@", error.localizedDescription);
-    }
     
     //
     // Customizing the audio plot that'll show the current microphone input/recording
@@ -190,6 +175,24 @@
     // Setup notifications
     //
     [self setupNotifications];
+    
+    //
+    // Setup the AVAudioSession. EZMicrophone will not work properly on iOS
+    // if you don't do this!
+    //
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *error;
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    if (error)
+    {
+        NSLog(@"Error setting up audio session category: %@", error.localizedDescription);
+    }
+    [session setActive:YES error:&error];
+    if (error)
+    {
+        NSLog(@"Error setting up audio session active: %@", error.localizedDescription);
+    }
+
     
     [self listFileAtPath];
     [self.secondTableView reloadData];
