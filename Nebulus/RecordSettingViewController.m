@@ -28,6 +28,20 @@
 //    Value.text = [NSString stringWithFormat:@"%@\n\n%@\n\n%@\n\n%.1fMB/Minute\n\n",[[NSNumber numberWithInt:SAMPLERATE_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]],[[NSNumber numberWithInt:BITDEPTH_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]],[[NSNumber numberWithInt:BITRATE_MEDIUM] descriptionWithLocale:[NSLocale currentLocale]], ESTIMATEDSIZE_MEDIUM];
     [Quality setSelectedSegmentIndex:_qualityValue];
     [self QualityChanged:Quality];
+    
+    UIFont *font = [UIFont boldSystemFontOfSize:16.0f];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                           forKey:NSFontAttributeName];
+    [Quality setTitleTextAttributes:attributes
+                                    forState:UIControlStateNormal];
+
+    [[Title layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    //[[Title layer] setBorderWidth:1];
+    [[Title layer] setCornerRadius:5];
+    
+    [[Value layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    //[[Value layer] setBorderWidth:1];
+    [[Value layer] setCornerRadius:5];
     // Do any additional setup after loading the view.
 }
 
