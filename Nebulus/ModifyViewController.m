@@ -192,7 +192,7 @@ UITextFieldDelegate>
         self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:self.picker animated:YES completion:NULL];
     } else {
-        [self dismissViewControllerAnimated:NO completion:nil];
+        //[self dismissViewControllerAnimated:NO completion:nil];
     }
 }
 
